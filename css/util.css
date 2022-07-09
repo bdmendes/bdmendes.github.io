@@ -4,10 +4,58 @@
     background-color: var(--box-color);
     padding: calc(2*var(--default-margin));
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: calc(2*var(--default-margin));
     border-radius: 5px;
+}
+
+.card-span-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: calc(2*var(--default-margin));
+}
+
+.card-span-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: calc(2*var(--default-margin));
+}
+
+.card-span-horizontal>* {
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .circular {
     border-radius: 50%;
+}
+
+.entry {
+    border-left: 2px solid var(--accent-color);
+    margin-bottom: calc(2*var(--default-margin));
+    padding: var(--default-margin);
+}
+
+.entry h4,
+.entry h5,
+.entry h6 {
+    margin-bottom: var(--default-margin);
+}
+
+.entry p {
+    margin-top: var(--default-margin);
+    margin-bottom: var(--default-margin);
+}
+
+.more-arrow {
+    font-size: 15pt;
+}
+
+@media only screen and (max-width: 700px) {
+    .card-span-horizontal {
+        flex-wrap: wrap;
+        column-gap: 0;
+    }
+
+    .card-span-horizontal>* {
+        flex-basis: 100%;
+    }
 }

@@ -1,5 +1,5 @@
 ---
 name: Distributed key-value store
-category: school
+short: Inspired by Amazon DynamoDB.
 ---
 Inspired by Amazon DynamoDB.

@@ -41,6 +41,7 @@ nav {
     align-items: center;
     flex-wrap: wrap;
     column-gap: calc(4*var(--default-margin));
+    row-gap: var(--default-margin);
 }
 
 nav #site-title {
@@ -74,6 +75,9 @@ footer {
     text-align: end;
 }
 
-footer div {
-    margin-left: auto;
+footer #social-links {
+    display: flex;
+    gap: 15px;
+    font-size: 20pt;
+    justify-content: center;
 }

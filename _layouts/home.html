@@ -1,29 +1,42 @@
 ---
 layout: default
 ---
-
-<section class="card" id="bio-card">
-    <div>
-        <img class="circular" src="{{site.baseurl}}/assets/bio/bdmendes.jpg" alt="Bruno Mendes's profile picture">
+<div class="card-span-vertical">
+    <section class="card" id="bio-card">
+        <div>
+            <img class="circular" src="{{site.baseurl}}{{site.profile_picture}}" alt="Bruno Mendes's profile picture">
+        </div>
+        <div id="bio-card-text">
+            <h2>About me&nbsp<span class="more-arrow"><i class="ri-arrow-right-s-line"></i></span></h2>
+            {{content}}
+        </div>
+    </section>
+    
+    <div class="card-span-horizontal">
+        <section class="card" id="projects-card">
+            <h2>Projects&nbsp<span class="more-arrow"><i class="ri-arrow-right-s-line"></i></span></h2>
+            </h2>
+            {% for project in site.projects limit:3 %}
+            <div class="entry">
+                <h4>{{project.name}}</h4>
+                <p>{{project.short}}</p>
+            </div>
+            {% endfor %}
+        </section>
+        
+        <section class="card" id="blog-card">
+            <h2>Blog&nbsp<span class="more-arrow"><i class="ri-arrow-right-s-line"></i></span></h2>
+            </h2>
+            {% for post in site.posts limit:3 %}
+            <div class="entry">
+                <h4>{{post.title}}</h4>
+                <p>{{post.short}}</p>
+            </div>
+            {% endfor %}
+        </section>
     </div>
-    <div id="bio-card-text">
-        <h2>About me</h2>
-        {{content}}
-    </div>
-</section>
 
-<section class="card" id="projects-card">
-    <h2>Projects</h2>
-    </h2>
-    {% for project in site.projects limit:3 %}
-        <h4>{{project.name}}</h4>
-    {% endfor %}
-</section>
-
-<section class="card" id="projects-card">
-    <h2>Blog</h2>
-    </h2>
-    {% for post in site.posts limit:3 %}
-        <h4>{{post.title}}</h4>
-    {% endfor %}
-</section>
+    <section class="card">
+        <p style="margin: 0;">Website in construction. Reach me out!</p>
+    </section>
+</div>
