@@ -6,5 +6,6 @@
     --text-color: #000000;
     --font-family: 'Noto Serif', serif;
     --default-margin: 0.5em;
-    --mobile-width: 700px;
+    --accent-color: #0b3954;
+    --hover-color: #22577A;
 }

@@ -11,8 +11,22 @@ body {
     width: min(95vw, 750pt);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
 a {
-    color: inherit;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hover-color);
 }
 
 p {
@@ -25,12 +39,13 @@ nav {
     margin: 0 auto 10px auto;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    column-gap: calc(4*var(--default-margin));
 }
 
 nav #site-title {
     margin: 0;
     font-size: 30pt;
-    text-decoration: none;
     color: var(--text-color);
 }
 
@@ -40,7 +55,7 @@ nav #menu-links {
     font-size: 15pt;
 }
 
-nav #menu-links:first-of-type(a) {
+nav #menu-links a:first-of-type {
     margin-left: 0;
 }
 

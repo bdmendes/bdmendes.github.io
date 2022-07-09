@@ -4,10 +4,26 @@ layout: default
 
 <section class="card" id="bio-card">
     <div>
-        <img class="circular" src="{{site.baseurl}}/assets/bdmendes.jpg" alt="Bruno Mendes's profile picture">
+        <img class="circular" src="{{site.baseurl}}/assets/bio/bdmendes.jpg" alt="Bruno Mendes's profile picture">
     </div>
     <div id="bio-card-text">
         <h2>About me</h2>
         {{content}}
     </div>
+</section>
+
+<section class="card" id="projects-card">
+    <h2>Projects</h2>
+    </h2>
+    {% for project in site.projects limit:3 %}
+        <h4>{{project.name}}</h4>
+    {% endfor %}
+</section>
+
+<section class="card" id="projects-card">
+    <h2>Blog</h2>
+    </h2>
+    {% for post in site.posts limit:3 %}
+        <h4>{{post.title}}</h4>
+    {% endfor %}
 </section>

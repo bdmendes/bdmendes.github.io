@@ -10,16 +10,19 @@
 
     <link rel="stylesheet" href="{{site.baseurl}}/css/main.css">
     <link rel="stylesheet" href="{{site.baseurl}}/css/util.css">
-    <link rel="stylesheet" href="{{site.baseurl}}/css/{{page.layout}}.css">
+    {% if page.layout != "default" %}
+        <link rel="stylesheet" href="{{site.baseurl}}/css/{{page.layout}}.css">
+    {% endif %}
 </head>
 
 <body>
     <nav>
         <a href="/" id="site-title">Bruno Mendes</a>
         <div id="menu-links">
-            <a href="/blog/">Bio</a>
+            <a href="/bio">Bio</a>
             <a href="/projects">Projects</a>
-            <a href="/assets/bdmendes.jpg">CV</a>
+            <a href="/blog/">Blog</a>
+            <a href="/assets/cv.pdf">CV</a>
         </div>
     </nav>
 
@@ -28,7 +31,7 @@
     </section>
 
     <footer>
-        <div>&copy; Bruno Mendes, 2022</div>
+        <div>&copy; Bruno Mendes, 2022. In construction.</div>
     </footer>
 </body>
 
