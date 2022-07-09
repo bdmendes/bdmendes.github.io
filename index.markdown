@@ -1,11 +1,4 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
-## About me
-
-- Studying Informatics and Computer Engineering at [FEUP, Porto](http://fe.up.pt)
-- Interested about software engineering and low level development
-- Club [chess player](https://lichess.org/@/brod56)
+Currently doing a Msc in Informatics and Computer Engineering by the Faculty of Engineering, University of Porto (FEUP), Bruno Mendes is passionate about low level development and software engineering. In his leisure time, he can be seen playing some chess, spending time with family and friends or wandering in the city.

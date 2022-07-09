@@ -1,9 +1,23 @@
+@import url('./settings.css');
+
 #bio-card {
-    column-gap: 20pt;
     align-items: center;
 }
 
 #bio-card img {
-    max-width: 200px;
-    margin: 10pt;
+    width: min(30vw, 200px);
+}
+
+#bio-card-text {
+    margin-top: var(--default-margin);
+}
+
+#bio-card-text h2 {
+    margin-top: 0;
+}
+
+@media only screen and(max-width: var(--mobile-width)) {
+    nav {
+        flex-wrap: wrap;
+    }
 }

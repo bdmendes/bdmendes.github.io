@@ -10,27 +10,25 @@
 
     <link rel="stylesheet" href="{{site.baseurl}}/css/main.css">
     <link rel="stylesheet" href="{{site.baseurl}}/css/util.css">
-    {%if page.url == '/' %}
-    <link rel="stylesheet" href="{{site.baseurl}}/css/home.css">
-    {% endif %}
+    <link rel="stylesheet" href="{{site.baseurl}}/css/{{page.layout}}.css">
 </head>
 
 <body>
-    <nav class="card">
-        <a href="/" id="site-title">Bruno Mendes</h5>
-            <div>
-                <a href="/blog/">Bio</a>
-                <a href="/projects">Projects</a>
-                <a href="/cv">CV</a>
-            </div>
+    <nav>
+        <a href="/" id="site-title">Bruno Mendes</a>
+        <div id="menu-links">
+            <a href="/blog/">Bio</a>
+            <a href="/projects">Projects</a>
+            <a href="/assets/bdmendes.jpg">CV</a>
+        </div>
     </nav>
 
     <section id="page-content">
         {{ content }}
     </section>
 
-    <footer class="card">
-        <div>&copy; Bruno Mendes 2022</div>
+    <footer>
+        <div>&copy; Bruno Mendes, 2022</div>
     </footer>
 </body>
 

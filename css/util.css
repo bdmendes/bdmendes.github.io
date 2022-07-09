@@ -1,18 +1,20 @@
+@import url('./settings.css');
+
 .card {
     background-color: var(--box-color);
-    padding: 10pt;
+    padding: calc(2*var(--default-margin));
     display: flex;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10pt;
-    margin-left: 5pt;
-    margin-right: 5pt;
+    column-gap: calc(3*var(--default-margin));
+    row-gap: var(--default-margin);
 }
 
 .circular {
     border-radius: 50%;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: var(--mobile-width)) {
     .card {
         flex-wrap: wrap;
     }

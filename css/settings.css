@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
 :root {
-    --background-color: #d9d9d9;
+    --background-color: #efebe9;
     --box-color: #ffffff;
-    --color-primary: #080705;
+    --text-color: #000000;
+    --font-family: 'Noto Serif', serif;
+    --default-margin: 0.5em;
+    --mobile-width: 700px;
 }
