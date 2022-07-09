@@ -1,0 +1,40 @@
+@import url('./settings.css');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20pt auto;
+    background: var(--background-color);
+    max-width: 800pt;
+}
+
+/* Nav */
+nav {
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+nav #site-title {
+    margin: 0;
+}
+
+nav a {
+    margin: 5pt;
+}
+
+/* Content */
+#page-content {
+    margin: 20pt 0;
+}
+
+/* Footer */
+footer {
+    margin: 0 auto;
+    text-align: end;
+}
+
+footer div {
+    margin-left: auto;
+}

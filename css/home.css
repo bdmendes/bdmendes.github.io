@@ -1,0 +1,9 @@
+#bio-card {
+    column-gap: 20pt;
+    align-items: center;
+}
+
+#bio-card img {
+    max-width: 200px;
+    margin: 10pt;
+}

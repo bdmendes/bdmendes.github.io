@@ -4,3 +4,8 @@
 
 layout: home
 ---
+## About me
+
+- Studying Informatics and Computer Engineering at [FEUP, Porto](http://fe.up.pt)
+- Interested about software engineering and low level development
+- Club [chess player](https://lichess.org/@/brod56)
