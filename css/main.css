@@ -1,5 +1,6 @@
 @import url('./settings.css');
 
+/* Global */
 * {
     box-sizing: border-box;
     font-family: var(--font-family);
@@ -18,6 +19,7 @@ h4,
 h5,
 h6 {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 a {
@@ -47,7 +49,7 @@ nav {
 nav #site-title {
     margin: 0;
     font-size: 30pt;
-    color: var(--text-color);
+    color: inherit;
 }
 
 nav #menu-links {
@@ -80,4 +82,26 @@ footer #social-links {
     gap: 15px;
     font-size: 20pt;
     justify-content: center;
+}
+
+/* Home */
+#bio-card {
+    display: flex;
+    column-gap: calc(3*var(--default-margin));
+    row-gap: var(--default-margin);
+    align-items: center;
+}
+
+#bio-card img {
+    width: min(30vw, 200px);
+}
+
+#bio-card-text {
+    margin-top: var(--default-margin);
+}
+
+@media only screen and (max-width: 700px) {
+    #bio-card {
+        flex-wrap: wrap;
+    }
 }

@@ -7,36 +7,59 @@ layout: default
             <img class="circular" src="{{site.baseurl}}{{site.profile_picture}}" alt="Bruno Mendes's profile picture">
         </div>
         <div id="bio-card-text">
-            <h2>About me&nbsp<span class="more-arrow"><i class="ri-arrow-right-s-line"></i></span></h2>
+            <a class="card-title" href="/about-me">
+                <h2>About me</h2>
+                <span class="more-arrow">
+                    <i class="ri-arrow-right-s-line"></i>
+                </span>
+            </a>
             {{content}}
         </div>
     </section>
-    
+
     <div class="card-span-horizontal">
         <section class="card" id="projects-card">
-            <h2>Projects&nbsp<span class="more-arrow"><i class="ri-arrow-right-s-line"></i></span></h2>
-            </h2>
-            {% for project in site.projects limit:3 %}
-            <div class="entry">
-                <h4>{{project.name}}</h4>
-                <p>{{project.short}}</p>
+            <a class="card-title" href="/projects">
+                <h2>Projects</h2>
+                <span class="more-arrow">
+                    <i class="ri-arrow-right-s-line"></i>
+                </span>
+            </a>
+
+            <div class="entry-column">
+                {% for project in site.projects limit:3 %}
+                    <div class="entry">
+                        <a href="/projects">
+                            <h4>{{project.name}}</h4>
+                        </a>
+                        <p>{{project.short}}</p>
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </section>
-        
+
         <section class="card" id="blog-card">
-            <h2>Blog&nbsp<span class="more-arrow"><i class="ri-arrow-right-s-line"></i></span></h2>
-            </h2>
-            {% for post in site.posts limit:3 %}
-            <div class="entry">
-                <h4>{{post.title}}</h4>
-                <p>{{post.short}}</p>
+            <a class="card-title" href="/blog">
+                <h2>Blog</h2>
+                <span class="more-arrow">
+                    <i class="ri-arrow-right-s-line"></i>
+                </span>
+            </a>
+
+            <div class="entry-column">
+                {% for post in site.posts limit:3 %}
+                    <div class="entry">
+                        <a href="{{post.url}}">
+                            <h4>{{post.title}}</h4>
+                        </a>
+                        <p>{{post.short}}</p>
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </section>
     </div>
 
     <section class="card">
-        <p style="margin: 0;">Website in construction. Reach me out!</p>
+        <span>Website in construction. Reach me out!</span>
     </section>
 </div>
