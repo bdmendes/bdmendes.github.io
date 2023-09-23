@@ -1,60 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              skyblue: "#87cefa",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        h1 {
+          @apply text-4xl mb-2;
+        }
+        h2 {
+          @apply text-3xl mb-2;
+        }
+        h3 {
+          @apply text-2xl mb-2;
+        }
+        a {
+          @apply text-skyblue;
+        }
+      }
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="author" content="{{ site.author }}">
-    <meta name="keywords" content="{{ site.author }}, {{ site.title }}, jekyll">
-    <title>
-        {% if page.title %}
-        {{ page.title }}
-        {% else %}
-        {{ site.title }}
-        {% endif %}
-    </title>
-    <meta name="author" content="{{ site.author }}">
-    {% if page.description %}
-    {% assign desc = page.description %}
-    {% else %}
-    {% assign desc = site.description %}
-    {% endif %}
-    {% if page.url %}
-    {% assign url = site.url | append: site.baseurl | append: page.url %}
-    {% else %}
-    {% assign url = site.url | append: site.baseurl | append: page.url %}
-    {% endif %}
-    <meta name="description" content="{{ desc }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="/feed.xml" />
-    <link rel="stylesheet" href="{{site.baseurl}}/css/main.css">
-    <link rel="stylesheet" href="{{site.baseurl}}/css/components.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-</head>
-
-<body>
-    <nav>
-        <a href="/" id="site-title">Bruno Mendes</a>
-        <div id="menu-links">
-            <a href="/about-me">About me</a>
-            <a href="/projects">Projects</a>
-            <a href="/blog">Blog</a>
-            <a href="/assets/cv.pdf" target="_blank">CV</a>
-        </div>
-    </nav>
-
-    <div id="page-content">
-        {{ content }}
-    </div>
-
-    <footer>
-        <div id="social-links">
+      @layer components {
+        .nav-btn-selected {
+          @apply p-2 bg-neutral-900 rounded;
+        }
+        .nav-btn {
+          @apply p-2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="flex w-screen min-h-screen place-items-center bg-neutral-950 text-slate-300"
+    >
+      <div
+        class="basis-full flex flex-col md:flex-row max-w-[900px] mx-auto gap-4 p-4 align-items-center"
+      >
+        <nav
+          class="flex md:min-w-fit flex-col place-items-center justify-center text-xl no-underline"
+        >
+          <img
+            src="/assets/about-me/bdmendes.jpg"
+            alt="logo"
+            class="mt-4 mb-4 w-24 h-24 rounded-full"
+          />
+          <div class="flex gap-4">
             {% for page in site.social %}
-            <a href="{{ page.url }}" target="_blank">
-                <i class="{{ page.icon }}"></i>
+            <a class="text-2xl" href="{{ page.url }}" target="_blank">
+              <i class="{{ page.icon }}"></i>
             </a>
             {% endfor %}
+          </div>
+          <div
+            class="flex flex-wrap flex-row md:min-w-fit md:flex-col p-4 place-items-center gap-2 justify-center text-xl no-underline"
+          >
+            {% if page.layout == 'home' %}
+            <a class="nav-btn-selected" href="/">About me</a>
+            {% else %}
+            <a class="nav-btn" href="/">About me</a>
+            {% endif %} {% if page.layout == 'projects' %}
+            <a class="nav-btn-selected" href="/projects">Projects</a>
+            {% else %}
+            <a class="nav-btn" href="/projects">Projects</a>
+            {% endif %} {% if page.layout == 'paradoxo' %}
+            <a class="nav-btn-selected" href="/paradoxo">Paradoxo</a>
+            {% else %}
+            <a class="nav-btn" href="/paradoxo">Paradoxo</a>
+            {% endif %}
+          </div>
+        </nav>
+        <div class="p-4 bg-neutral-900 rounded grow text-lg opacity-85">
+          {{ content }}
         </div>
-    </footer>
-</body>
-
+      </div>
+    </div>
+  </body>
 </html>
