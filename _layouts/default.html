@@ -54,7 +54,7 @@
   <body>
     {% if page.background %}
     <div
-      class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[10%]"
+      class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[20%]"
       style="background-image: url('{{site.url}}/assets/background/{{ page.background }}')"
       >
       {% else %}
@@ -65,7 +65,7 @@
         class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10"
       >
         <div
-          class="basis-full flex flex-col md:flex-row max-w-5xl mx-auto md:gap-6 px-4 place-items-center"
+          class="basis-full flex flex-col md:flex-row max-w-5xl mx-auto gap-4 md:gap-6 px-4 place-items-center"
         >
           <nav
             class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline"
@@ -101,7 +101,7 @@
               {% endif %}
             </div>
           </nav>
-          <div class="rounded bg-neutral-900 h-min overflow-scroll md:max-h-[90vh] p-4 m-4 md:grow text-lg w-full">
+          <div class="rounded bg-neutral-900 h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full">
               {{ content }}
           </div>
         </div>
