@@ -1,0 +1,8 @@
+---
+title: Heroísmo
+layout: paradoxo
+number: 29
+background: train_door.jpg
+---
+
+O ar tenso, silencioso. O vidro embaciado, o fundo preto. Uma rapariga levanta-se e dirige-se para a porta. Não me parece que a tempo. Veste um casaco preto aveludado, não usa maquilhagem, pergunto-me se por desleixo ou opção, opção por viver apartada da norma, opção por ser simplesmente bela. Quem inventou aquilo? Vai deixando cair a mala. Talvez seja melhor abrir-lhe a porta. Ouço-lhe a respiração, e o ruído agudo da carruagem. Em esforço, leva o dedo ao botão, e tropeça. Oh! Desvia o olhar e depara-se comigo recostado, arrogante. Desconhece por completo a minha lentidão. Eu perdoo-lhe a precipitação.

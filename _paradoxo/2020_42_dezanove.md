@@ -1,0 +1,20 @@
+---
+title: Dezanove
+layout: paradoxo
+number: 42
+background: campanha.jpg
+---
+
+Hoje é o ponto médio do período entre o começo da vida adulta e o começo de uma década que me vai mudar a vida.
+
+Há um ano lamentava o pesar de uma infância que não mais volta. Olhei para o passado, por fim, sem rodeios e sem vergonha. Ao recordar o dia em que toquei aquela campainha e corri como se o mundo estivesse prestes a explodir, veio a mim um sorriso largo. Vi o jardim de infância e os pneus, o casamento, a primeira aula de inglês, o recado na caderneta, o primeiro cinco no primeiro período, o futebol nos anos, a leitura na igreja, a mãe que parecia avó, o cem porcento, os matraquilhos.
+
+Hoje não faz sentido repetir a mesma fórmula. Não sou o mesmo homem, nem sou confrontado com os mesmos desafios. Um ano passou-se, e eu mudei.
+
+Pegaram em mim e disseram-me para conhecer uma cidade e uma família ao mesmo tempo. Puseram-me às quatro da manhã a esperar um carro, grato e alentado. Deram-me um grupo de amizades que não sabia poderem existir. Mostraram-me que tudo isto é simples e que viver por algo que não faz sentido é a melhor maneira de encontrar um sentido.
+
+Mas agora estou confinado. Confinaram-me os anseios e os planos. Puseram a minha rotina em suspenso, desligaram a ficha e atiraram-me para aquela varanda.
+
+Falta aqui uma cadeira, Nunca se falou nisso, não venho muito para aqui, Olhe que falta, enquanto debruço o meu tronco sobre aquela fachada e vejo nas luzes aquilo que hei de ser um dia, na azáfama dos comboios aquilo que sou, na soturnidade da praça o conforto daquilo que fui. E tudo isto em comunhão perfeita, Fecha a janela, ontem voltaste a esquecer-te, Vou tentar.
+
+Vou tentar, porque sei que hei de voltar. Sei que hei de voltar a esquecer-me de que tenho dezanove anos, porque tenho matéria em atraso, uma desculpa para dar, um futuro por talhar e um presente de que não me posso desligar, porque o presente é agora e agora é nunca mais.

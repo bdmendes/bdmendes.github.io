@@ -31,10 +31,10 @@
           @apply text-2xl mb-2;
         }
         h4 {
-          @apply text-xl mb-1;
+          @apply text-xl mb-2;
         }
         p {
-          @apply mb-1;
+          @apply mb-2;
         }
         a {
           @apply text-skyblue;
@@ -52,51 +52,59 @@
     </style>
   </head>
   <body>
+    {% if page.background %}
     <div
-      class="flex w-screen min-h-screen md:place-items-center bg-neutral-950 text-slate-300"
-    >
-      <div
-        class="basis-full flex flex-col md:flex-row max-w-5xl mx-auto md:gap-6 px-4 place-items-center"
+      class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[10%]"
+      style="background-image: url('{{site.url}}/assets/background/{{ page.background }}')"
       >
-        <nav
-          class="grow-0 flex md:min-w-fit px-2 py-4 flex-col place-items-center justify-center text-xl no-underline"
-        >
-          <img
-            src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
-            alt="logo"
-            class="my-4 w-24 h-24 rounded-full"
-          />
-          <div class="flex gap-4">
-            {% for page in site.social %}
-            <a class="text-2xl" href="{{ page.url }}" target="_blank">
-              <i class="{{ page.icon }}"></i>
-            </a>
-            {% endfor %}
-          </div>
-          <div
-            class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 mb-2 place-items-center gap-2 justify-center text-xl no-underline"
-          >
-            {% if page.url == '/' %}
-            <a class="nav-btn-selected" href="/">About me</a>
-            {% else %}
-            <a class="nav-btn" href="/">About me</a>
-            {% endif %} {% if page.url == '/favorites.html' %}
-            <a class="nav-btn-selected" href="/favorites">Favorites</a>
-            {% else %}
-            <a class="nav-btn" href="/favorites">Favorites</a>
-            {% endif %} {% if page.url == '/paradoxo.html' %}
-            <a class="nav-btn-selected" href="/paradoxo">Paradoxo</a>
-            {% else %}
-            <a class="nav-btn" href="/paradoxo">Paradoxo</a>
-            {% endif %}
-          </div>
-        </nav>
+      {% else %}
+    <div class="bg-neutral-950 h-screen">
+      {% endif %}
+    </div>
+      <div
+        class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10"
+      >
         <div
-          class="h-min overflow-scroll md:max-h-screen p-4 bg-neutral-900 rounded md:grow text-lg w-full"
+          class="basis-full flex flex-col md:flex-row max-w-5xl mx-auto md:gap-6 px-4 place-items-center"
         >
-          {{ content }}
+          <nav
+            class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline"
+          >
+            <img
+              style="filter: grayscale(30%);"
+              src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
+              alt="logo"
+              class="mt-2 mb-4 w-24 h-24 rounded-full"
+            />
+            <div class="flex gap-4">
+              {% for page in site.social %}
+              <a class="text-2xl" href="{{ page.url }}" target="_blank">
+                <i class="{{ page.icon }}"></i>
+              </a>
+              {% endfor %}
+            </div>
+            <div
+              class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-2 justify-center text-xl no-underline"
+            >
+              {% if page.url == '/' %}
+              <a class="nav-btn-selected" href="/">About me</a>
+              {% else %}
+              <a class="nav-btn" href="/">About me</a>
+              {% endif %} {% if page.url == '/favorites.html' %}
+              <a class="nav-btn-selected" href="/favorites">Favorites</a>
+              {% else %}
+              <a class="nav-btn" href="/favorites">Favorites</a>
+              {% endif %} {% if page.url == '/paradoxo.html' %}
+              <a class="nav-btn-selected" href="/paradoxo">Paradoxo</a>
+              {% else %}
+              <a class="nav-btn" href="/paradoxo">Paradoxo</a>
+              {% endif %}
+            </div>
+          </nav>
+          <div class="rounded bg-neutral-900 h-min overflow-scroll md:max-h-[90vh] p-4 m-4 md:grow text-lg w-full">
+              {{ content }}
+          </div>
         </div>
-      </div>
     </div>
   </body>
 </html>

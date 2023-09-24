@@ -26,7 +26,8 @@ plugins:
 
 # Aditional collections
 collections:
-  - music
-  - movies
-  - series
-  - paradoxo
+  music:
+  movies:
+  series:
+  paradoxo:
+    output: true
