@@ -30,6 +30,12 @@
         h3 {
           @apply text-2xl mb-2;
         }
+        h4 {
+          @apply text-xl mb-1;
+        }
+        p {
+          @apply mb-1;
+        }
         a {
           @apply text-skyblue;
         }
@@ -47,18 +53,18 @@
   </head>
   <body>
     <div
-      class="flex w-screen min-h-screen place-items-center bg-neutral-950 text-slate-300"
+      class="flex w-screen min-h-screen md:place-items-center bg-neutral-950 text-slate-300"
     >
       <div
-        class="basis-full flex flex-col md:flex-row max-w-[900px] mx-auto gap-4 p-4 align-items-center"
+        class="basis-full flex flex-col md:flex-row max-w-5xl mx-auto md:gap-6 px-4 place-items-center"
       >
         <nav
-          class="flex md:min-w-fit flex-col place-items-center justify-center text-xl no-underline"
+          class="grow-0 flex md:min-w-fit px-2 py-4 flex-col place-items-center justify-center text-xl no-underline"
         >
           <img
-            src="/assets/about-me/bdmendes.jpg"
+            src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
             alt="logo"
-            class="mt-4 mb-4 w-24 h-24 rounded-full"
+            class="my-4 w-24 h-24 rounded-full"
           />
           <div class="flex gap-4">
             {% for page in site.social %}
@@ -68,24 +74,26 @@
             {% endfor %}
           </div>
           <div
-            class="flex flex-wrap flex-row md:min-w-fit md:flex-col p-4 place-items-center gap-2 justify-center text-xl no-underline"
+            class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 mb-2 place-items-center gap-2 justify-center text-xl no-underline"
           >
-            {% if page.layout == 'home' %}
+            {% if page.url == '/' %}
             <a class="nav-btn-selected" href="/">About me</a>
             {% else %}
             <a class="nav-btn" href="/">About me</a>
-            {% endif %} {% if page.layout == 'projects' %}
-            <a class="nav-btn-selected" href="/projects">Projects</a>
+            {% endif %} {% if page.url == '/favorites.html' %}
+            <a class="nav-btn-selected" href="/favorites">Favorites</a>
             {% else %}
-            <a class="nav-btn" href="/projects">Projects</a>
-            {% endif %} {% if page.layout == 'paradoxo' %}
+            <a class="nav-btn" href="/favorites">Favorites</a>
+            {% endif %} {% if page.url == '/paradoxo.html' %}
             <a class="nav-btn-selected" href="/paradoxo">Paradoxo</a>
             {% else %}
             <a class="nav-btn" href="/paradoxo">Paradoxo</a>
             {% endif %}
           </div>
         </nav>
-        <div class="p-4 bg-neutral-900 rounded grow text-lg opacity-85">
+        <div
+          class="h-min overflow-scroll md:max-h-screen p-4 bg-neutral-900 rounded md:grow text-lg w-full"
+        >
           {{ content }}
         </div>
       </div>
