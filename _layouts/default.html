@@ -101,9 +101,15 @@
               {% endif %}
             </div>
           </nav>
+          {% if page.background %}
+          <div class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full">
+            {{ content }}
+          </div>
+          {% else %}
           <div class="rounded bg-neutral-900 h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full">
               {{ content }}
           </div>
+          {% endif %}
         </div>
     </div>
   </body>
