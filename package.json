@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "assets": "tailwindcss -i ./assets/style.css -o ./dist/output.css -m -w",
+    "serve": "bundle exec jekyll serve --livereload"
+  }
+}

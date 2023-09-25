@@ -10,13 +10,13 @@ author: Bruno Mendes
 
 social:
   - name: github/bdmendes
-    icon: ri-github-line
+    icon: github-line.svg
     url: https://github.com/bdmendes
   - name: linkedin/bdmendes
-    icon: ri-linkedin-fill
+    icon: linkedin-fill.svg
     url: https://www.linkedin.com/in/bdmendes/
   - name: email
-    icon: ri-mail-line
+    icon: mail-line.svg
     url: mailto:bd_mendes@outlook.com
 
 # Build settings
@@ -25,6 +25,7 @@ plugins:
   - jekyll-paginate
 
 # Aditional collections
+collections_dir: collections
 collections:
   music:
   movies:
