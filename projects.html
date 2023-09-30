@@ -1,0 +1,22 @@
+---
+layout: default
+title: Projects
+---
+
+{% assign categories = site.projects | group_by: "category" %}
+
+{% for category in categories %}
+<div class="mb-4">
+    <h2>{{ category.name | capitalize }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 mb-8 gap-4 mt-4">
+        {% for project in category.items %}
+        <div class="bg-neutral-800 p-2 rounded-lg">
+            <a class="flex mb-2" href="{{ project.link }}" target="_blank">
+                <div>{{project.name}}</div>
+            </a>
+            <div class="text-base">{{project.content}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}

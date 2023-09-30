@@ -4,6 +4,6 @@
   },
   "scripts": {
     "assets": "tailwindcss -i ./assets/style.css -o ./dist/output.css -m -w",
-    "serve": "bundle exec jekyll serve --livereload"
+    "serve": "export BUNDLE_PATH=~/.gems && bundle install && bundle exec jekyll serve --livereload"
   }
 }

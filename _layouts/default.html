@@ -1,77 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
-    <link href="/dist/output.css" rel="stylesheet">
-    <title>
-      {% if page.title %}
-      {{ page.title }} | {{ site.title }}
-      {% else %}
-      {{ site.title }}
-      {% endif %}
-    </title>
-  </head>
-  <body>
-    {% if page.background %}
-    <div
-      class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[20%]"
-      style="background-image: url('{{site.url}}/assets/background/{{ page.background }}')"
-      >
-      {% else %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
+  <link href="/dist/output.css" rel="stylesheet">
+  <title>
+    {% if page.standalone or layout.standalone %}
+    {% if page.title and page.collection %}
+    {{ page.title }} | {{ page.collection | capitalize }}
+    {% elsif page.title %}
+    {{ page.title }}
+    {% elsif page.collection %}
+    {{ page.collection | capitalize }}
+    {% else %}
+    {{ site.title }}
+    {% endif %}
+    {% elsif page.title %}
+    {{ page.title }} | {{ site.title }}
+    {% else %}
+    {{ site.title }}
+    {% endif %}
+  </title>
+</head>
+
+<body>
+  {% if page.background %}
+  <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[20%]"
+    style="background-image: url('{{site.url}}/assets/background/{{ page.background }}')">
+    {% else %}
     <div class="bg-neutral-950 h-screen">
       {% endif %}
     </div>
-      <div
-        class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10"
-      >
-        <div
-          class="basis-full flex flex-col md:flex-row max-w-5xl mx-auto gap-4 md:gap-6 px-4 place-items-center"
-        >
-          <nav
-            class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline"
-          >
-            <img
-              style="filter: grayscale(30%);"
-              src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
-              alt="logo"
-              class="mt-2 mb-4 w-24 h-24 rounded-full"
-            />
-            <div class="flex gap-4 mb-2">
-              {% for page in site.social %}
-              <a href="{{ page.url }}" target="_blank">
-                <img class="w-6 h-6" src="{{site.baseurl}}/assets/{{ page.icon }}" alt="{{ page.name }}" />
-              </a>
-              {% endfor %}
-            </div>
-            <div
-              class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-2 justify-center text-xl no-underline"
-            >
-              {% if page.url == '/' %}
-              <a class="nav-btn-selected" href="/">About me</a>
-              {% else %}
-              <a class="nav-btn" href="/">About me</a>
-              {% endif %} {% if page.url == '/favorites.html' %}
-              <a class="nav-btn-selected" href="/favorites">Favorites</a>
-              {% else %}
-              <a class="nav-btn" href="/favorites">Favorites</a>
-              {% endif %} {% if page.url == '/paradoxo.html' %}
-              <a class="nav-btn-selected" href="/paradoxo">Paradoxo</a>
-              {% else %}
-              <a class="nav-btn" href="/paradoxo">Paradoxo</a>
-              {% endif %}
-            </div>
-          </nav>
-          {% if page.background %}
-          <div class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full">
-            {{ content }}
+    <div
+      class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
+      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto gap-4 md:gap-6 px-4 place-items-center">
+        {% unless page.standalone or layout.standalone %}
+        <nav class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline">
+          <img src="{{site.baseurl}}/assets/about-me/bdmendes.jpg" alt="logo"
+            class="mt-2 mb-4 w-24 h-24 rounded-full" />
+          <div class="flex gap-4 mt-2">
+            {% for page in site.social %}
+            <a href="{{ page.url }}" target="_blank">
+              <img class="w-6 h-6" src="{{site.baseurl}}/assets/{{ page.icon }}" alt="{{ page.name }}" />
+            </a>
+            {% endfor %}
           </div>
+          <div
+            class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-2 justify-center text-xl no-underline">
+            {% if page.url == '/' %}
+            <a class="nav-btn-selected" href="/">About me</a>
+            {% else %}
+            <a class="nav-btn" href="/">About me</a>
+            {% endif %}
+
+            {% if page.url == '/projects.html' %}
+            <a class="nav-btn-selected" href="/projects">Projects</a>
+            {% else %}
+            <a class="nav-btn" href="/projects">Projects</a>
+            {% endif %}
+
+            {% if page.url == '/favorites.html' %}
+            <a class="nav-btn-selected" href="/favorites">Favorites</a>
+            {% else %}
+            <a class="nav-btn" href="/favorites">Favorites</a>
+            {% endif %}
+          </div>
+        </nav>
+        {% endunless %}
+        {% if page.background %}
+        <div
+          class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full">
           {% else %}
           <div class="rounded bg-neutral-900 h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full">
-              {{ content }}
+            {% endif %}
+            {{ content }}
           </div>
-          {% endif %}
         </div>
-    </div>
-  </body>
+      </div>
+</body>
+
 </html>

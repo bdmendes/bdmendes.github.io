@@ -30,5 +30,6 @@ collections:
   music:
   movies:
   series:
+  projects:
   paradoxo:
     output: true
