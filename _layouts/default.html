@@ -22,6 +22,9 @@
     {{ site.title }}
     {% endif %}
   </title>
+  {% unless page.standalone or layout.standalone %}
+  <link rel="icon" type="image/x-icon" href="/assets/bdmendes.ico">
+  {% endunless %}
 </head>
 
 <body>
