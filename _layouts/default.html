@@ -40,10 +40,13 @@ background: porto-wallpaper.jpg
   {% elsif site.icon %}
   <link rel="icon" type="image/x-icon" href="/assets/icons/{{site.icon}}">
   {% endif %}
+  {% assign background = page.background | default: layout.background | default: site.background %}
+  {% if background %}
+  <link rel="preload" href="{{site.url}}/assets/background/{{ background }}" as="image">
+  {% endif %}
 </head>
 
 <body>
-  {% assign background = page.background | default: layout.background | default: site.background %}
   {% if background %}
   <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[10%]"
     style="background-image: url('{{site.url}}/assets/background/{{ background }}')">
