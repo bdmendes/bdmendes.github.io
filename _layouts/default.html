@@ -48,7 +48,7 @@ background: porto-wallpaper.jpg
 
 <body>
   {% if background %}
-  <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[10%]"
+  <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[25%]"
     style="background-image: url('{{site.url}}/assets/background/{{ background }}')">
     {% else %}
     <div class="bg-neutral-950 h-screen">
@@ -56,10 +56,10 @@ background: porto-wallpaper.jpg
     </div>
     <div
       class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
-      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center">
+      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center md:gap-4">
 
         {% unless page.standalone or layout.standalone %}
-        <nav class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline">
+        <nav class="grow-0 flex md:min-w-fit px-2 py-4 flex-col place-items-center justify-center text-xl no-underline">
           <img src="{{site.baseurl}}/assets/about-me/bdmendes.jpg" alt="logo"
             class="mt-2 mb-4 w-24 h-24 rounded-full brightness-90 drop-shadow-2xl" />
           <div class="flex gap-4 mt-2">
@@ -93,7 +93,7 @@ background: porto-wallpaper.jpg
         {% endunless %}
 
         <div id="content"
-          class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur-2xl h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4">
+          class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur-2xl h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4 md:m-0">
           {{ content }}
         </div>
       </div>
