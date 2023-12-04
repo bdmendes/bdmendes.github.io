@@ -5,7 +5,7 @@ title: About
 
 ## Hey! I'm Bruno Mendes.
 
-I am a software engineer based in [Porto](https://www.porto.pt/en), Portugal. I am currently taking a MSc
+I am a [software engineer](/assets/about-me/bdmendes-cv.pdf) based in [Porto](https://www.porto.pt/en), Portugal. I am currently taking a MSc
 in Informatics and Computing Engineering at [FEUP](https://sigarra.up.pt/feup/en), diving into the world of
 software architecture and low level programming.
 

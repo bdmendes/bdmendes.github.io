@@ -13,6 +13,5 @@ npm install
 You can then launch the development server by running:
 
 ```sh
-npm run assets
-npm run serve
+npm run dev
 ```

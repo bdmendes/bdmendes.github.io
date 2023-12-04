@@ -3,8 +3,15 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=devide-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="/dist/output.css" rel="stylesheet">
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}" />
+  {% elsif layout.description %}
+  <meta name="description" content="{{ layout.description }}" />
+  {% elsif site.description %}
+  <meta name="description" content="{{ site.description }}" />
+  {% endif %}
   <title>
     {% if page.standalone or layout.standalone %}
     {% if page.title and page.collection %}
@@ -22,9 +29,13 @@
     {{ site.title }}
     {% endif %}
   </title>
-  {% unless page.standalone or layout.standalone %}
-  <link rel="icon" type="image/x-icon" href="/assets/bdmendes.ico">
-  {% endunless %}
+  {% if page.icon %}
+  <link rel="icon" type="image/x-icon" href="/assets/icons/{{page.icon}}">
+  {% elsif layout.icon %}
+  <link rel="icon" type="image/x-icon" href="/assets/icons/{{layout.icon}}">
+  {% elsif site.icon %}
+  <link rel="icon" type="image/x-icon" href="/assets/icons/{{site.icon}}">
+  {% endif %}
 </head>
 
 <body>
@@ -38,6 +49,7 @@
     <div
       class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
       <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center">
+
         {% unless page.standalone or layout.standalone %}
         <nav class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline">
           <img src="{{site.baseurl}}/assets/about-me/bdmendes.jpg" alt="logo"
@@ -45,12 +57,12 @@
           <div class="flex gap-4 mt-2">
             {% for page in site.social %}
             <a href="{{ page.url }}" target="_blank">
-              <img class="w-6 h-6" src="{{site.baseurl}}/assets/{{ page.icon }}" alt="{{ page.name }}" />
+              <img class="w-6 h-6" src="{{site.baseurl}}/assets/socials/{{ page.icon }}" alt="{{ page.name }}" />
             </a>
             {% endfor %}
           </div>
           <div
-            class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-2 justify-center text-xl no-underline">
+            class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-1 justify-center text-xl no-underline">
             {% if page.url == '/' %}
             <a class="nav-btn-selected" href="/">About me</a>
             {% else %}
@@ -71,6 +83,7 @@
           </div>
         </nav>
         {% endunless %}
+
         {% if page.background %}
         <div id="content"
           class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur-2xl h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4">

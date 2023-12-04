@@ -1,12 +1,13 @@
 title: Bruno Mendes
 email: bd_mendes@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Bruno Mendes is a student passionate about low level development and software engineering.
+  The personal website of Bruno Mendes.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: bdmendes
 profile_picture: assets/about-me/bdmendes.jpg
 author: Bruno Mendes
+icon: bdmendes.ico
 
 social:
   - name: github/bdmendes
