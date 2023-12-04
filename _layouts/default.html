@@ -26,7 +26,7 @@
 
 <body>
   {% if page.background %}
-  <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[15%]"
+  <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[10%]"
     style="background-image: url('{{site.url}}/assets/background/{{ page.background }}')">
     {% else %}
     <div class="bg-neutral-950 h-screen">
@@ -34,7 +34,7 @@
     </div>
     <div
       class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
-      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto gap-2 md:gap-4 px-4 place-items-center">
+      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center">
         {% unless page.standalone or layout.standalone %}
         <nav class="grow-0 flex md:min-w-fit p-2 flex-col place-items-center justify-center text-xl no-underline">
           <img src="{{site.baseurl}}/assets/about-me/bdmendes.jpg" alt="logo"
@@ -69,15 +69,24 @@
         </nav>
         {% endunless %}
         {% if page.background %}
-        <div
-          class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4">
+        <div id="content"
+          class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur-2xl h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4">
           {% else %}
-          <div class="rounded bg-neutral-900 h-min overflow-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4">
+          <div id="content"
+            class="rounded bg-neutral-900 h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4">
             {% endif %}
             {{ content }}
           </div>
         </div>
       </div>
 </body>
+
+<script>
+  const target = document.getElementById("content");
+  document.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    target.scrollBy(e.deltaX, e.deltaY);
+  })
+</script>
 
 </html>
