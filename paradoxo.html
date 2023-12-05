@@ -9,19 +9,20 @@ icon: moon.ico
 
 <h2 class="mb-4">Paradoxo</h2>
 
-<p class="mb-6"><span class="italic">Paradoxo</span> é uma coleção de textos originais que imprimem estórias e
-    sentimentos
-    pertencentes a um mundo real mas distorcido e romantizado. Eles existem por si só e não gostam de ser questionados.
+<p class="mb-6"><span class="italic">Paradoxo</span> é o retrato arquivado de um passado rígido, distante, difuso. É
+    toda uma dor,
+    mas
+    também um rasgo de calor e esperança de um mundo bonito e completo.
 </p>
 
 {% assign texts = site.paradoxo | sort: "number" %}
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-1">
-    {% for text in texts %}
-    <a href="{{ text.url }}" class="bg-neutral-800 p-2 rounded-lg">
-        <div>{{ text.title }}</div>
-    </a>
-    {% endfor %}
+  {% for text in texts %}
+  <a href="{{ text.url }}" class="box">
+    <div>{{ text.title }}</div>
+  </a>
+  {% endfor %}
 </div>
 
-<br>
+<br />

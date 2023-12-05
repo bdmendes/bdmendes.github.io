@@ -13,4 +13,4 @@ Imbuído de combatividade após tão regenerante conversa, não paro de pensar s
 
 Fascinante, o mundo das ideias. Na vida real, não existe ponto de retorno, nem é possível anular a inoperabilidade dialogal.
 
-Ciente do falhanço, roído por um remorso miudinho, volto a abstratizar o meu plano. Porventura terei a oportunidade de concretizá-lo, em sonho, num universo paralelo, noutra vida, de maneira diferente, tantas as vezes que forem necessárias, sem sombra de dúvidas, uma demonstração de coragem.
+Ciente do falhanço, roído por um remorso miudinho, volto a abstratizar o meu plano. Porventura terei a oportunidade de concretizá-lo, em sonho, num universo paralelo, noutra vida, de maneira diferente, tantas as vezes que forem necessárias; sem sombra de dúvidas, uma demonstração de coragem.

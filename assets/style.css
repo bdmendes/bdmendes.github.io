@@ -34,11 +34,15 @@
 
 @layer components {
   .nav-btn-selected {
-    @apply p-2 bg-neutral-900 rounded;
+    @apply p-2 bg-gray-900 rounded;
   }
 
   .nav-btn {
     @apply p-2;
+  }
+
+  .box {
+    @apply p-2 bg-neutral-900 rounded;
   }
 }
 

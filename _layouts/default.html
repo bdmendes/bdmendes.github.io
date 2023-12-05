@@ -4,108 +4,111 @@ background: porto-wallpaper.jpg
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="/dist/output.css" rel="stylesheet">
-  {% if page.description %}
-  <meta name="description" content="{{ page.description }}" />
-  {% elsif layout.description %}
-  <meta name="description" content="{{ layout.description }}" />
-  {% elsif site.description %}
-  <meta name="description" content="{{ site.description }}" />
-  {% endif %}
-  <title>
-    {% if page.standalone or layout.standalone %}
-    {% if page.title and page.collection %}
-    {{ page.title }} | {{ page.collection | capitalize }}
-    {% elsif page.title %}
-    {{ page.title }}
-    {% elsif page.collection %}
-    {{ page.collection | capitalize }}
-    {% else %}
-    {{ site.title }}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% elsif layout.description %}
+    <meta name="description" content="{{ layout.description }}" />
+    {% elsif site.description %}
+    <meta name="description" content="{{ site.description }}" />
     {% endif %}
-    {% elsif page.title %}
-    {{ page.title }} | {{ site.title }}
-    {% else %}
-    {{ site.title }}
+    <title>
+      {% if page.standalone or layout.standalone %} {% if page.title and
+      page.collection %} {{ page.title }} | {{ page.collection | capitalize }}
+      {% elsif page.title %} {{ page.title }} {% elsif page.collection %} {{
+      page.collection | capitalize }} {% else %} {{ site.title }} {% endif %} {%
+      elsif page.title %} {{ page.title }} | {{ site.title }} {% else %} {{
+      site.title }} {% endif %}
+    </title>
+    {% if page.icon %}
+    <link rel="icon" type="image/x-icon" href="/assets/icons/{{page.icon}}" />
+    {% elsif layout.icon %}
+    <link rel="icon" type="image/x-icon" href="/assets/icons/{{layout.icon}}" />
+    {% elsif site.icon %}
+    <link rel="icon" type="image/x-icon" href="/assets/icons/{{site.icon}}" />
+    {% endif %} {% assign background = page.background | default:
+    layout.background | default: site.background %} {% if background %}
+    <link
+      rel="preload"
+      href="{{site.url}}/assets/background/{{ background }}"
+      as="image"
+    />
     {% endif %}
-  </title>
-  {% if page.icon %}
-  <link rel="icon" type="image/x-icon" href="/assets/icons/{{page.icon}}">
-  {% elsif layout.icon %}
-  <link rel="icon" type="image/x-icon" href="/assets/icons/{{layout.icon}}">
-  {% elsif site.icon %}
-  <link rel="icon" type="image/x-icon" href="/assets/icons/{{site.icon}}">
-  {% endif %}
-  {% assign background = page.background | default: layout.background | default: site.background %}
-  {% if background %}
-  <link rel="preload" href="{{site.url}}/assets/background/{{ background }}" as="image">
-  {% endif %}
-</head>
+  </head>
 
-<body>
-  {% if background %}
-  <div class="bg-neutral-950 bg-cover bg-center bg-no-repeat h-screen brightness-[25%]"
-    style="background-image: url('{{site.url}}/assets/background/{{ background }}')">
-    {% else %}
-    <div class="bg-neutral-950 h-screen">
-      {% endif %}
-    </div>
+  <body>
+    {% if background %}
     <div
-      class="bg-neutral-950 md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
-      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center md:gap-4">
+      class="bg-black bg-cover bg-center bg-no-repeat h-screen brightness-[25%]"
+      style="background-image: url('{{site.url}}/assets/background/{{ background }}')"
+    >
+      {% else %}
+      <div class="bg-black h-screen">{% endif %}</div>
+      <div
+        class="bg-black md:bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10"
+      >
+        <div
+          class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center md:gap-4"
+        >
+          {% unless page.standalone or layout.standalone %}
+          <nav
+            class="grow-0 flex md:min-w-fit px-2 py-4 flex-col place-items-center justify-center text-xl no-underline"
+          >
+            <img
+              src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
+              alt="logo"
+              class="mt-2 mb-4 w-24 h-24 rounded-full brightness-90 drop-shadow-2xl"
+            />
+            <div class="flex gap-4 mt-2">
+              {% for page in site.social %}
+              <a href="{{ page.url }}" target="_blank">
+                <img
+                  class="w-6 h-6"
+                  src="{{site.baseurl}}/assets/socials/{{ page.icon }}"
+                  alt="{{ page.name }}"
+                />
+              </a>
+              {% endfor %}
+            </div>
+            <div
+              class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-1 justify-center text-xl no-underline"
+            >
+              {% if page.url == '/' %}
+              <a class="nav-btn-selected" href="/">About me</a>
+              {% else %}
+              <a class="nav-btn" href="/">About me</a>
+              {% endif %} {% if page.url == '/projects.html' %}
+              <a class="nav-btn-selected" href="/projects">Projects</a>
+              {% else %}
+              <a class="nav-btn" href="/projects">Projects</a>
+              {% endif %} {% if page.url == '/favorites.html' %}
+              <a class="nav-btn-selected" href="/favorites">Favorites</a>
+              {% else %}
+              <a class="nav-btn" href="/favorites">Favorites</a>
+              {% endif %}
+            </div>
+          </nav>
+          {% endunless %}
 
-        {% unless page.standalone or layout.standalone %}
-        <nav class="grow-0 flex md:min-w-fit px-2 py-4 flex-col place-items-center justify-center text-xl no-underline">
-          <img src="{{site.baseurl}}/assets/about-me/bdmendes.jpg" alt="logo"
-            class="mt-2 mb-4 w-24 h-24 rounded-full brightness-90 drop-shadow-2xl" />
-          <div class="flex gap-4 mt-2">
-            {% for page in site.social %}
-            <a href="{{ page.url }}" target="_blank">
-              <img class="w-6 h-6" src="{{site.baseurl}}/assets/socials/{{ page.icon }}" alt="{{ page.name }}" />
-            </a>
-            {% endfor %}
-          </div>
           <div
-            class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-1 justify-center text-xl no-underline">
-            {% if page.url == '/' %}
-            <a class="nav-btn-selected" href="/">About me</a>
-            {% else %}
-            <a class="nav-btn" href="/">About me</a>
-            {% endif %}
-
-            {% if page.url == '/projects.html' %}
-            <a class="nav-btn-selected" href="/projects">Projects</a>
-            {% else %}
-            <a class="nav-btn" href="/projects">Projects</a>
-            {% endif %}
-
-            {% if page.url == '/favorites.html' %}
-            <a class="nav-btn-selected" href="/favorites">Favorites</a>
-            {% else %}
-            <a class="nav-btn" href="/favorites">Favorites</a>
-            {% endif %}
+            id="content"
+            class="rounded bg-neutral-950 md:bg-transparent md:backdrop-blur-2xl h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4 md:m-0"
+          >
+            {{ content }}
           </div>
-        </nav>
-        {% endunless %}
-
-        <div id="content"
-          class="rounded bg-neutral-900 md:bg-transparent md:backdrop-blur-2xl h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full m-4 md:m-0">
-          {{ content }}
         </div>
       </div>
     </div>
-</body>
+  </body>
 
-<script>
-  const target = document.getElementById("content");
-  document.addEventListener("wheel", function (e) {
-    e.preventDefault();
-    target.scrollBy(e.deltaX, e.deltaY);
-  })
-</script>
-
+  <script>
+    const target = document.getElementById("content");
+    document.addEventListener("wheel", function (e) {
+      e.preventDefault();
+      target.scrollBy(e.deltaX, e.deltaY);
+    });
+  </script>
 </html>
