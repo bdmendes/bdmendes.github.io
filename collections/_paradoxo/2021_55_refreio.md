@@ -1,5 +1,5 @@
 ---
-title: Re(freio)
+title: (Re)freio
 layout: paradoxo
 number: 55
 background: train.jpg

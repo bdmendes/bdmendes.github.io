@@ -28,9 +28,6 @@ plugins:
 # Aditional collections
 collections_dir: collections
 collections:
-  music:
-  movies:
-  series:
   projects:
   paradoxo:
     output: true
