@@ -24,7 +24,7 @@
   }
 
   a {
-    @apply text-skyblue;
+    @apply text-sky-300;
   }
 
   svg {
@@ -34,7 +34,7 @@
 
 @layer components {
   .nav-btn-selected {
-    @apply p-2 bg-gray-900 rounded;
+    @apply p-2 bg-neutral-900 rounded;
   }
 
   .nav-btn {
@@ -42,7 +42,11 @@
   }
 
   .box {
-    @apply p-2 bg-neutral-900 rounded;
+    @apply p-2 bg-neutral-800 rounded;
+  }
+
+  .chip {
+    @apply p-2 bg-sky-950 rounded-full px-2 py-1 text-xs font-bold text-white w-min;
   }
 }
 
