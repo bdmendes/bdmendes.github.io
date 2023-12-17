@@ -60,7 +60,7 @@
     {% if background %}
       <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    <div class="bg-transparent top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
+    <div class="top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
       <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center md:gap-4">
         {% unless page.standalone or layout.standalone %}
           <nav class="grow-0 flex md:min-w-fit m-2 flex-col place-items-center justify-center text-xl no-underline">
@@ -78,7 +78,7 @@
                 </a>
               {% endfor %}
             </div>
-            <div class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-1 justify-center text-xl no-underline">
+            <div class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-1 justify-center">
               {% if page.url == '/' %}
                 <a class="nav-btn-selected" href="/">About me</a>
               {% else %}
@@ -93,16 +93,14 @@
           </nav>
         {% endunless %}
 
-        {% assign contentProps = "rounded h-min overflow-y-scroll md:max-h-[95vh] p-4 md:grow text-lg w-full mx-2 my-4 md:m-0" %}
         {% if background %}
-          <div id="content" class="bg-transparent backdrop-blur-2xl {{contentProps}}">
-            {{ content }}
-          </div>
+          {% assign backProps = "backdrop-blur-2xl" %}
         {% else %}
-          <div id="content" class="bg-neutral-900 {{contentProps}}">
-            {{ content }}
-          </div>
+          {% assign backProps = "bg-neutral-900" %}
         {% endif %}
+        <div id="content" class="{{backProps}} rounded h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full mx-2 my-4 md:m-0">
+          {{ content }}
+        </div>
       </div>
     </div>
   </body>
