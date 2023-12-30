@@ -1,6 +1,6 @@
 ---
 title: Carros, iates, jatos
-layout: paradoxo
+layout: paradoxotext
 background: money.jpg
 number: 20
 ---

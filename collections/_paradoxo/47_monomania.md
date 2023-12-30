@@ -1,6 +1,6 @@
 ---
 title: Monomania
-layout: paradoxo
+layout: paradoxotext
 number: 47
 background: monomania.jpg
 ---

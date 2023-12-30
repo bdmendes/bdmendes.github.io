@@ -1,6 +1,6 @@
 ---
 title: Desligar as câmaras
-layout: paradoxo
+layout: paradoxotext
 number: 15
 background: movie_camera.jpg
 ---

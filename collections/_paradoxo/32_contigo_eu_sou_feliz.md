@@ -1,6 +1,6 @@
 ---
 title: Contigo eu sou feliz
-layout: paradoxo
+layout: paradoxotext
 number: 32
 background: marriage.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Pedacinho de democracia
-layout: paradoxo
+layout: paradoxotext
 background: door_key.jpg
 number: 1
 ---

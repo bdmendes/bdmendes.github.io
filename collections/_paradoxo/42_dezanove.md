@@ -1,6 +1,6 @@
 ---
 title: Dezanove
-layout: paradoxo
+layout: paradoxotext
 number: 42
 background: campanha.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Trindade
-layout: paradoxo
+layout: paradoxotext
 number: 41
 background: trindade.jpg
 ---

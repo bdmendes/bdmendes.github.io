@@ -1,6 +1,6 @@
 ---
 title: O que realmente importa
-layout: paradoxo
+layout: paradoxotext
 background: nervous_system.jpg
 number: 33
 ---

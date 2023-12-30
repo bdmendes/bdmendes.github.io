@@ -1,6 +1,6 @@
 ---
 title: Garras de felino
-layout: paradoxo
+layout: paradoxotext
 number: 37
 background: tiger.jpg
 ---

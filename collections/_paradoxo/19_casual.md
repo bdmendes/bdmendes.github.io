@@ -1,6 +1,6 @@
 ---
 title: Casual
-layout: paradoxo
+layout: paradoxotext
 number: 19
 background: women_dark.jpg
 ---

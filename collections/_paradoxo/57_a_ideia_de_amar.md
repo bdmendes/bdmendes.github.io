@@ -1,6 +1,6 @@
 ---
 title: A ideia de amar
-layout: paradoxo
+layout: paradoxotext
 number: 57
 background: the_idea_of_love.jpg
 ---

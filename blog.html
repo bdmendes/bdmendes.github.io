@@ -1,0 +1,23 @@
+---
+layout: default
+title: Blog
+description: Bruno Mendes' blog.
+---
+
+<div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+  {% for post in site.posts %}
+    <div class="box">
+      <h4 class="mb-0">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h4>
+      <div class="text-base">{{ post.date | date: "%B %d, %Y" }}</div>
+      <img
+        src="/assets/blog/{{ post.image }}"
+        alt="{{ post.title }}"
+        class="w-full h-auto my-2 rounded">
+      <div class="text-base">
+        {{ post.excerpt }}
+      </div>
+    </div>
+  {% endfor %}
+</div>

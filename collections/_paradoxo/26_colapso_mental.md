@@ -1,6 +1,6 @@
 ---
 title: Colapso mental
-layout: paradoxo
+layout: paradoxotext
 number: 26
 background: universe.jpg
 ---

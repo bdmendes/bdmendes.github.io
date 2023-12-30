@@ -1,6 +1,6 @@
 ---
 title: Manta de retalhos
-layout: paradoxo
+layout: paradoxotext
 number: 28
 background: personalities.jpg
 ---

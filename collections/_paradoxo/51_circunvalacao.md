@@ -1,6 +1,6 @@
 ---
 title: Circunvalação
-layout: paradoxo
+layout: paradoxotext
 number: 51
 background: moto_crash.jpg
 ---

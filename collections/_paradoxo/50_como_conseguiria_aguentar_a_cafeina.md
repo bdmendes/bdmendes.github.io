@@ -1,6 +1,6 @@
 ---
 title: Como conseguiria aguentar a cafeína?
-layout: paradoxo
+layout: paradoxotext
 number: 50
 background: coffee_nervous.jpg
 ---

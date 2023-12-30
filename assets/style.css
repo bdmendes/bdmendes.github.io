@@ -50,7 +50,20 @@
   }
 }
 
-*::-webkit-scrollbar {
-  display: none;
-  /* Safari and Chrome */
+
+
+img + em {
+  @apply block text-center text-base text-neutral-400 my-2;
+}
+
+p:has(img) {
+  @apply my-6;
+}
+
+blockquote {
+  @apply border-l-4 border-neutral-600 pl-4 my-6 text-base;
+}
+
+img {
+  @apply rounded;
 }

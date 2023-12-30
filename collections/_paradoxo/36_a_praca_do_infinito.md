@@ -1,6 +1,6 @@
 ---
 title: A praça do infinito
-layout: paradoxo
+layout: paradoxotext
 number: 36
 background: night_place.jpg
 ---

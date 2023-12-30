@@ -1,6 +1,6 @@
 ---
 title: Granitos
-layout: paradoxo
+layout: paradoxotext
 number: 43
 background: rocks.jpg
 ---

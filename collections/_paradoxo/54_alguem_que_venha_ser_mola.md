@@ -1,6 +1,6 @@
 ---
 title: Alguém que venha ser mola
-layout: paradoxo
+layout: paradoxotext
 number: 54
 background: clothespin.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Linha forcada
-layout: paradoxo
+layout: paradoxotext
 number: 44
 background: time.jpg
 ---

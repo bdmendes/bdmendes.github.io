@@ -1,6 +1,6 @@
 ---
 title: Telescópio
-layout: paradoxo
+layout: paradoxotext
 number: 46
 background: night_sky.jpg
 ---

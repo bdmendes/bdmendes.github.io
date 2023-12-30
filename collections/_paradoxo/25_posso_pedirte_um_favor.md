@@ -1,6 +1,6 @@
 ---
 title: Posso pedir-te um favor?
-layout: paradoxo
+layout: paradoxotext
 number: 25
 background: girl_hiding.jpg
 ---

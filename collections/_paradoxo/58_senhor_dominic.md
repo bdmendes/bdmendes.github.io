@@ -1,6 +1,6 @@
 ---
 title: Senhor Dominic
-layout: paradoxo
+layout: paradoxotext
 number: 58
 background: old_people.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Princesa do norte
-layout: paradoxo
+layout: paradoxotext
 number: 39
 background: distant_girl.jpg
 ---

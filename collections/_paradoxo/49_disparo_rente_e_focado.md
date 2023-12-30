@@ -1,6 +1,6 @@
 ---
 title: Disparo rente e focado
-layout: paradoxo
+layout: paradoxotext
 number: 49
 background: shooting.jpg
 ---

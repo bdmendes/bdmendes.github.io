@@ -1,6 +1,6 @@
 ---
 title: Objetivos semanais
-layout: paradoxo
+layout: paradoxotext
 background: dark_chess.jpg
 number: 4
 ---

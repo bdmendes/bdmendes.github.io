@@ -1,6 +1,6 @@
 ---
 title: Só tu, ó metropolitano!
-layout: paradoxo
+layout: paradoxotext
 number: 23
 background: metro.jpg
 ---

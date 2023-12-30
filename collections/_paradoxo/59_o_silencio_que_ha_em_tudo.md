@@ -1,5 +1,5 @@
 ---
-layout: paradoxo
+layout: paradoxotext
 title: O silêncio que há em tudo
 number: 59
 background: silence.jpg

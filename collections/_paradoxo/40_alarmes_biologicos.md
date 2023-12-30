@@ -1,6 +1,6 @@
 ---
 title: Alarmes biológicos
-layout: paradoxo
+layout: paradoxotext
 number: 40
 background: sollitude.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Carregamento efetuado
-layout: paradoxo
+layout: paradoxotext
 number: 24
 background: sms.png
 ---

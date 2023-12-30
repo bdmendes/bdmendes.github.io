@@ -1,6 +1,6 @@
 ---
 title: Verão
-layout: paradoxo
+layout: paradoxotext
 number: 45
 background: summertime.jpg
 ---

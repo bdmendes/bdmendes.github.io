@@ -1,6 +1,6 @@
 ---
 title: Dose de integração
-layout: paradoxo
+layout: paradoxotext
 background: cafe.jpg
 number: 9
 ---

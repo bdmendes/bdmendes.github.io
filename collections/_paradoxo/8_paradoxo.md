@@ -1,7 +1,7 @@
 ---
 title: Paradoxo
 background: romantic_movie.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 8
 ---
 

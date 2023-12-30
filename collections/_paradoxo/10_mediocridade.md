@@ -1,6 +1,6 @@
 ---
 title: Mediocridade
-layout: paradoxo
+layout: paradoxotext
 background: broken_glass.jpg
 number: 10
 ---

@@ -1,6 +1,6 @@
 ---
 title: Aura sazonal
-layout: paradoxo
+layout: paradoxotext
 number: 30
 background: bus.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Brilho
-layout: paradoxo
+layout: paradoxotext
 number: 56
 background: heat.jpg
 ---

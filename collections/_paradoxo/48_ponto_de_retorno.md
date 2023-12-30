@@ -1,6 +1,6 @@
 ---
 title: Ponto de retorno
-layout: paradoxo
+layout: paradoxotext
 number: 48
 background: confinement.jpg
 ---

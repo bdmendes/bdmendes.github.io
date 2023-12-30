@@ -1,6 +1,6 @@
 ---
 title: Destino das frases
-layout: paradoxo
+layout: paradoxotext
 number: 13
 background: keyboard.jpg
 ---

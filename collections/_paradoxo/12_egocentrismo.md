@@ -1,6 +1,6 @@
 ---
 title: Egocentrismo
-layout: paradoxo
+layout: paradoxotext
 number: 12
 background: dark_shirts.jpg
 ---

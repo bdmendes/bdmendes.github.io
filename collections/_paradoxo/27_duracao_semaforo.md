@@ -1,6 +1,6 @@
 ---
 title: Duração de um semáforo
-layout: paradoxo
+layout: paradoxotext
 number: 27
 background: traffic_light.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Já não sinto borboletas
-layout: paradoxo
+layout: paradoxotext
 number: 61
 background: butterflies.jpg
 ---

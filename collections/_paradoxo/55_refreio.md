@@ -1,6 +1,6 @@
 ---
 title: (Re)freio
-layout: paradoxo
+layout: paradoxotext
 number: 55
 background: train.jpg
 ---

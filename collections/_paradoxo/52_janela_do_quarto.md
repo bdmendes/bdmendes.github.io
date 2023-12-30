@@ -1,6 +1,6 @@
 ---
 title: Janela do quarto
-layout: paradoxo
+layout: paradoxotext
 number: 52
 background: window.jpg
 ---

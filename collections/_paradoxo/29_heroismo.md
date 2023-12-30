@@ -1,6 +1,6 @@
 ---
 title: Heroísmo
-layout: paradoxo
+layout: paradoxotext
 number: 29
 background: train_door.jpg
 ---

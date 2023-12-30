@@ -1,7 +1,7 @@
 ---
 title: Filme de super-heróis
 background: superhero.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 18
 ---
 

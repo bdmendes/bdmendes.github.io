@@ -1,6 +1,6 @@
 ---
 title: Isto é coragem
-layout: paradoxo
+layout: paradoxotext
 number: 11
 background: gym.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Puzzle da vida
-layout: paradoxo
+layout: paradoxotext
 number: 34
 background: family.jpg
 ---

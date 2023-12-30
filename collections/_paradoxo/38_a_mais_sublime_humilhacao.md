@@ -1,6 +1,6 @@
 ---
 title: A mais sublime humilhação
-layout: paradoxo
+layout: paradoxotext
 number: 38
 background: sleeping_car.jpg
 ---

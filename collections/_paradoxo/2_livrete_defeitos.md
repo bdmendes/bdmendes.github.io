@@ -1,6 +1,6 @@
 ---
 title: Livrete de defeitos
-layout: paradoxo
+layout: paradoxotext
 background: dark_classroom.jpg
 number: 2
 ---

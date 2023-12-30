@@ -1,7 +1,7 @@
 ---
 title: Estrada da vida
 background: lightning.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 14
 ---
 

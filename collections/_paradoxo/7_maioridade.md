@@ -1,7 +1,7 @@
 ---
 title: Maioridade
 background: kid_running.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 7
 ---
 

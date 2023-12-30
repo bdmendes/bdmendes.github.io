@@ -78,7 +78,7 @@
                 </a>
               {% endfor %}
             </div>
-            <div class="flex flex-wrap flex-row md:min-w-fit md:flex-col mt-4 place-items-center gap-1 justify-center">
+            <div class="flex flex-wrap flex-row md:min-w-fit md:flex-col md:mb-2 mt-4 place-items-center gap-1 justify-center">
               {% if page.url == '/' %}
                 <a class="nav-btn-selected" href="/">About me</a>
               {% else %}
@@ -89,6 +89,11 @@
               {% else %}
                 <a class="nav-btn" href="/projects">Projects</a>
               {% endif %}
+              {% if page.url == '/blog.html' or page.layout == "blogpost" %}
+                <a class="nav-btn-selected" href="/blog">Blog</a>
+              {% else %}
+                <a class="nav-btn" href="/blog">Blog</a>
+              {% endif %}
             </div>
           </nav>
         {% endunless %}
@@ -98,18 +103,10 @@
         {% else %}
           {% assign backProps = "bg-neutral-900" %}
         {% endif %}
-        <div id="content" class="{{backProps}} rounded h-min overflow-y-scroll md:max-h-[90vh] p-4 md:grow text-lg w-full mx-2 my-4 md:m-0">
+        <div id="content" class="{{backProps}} rounded h-min overflow-y-auto md:max-h-[90vh] p-4 md:grow text-lg w-full mx-2 my-4 md:m-0">
           {{ content }}
         </div>
       </div>
     </div>
   </body>
-
-  <script>
-    const target = document.getElementById("content");
-    document.addEventListener("wheel", function (e) {
-      e.preventDefault();
-      target.scrollBy(e.deltaX, e.deltaY);
-    });
-  </script>
 </html>

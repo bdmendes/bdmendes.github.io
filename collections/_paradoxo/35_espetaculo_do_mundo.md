@@ -1,6 +1,6 @@
 ---
 title: Espetáculo do mundo
-layout: paradoxo
+layout: paradoxotext
 number: 35
 background: sunlight.jpg
 ---

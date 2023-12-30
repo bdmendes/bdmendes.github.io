@@ -1,7 +1,7 @@
 ---
 title: Garganta inflamada
 background: anxiety.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 3
 ---
 

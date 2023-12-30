@@ -1,6 +1,6 @@
 ---
 title: Ermesinde (por fora)
-layout: paradoxo
+layout: paradoxotext
 number: 60
 background: ermesinde.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: O que há no além?
-layout: paradoxo
+layout: paradoxotext
 number: 22
 background: death.jpg
 ---

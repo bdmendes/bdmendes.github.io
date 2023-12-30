@@ -1,7 +1,7 @@
 ---
 title: Autodestruição
 background: explosion.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 17
 ---
 

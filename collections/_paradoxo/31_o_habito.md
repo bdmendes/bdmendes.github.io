@@ -1,6 +1,6 @@
 ---
 title: O hábito
-layout: paradoxo
+layout: paradoxotext
 number: 31
 background: drinking.jpg
 ---

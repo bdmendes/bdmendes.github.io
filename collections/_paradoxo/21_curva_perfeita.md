@@ -1,6 +1,6 @@
 ---
 title: Curva perfeita
-layout: paradoxo
+layout: paradoxotext
 background: standing_car.jpg
 number: 21
 ---

@@ -1,6 +1,6 @@
 ---
 title: Gudejorge
-layout: paradoxo
+layout: paradoxotext
 number: 53
 background: sea_drown.jpg
 ---

@@ -1,7 +1,7 @@
 ---
 title: Piloto automático
 background: dark_road.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 6
 ---
 

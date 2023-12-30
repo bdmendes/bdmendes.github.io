@@ -1,7 +1,7 @@
 ---
 title: Chuva desesperada
 background: rain.jpg
-layout: paradoxo
+layout: paradoxotext
 number: 5
 ---
 

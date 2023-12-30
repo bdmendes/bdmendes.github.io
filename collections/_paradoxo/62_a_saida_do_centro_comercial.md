@@ -1,6 +1,6 @@
 ---
 title: À saída do centro comercial
-layout: paradoxo
+layout: paradoxotext
 number: 62
 background: ambulance.jpg
 ---
