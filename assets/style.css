@@ -56,14 +56,26 @@ img + em {
   @apply block text-center text-base text-neutral-400 my-2;
 }
 
-p:has(img) {
+p:has(img), iframe {
   @apply my-6;
+}
+
+p:has(img) > img {
+  @apply rounded mx-auto max-h-80;
 }
 
 blockquote {
   @apply border-l-4 border-neutral-600 pl-4 my-6 text-base;
 }
 
-img {
-  @apply rounded;
+table {
+  @apply w-full text-left my-6 rounded;
+}
+
+th, td {
+  @apply border border-neutral-600 px-3 py-1;
+}
+
+iframe {
+  @apply mx-auto;
 }
