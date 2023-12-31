@@ -89,7 +89,7 @@
               {% else %}
                 <a class="nav-btn" href="/projects">Projects</a>
               {% endif %}
-              {% if page.url == '/blog.html' or page.layout == "blogpost" %}
+              {% if page.url contains '/blog/' or page.layout == "blogpost" %}
                 <a class="nav-btn-selected" href="/blog">Blog</a>
               {% else %}
                 <a class="nav-btn" href="/blog">Blog</a>
@@ -103,7 +103,7 @@
         {% else %}
           {% assign backProps = "bg-neutral-900" %}
         {% endif %}
-        <div id="content" class="{{backProps}} rounded h-min overflow-y-auto md:max-h-[90vh] p-4 md:grow text-lg w-full mx-2 my-4 md:m-0">
+        <div id="content" class="{{backProps}} text-lg rounded h-min overflow-y-auto md:max-h-[90vh] p-4 md:grow w-full mx-2 my-4 md:m-0">
           {{ content }}
         </div>
       </div>

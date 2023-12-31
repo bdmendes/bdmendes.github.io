@@ -31,7 +31,7 @@ Playing classical over-the-board chess at big, open tournaments became an habit 
 
 Although open tournaments were an extraordinary opportunity to gain experience, at a young age, chess players are able to compete for titles in junior tournaments - spiritually, the highlight of the year. After playing district championships for some years without much luck, in 2019, after losing my first game and free of pressure, I won a game against a much higher rated player and started a streak of winning games to win my first chess title - U18 Braga District Champion.
 
-<iframe width="100%" src="https://lichess.org/study/embed/T3xDPX6G/CC0ii4ii" frameborder=0></iframe>
+<iframe width="100%" height="371" src="https://lichess.org/study/embed/T3xDPX6G/CC0ii4ii" frameborder=0></iframe>
 
 I also had the chance to finish the National School Tournament in the podium later that year.
 

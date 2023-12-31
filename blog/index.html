@@ -1,0 +1,56 @@
+---
+layout: default
+title: Blog
+description: Bruno Mendes' blog.
+---
+
+<div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+  {% for post in paginator.posts %}
+    <div class="box">
+      <h5 class="mb-1 truncate">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </h5>
+      <div class="text-base">{{ post.date | date: "%B %d, %Y" }}</div>
+      <img
+        src="/assets/blog/{{ post.image }}"
+        alt="{{ post.title }}"
+        class="aspect-video object-cover w-full my-3 rounded">
+      <div class="text-base">
+        {{ post.excerpt }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+  <div class="mt-4 mr-1">
+    <div class="w-fit ml-auto flex gap-8">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+      {% endif %}
+
+      <div class="flex gap-4">
+        {% assign current_page = paginator.page %}
+        {% assign page_range_start = current_page | minus: 2 %}
+        {% assign page_range_end = current_page | plus: 2 %}
+
+        {% for page in (page_range_start..page_range_end) %}
+          {% if page < 1 or page > paginator.total_pages %}
+            {% continue %}
+          {% endif %}
+          {% if page == paginator.page %}
+            <span class="font-bold">{{ page }}</span>
+          {% elsif page == 1 %}
+            <a href="{{ '/blog' | relative_url }}">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
