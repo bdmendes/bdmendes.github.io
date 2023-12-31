@@ -13,7 +13,7 @@ I started to win some games in our home disputes and one day, at 13, I showed up
 ![](/assets/blog/chess_young1.jpg)
 *Me at my very first tournament, in Barcelos. My kingside is very weak here, but it was probably left unexploited by my young opponent.*
 
-I was admittelly excited. At the end of the tournament, I was invited by a local club director to join the club's activities, and so my journey as a club chess player began. After some months of attending lessons, I started to gain some positional knowledge and won my very first classical chess games. This was tougher than I expected - I was going against players with much more experience at my age, and my rating was still very low, below 1200. A rough view of the level corresponding to each [ELO](https://en.wikipedia.org/wiki/Elo_rating_system) rating range can be seen below.
+I was admittedly excited. At the end of the tournament, I was invited by a local club director to join the club's activities, and so my journey as a club chess player began. After some months of attending lessons, I started to gain some positional knowledge and won my very first classical chess games. This was tougher than I expected - I was going against players with much more experience at my age, and my rating was still very low, below 1200. A rough view of the level corresponding to each [ELO](https://en.wikipedia.org/wiki/Elo_rating_system) rating range can be seen below.
 
 | Rating    | Level        |
 |-----------|--------------|
@@ -27,7 +27,7 @@ I was admittelly excited. At the end of the tournament, I was invited by a local
 Playing classical over-the-board chess at big, open tournaments became an habit and I got the chance to play against very good players, including the best players in Portugal.
 
 ![](/assets/blog/chess_open.jpg)
-*As you start to win some gains in an open [swiss-based](https://en.wikipedia.org/wiki/Swiss-system_tournament) tournament, you are able to play games in nice wood tables like this one and play against very experienced players, with live online transmission.*
+*As you start to win some games in an open [swiss-based](https://en.wikipedia.org/wiki/Swiss-system_tournament) tournament, you are able to play games in nice wood tables like this one and play against very experienced players, with live online transmission.*
 
 Although open tournaments were an extraordinary opportunity to gain experience, at a young age, chess players are able to compete for titles in junior tournaments - spiritually, the highlight of the year. After playing district championships for some years without much luck, in 2019, after losing my first game and free of pressure, I won a game against a much higher rated player and started a streak of winning games to win my first chess title - U18 Braga District Champion.
 
@@ -36,7 +36,7 @@ Although open tournaments were an extraordinary opportunity to gain experience, 
 I also had the chance to finish the National School Tournament in the podium later that year.
 
 ![](/assets/blog/chess_school.jpg)
-*The team Felgueiras' Secondary School brought to the 2019 School Regionals.*
+*The players Felgueiras' High School brought to the 2019 School Regionals.*
 
 The next year saw its tournaments cancelled because of the pandemic. After the competition resumed, in 2021, I won the Porto U20 District Championship in my last year as a junior.
 
