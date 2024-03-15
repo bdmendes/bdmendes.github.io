@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playpen+Sans:wght@100..800&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     {% if page.description %}
       <meta name="description" content="{{ page.description }}" />
     {% elsif layout.description %}
@@ -12,19 +18,7 @@
       <meta name="description" content="{{ site.description }}" />
     {% endif %}
     <title>
-      {% if page.standalone or layout.standalone %}
-        {% if page.title and page.collection %}
-          {{ page.title }} | {{ page.collection | capitalize }}
-        {% elsif page.title %}
-          {{ page.title }}
-        {% elsif page.collection %}
-          {{
-            page.collection | capitalize }}
-        {% else %}
-          {{ site.title }}
-        {% endif %}
-      {%
-        elsif page.title %}
+      {% if page.title %}
         {{ page.title }} | {{ site.title }}
       {% else %}
         {{
@@ -56,19 +50,20 @@
     {% endif %}
   </head>
 
-  <body class="bg-neutral-950">
+  <body class="bg-neutral-950 text-slate-300">
     {% if background %}
       <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    <div class="top-0 absolute flex w-screen min-h-screen md:place-items-center text-slate-300 z-10">
-      <div class="basis-full flex flex-col md:flex-row max-w-4xl mx-auto px-4 place-items-center md:gap-4">
-        {% unless page.standalone or layout.standalone %}
-          <nav class="grow-0 flex md:min-w-fit m-2 flex-col place-items-center justify-center text-xl no-underline">
-            <img
-              src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
-              alt="logo"
-              class="mt-2 mb-4 w-24 h-24 rounded-full brightness-90 drop-shadow-2xl" />
-            <div class="flex gap-4 mt-2">
+    <div class="max-w-3xl mx-auto">
+      <nav class="grow-0 flex md:min-w-fit m-8 flex-col place-items-center justify-center text-xl no-underline">
+        <div class="flex place-items-center gap-4">
+          <img
+            src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
+            alt="logo"
+            class="w-32 h-32 rounded-full brightness-90 drop-shadow-2xl" />
+          <div class="flex flex-col gap-1 z-10">
+            <h1 class="shantell-sans">Bruno Mendes</h1>
+            <div class="flex gap-4 mt-2 z-10">
               {% for page in site.social %}
                 <a href="{{ page.url }}" target="_blank">
                   <img
@@ -78,34 +73,26 @@
                 </a>
               {% endfor %}
             </div>
-            <div class="flex flex-wrap flex-row md:min-w-fit md:flex-col md:mb-2 mt-4 place-items-center gap-1 justify-center">
-              {% if page.url == '/' %}
-                <a class="nav-btn-selected" href="/">About me</a>
-              {% else %}
-                <a class="nav-btn" href="/">About me</a>
-              {% endif %}
-              {% if page.url == '/projects.html' %}
-                <a class="nav-btn-selected" href="/projects">Projects</a>
-              {% else %}
-                <a class="nav-btn" href="/projects">Projects</a>
-              {% endif %}
-              {% if page.url contains '/blog/' or page.layout == "blogpost" %}
-                <a class="nav-btn-selected" href="/blog">Blog</a>
-              {% else %}
-                <a class="nav-btn" href="/blog">Blog</a>
-              {% endif %}
-            </div>
-          </nav>
-        {% endunless %}
-
-        {% if background %}
-          {% assign backProps = "backdrop-blur-2xl" %}
-        {% else %}
-          {% assign backProps = "bg-neutral-900" %}
-        {% endif %}
-        <div id="content" class="{{backProps}} text-lg rounded h-min overflow-y-auto md:max-h-[90vh] p-4 md:grow w-full mx-2 my-4 md:m-0">
-          {{ content }}
+          </div>
         </div>
+        <div class="flex mt-6 place-items-center gap-1 justify-center z-10">
+          {% for p in site.navigation %}
+            {% if page.url == p.url %}
+              <a class="nav-btn-selected" href="{{p.url}}">{{ p.name }}</a>
+            {% else %}
+              <a class="nav-btn" href="{{p.url}}">{{ p.name }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </nav>
+
+      {% if background %}
+        {% assign backProps = "backdrop-blur-2xl" %}
+      {% else %}
+        {% assign backProps = "bg-neutral-900" %}
+      {% endif %}
+      <div id="content" class="{{backProps}} rounded p-4 md:grow mb-10 mx-2">
+        {{ content }}
       </div>
     </div>
   </body>

@@ -7,9 +7,9 @@ description: Bruno Mendes' blog.
 <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
   {% for post in paginator.posts %}
     <div class="box">
-      <h5 class="mb-1 truncate">
+      <h4 class="mb-1">
         <a href="{{ post.url }}">{{ post.title }}</a>
-      </h5>
+      </h4>
       <div class="text-base">{{ post.date | date: "%B %d, %Y" }}</div>
       <img
         src="/assets/blog/{{ post.image }}"

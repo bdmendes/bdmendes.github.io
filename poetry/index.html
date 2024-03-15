@@ -1,0 +1,17 @@
+---
+layout: default
+background: moon_big.jpg
+title: Poetry
+---
+
+{% assign texts = site.poetry | sort: "number" %}
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-1">
+  {% for text in texts %}
+    <a href="{{ text.url }}" class="box">
+      <div>{{ text.title }}</div>
+    </a>
+  {% endfor %}
+</div>
+
+<br/>

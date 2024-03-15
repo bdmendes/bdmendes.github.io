@@ -1,6 +1,6 @@
 ---
 title: My journey as a young club chess player
-layout: blogpost
+layout: post
 image: chess_young1.jpg
 ---
 
