@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/dist/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playpen+Sans:wght@100..800&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     {% if page.description %}
       <meta name="description" content="{{ page.description }}" />
     {% elsif layout.description %}
@@ -62,7 +57,7 @@
             alt="logo"
             class="w-32 h-32 rounded-full brightness-90 drop-shadow-2xl" />
           <div class="flex flex-col gap-1 z-10">
-            <h1 class="shantell-sans">Bruno Mendes</h1>
+            <h1>Bruno Mendes</h1>
             <div class="flex gap-4 mt-2 z-10">
               {% for page in site.social %}
                 <a href="{{ page.url }}" target="_blank">
