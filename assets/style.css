@@ -30,6 +30,36 @@
   svg {
     @apply fill-current;
   }
+
+  img + em {
+    @apply block text-center text-base text-neutral-400 my-2;
+  }
+
+  p:has(img),
+  iframe {
+    @apply my-6;
+  }
+
+  p:has(img) > img {
+    @apply rounded mx-auto max-h-80;
+  }
+
+  blockquote {
+    @apply border-l-4 border-neutral-600 pl-4 my-6 text-base;
+  }
+
+  table {
+    @apply w-full text-left my-6 rounded;
+  }
+
+  th,
+  td {
+    @apply border border-neutral-600 px-3 py-1;
+  }
+
+  iframe {
+    @apply mx-auto;
+  }
 }
 
 @layer components {
@@ -38,7 +68,7 @@
   }
 
   .nav-btn {
-    @apply p-2;
+    @apply p-2 hover:bg-neutral-900 hover:rounded;
   }
 
   .box {
@@ -48,34 +78,4 @@
   .chip {
     @apply p-2 bg-sky-900 rounded-full px-2 py-1 text-xs font-bold text-white w-min;
   }
-}
-
-
-
-img + em {
-  @apply block text-center text-base text-neutral-400 my-2;
-}
-
-p:has(img), iframe {
-  @apply my-6;
-}
-
-p:has(img) > img {
-  @apply rounded mx-auto max-h-80;
-}
-
-blockquote {
-  @apply border-l-4 border-neutral-600 pl-4 my-6 text-base;
-}
-
-table {
-  @apply w-full text-left my-6 rounded;
-}
-
-th, td {
-  @apply border border-neutral-600 px-3 py-1;
-}
-
-iframe {
-  @apply mx-auto;
 }

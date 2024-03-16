@@ -49,16 +49,16 @@
     {% if background %}
       <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    <div class="max-w-3xl mx-auto">
-      <nav class="grow-0 flex md:min-w-fit m-8 flex-col place-items-center justify-center text-xl no-underline">
-        <div class="flex place-items-center gap-4">
+    <main class="max-w-3xl mx-auto mt-8 z-10 relative">
+      <div class="flex md:min-w-fit m-4 flex-col place-items-center justify-center text-xl no-underline">
+        <header class="flex place-items-center gap-4 grow-0">
           <img
             src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
             alt="logo"
             class="w-32 h-32 rounded-full brightness-90 drop-shadow-2xl" />
-          <div class="flex flex-col gap-1 z-10">
+          <div class="flex flex-col gap-1 w-min">
             <h1>Bruno Mendes</h1>
-            <div class="flex gap-4 mt-2 z-10">
+            <div class="flex gap-4 mt-2">
               {% for page in site.social %}
                 <a href="{{ page.url }}" target="_blank">
                   <img
@@ -69,8 +69,8 @@
               {% endfor %}
             </div>
           </div>
-        </div>
-        <div class="flex mt-6 place-items-center gap-1 justify-center z-10">
+        </header>
+        <nav class="flex mt-6 place-items-center gap-1 justify-center">
           {% for p in site.navigation %}
             {% if page.url == p.url %}
               <a class="nav-btn-selected" href="{{p.url}}">{{ p.name }}</a>
@@ -78,17 +78,17 @@
               <a class="nav-btn" href="{{p.url}}">{{ p.name }}</a>
             {% endif %}
           {% endfor %}
-        </div>
-      </nav>
+        </nav>
+      </div>
 
       {% if background %}
         {% assign backProps = "backdrop-blur-2xl" %}
       {% else %}
         {% assign backProps = "bg-neutral-900" %}
       {% endif %}
-      <div id="content" class="{{backProps}} rounded p-4 md:grow mb-10 mx-2">
+      <div id="content" class="{{backProps}} rounded p-4 md:grow my-6">
         {{ content }}
       </div>
-    </div>
+    </main>
   </body>
 </html>

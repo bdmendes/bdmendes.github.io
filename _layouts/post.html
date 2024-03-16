@@ -2,8 +2,10 @@
 layout: default
 ---
 
+{% assign prev = page.url | split: '/' | slice: 1, 1 %}
+
 <div class="flex pb-2 gap-4">
-  <button onclick="history.back()" class="text-4xl mt-[-0.125em] text-sky-300">←</button>
+  <a href="/{{prev}}" class="text-4xl text-sky-300">←</a>
   <h2 class="mt-1">{{ page.title }}</h2>
 </div>
 
