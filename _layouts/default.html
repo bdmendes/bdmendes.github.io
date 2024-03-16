@@ -49,15 +49,15 @@
     {% if background %}
       <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    <main class="max-w-3xl mx-auto mt-8 z-10 relative">
+    <main class="max-w-3xl mx-auto p-4 z-10 relative">
       <div class="flex md:min-w-fit m-4 flex-col place-items-center justify-center text-xl no-underline">
         <header class="flex place-items-center gap-4 grow-0">
           <img
             src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
             alt="logo"
             class="w-32 h-32 rounded-full brightness-90 drop-shadow-2xl" />
-          <div class="flex flex-col gap-1 w-min">
-            <h1>Bruno Mendes</h1>
+          <div class="flex flex-col gap-1">
+            <h1 class="w-min">Bruno Mendes</h1>
             <div class="flex gap-4 mt-2">
               {% for page in site.social %}
                 <a href="{{ page.url }}" target="_blank">
@@ -71,8 +71,9 @@
           </div>
         </header>
         <nav class="flex mt-6 place-items-center gap-1 justify-center">
+          {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' | append: '/' %}
           {% for p in site.navigation %}
-            {% if page.url == p.url %}
+            {% if mainUrl == p.url %}
               <a class="nav-btn-selected" href="{{p.url}}">{{ p.name }}</a>
             {% else %}
               <a class="nav-btn" href="{{p.url}}">{{ p.name }}</a>
@@ -86,7 +87,7 @@
       {% else %}
         {% assign backProps = "bg-neutral-900" %}
       {% endif %}
-      <div id="content" class="{{backProps}} rounded p-4 md:grow my-6">
+      <div id="content" class="{{backProps}} rounded p-4 md:grow mt-6">
         {{ content }}
       </div>
     </main>

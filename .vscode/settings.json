@@ -5,5 +5,11 @@
   "[liquid]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "sissel.shopify-liquid"
-  }
+  },
+  "grammarly.selectors": [
+    {
+      "language": "markdown",
+      "scheme": "file"
+    }
+  ]
 }

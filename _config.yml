@@ -19,6 +19,9 @@ social:
   - name: email
     icon: mail-line.svg
     url: mailto:bd_mendes@outlook.com
+  - name: cv
+    icon: cv.svg
+    url: /assets/about-me/bdmendes-cv.pdf
 
 navigation:
   - name: About me
