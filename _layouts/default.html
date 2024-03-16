@@ -116,7 +116,7 @@
           </div>
         </header>
         <nav class="flex mt-6 place-items-center gap-1 justify-center">
-          {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' | append: '/' %}
+          {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' %}
           {% for p in site.navigation %}
             {% if mainUrl == p.url %}
               <a class="nav-btn-selected" href="{{p.url}}">{{ p.name }}</a>

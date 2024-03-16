@@ -4,7 +4,7 @@ layout: post
 image: one_day_vs.png
 ---
 
-I was mesmerized when I saw the *One Day* movie for the first time when I was a little teenager.
+I was mesmerized when I saw the *One Day* movie for the first time as a little teenager.
 
 Even though I hadn't experienced either of the protagonists' struggles at the time, Dexter's dependence and frivolous life or Emma's unnerving routine, the movie stuck with me immediately. It became apparent to me that these represented a somewhat likely outcome of life for the future me, as I understood that it would be easy to succumb to a completely mundane life if I were to accommodate to routine and basic affairs, or to a life of chasing the daily dopamine hit, disconnected from people. I was determined not to be Dexter and not to be Emma. I was determined to chase beauty in balance.
 
