@@ -2,7 +2,7 @@
 title: Contigo eu sou feliz
 layout: post
 number: 15
-background: marriage.jpg
+background: marriage_dream.jpg
 ---
 
 Vou casar contigo. Levo-te para o coração da metrópole, ao final da tarde, chuva caindo, e ajoelho-me. Imagino a excitação do público, a lágrima na tua face, o meu sorriso nervoso, a tua mão paralisada, a minha falta de equilíbrio.
