@@ -94,7 +94,7 @@
     {% if background %}
       <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    <main class="max-w-3xl mx-auto p-4 z-10 relative">
+    <main class="max-w-3xl mx-auto px-4 py-6 z-10 relative">
       <div class="flex md:min-w-fit m-4 flex-col place-items-center justify-center text-xl no-underline">
         <header class="flex place-items-center gap-4 grow-0">
           <img
@@ -115,7 +115,7 @@
             </div>
           </div>
         </header>
-        <nav class="flex mt-6 place-items-center gap-1 justify-center">
+        <nav class="flex mt-8 place-items-center gap-1 justify-center">
           {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' %}
           {% for p in site.navigation %}
             {% if mainUrl == p.url %}
@@ -132,7 +132,7 @@
       {% else %}
         {% assign backProps = "bg-neutral-900" %}
       {% endif %}
-      <div id="content" class="{{backProps}} rounded p-4 md:grow my-6">
+      <div id="content" class="{{backProps}} rounded p-4 md:grow mt-6 mb-2">
         {{ content }}
       </div>
     </main>
