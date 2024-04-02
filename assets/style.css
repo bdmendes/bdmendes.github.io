@@ -45,7 +45,7 @@
   }
 
   blockquote {
-    @apply border-l-4 border-neutral-600 pl-4 my-6 text-base;
+    @apply border-l-4 border-neutral-600 pl-4 my-4 text-base text-slate-400;
   }
 
   table {

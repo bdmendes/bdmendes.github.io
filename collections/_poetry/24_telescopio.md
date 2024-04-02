@@ -1,7 +1,7 @@
 ---
 title: Telescópio
 layout: post
-number: 23
+number: 24
 background: night_sky.jpg
 ---
 

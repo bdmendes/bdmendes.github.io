@@ -1,7 +1,7 @@
 ---
 title: Monomania
 layout: post
-number: 24
+number: 25
 background: monomania.jpg
 ---
 

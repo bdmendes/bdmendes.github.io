@@ -1,7 +1,7 @@
 ---
 title: Gudejorge
 layout: post
-number: 25
+number: 26
 background: sea_drown.jpg
 ---
 
