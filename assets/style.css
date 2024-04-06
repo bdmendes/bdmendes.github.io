@@ -31,8 +31,9 @@
     @apply fill-current;
   }
 
-  img + em {
-    @apply block text-center text-base text-neutral-400 my-2;
+  img + em,
+  .label {
+    @apply block text-center text-base text-neutral-400 my-2 max-w-lg mx-auto;
   }
 
   p:has(img),
