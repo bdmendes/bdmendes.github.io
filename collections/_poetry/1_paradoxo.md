@@ -1,7 +1,7 @@
 ---
 title: Paradoxo
 layout: post
-background: sea_moon.jpg
+background: moon_big.jpg
 number: 1
 ---
 

@@ -1,12 +1,12 @@
 ---
 layout: default
-background: moon_big.jpg
+background: sea_moon.jpg
 title: Poetry
 ---
 
 {% assign texts = site.poetry | sort: "number" | reverse %}
 
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
   {% for text in texts %}
     <a href="{{ text.url }}" class="box">
       <div>{{ text.title }}</div>

@@ -66,12 +66,25 @@
     <meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    {% if page.description %}
+    {% assign background = page.background | default: layout.background | default: site.background %}
+
+    {% if page.image %}
+      <meta name="image" content="{{site.url}}/assets/blog/{{ page.image }}" />
+      <meta property="og:image" content="{{site.url}}/assets/blog/{{ page.image }}" />
+    {% elsif background %}
+      <meta name="image" content="{{site.url}}/assets/background/{{ background }}" />
+      <meta property="og:image" content="{{site.url}}/assets/background/{{ background }}" />
+    {% endif %}
+
+    {% if page.excerpt %}
+      <meta name="description" content="{{ page.excerpt }}" />
+      <meta property="og:description" content="{{ page.excerpt }}" />
+    {% elsif page.description %}
       <meta name="description" content="{{ page.description }}" />
-    {% elsif layout.description %}
-      <meta name="description" content="{{ layout.description }}" />
+      <meta property="og:description" content="{{ page.description }}" />
     {% elsif site.description %}
       <meta name="description" content="{{ site.description }}" />
+      <meta property="og:description" content="{{ site.description }}" />
     {% endif %}
     <title>
       {% if page.title %}
@@ -81,7 +94,6 @@
           site.title }}
       {% endif %}
     </title>
-    {% assign background = page.background | default: layout.background | default: site.background %}
     {% if background %}
       <link
         rel="preload"
