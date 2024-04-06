@@ -95,7 +95,7 @@
       <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
     <main class="max-w-3xl mx-auto px-4 py-6 z-10 relative">
-      <div class="flex md:min-w-fit m-4 flex-col place-items-center justify-center text-xl no-underline">
+      <div class="flex min-w-fit m-4 mt-2 flex-col place-items-center justify-center text-xl no-underline">
         <header class="flex place-items-center gap-4 grow-0">
           <img
             src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
@@ -132,7 +132,7 @@
       {% else %}
         {% assign backProps = "bg-neutral-900" %}
       {% endif %}
-      <div id="content" class="{{backProps}} rounded p-4 md:grow mt-6 mb-2">
+      <div id="content" class="{{backProps}} rounded p-4 mt-6 mb-2">
         {{ content }}
       </div>
     </main>

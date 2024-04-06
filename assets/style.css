@@ -41,7 +41,7 @@
   }
 
   p:has(img) > img {
-    @apply rounded mx-auto max-h-80;
+    @apply rounded mx-auto max-h-64;
   }
 
   blockquote {
