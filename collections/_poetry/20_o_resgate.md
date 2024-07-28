@@ -1,5 +1,5 @@
 ---
-title: Trindade
+title: O resgate
 layout: post
 number: 20
 background: trindade.jpg
