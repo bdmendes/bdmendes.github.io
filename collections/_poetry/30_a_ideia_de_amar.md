@@ -5,6 +5,8 @@ number: 30
 background: the_idea_of_love.jpg
 ---
 
+> "Não sei se te amo ou se odeio saudade" - Yuri NR5 em *São Paulo*
+
 O que constitui a completa devoção ao outro?  
 O que explica os condicionalismos que infliges?  
 O que posso fazer para que ames um pouco mais?  

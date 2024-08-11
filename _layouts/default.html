@@ -104,7 +104,10 @@
 
   <body class="bg-neutral-950 text-slate-300">
     {% if background %}
-      <div class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed" style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
+      <div
+        id="background"
+        class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed"
+        style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
     <main class="max-w-3xl mx-auto px-4 py-6 z-10 relative">
       <div class="flex min-w-fit m-4 mt-2 flex-col place-items-center justify-center text-xl no-underline">

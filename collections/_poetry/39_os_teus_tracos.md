@@ -5,6 +5,8 @@ number: 39
 background: foz_douro.jpg
 ---
 
+> Com David Preda.
+
 Hoje viajei pelo teu mundo  
 Deambulei pelos teus traços  
 Descolei por um segundo  
@@ -22,5 +24,3 @@ Enfim, um retrato do passado.
 Amanhã viajo pelo meu mundo  
 Sem por um segundo sair de mim.  
 O mesmo que hoje, no fundo.  
-
-<div style="text-align: right; font-style: italic;">Com David Preda</div>
