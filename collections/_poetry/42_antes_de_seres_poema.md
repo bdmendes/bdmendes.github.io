@@ -21,7 +21,7 @@ não porque te temo ou me magoas
 mas porque me magoa pensar  
 que posso ter de viver sem ti,  
 e temo pelo momento em que te vais  
-para sempre, e fico só e desolado 
+para sempre, me deixas só e desolado 
 
 Anseio então viver depressa,  
 sentir-te depressa, antes que o tempo  
