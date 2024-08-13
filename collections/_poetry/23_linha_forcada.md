@@ -5,6 +5,8 @@ number: 23
 background: time.jpg
 ---
 
+> Forcado: ponto de bifurcação.
+
 Não reparei em nada, Como assim, vou passar outra vez, Nada, Não viste?
 
 É potente e farfalhudo descobrir um caso secreto de paixão, rodeado de pompa e finos baratos, mas depois há de cair no esquecimento ou repetir-se com outros protagonistas.

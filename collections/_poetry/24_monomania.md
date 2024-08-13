@@ -1,9 +1,11 @@
 ---
 title: Monomania
 layout: post
-number: 25
+number: 24
 background: monomania.jpg
 ---
+
+> "Will I ever be enough for me?" - The World Alive em *Monomania*
 
 Viver presumindo que o mundo é fundado em bondade é potencialmente fatal. Sei eu disto nas horas livres em que atravesso as ruas e aceno aos motoristas, mas o pensamento se desvanece quando há que encarar a massa populacional que me rodeia e me dá propósito.
 

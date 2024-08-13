@@ -1,7 +1,7 @@
 ---
 title: Já não sinto borboletas
 layout: post
-number: 32
+number: 28
 background: butterflies.jpg
 ---
 

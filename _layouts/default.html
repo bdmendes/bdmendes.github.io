@@ -106,12 +106,17 @@
     {% if background %}
       <div
         id="background"
-        class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[15%] top-0 fixed"
+        class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed"
         style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    <main class="max-w-3xl mx-auto px-4 py-6 z-10 relative">
+    {% if background %}
+      {% assign headerOpacity = "opacity-80" %}
+    {% else %}
+      {% assign headerOpacity = "" %}
+    {% endif %}
+    <main class="max-w-3xl mx-auto px-4 py-6 z-10 relative ">
       <div class="flex min-w-fit m-4 mt-2 flex-col place-items-center justify-center text-xl no-underline">
-        <header class="flex place-items-center gap-4 grow-0">
+        <header class="{{headerOpacity}} flex place-items-center gap-4 grow-0">
           <img
             src="{{site.baseurl}}/assets/about-me/bdmendes.jpg"
             alt="logo"
@@ -130,7 +135,7 @@
             </div>
           </div>
         </header>
-        <nav class="flex mt-8 place-items-center gap-1 justify-center">
+        <nav class="{{headerOpacity}} flex mt-8 place-items-center gap-1 justify-center">
           {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' %}
           {% for p in site.navigation %}
             {% if mainUrl == p.url %}

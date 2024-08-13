@@ -1,7 +1,7 @@
 ---
 title: O problema do controlo
 layout: post
-number: 35
+number: 31
 background: power_fly.jpg
 ---
 

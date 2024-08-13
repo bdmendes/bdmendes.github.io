@@ -1,7 +1,7 @@
 ---
 title: Senhor Dominic
 layout: post
-number: 29
+number: 26
 background: old_people.jpg
 ---
 

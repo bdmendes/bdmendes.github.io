@@ -1,7 +1,7 @@
 ---
 title: Esperei por ti
 layout: post
-number: 38
+number: 34
 background: waiting_control.jpg
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: A ideia de amar
 layout: post
-number: 30
+number: 27
 background: the_idea_of_love.jpg
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: A letargia do sonho
 layout: post
-number: 36
+number: 32
 background: love_dream.jpg
 ---
 

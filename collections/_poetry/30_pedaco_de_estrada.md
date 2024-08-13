@@ -1,7 +1,7 @@
 ---
 title: Pedaço de estrada
 layout: post
-number: 34
+number: 30
 background: night_road.jpg
 ---
 

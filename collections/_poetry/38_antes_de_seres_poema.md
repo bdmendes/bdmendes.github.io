@@ -1,7 +1,7 @@
 ---
 title: Antes de seres poema
 layout: post
-number: 42
+number: 38
 background: woman_abstract.jpg
 ---
 
@@ -30,7 +30,7 @@ se intrometa nas palavras, coloque vírgulas
 no desejo, me impeça de escrever sobre amar  
 
 E na urgência de sentir tudo ao mesmo tempo,  
-que fiques e não me deixes uma vez mais só,  
+que fiques e não me deixes só e desolado,  
 esqueço que antes de seres poema és real,  
 és de carne e osso e não de funções sintáticas,  
 és língua latina complexa sem gramática  
