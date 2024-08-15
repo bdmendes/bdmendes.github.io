@@ -5,10 +5,19 @@ title: Poetry
 
 {% assign texts = site.poetry | sort: "number" | reverse %}
 
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
   {% for text in texts %}
-    <a href="{{ text.url }}" class="box">
-      <div>{{ text.title }}</div>
-    </a>
+    <div class="box relative">
+      <div class="absolute box bottom-0 left-0 z-10 px-2 py-1 rounded-none box-detail">
+        <a href="{{ text.url }}" class="text-inherit text-center">{{ text.title }}</a>
+      </div>
+      <a href="{{ text.url }}" class="box">
+        <img
+          loading="lazy"
+          src="/assets/background/{{ text.background }}"
+          alt="{{ text.title }}"
+          class="aspect-[2/1] object-cover mx-auto w-full max-w-sm sm:max-w-full" />
+      </a>
+    </div>
   {% endfor %}
 </div>

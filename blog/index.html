@@ -6,21 +6,23 @@ description: Bruno Mendes' blog.
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
   {% for post in paginator.posts %}
-    <div class="box">
+    <div class="box pb-2 flex flex-col gap-3">
       <a href="{{ post.url }}">
         <div>
           <img
             href="{{ post.url }}"
             src="/assets/blog/{{ post.image }}"
             alt="{{ post.title }}"
-            class="aspect-video object-cover mt-1 mb-3 mx-auto w-full max-w-sm sm:max-w-full" />
+            class="aspect-video object-cover mx-auto w-full max-w-sm sm:max-w-full" />
         </div>
       </a>
-      <h4 class="mb-1">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </h4>
-      <div class="text-base">
-        {{ post.excerpt }}
+      <div>
+        <h4 class="mb-1 mx-2">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h4>
+        <div class="text-base mx-2">
+          {{ post.excerpt }}
+        </div>
       </div>
     </div>
   {% endfor %}
