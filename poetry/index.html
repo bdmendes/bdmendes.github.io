@@ -11,9 +11,9 @@ title: Poetry
   placeholder="Pesquisar poemas..."
   class="box p-2 w-full mb-4 rounded-lg">
 
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
   {% for text in texts %}
-    <div class="box poetry-item {% if forloop.index > 9 %}hidden{% endif %}">
+    <div class="box poetry-item {% if forloop.index > 12 %}hidden{% endif %}">
       <a href="{{ text.url }}" class="box">
         <img
           loading="lazy"
@@ -28,8 +28,8 @@ title: Poetry
   {% endfor %}
 </div>
 
-<div class="flex mt-4">
-  <button id="showMore" class="box p-2 mx-auto rounded-full">Ver mais</button>
+<div class="flex">
+  <button id="showMore" class="box p-2 mx-auto rounded-full mt-4">Ver mais</button>
 </div>
 
 <style>
@@ -45,9 +45,9 @@ title: Poetry
 <script>
   // Show More functionality
   document.getElementById("showMore").addEventListener("click", function() {
-    // Show the next 9 hidden boxes
+    // Show the next 12 hidden boxes
     const hiddenBoxes = document.querySelectorAll('.grid .box.hidden');
-    for (let i = 0; i < 9 && i < hiddenBoxes.length; i++) {
+    for (let i = 0; i < 12 && i < hiddenBoxes.length; i++) {
       hiddenBoxes[i].classList.remove('hidden');
     }
 
@@ -61,28 +61,23 @@ title: Poetry
     const query = this.value.toLowerCase();
     const items = document.querySelectorAll('.poetry-item');
 
+    // Hide "Show More" if input is not empty
+    if (query.length > 0) {
+      document.getElementById('showMore').style.display = 'none';
+    } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
+      document.getElementById('showMore').style.display = 'block';
+    }
+
+    // Show first 12 results
+    let found = 0;
     items.forEach(function(item) {
       const title = item.querySelector('.poem-title').textContent.toLowerCase();
-      if (title.trim().includes(query.trim())) {
+      if (found < 12 && title.trim().includes(query.trim())) {
         item.classList.remove('hidden');
-      } else {
+        found++;
+      } else if (!item.classList.contains('hidden')) {
         item.classList.add('hidden');
       }
     });
-
-    // Adjust the visibility of the "Show More" button based on search results
-    const hiddenBoxes = document.querySelectorAll('.grid .poetry-item.hidden');
-    const visibleBoxes = document.querySelectorAll('.grid .poetry-item:not(.hidden)');
-    
-    if (visibleBoxes.length > 9) {
-      document.getElementById("showMore").style.display = 'block';
-      visibleBoxes.forEach(function(box, index) {
-        if (index >= 9) {
-          box.classList.add('hidden');
-        }
-      });
-    } else {
-      document.getElementById("showMore").style.display = 'none';
-    }
   });
 </script>
