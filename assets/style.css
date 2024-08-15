@@ -42,19 +42,15 @@
   }
 
   p:has(img) > img {
-    @apply rounded mx-auto max-h-64;
+    @apply mx-auto max-h-64;
   }
 
   blockquote {
     @apply border-l-2 border-neutral-600 pl-2 my-3 text-base text-slate-400 max-w-min min-w-fit;
   }
 
-  blockquote > p {
-    @apply m-0;
-  }
-
   table {
-    @apply w-full text-left my-6 rounded;
+    @apply w-full text-left my-6;
   }
 
   th,
@@ -69,15 +65,15 @@
 
 @layer components {
   .nav-btn-selected {
-    @apply p-2 bg-neutral-900 rounded;
+    @apply p-2 px-4 bg-neutral-900 rounded-full;
   }
 
   .nav-btn {
-    @apply p-2 hover:bg-neutral-900 hover:rounded;
+    @apply p-2 px-4 hover:bg-neutral-900 hover:rounded-full;
   }
 
   .box {
-    @apply p-2 bg-neutral-800 rounded;
+    @apply p-2 bg-neutral-800;
   }
 
   .chip {

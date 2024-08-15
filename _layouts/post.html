@@ -7,7 +7,7 @@ layout: default
 <div class="mb-3 gap-2 flex flex-col sm:flex-row sm:gap-4 grow justify-between sm:items-center">
   <h2 class="mb-0">{{ page.title }}</h2>
   {% unless page.background %}
-    <div class="shrink-0 rounded h-fit mb-2 sm:mb-0 sm:p-1 sm:bg-neutral-800 w-fit">
+    <div class="shrink-0 h-fit mb-2 sm:mb-0 sm:p-1 sm:bg-neutral-800 w-fit">
       {{ page.date | date: "%b %d, %Y" }}
     </div>
   {% endunless %}
