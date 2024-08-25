@@ -3,9 +3,9 @@ layout: default
 title: About
 ---
 
-## Hey! I'm Bruno Mendes.
+### Hey! Welcome to my personal website.
 
-I'm a [software engineer](/assets/about-me/bdmendes-cv.pdf) based in Porto, Portugal, with a degree from the [Faculty of Engineering of the University of Porto](https://sigarra.up.pt/feup/en). My main interests revolve around software architecture, programming languages design and embedded programming. You can find most of my projects on [GitHub](https://github.com/bdmendes).
+I'm a [software engineer](/assets/about-me/bdmendes-cv.pdf) based in Porto, Portugal, with a degree from [FEUP](https://sigarra.up.pt/feup/en).
 
 I share some of my stories and thoughts on [my blog](/blog), or through [poetry](/poetry). When I'm not coding or writing, you'll probably find me [playing chess](https://lichess.org/@/brod56), hitting the gym or watching a nice movie.
 
