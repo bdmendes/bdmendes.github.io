@@ -6,7 +6,7 @@ layout: default
 
 <h2 class="mb-3 {% unless page.background %}mr-16{% endunless %}">{{ page.title }}</h2>
 {% unless page.background %}
-  <div class="absolute bg-neutral-800 w-fit right-0 top-0 z-20 p-1">
+  <div class="absolute bg-neutral-800 w-fit right-0 top-0 z-20 py-1 px-2">
     <div class="text-center">{{ page.date | date: "%b %d" }}</div>
     <div class="text-center">{{ page.date | date: "%Y" }}</div>
   </div>
