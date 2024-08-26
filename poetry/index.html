@@ -9,7 +9,7 @@ title: Poetry
   type="text"
   id="searchInput"
   placeholder="Pesquisar poemas..."
-  class="box p-2 w-full mb-4 rounded-lg">
+  class="box p-2 w-full mb-4 rounded-md">
 
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
   {% for text in texts %}
@@ -28,8 +28,9 @@ title: Poetry
   {% endfor %}
 </div>
 
-<div class="flex">
+<div class="flex flex-col">
   <button id="showMore" class="box p-2 mx-auto rounded-full mt-4">Ver mais</button>
+  <p id="noResults" class="hidden">Não foram encontrados poemas com título correspondente.</p>
 </div>
 
 <style>
@@ -54,7 +55,9 @@ title: Poetry
 
   // Search functionality
   document.getElementById("searchInput").addEventListener("input", function() {
-    const query = this.value.toLowerCase();
+    const removeDiacritics = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
+
+    const query = removeDiacritics(this.value);
     const items = document.querySelectorAll('.poetry-item');
 
     // Hide "Show More" if input is not empty
@@ -67,13 +70,21 @@ title: Poetry
     // Show first 12 results
     let found = 0;
     items.forEach(function(item) {
-      const title = item.querySelector('.poem-title').textContent.toLowerCase();
-      if (found < 12 && title.trim().includes(query.trim())) {
+      const title = removeDiacritics(item.querySelector('.poem-title').textContent);
+      if (found < 12 && title.includes(query)) {
         item.classList.remove('hidden');
         found++;
-      } else if (!item.classList.contains('hidden')) {
+      } else {
         item.classList.add('hidden');
       }
     });
+
+
+    // Show "No Results" message
+    if (found === 0) {
+      document.getElementById('noResults').classList.remove('hidden');
+    } else {
+      document.getElementById('noResults').classList.add('hidden');
+    }
   });
 </script>

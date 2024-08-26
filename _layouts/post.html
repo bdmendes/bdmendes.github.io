@@ -4,13 +4,18 @@ layout: default
 
 {% assign prev = page.url | split: '/' | slice: 1, 1 %}
 
-<div class="mb-3 gap-2 flex flex-col sm:flex-row sm:gap-4 grow justify-between sm:items-center">
-  <h2 class="mb-0">{{ page.title }}</h2>
-  {% unless page.background %}
-    <div class="shrink-0 h-fit mb-2 sm:mb-0 sm:p-1 sm:bg-neutral-800 w-fit">
-      {{ page.date | date: "%b %d, %Y" }}
-    </div>
-  {% endunless %}
-</div>
+<h2 class="mb-3 {% unless page.background %}mr-16{% endunless %}">{{ page.title }}</h2>
+{% unless page.background %}
+  <div class="absolute bg-neutral-800 w-fit right-0 top-0 z-20 p-1">
+    <div class="text-center">{{ page.date | date: "%b %d" }}</div>
+    <div class="text-center">{{ page.date | date: "%Y" }}</div>
+  </div>
+{% endunless %}
 
 {{ content }}
+
+<style>
+  #content {
+    max-width: fit-content;
+  }
+</style>

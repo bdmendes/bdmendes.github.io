@@ -68,14 +68,9 @@
         class="bg-cover bg-center bg-no-repeat h-screen w-screen brightness-[20%] top-0 fixed"
         style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
-    {% if background %}
-      {% assign headerOpacity = "opacity-80" %}
-    {% else %}
-      {% assign headerOpacity = "" %}
-    {% endif %}
-    <main class="max-w-3xl mx-auto sm:px-4 mt-6 sm:mb-6 z-10 relative flex flex-col gap-4">
+    <main class="max-w-3xl mx-auto sm:px-4 pt-4 sm:pt-6 sm:pb-6 z-10 relative flex flex-col gap-4 min-h-screen sm:min-h-fit">
       <div class="flex min-w-fit flex-col place-items-center justify-center text-xl no-underline gap-6">
-        <header class="{{headerOpacity}} flex flex-col sm:flex-row place-items-center gap-4 grow-0">
+        <header class="flex flex-col sm:flex-row place-items-center gap-4 grow-0">
           <img
             src="{{site.baseurl}}/assets/about-me/bdmendes-2024.jpg"
             alt="logo"
@@ -111,7 +106,7 @@
       {% else %}
         {% assign backProps = "bg-neutral-900" %}
       {% endif %}
-      <div id="content" class="{{backProps}} p-5 sm:p-4 max-w-fit mx-auto">
+      <div id="content" class="{{backProps}} p-5 sm:p-4 w-full mx-auto relative flex-1">
         {{ content }}
       </div>
     </main>

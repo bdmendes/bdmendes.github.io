@@ -30,7 +30,7 @@ description: Bruno Mendes' blog.
 
 {% if paginator.total_pages > 1 %}
   <div class="mt-4 mr-1">
-    <div class="w-fit ml-auto flex gap-8">
+    <div class="w-fit mx-auto flex gap-8">
       {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
       {% endif %}
