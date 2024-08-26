@@ -8,12 +8,12 @@ description: Bruno Mendes' blog.
   {% for post in paginator.posts %}
     <div class="box pb-2 flex flex-col gap-3">
       <a href="{{ post.url }}">
-        <div>
+        <div class="flex">
           <img
             href="{{ post.url }}"
             src="/assets/blog/{{ post.image }}"
             alt="{{ post.title }}"
-            class="aspect-video object-cover mx-auto w-full max-w-sm sm:max-w-full" />
+            class="aspect-video object-cover mx-auto w-full max-w-sm sm:max-w-full ml-0" />
         </div>
       </a>
       <div>
