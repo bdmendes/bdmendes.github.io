@@ -8,15 +8,15 @@ description: Bruno Mendes' blog.
   {% for post in paginator.posts %}
     <div class="box pb-2 flex flex-col gap-3">
       <div class="flex relative">
-        <a href="{{ post.url }}">
+        <a href="{{ post.url }}" class="w-full">
           <img
             href="{{ post.url }}"
             src="/assets/blog/{{ post.image }}"
             alt="{{ post.title }}"
-            class="aspect-video object-cover mx-auto w-full max-w-sm sm:max-w-full ml-0" />
+            class="object-cover h-40 sm:h-48 w-full" />
         </a>
-        <div class="absolute bg-neutral-800 w-fit left-0 top-0 z-20 py-1 px-2">
-          <div class="text-center">{{ post.date | date: "%b %d, %Y" }}</div>
+        <div class="absolute bg-neutral-800 w-fit left-0 top-0 z-20 py-1 px-2 text-center">
+          {{ post.date | date: "%b %d, %Y" }}
         </div>
       </div>
       <div>

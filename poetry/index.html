@@ -30,12 +30,12 @@ title: Poetry
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
   {% for text in all_texts %}
     <div class="box poetry-item{% if forloop.index > 12 %} hidden{% endif %}" data-year="{{ text.year }}">
-      <a href="{{ text.url }}" class="box">
+      <a href="{{ text.url }}">
         <img
           loading="lazy"
           src="/assets/background/{{ text.background }}"
           alt="{{ text.title }}"
-          class="aspect-[2/1] object-cover mx-auto w-full max-w-sm sm:max-w-full" />
+          class="aspect-[2/1] object-cover mx-auto w-full max-w-sm sm:max-w-full brightness-90" />
       </a>
       <div class="px-2 py-1 w-full">
         <a href="{{ text.url }}" class="text-inherit text-center poem-title">{{ text.title }}</a>
@@ -56,43 +56,44 @@ title: Poetry
 </style>
 
 <script>
+  const MAX_BOXES = 12;
+  const toggleShowMore = (show) => document.getElementById("showMore").style.display = show ? 'block' : 'none';
+  const toggleYearFilter = (show) => document.getElementById("yearFilter").style.display = show ? 'block' : 'none';
+  const resetYearFilter = () => document.getElementById('yearFilter').value = "";
+
   // Show More functionality
   document.getElementById("showMore").addEventListener("click", function() {
-    // Show the next 12 hidden boxes
     const hiddenBoxes = document.querySelectorAll('.grid .box.hidden');
-    for (let i = 0; i < 12 && i < hiddenBoxes.length; i++) {
+    for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
       hiddenBoxes[i].classList.remove('hidden');
     }
 
     if (document.querySelectorAll('.grid .box.hidden').length === 0) {
-      this.style.display = 'none';
+      toggleShowMore(false);
     }
   });
 
   // Search functionality
   document.getElementById("searchInput").addEventListener("input", function() {
-    const removeDiacritics = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
+    const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
 
     const query = removeDiacritics(this.value);
     const items = document.querySelectorAll('.poetry-item');
 
-    // Reset year filter
-    document.getElementById('yearFilter').value = "";
+    resetYearFilter();
 
-    // Hide "Show More" and "Filter Year" if input is not empty
     if (query.length > 0) {
-      document.getElementById('showMore').style.display = 'none';
-      document.getElementById('yearFilter').style.display = 'none';
+      toggleShowMore(false);
+      toggleYearFilter(false);
     } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
-      document.getElementById('showMore').style.display = 'block';
-      document.getElementById('yearFilter').style.display = 'block';
+      toggleShowMore(true);
+      toggleYearFilter(true);
     }
 
-    // Show first 12 results
     let found = 0;
     items.forEach(function(item) {
       const title = removeDiacritics(item.querySelector('.poem-title').textContent);
-      if (found < 12 && title.includes(query)) {
+      if (found < MAX_BOXES && title.includes(query)) {
         item.classList.remove('hidden');
         found++;
       } else {
@@ -100,8 +101,6 @@ title: Poetry
       }
     });
 
-
-    // Show "No Results" message
     if (found === 0) {
       document.getElementById('noResults').classList.remove('hidden');
     } else {
@@ -117,7 +116,7 @@ title: Poetry
     let found = 0;
     items.forEach(function(item) {
       const itemYear = item.getAttribute('data-year');
-      if ((selectedYear === "" && found < 12) || itemYear === selectedYear) {
+      if ((selectedYear === "" && found < MAX_BOXES) || itemYear === selectedYear) {
         item.classList.remove('hidden');
         found++;
       } else {
@@ -127,9 +126,9 @@ title: Poetry
 
     // Adjust "Show More" visibility
     if (selectedYear !== "") {
-      document.getElementById('showMore').style.display = 'none';
+      toggleShowMore(false);
     } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
-      document.getElementById('showMore').style.display = 'block';
+      toggleShowMore(true);
     }
   });
 </script>
