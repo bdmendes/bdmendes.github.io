@@ -26,11 +26,11 @@ In computer chess a position is typically represented using [FEN](https://comput
 <iframe src="https://lichess.org/embed/game/g5KViadx?theme=auto&bg=auto#46"
 width="100%" height=397 frameborder=0></iframe>
 
-As a programmer, all we have to do here is implement a `parse_fen` function that returns a `Position`. However, a `Position` structure might not exactly be designed like you would expect it to. As we need to look into millions of positions per second to be able to find the best moves quicker, move making must be extremely fast. Had we had used a simple 2D array, move making would be extremely costly due to the need of loops e.g. for calculating sliding pieces (bishop, rooks and queens) movements. In fact, the first Camel versions (0.x) used this approach and were about 100x slower than 1.x.
+As programmers, all we have to do here is implement a `parse_fen` function that returns a `Position`. However, a `Position` structure might not exactly be designed like you would expect it to. As we need to look into millions of positions per second to be able to find the best moves quicker, move making must be extremely fast. Had we had used a simple 2D array, move making would be extremely costly due to the need of loops e.g. for calculating sliding pieces (bishop, rooks and queens) movements. In fact, the first Camel versions (0.x) used this approach and were about 100x slower than 1.x.
 
 The state-of-the-art board representation is [bitboards](https://www.chessprogramming.org/Bitboards). As most processors nowadays have 64-bit architectures and the chess board has 64 squares, one could argue that that is a match made in heaven. We can represent a chess board by using 8 64-bit variables: 6 for each piece, 1 for White and 1 for Black. In the position above, the rooks bitboard would be 00010001 00000000 00000000 00000000 00000000 00000000 00000000 00100100 and the black pieces bitboard would be 10011001 11000010 01100101 00010000 00001000 00000000 00000000 00000000. Scary enough? Let's look at these with flipped endianness and 8 bits at a time...
 
-<div class="flex box my-4 p-2 justify-center gap-6">
+<div class="flex box my-4 p-2 justify-center gap-4">
     <div>
         <p class="text-center font-bold">Rooks</p>
         <div class="text-center">10001000</div>
@@ -44,7 +44,7 @@ The state-of-the-art board representation is [bitboards](https://www.chessprogra
     </div>
     <div>
         <p class="text-center font-bold">Black Pieces</p>
-        <div class="text-center">10011000</div>
+        <div class="text-center">10011001</div>
         <div class="text-center">01000011</div>
         <div class="text-center">10100110</div>
         <div class="text-center">00001000</div>
@@ -141,4 +141,4 @@ The sky is the limit for a chess engine, and the battle between speed, correctne
 
 #### Wrapping up
 
-You can find the full source code of Camel on my Github. I hope you found this interesting and are now more interested in developing projects like these or just digging into computing and/or chess in general. Make sure to learn beyond this article and hit me up with your thoughts!
+You can find the [full source code of Camel on my Github](https://github.com/bdmendes/camel/). I hope you found this interesting and are now more interested in developing projects like these or just digging into computing and/or chess in general. Make sure to learn beyond this article and hit me up with your thoughts!
