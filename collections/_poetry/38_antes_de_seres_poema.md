@@ -3,6 +3,7 @@ title: Antes de seres poema
 layout: post
 number: 38
 background: woman_abstract.jpg
+year: 2024
 ---
 
 > "\[...\] terei um medo ainda maior do que o medo que me dá que te tenhas ido: o medo de que fiques." - Marwan em *Todos os Meus Futuros São Contigo*

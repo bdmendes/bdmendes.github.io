@@ -3,6 +3,7 @@ title: Destino das frases
 layout: post
 background: keyboard.jpg
 number: 8
+year: 2019
 ---
 
 Há frases que se destinam a nunca ser ditas. Plácidas, inertes, oscilam desde o vulgar Desculpa até ao complexo Amo-te, e ficam presas por largos anos na consciência.

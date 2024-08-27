@@ -3,6 +3,7 @@ title: Monomania
 layout: post
 number: 24
 background: monomania.jpg
+year: 2020
 ---
 
 > "Will I ever be enough for me?" - The World Alive em *Monomania*

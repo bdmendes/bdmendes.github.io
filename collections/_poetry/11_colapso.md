@@ -3,6 +3,7 @@ title: Colapso
 layout: post
 number: 11
 background: universe.jpg
+year: 2019
 ---
 
 Acordo e sinto um arrepio gelado na espinha. É o começo de mais um aborrecido dia, pleno de deambulações sem sentido, diálogos sobre nada, monólogos sobre tudo.

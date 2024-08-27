@@ -3,6 +3,7 @@ title: Duração de um semáforo
 layout: post
 number: 12
 background: traffic_light.jpg
+year: 2019
 ---
 
 Três da manhã. Toda uma cidade concentrada aguardando a luz verde do semáforo. O chão trepidante, o suor quente escorrendo. Foi ali que ela morreu.

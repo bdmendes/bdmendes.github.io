@@ -3,6 +3,7 @@ title: A lúcia-lima
 layout: post
 number: 39
 background: lucia-lima.jpg
+year: 2024
 ---
 
 > "Maybe I could have learned how to fly / But my wings never sprouted" - Holding Absence em *In Circles*

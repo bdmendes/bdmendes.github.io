@@ -3,6 +3,7 @@ title: Pedacinho de democracia
 layout: post
 background: door_key.jpg
 number: 0
+year: 2018
 ---
 
 Assistindo a um pseudodebate, dou por mim a pensar porque decidi não participar, ou porque mais uma vez me remeti ao silêncio quando deveria falar, eu que tão bem falo quando deveria remeter-me ao silêncio.

@@ -3,6 +3,7 @@ title: Estrada da vida
 background: lightning.jpg
 layout: post
 number: 3
+year: 2019
 ---
 
 Surjo. Como uma sombra,  

@@ -3,6 +3,7 @@ title: Gudejorge
 layout: post
 number: 25
 background: sea_drown.jpg
+year: 2021
 ---
 
 Nesta sala encaixamos convenientemente na cama, de braços abertos. A recolha dos casacos correu bem, excetuando o facto de o meu colega da direita ter tirado o meu casaco.

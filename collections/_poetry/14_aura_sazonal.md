@@ -3,6 +3,7 @@ title: Aura sazonal
 layout: post
 number: 14
 background: bus.jpg
+year: 2019
 ---
 
 E quando se apagar esta chama? Quando deixar de gozar desta aura sazonal, deste encanto versátil mas passageiro? Quando der por terminado este rebolio de mudança, e me resignar à rigidez de horários, à seca de desafios, ao estagnar do social?

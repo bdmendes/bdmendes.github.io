@@ -3,6 +3,7 @@ title: O resgate
 layout: post
 number: 20
 background: trindade.jpg
+year: 2020
 ---
 
 De regresso a casa depois de um almoço solitário, posso esperar que te atires, ou simplesmente atirar-te. Até onde estou disposto a ir para me ver debruçado sobre os carris, de braço estendido, deste lado e nunca daquele?

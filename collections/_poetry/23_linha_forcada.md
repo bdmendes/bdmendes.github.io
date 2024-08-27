@@ -3,6 +3,7 @@ title: Linha forcada
 layout: post
 number: 23
 background: time.jpg
+year: 2020
 ---
 
 > Forcado: ponto de bifurcação.

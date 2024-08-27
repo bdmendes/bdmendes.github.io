@@ -3,6 +3,7 @@ title: No fim
 layout: post
 number: 36
 background: sao-joao.jpg
+year: 2024
 ---
 
 E no fim não há nada: quebrou-se a rotina, calaram-se os gaios e serviram-se bebidas geladas. Atormentado por um calor que corrói por dentro, resta persistir até que o frio regresse e com ele a previsibilidade e a clareza. Não há que resistir, mesmo que nada agora faça sentido; o sentido surgirá eventualmente, creio, pelo menos por enquanto.

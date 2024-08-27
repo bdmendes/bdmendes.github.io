@@ -3,6 +3,7 @@ title: Curva perfeita
 layout: post
 background: standing_car.jpg
 number: 9
+year: 2019
 ---
 
 Lá estavas tu. Eu a cortar a curva, torto, apurando as razões do continuado nervosismo que se havia apoderado dos meus tecidos musculares, rogando pelo retorno da impavidez de que tanto me lamento, e tu apareces-me, na faixa de rodagem, por meros instantes.

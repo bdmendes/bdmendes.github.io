@@ -3,6 +3,7 @@ title: À saída do centro comercial
 layout: post
 number: 29
 background: ambulance.jpg
+year: 2022
 ---
 
 Não me interessa muito, na verdade, mas arroz com atum? Enfim, podiam tratar melhor os convidados. Aquecer comida no micro-ondas à nossa frente não me parece nada elegante. É claro que os meus pais estão chateados. Eu também iria embora, no lugar deles.

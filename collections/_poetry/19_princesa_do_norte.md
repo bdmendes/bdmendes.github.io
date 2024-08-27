@@ -3,6 +3,7 @@ title: Princesa do norte
 layout: post
 number: 19
 background: distant_girl.jpg
+year: 2020
 ---
 
 Onde leva a indiscrição  

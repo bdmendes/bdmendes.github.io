@@ -3,6 +3,7 @@ title: Autodestruição
 background: explosion.jpg
 layout: post
 number: 5
+year: 2019
 ---
 
 Hoje fiz explodir um centro comercial. Eu e uns amigos. Forçamos a entrada com um disparo rápido e indolor contra o funcionário que vigiava a porta das traseiras e camuflamos o material explosivo.

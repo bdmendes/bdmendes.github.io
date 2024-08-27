@@ -3,6 +3,7 @@ title: Dezanove
 layout: post
 number: 22
 background: train.jpg
+year: 2020
 ---
 
 Hoje não faz sentido repetir a mesma fórmula de há um ano. Não sou o mesmo homem, nem sou confrontado com os mesmos desafios.

@@ -3,6 +3,7 @@ title: A ideia de amar
 layout: post
 number: 27
 background: the_idea_of_love.jpg
+year: 2021
 ---
 
 > "Não sei se te amo ou se odeio saudade" - Yuri NR5 em *São Paulo*

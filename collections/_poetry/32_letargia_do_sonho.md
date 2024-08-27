@@ -3,6 +3,7 @@ title: A letargia do sonho
 layout: post
 number: 32
 background: love_dream.jpg
+year: 2024
 ---
 
 Nesta noite de inverno clara, tão bonita, sento-me, só, lamentando os compromissos de amanhã, o sufoco de hoje ou o indiscernimento do passado. Sento-me mas sento-me num sítio privilegiado. Daqui vejo-me diferente, partindo para um lugar em concreto que julgo ter uma finalidade. Aqui, como em qualquer lado, é certo, mas aqui, especialmente, fantasio com o que aconteceria se te olhasse um pouco mais, como há bocado, me retribuísses de novo o olhar, e falássemos de tudo e de nada.

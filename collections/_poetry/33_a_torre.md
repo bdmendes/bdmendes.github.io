@@ -3,6 +3,7 @@ title: A torre
 layout: post
 number: 33
 background: the_tower.jpg
+year: 2024
 ---
 
 Ainda que plenamente convencido da coincidência do que está prestes a acontecer, este rapaz caminha nesta zona de coexistência com a batida cardíaca acelerada. Qualquer pedestre ou condutor menos distraído que partilhe com ele este piso reconhece, porém, a intencionalidade desta viagem, que há de ter sido forjada nas profundezas de um subconsciente fantástico.

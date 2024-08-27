@@ -3,6 +3,7 @@ title: Os teus traços
 layout: post
 number: 35
 background: foz_douro.jpg
+year: 2024
 ---
 
 > Com David Preda, verso sim, verso não.
