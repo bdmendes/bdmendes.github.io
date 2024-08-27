@@ -1,7 +1,7 @@
 ---
 title: Antes de seres poema
 layout: post
-number: 38
+number: 7
 background: woman_abstract.jpg
 year: 2024
 ---

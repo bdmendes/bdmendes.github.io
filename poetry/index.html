@@ -3,7 +3,14 @@ layout: default
 title: Poetry
 ---
 
-{% assign texts = site.poetry | sort: "number" | reverse %}
+{% assign grouped_by_year = site.poetry | group_by: "year" | sort: "name" | reverse %}
+{% assign all_texts = "" | split: "" %}
+{% for year in grouped_by_year %}
+  {% assign year_texts = year.items | sort: "number" | reverse %}
+  {% for text in year_texts %}
+    {% assign all_texts = all_texts | push: text %}
+  {% endfor %}
+{% endfor %}
 
 <div class="flex gap-2">
   <input
@@ -12,7 +19,7 @@ title: Poetry
     placeholder="Pesquisar poemas..."
     class="box p-2 w-full mb-4 rounded-md flex-1">
   <select id="yearFilter" class="box p-2 mb-4 rounded-md">
-    <option value="">Ano</option>
+    <option value="" autocomplete="off">Ano</option>
     {% assign years = site.poetry | map: "year" | uniq | sort | reverse %}
     {% for year in years %}
       <option value="{{ year }}">{{ year }}</option>
@@ -21,7 +28,7 @@ title: Poetry
 </div>
 
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-  {% for text in texts %}
+  {% for text in all_texts %}
     <div class="box poetry-item{% if forloop.index > 12 %} hidden{% endif %}" data-year="{{ text.year }}">
       <a href="{{ text.url }}" class="box">
         <img

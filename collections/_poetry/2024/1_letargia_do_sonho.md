@@ -1,7 +1,7 @@
 ---
 title: A letargia do sonho
 layout: post
-number: 32
+number: 1
 background: love_dream.jpg
 year: 2024
 ---

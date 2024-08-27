@@ -1,7 +1,7 @@
 ---
 title: Garras de felino
 layout: post
-number: 17
+number: 2
 background: tiger.jpg
 year: 2020
 ---

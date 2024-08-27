@@ -1,7 +1,7 @@
 ---
 title: Esperei por ti
 layout: post
-number: 34
+number: 3
 background: waiting_control.jpg
 year: 2024
 ---

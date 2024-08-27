@@ -1,7 +1,7 @@
 ---
 title: Granitos
 layout: post
-number: 21
+number: 6
 background: rocks.jpg
 year: 2020
 ---

@@ -1,7 +1,7 @@
 ---
 title: O problema do controlo
 layout: post
-number: 31
+number: 2
 background: power_fly.jpg
 year: 2023
 ---

@@ -1,7 +1,7 @@
 ---
 title: A praça do infinito
 layout: post
-number: 16
+number: 1
 background: night_place.jpg
 year: 2020
 ---

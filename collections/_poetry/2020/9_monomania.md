@@ -1,7 +1,7 @@
 ---
 title: Monomania
 layout: post
-number: 24
+number: 9
 background: monomania.jpg
 year: 2020
 ---

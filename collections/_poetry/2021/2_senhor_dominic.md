@@ -1,7 +1,7 @@
 ---
 title: Senhor Dominic
 layout: post
-number: 26
+number: 2
 background: old_people.jpg
 year: 2021
 ---
