@@ -16,6 +16,7 @@ title: Poetry
   <input
     type="text"
     id="searchInput"
+    autocomplete="off"
     placeholder="Pesquisar poemas..."
     class="box p-2 w-full mb-4 rounded-md flex-1">
   <select id="yearFilter" class="box p-2 mb-4 rounded-md">
@@ -54,6 +55,12 @@ title: Poetry
   const toggleShowMore = (show) => document.getElementById("showMore").style.display = show ? 'block' : 'none';
   const toggleYearFilter = (show) => document.getElementById("yearFilter").style.display = show ? 'block' : 'none';
   const resetYearFilter = () => document.getElementById('yearFilter').value = "";
+  const resetSearchInput = () => document.getElementById('searchInput').value = "";
+
+  // Some browsers do not trigger bfcache when using the back button.
+  // In that case, clear all inputs manually to ensure the page is reset.
+  resetYearFilter();
+  resetSearchInput();
 
   // Show More functionality
   document.getElementById("showMore").addEventListener("click", function() {
