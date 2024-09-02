@@ -6,6 +6,8 @@ background: movie_camera.jpg
 year: 2019
 ---
 
+> Não há que ser tudo como nos filmes, mas algumas coisas devem sê-lo.
+
 Não gosto de escrever muito depois de me surgir uma ideia ou de assistir a um episódio que mereça reflexão. O tempo é um fator de desgaste que ludibria o pensamento e ofusca os factos, transformando-os numa mentira poderosa, com aspeto de verdade.
 
 Ainda assim, há uma dor que o tempo não consegue atenuar.

@@ -1,10 +1,12 @@
 ---
 title: Pedaço de estrada
 layout: post
-number: 3
+number: 5
 background: night_road.jpg
 year: 2023
 ---
+
+> Porque não simplesmente saltar?
 
 Será sabido que conduzindo em excesso de velocidade se incorre em risco de capotamento em lombas e depressões fundas. Não adivinharia ninguém, porém, o que se sucedeu, de ser projetado para o ar e seguir-se o carro num voo enquanto o condutor fica no pedaço de alcatrão que se sustenta acima do nível do chão.
 

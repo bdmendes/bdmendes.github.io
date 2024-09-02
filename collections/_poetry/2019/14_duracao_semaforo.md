@@ -1,7 +1,7 @@
 ---
 title: Duração de um semáforo
 layout: post
-number: 12
+number: 14
 background: traffic_light.jpg
 year: 2019
 ---

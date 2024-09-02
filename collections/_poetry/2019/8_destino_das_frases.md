@@ -6,6 +6,8 @@ number: 8
 year: 2019
 ---
 
+> É uma pena que hoje já não se enviem cartas, não se escreva em diários, seja tudo instantâneo.
+
 Há frases que se destinam a nunca ser ditas. Plácidas, inertes, oscilam desde o vulgar Desculpa até ao complexo Amo-te, e ficam presas por largos anos na consciência.
 
 Outras há que deambulam caprichosamente pelos caminhos enviesados da mente, deslizam até ao palato e não descansam enquanto não se ouvem a alto e bom som, formando uma onda de vitupérios ou atestados de ignorância.

@@ -1,10 +1,12 @@
 ---
 title: Colapso
 layout: post
-number: 11
+number: 13
 background: universe.jpg
 year: 2019
 ---
+
+> Porque viver é muito diferente de sobreviver.
 
 Acordo e sinto um arrepio gelado na espinha. É o começo de mais um aborrecido dia, pleno de deambulações sem sentido, diálogos sobre nada, monólogos sobre tudo.
 

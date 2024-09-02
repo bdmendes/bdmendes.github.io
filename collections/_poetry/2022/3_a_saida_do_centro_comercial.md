@@ -6,6 +6,8 @@ background: ambulance.jpg
 year: 2022
 ---
 
+> Ter consciência da própria agressividade precisa-se.
+
 Não me interessa muito, na verdade, mas arroz com atum? Enfim, podiam tratar melhor os convidados. Aquecer comida no micro-ondas à nossa frente não me parece nada elegante. É claro que os meus pais estão chateados. Eu também iria embora, no lugar deles.
 
 Estranho, morar num centro comercial, à beira de lojas, ginásio, num piso denso e reluzente. Vou voltar a casa sozinho, de volta aos meus afazeres. Wow! Grande avenida. Raio dos japoneses, a esta hora da noite, apresso o passo, relaxo e para o vazio grito, Filhos da mãe dos japoneses!, wow, para que foi isto, Quem é que estavas a chamar?

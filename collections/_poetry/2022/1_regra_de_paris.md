@@ -6,6 +6,8 @@ background: eiffel_tower.jpg
 year: 2022
 ---
 
+> O orgulho é porventura a fonte de todos os problemas.
+
 Todas as noites em que me deitei abatido,  
 sem tenção de cair seleto nos teus braços,  
 poderia ter-te cedido uma ou duas ideias,  
