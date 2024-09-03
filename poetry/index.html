@@ -93,7 +93,7 @@ title: Poetry
     });
 
     // Search functionality
-    document.getElementById("searchInput").addEventListener("input", function() {
+    document.getElementById("searchInput").addEventListener("input", debounce(function() {
       const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
 
       const query = removeDiacritics(this.value);
@@ -126,7 +126,7 @@ title: Poetry
       } else {
         document.getElementById('noResults').classList.add('hidden');
       }
-    });
+    }));
 
     // Year filter functionality
     document.getElementById("yearFilter").addEventListener("change", function() {
