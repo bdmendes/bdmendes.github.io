@@ -20,11 +20,10 @@ title: Poetry
   <input
     type="text"
     id="searchInput"
-    autocomplete="off"
     placeholder="Pesquisar poemas..."
     class="box p-2 w-full mb-4 rounded-md flex-1">
   <select id="yearFilter" class="box p-2 mb-4 rounded-md">
-    <option value="" autocomplete="off">Ano</option>
+    <option value="">Ano</option>
     {% assign years = site.poetry | map: "year" | uniq | sort | reverse %}
     {% for year in years %}
       <option value="{{ year }}">{{ year }}</option>
@@ -73,80 +72,86 @@ title: Poetry
   const resetYearFilter = () => document.getElementById('yearFilter').value = "";
   const resetSearchInput = () => document.getElementById('searchInput').value = "";
   const togglePoetryHint = () => document.getElementById('poetryHint').classList.toggle('hidden');
+  const hidePoetryHint = () => document.getElementById('poetryHint').classList.add('hidden');
 
-  // Some browsers do not trigger bfcache when using the back button.
-  // In that case, clear all inputs manually to ensure the page is reset.
-  resetYearFilter();
-  resetSearchInput();
-
-  // Show More functionality
-  document.getElementById("showMore").addEventListener("click", function() {
-    const hiddenBoxes = document.querySelectorAll('.grid .box.hidden');
-    for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
-      hiddenBoxes[i].classList.remove('hidden');
-    }
-
-    if (document.querySelectorAll('.grid .box.hidden').length === 0) {
-      toggleShowMore(false);
-    }
-  });
-
-  // Search functionality
-  document.getElementById("searchInput").addEventListener("input", function() {
-    const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
-
-    const query = removeDiacritics(this.value);
-    const items = document.querySelectorAll('.poetry-item');
-
+  document.addEventListener('DOMContentLoaded', function() {
+    // Some browsers do not trigger bfcache when using the back button.
+    // In that case, clear all inputs manually to ensure the page is reset.
     resetYearFilter();
+    resetSearchInput();
 
-    if (query.length > 0) {
-      toggleShowMore(false);
-      toggleYearFilter(false);
-    } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
-      toggleShowMore(true);
-      toggleYearFilter(true);
-    }
+    // Show More functionality
+    document.getElementById("showMore").addEventListener("click", function() {
+      const hiddenBoxes = document.querySelectorAll('.grid .box.hidden');
+      for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
+        hiddenBoxes[i].classList.remove('hidden');
+      }
 
-    let found = 0;
-    items.forEach(function(item) {
-      const title = removeDiacritics(item.querySelector('.poem-title').textContent);
-      if (found < MAX_BOXES && title.includes(query)) {
-        item.classList.remove('hidden');
-        found++;
-      } else {
-        item.classList.add('hidden');
+      if (document.querySelectorAll('.grid .box.hidden').length === 0) {
+        toggleShowMore(false);
       }
     });
 
-    if (found === 0) {
-      document.getElementById('noResults').classList.remove('hidden');
-    } else {
-      document.getElementById('noResults').classList.add('hidden');
-    }
-  });
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("input", function() {
+      const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
 
-  // Year filter functionality
-  document.getElementById("yearFilter").addEventListener("change", function() {
-    const selectedYear = this.value;
-    const items = document.querySelectorAll('.poetry-item');
+      const query = removeDiacritics(this.value);
+      const items = document.querySelectorAll('.poetry-item');
 
-    let found = 0;
-    items.forEach(function(item) {
-      const itemYear = item.getAttribute('data-year');
-      if ((selectedYear === "" && found < MAX_BOXES) || itemYear === selectedYear) {
-        item.classList.remove('hidden');
-        found++;
+      resetYearFilter();
+      hidePoetryHint();
+
+      if (query.length > 0) {
+        toggleShowMore(false);
+        toggleYearFilter(false);
+      } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
+        toggleShowMore(true);
+        toggleYearFilter(true);
+      }
+
+      let found = 0;
+      items.forEach(function(item) {
+        const title = removeDiacritics(item.querySelector('.poem-title').textContent);
+        if (found < MAX_BOXES && title.includes(query)) {
+          item.classList.remove('hidden');
+          found++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      if (found === 0) {
+        document.getElementById('noResults').classList.remove('hidden');
       } else {
-        item.classList.add('hidden');
+        document.getElementById('noResults').classList.add('hidden');
       }
     });
 
-    // Adjust "Show More" visibility
-    if (selectedYear !== "") {
-      toggleShowMore(false);
-    } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
-      toggleShowMore(true);
-    }
+    // Year filter functionality
+    document.getElementById("yearFilter").addEventListener("change", function() {
+      const selectedYear = this.value;
+      const items = document.querySelectorAll('.poetry-item');
+
+      let found = 0;
+      items.forEach(function(item) {
+        const itemYear = item.getAttribute('data-year');
+        if ((selectedYear === "" && found < MAX_BOXES) || itemYear === selectedYear) {
+          item.classList.remove('hidden');
+          found++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      // Adjust "Show More" visibility
+      if (selectedYear !== "") {
+        toggleShowMore(false);
+      } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
+        toggleShowMore(true);
+      }
+
+      hidePoetryHint();
+    });
   });
 </script>
