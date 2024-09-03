@@ -30,7 +30,19 @@ title: Poetry
       <option value="{{ year }}">{{ year }}</option>
     {% endfor %}
   </select>
+  <button class="box py-2 px-4 mb-4 rounded-md font-bold" onclick="togglePoetryHint()">
+    ?
+  </button>
 </div>
+
+<blockquote class="mb-4 mt-0 hidden" id="poetryHint">
+  <p>
+    Escrevo poesia e prosa poética desde a adolescência, num estilo diarístico e intimista. Aqui estão as peças que acredito que possam generalizar e transcender as experiências pessoais que as inspiraram. Não sei qual o destino final destes textos, mas se incitarem no leitor o questionamento do mundo e do eu, terão já cumprido um propósito.
+  </p>
+  <p>
+    Cada poema é um momento, um sentimento localizado no espaço-tempo. Alguns contradizem-se, como fazemos todos os dias, enquanto crescemos.
+  </p>
+</blockquote>
 
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
   {% for text in all_texts %}
@@ -60,6 +72,7 @@ title: Poetry
   const toggleYearFilter = (show) => document.getElementById("yearFilter").style.display = show ? 'block' : 'none';
   const resetYearFilter = () => document.getElementById('yearFilter').value = "";
   const resetSearchInput = () => document.getElementById('searchInput').value = "";
+  const togglePoetryHint = () => document.getElementById('poetryHint').classList.toggle('hidden');
 
   // Some browsers do not trigger bfcache when using the back button.
   // In that case, clear all inputs manually to ensure the page is reset.
