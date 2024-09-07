@@ -22,11 +22,11 @@ Tu surges como primavera
 Alimentando a minha quimera  
 
 Não há nada que não podemos  
-Enquanto me espelhares assim  
+Enquanto me espelhares assim.  
 Não há nada que não podemos    
-Enquanto não tivermos fim  
+Enquanto não tivermos fim.  
 
-E na eventualidade de um fim  
+Na eventualidade de um fim  
 Que deixes de me espelhar assim  
 Não saberei como mais ver-me  
 Como pode o mundo ter-me.  
