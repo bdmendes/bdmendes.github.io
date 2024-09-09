@@ -18,5 +18,5 @@ Derrotas os silêncios e as demoras.
 
 Não há noite em que não sonho contigo  
 Mas sonhar sozinho é triste e decadente.  
-Há de vir a noite em que não sonho contigo  
-Engaveto este sonho e procuro outra luz.  
+Anseio a noite em que não sonho contigo  
+Engaveto este sonho, procuro outra luz.  
