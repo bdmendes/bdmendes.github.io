@@ -29,33 +29,25 @@ title: Poetry
       <option value="{{ year }}">{{ year }}</option>
     {% endfor %}
   </select>
-  <button class="box py-2 px-4 mb-4 rounded-md font-bold" onclick="togglePoetryHint()">
-    ?
-  </button>
 </div>
 
-<blockquote class="mb-4 mt-0 hidden" id="poetryHint">
-  <p>
-    Escrevo poesia e prosa poética desde a adolescência, num estilo diarístico e intimista. Aqui estão as peças que acredito que possam generalizar e transcender as experiências pessoais que as inspiraram. Não sei qual o destino final destes textos, mas se incitarem no leitor o questionamento do mundo e do eu, terão já cumprido um propósito.
-  </p>
-  <p>
-    Cada poema é um momento, um sentimento localizado no espaço-tempo. Alguns contradizem-se, como fazemos todos os dias, enquanto crescemos.
-  </p>
-</blockquote>
-
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
   {% for text in all_texts %}
-    <div class="box poetry-item{% if forloop.index > 12 %} hidden{% endif %}" data-year="{{ text.year }}">
+    <div class="poetry-item relative {% if forloop.index > 12 %} hidden{% endif %}" data-year="{{ text.year }}">
       <a href="{{ text.url }}">
         <img
           loading="lazy"
           src="/assets/background/{{ text.background }}"
           alt="{{ text.title }}"
-          class="aspect-[2/1] object-cover mx-auto w-full max-w-sm sm:max-w-full brightness-90" />
+          class="h-20 object-cover mx-auto w-full max-w-sm sm:max-w-full brightness-[10%] rounded-md" />
       </a>
-      <div class="px-2 py-1 w-full">
-        <a href="{{ text.url }}" class="text-inherit text-center poem-title">{{ text.title }}</a>
-      </div>
+
+      <a href="{{ text.url }}" class="flex drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] absolute top-0 h-full px-2  text-inherit text-center poem-title w-full">
+        <div class="justify-center place-self-center w-full">
+          {{ text.title }}
+        </div>
+      </a>
+
     </div>
   {% endfor %}
 </div>
@@ -71,8 +63,6 @@ title: Poetry
   const toggleYearFilter = (show) => document.getElementById("yearFilter").style.display = show ? 'block' : 'none';
   const resetYearFilter = () => document.getElementById('yearFilter').value = "";
   const resetSearchInput = () => document.getElementById('searchInput').value = "";
-  const togglePoetryHint = () => document.getElementById('poetryHint').classList.toggle('hidden');
-  const hidePoetryHint = () => document.getElementById('poetryHint').classList.add('hidden');
 
   document.addEventListener('DOMContentLoaded', function() {
     // Some browsers do not trigger bfcache when using the back button.
@@ -82,12 +72,12 @@ title: Poetry
 
     // Show More functionality
     document.getElementById("showMore").addEventListener("click", function() {
-      const hiddenBoxes = document.querySelectorAll('.grid .box.hidden');
+      const hiddenBoxes = document.querySelectorAll('.grid .poetry-item.hidden');
       for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
         hiddenBoxes[i].classList.remove('hidden');
       }
 
-      if (document.querySelectorAll('.grid .box.hidden').length === 0) {
+      if (document.querySelectorAll('.grid .poetry-item.hidden').length === 0) {
         toggleShowMore(false);
       }
     });
@@ -100,12 +90,11 @@ title: Poetry
       const items = document.querySelectorAll('.poetry-item');
 
       resetYearFilter();
-      hidePoetryHint();
 
       if (query.length > 0) {
         toggleShowMore(false);
         toggleYearFilter(false);
-      } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
+      } else if (document.querySelectorAll('.grid .poetry-item.hidden').length > 0) {
         toggleShowMore(true);
         toggleYearFilter(true);
       }
@@ -147,11 +136,9 @@ title: Poetry
       // Adjust "Show More" visibility
       if (selectedYear !== "") {
         toggleShowMore(false);
-      } else if (document.querySelectorAll('.grid .box.hidden').length > 0) {
+      } else if (document.querySelectorAll('.grid .poetry-item.hidden').length > 0) {
         toggleShowMore(true);
       }
-
-      hidePoetryHint();
     });
   });
 </script>

@@ -1,7 +1,7 @@
 ---
 title: O homem de fato azul
 layout: post
-number: 12
+number: 13
 background: man_train_abstract.jpg
 year: 2024
 ---
