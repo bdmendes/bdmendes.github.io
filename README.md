@@ -1,7 +1,5 @@
 # bdmendes.github.io
 
-My personal website showcasing my projects and interests.
-
 ## Development
 
 First, get the dependencies:
