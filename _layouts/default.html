@@ -3,15 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/dist/output.css" rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Harry's approach to the FOUT problem -->
+    <!-- Read more in https://css-tricks.com/how-to-load-fonts-in-a-way-that-fights-fout-and-makes-lighthouse-happy/ -->
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com"
-      crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+PT:wght@100..400&display=swap" rel="stylesheet">
+      crossorigin />
 
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+PT:wght@100..400&display=swap" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+PT:wght@100..400&display=swap"
+      media="print"
+      onload="this.media='all'" />
+
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+PT:wght@100..400&display=swap" />
+    </noscript>
+
+    <link href="/dist/output.css" rel="stylesheet" />
 
     <link
       rel="apple-touch-icon"
