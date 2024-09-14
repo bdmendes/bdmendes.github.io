@@ -105,12 +105,14 @@
   font-family: "Playwrite PT";
   src: url("/assets/fonts/Playwrite_PT/PlaywritePT-VariableFont_wght.ttf")
     format("truetype");
+  font-display: optional;
 }
 
 @font-face {
   font-family: "Inter";
   src: url("/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
     format("truetype");
+  font-display: optional;
 }
 
 body {
@@ -118,7 +120,6 @@ body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-display: swap;
 }
 
 .playwrite {
