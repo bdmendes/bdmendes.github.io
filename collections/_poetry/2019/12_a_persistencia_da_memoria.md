@@ -6,8 +6,6 @@ background: memory_time.jpg
 year: 2019
 ---
 
-> Forçar é a primeira receita para o desastre.
-
 Sem nada fazer, aproxima-se a mais doce das personagens, senta-se porque estava o lugar vazio, ou porque o decidiu no momento. Eu estava desligado, estava sendo eu, e ela chegou, simplesmente, assim.
 
 É menina da cidade, mas de uma cidade sonhada, longínqua e naturalmente fresca. Acomete-se em diálogos desprendidos de interesse, leva-me para longe com um punhado de sílabas, é normal sem o ser, é misteriosa mas familiar.

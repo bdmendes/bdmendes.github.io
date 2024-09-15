@@ -6,8 +6,6 @@ background: waiting_control.jpg
 year: 2024
 ---
 
-> Não deixes de sonhar, mas não forces nunca os teus sonhos a ninguém.
-
 Esperei por ti.  
 Esperei por ti louca e desalmadamente.  
 Esperei por ti todos os dias do ano.  

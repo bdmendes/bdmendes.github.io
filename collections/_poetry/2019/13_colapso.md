@@ -6,8 +6,6 @@ background: universe.jpg
 year: 2019
 ---
 
-> Porque viver é muito diferente de sobreviver.
-
 Acordo e sinto um arrepio gelado na espinha. É o começo de mais um aborrecido dia, pleno de deambulações sem sentido, diálogos sobre nada, monólogos sobre tudo.
 
 Arrepia-me sonhar quão bela e caoticamente ordenada poderia ser a vida se fizesse tudo o que penso. Arrepia-me ver o tempo esgotando-se diante de mim enquanto o esgoto divagando comigo mesmo, com as melodias e os vultos.

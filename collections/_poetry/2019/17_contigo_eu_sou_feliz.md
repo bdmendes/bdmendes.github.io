@@ -6,8 +6,6 @@ background: marriage_dream.jpg
 year: 2019
 ---
 
-> Porque a felicidade vem sempre de dentro.
-
 Vou casar contigo. Levo-te para o coração da metrópole, ao final da tarde, chuva caindo, e ajoelho-me. Imagino a excitação do público, a lágrima na tua face, o meu sorriso nervoso, a tua mão paralisada, a minha falta de equilíbrio.
 
 Não me acusarás de exibicionismo. Conheces-me perfeitamente, e sabes que este pedido é genuíno. Vai ser o momento das nossas vidas. Vais dizer que sim. Eu sei que o farás, porque me conheces, sabes-me incapaz de te magoar, e vês para além da minha pele.

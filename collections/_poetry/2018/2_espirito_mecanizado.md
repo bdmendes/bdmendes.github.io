@@ -6,8 +6,6 @@ number: 2
 year: 2018
 ---
 
-> O que é o amor senão uma repetição de padrões?
-
 O vento leva os romances nunca vividos, num sopro rápido que se faz sentir neste bungalow, pelas três da manhã. A porta está quase fechada mas deixa passar um resquício de luz que me mantém acordado, atento a uma voz única.
 
 Não consigo compreender o conceito de amor, estar associado a uma pessoa, há quem diga que sou algo, não consigo explicar, Fria, Talvez, Porquê, Não sinto empatia pelas pessoas.

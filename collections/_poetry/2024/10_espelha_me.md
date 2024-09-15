@@ -14,24 +14,24 @@ Tudo que tenho em mente
 Na adversidade do mundo  
 És a constante que tenho  
 Sei disto todos os segundos  
-Serás sempre o meu desenho  
+Serás sempre meu desenho  
 
 E sempre que o verão brotar  
 O calor e a dor não abrandar  
 Tu surges como primavera  
-Alimentando a minha quimera  
+Alimentando minha quimera  
 
 Não há nada que não podemos  
-Enquanto me espelhares assim.  
+Enquanto me espelhares assim  
 Não há nada que não podemos    
-Enquanto não tivermos fim.  
+Enquanto não tivermos fim  
 
 Na eventualidade de um fim  
-Que deixes de me espelhar assim  
+Que deixes de espelhar assim  
 Não saberei como mais ver-me  
-Como pode o mundo ter-me.  
+Como pode o mundo ter-me  
 
-Por isso espelha-me,  
-Espelha-me mais um pouco,  
-Que eu te olho mais um pouco,  
-E este momento é eterno.  
+Por isto espelha-me  
+Espelha-me mais um pouco  
+Eu olho-te mais um pouco  
+Eternizamos este momento.  
