@@ -105,14 +105,14 @@
   font-family: "Playwrite PT";
   src: url("/assets/fonts/Playwrite_PT/PlaywritePT-VariableFont_wght.ttf")
     format("truetype");
-  font-display: block;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Inter";
   src: url("/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
     format("truetype");
-  font-display: block;
+  font-display: swap;
 }
 
 body {
