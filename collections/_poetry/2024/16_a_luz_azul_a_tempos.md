@@ -6,6 +6,8 @@ background: blue_lamp.jpg
 year: 2024
 ---
 
+> "'Cause I am broken into fractions / Oh, and I am driven to distraction" - Sleep Token em *Distraction*
+
 Vejo-te apenas a tempos.  
 Vejo a tempos o teu sorriso,  
 o teu peito, o paraíso.  
@@ -16,4 +18,4 @@ se faz um momento.
 
 Conectamos apenas a tempos,  
 quando o sol se esconde,  
-a vida fica em pausa.  
+o mistério nos envolve.  
