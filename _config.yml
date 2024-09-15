@@ -9,10 +9,13 @@ author: Bruno Mendes
 icon: bdmendes.ico
 
 social:
-  - name: github/bdmendes
+  - name: instagram
+    icon: instagram-line.svg
+    url: https://www.instagram.com/bd_mendes/
+  - name: github
     icon: github-line.svg
     url: https://github.com/bdmendes
-  - name: linkedin/bdmendes
+  - name: linkedin
     icon: linkedin-fill.svg
     url: https://www.linkedin.com/in/bdmendes/
   - name: email
