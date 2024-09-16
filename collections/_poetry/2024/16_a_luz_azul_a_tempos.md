@@ -17,5 +17,5 @@ sempre que cintila a luz azul,
 se faz um momento.  
 
 Conectamos apenas a tempos,  
-quando o sol se esconde,  
-o mistério nos envolve.  
+quando o sol conhece o mar,  
+eu te posso beijar.  
