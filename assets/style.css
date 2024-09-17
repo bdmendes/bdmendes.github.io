@@ -73,6 +73,19 @@
   iframe {
     @apply mx-auto;
   }
+
+  ol,
+  ul {
+    @apply ml-12 mb-2;
+  }
+
+  ol > li {
+    @apply list-decimal;
+  }
+
+  ul > li {
+    @apply list-disc;
+  }
 }
 
 @layer components {
