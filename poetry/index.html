@@ -16,13 +16,19 @@ title: Poetry
   <p class="text-center mb-4 font-bold">JavaScript desativado. Esta página pode não funcionar corretamente.</p>
 </noscript>
 
-<div class="flex gap-2">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Pesquisar poemas..."
-    class="box p-2 w-full mb-4 rounded-md flex-1">
-  <select id="yearFilter" class="box p-2 mb-4 rounded-md">
+<div class="flex gap-2 mb-4">
+  <form class="w-full flex-1 flex relative">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Pesquisar poemas..."
+      class="box p-2 w-full rounded-md">
+    <button
+      id="clearSearch"
+      class="absolute right-2 h-full hidden"
+      type="button">&times;</button>
+  </form>
+  <select id="yearFilter" class="box p-2 rounded-md">
     <option value="">Ano</option>
     {% assign years = site.poetry | map: "year" | uniq | sort | reverse %}
     {% for year in years %}
@@ -58,14 +64,12 @@ title: Poetry
   const MAX_BOXES = 12;
   const toggleShowMore = (show) => document.getElementById("showMore").style.display = show ? 'block' : 'none';
   const toggleYearFilter = (show) => document.getElementById("yearFilter").style.display = show ? 'block' : 'none';
+  const toggleClearSearch = (show) => document.getElementById("clearSearch").style.display = show ? 'block' : 'none';
   const resetYearFilter = () => document.getElementById('yearFilter').value = "";
   const resetSearchInput = () => document.getElementById('searchInput').value = "";
 
   document.addEventListener('DOMContentLoaded', function() {
-    // Some browsers do not trigger bfcache when using the back button.
-    // In that case, clear all inputs manually to ensure the page is reset.
-    resetYearFilter();
-    resetSearchInput();
+    hookPageCaching();
 
     // Show More functionality
     document.getElementById("showMore").addEventListener("click", function() {
@@ -80,10 +84,10 @@ title: Poetry
     });
 
     // Search functionality
-    document.getElementById("searchInput").addEventListener("input", debounce(function() {
-      const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();;
+    function handleSearch(value) {
+      const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
 
-      const query = removeDiacritics(this.value);
+      const query = removeDiacritics(value);
       const items = document.querySelectorAll('.poetry-item');
 
       resetYearFilter();
@@ -91,15 +95,17 @@ title: Poetry
       if (query.length > 0) {
         toggleShowMore(false);
         toggleYearFilter(false);
-      } else if (document.querySelectorAll('.grid .poetry-item.hidden').length > 0) {
+        toggleClearSearch(true);
+      } else {
         toggleShowMore(true);
         toggleYearFilter(true);
+        toggleClearSearch(false);
       }
 
       let found = 0;
       items.forEach(function(item) {
-        const title = removeDiacritics(item.querySelector('.poem-title').textContent);
-        if (found < MAX_BOXES && title.includes(query)) {
+        const title = () => removeDiacritics(item.querySelector('.poem-title').textContent);
+        if (found < MAX_BOXES && title().includes(query)) {
           item.classList.remove('hidden');
           found++;
         } else {
@@ -112,7 +118,14 @@ title: Poetry
       } else {
         document.getElementById('noResults').classList.add('hidden');
       }
+    }
+    document.getElementById("searchInput").addEventListener("input", debounce(function() {
+      handleSearch(this.value);
     }));
+    document.getElementById("clearSearch").addEventListener("click", function() {
+      resetSearchInput();
+      handleSearch("");
+    });
 
     // Year filter functionality
     document.getElementById("yearFilter").addEventListener("change", function() {
