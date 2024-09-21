@@ -32,8 +32,8 @@ function hookPageCaching() {
     }
   });
 
-  // Add event listener to cache the content and form field values before unload
-  window.addEventListener("beforeunload", () => {
+  // Add event listener to cache the content and form field values before page hide
+  window.addEventListener("pagehide", () => {
     // Cache the entire content's innerHTML
     sessionStorage.setItem(
       "content",
