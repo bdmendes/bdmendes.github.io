@@ -74,7 +74,7 @@ An interesting challenge, though, is caching slider moves, because they depend o
 
 Now that we know how to generate moves, how exactly does our AI's brain work? To put it simply, it uses the [minimax algorithm](https://www.chessprogramming.org/Minimax) with lots of modifications and enhancements.
 
-Minimax sees the game as a tree. Each position is a node, and its children are the available positions after move making. With this in place, the best move is the one that yields the most benefitial position at a leaf node. Minimax gets its name by the fact that a maximizing player tries to maximize the score of a position and the minimizing player tries to maximize it: this is so because a position's score is always in White's perspective.
+Minimax sees the game as a tree. Each position is a node, and its children are the available positions after move making. With this in place, the best move is the one that yields the most benefitial position at a leaf node. Minimax gets its name by the fact that a maximizing player tries to maximize the score of a position and the minimizing player tries to minimize it: this is so because a position's score is always in White's perspective.
 
 ##### Expanding the game tree
 
@@ -113,7 +113,7 @@ We have been using a simple material evaluation for positions, with pawns evalua
 
 The first, easily solvable issue is checkmate. Our evaluation function needs to set the evaluation to +infinite if White has mated the opponent and -infinite if it was Black to do so. What's more, we should also consider how far we are from the tree root and offset these values so that we prefer quicker mates.
 
-However, there is much more to a position than just checkmate and material. An incredible important concept is activity and space. In the initial position above, material is equal but it is clear to any human observer that White is fairly better: the black king is exposed (there are 2 white pieces attacking g8) and White has a passed pawn.
+However, there is much more to a position than just checkmate and material. An incredibly important concept is activity and space. In the initial position above, material is equal but it is clear to any human observer that White is fairly better: the black king is exposed (there are 2 white pieces attacking g8) and White has a passed pawn.
 
 A decent evaluation function should include bonuses and penalties for piece placements, passed pawns and king attacks. This is however extremely difficult both to code efficiently and generalize. We'll return to this issue in the final section of this article.
 
