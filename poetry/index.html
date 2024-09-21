@@ -17,7 +17,7 @@ title: Poetry
 </noscript>
 
 <div class="flex gap-2 mb-4">
-  <form class="w-full flex-1 flex relative">
+  <div class="w-full flex-1 flex relative">
     <input
       type="text"
       id="searchInput"
@@ -27,7 +27,7 @@ title: Poetry
       id="clearSearch"
       class="absolute right-2 h-full hidden p-1"
       type="button">&times;</button>
-  </form>
+  </div>
   <select id="yearFilter" class="box p-2 rounded-md">
     <option value="">Ano</option>
     {% assign years = site.poetry | map: "year" | uniq | sort | reverse %}
