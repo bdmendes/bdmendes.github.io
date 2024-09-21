@@ -25,7 +25,7 @@ title: Poetry
       class="box p-2 w-full rounded-md">
     <button
       id="clearSearch"
-      class="absolute right-2 h-full hidden p-2"
+      class="absolute right-2 h-full hidden p-1"
       type="button">&times;</button>
   </form>
   <select id="yearFilter" class="box p-2 rounded-md">
@@ -62,64 +62,143 @@ title: Poetry
 
 <script>
   const MAX_BOXES = 12;
+
+  // Utility to toggle element display
   const toggleShowMore = (show) => document.getElementById("showMore").style.display = show ? 'block' : 'none';
   const toggleYearFilter = (show) => document.getElementById("yearFilter").style.display = show ? 'block' : 'none';
   const toggleClearSearch = (show) => document.getElementById("clearSearch").style.display = show ? 'block' : 'none';
+  
+  // Utility to reset inputs
   const resetYearFilter = () => document.getElementById('yearFilter').value = "";
   const resetSearchInput = () => document.getElementById('searchInput').value = "";
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Show More functionality
-    document.getElementById("showMore").addEventListener("click", function() {
-      const hiddenBoxes = document.querySelectorAll('.grid .poetry-item.hidden');
-      for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
-        hiddenBoxes[i].classList.remove('hidden');
-      }
+  // Update URL parameters
+  const updateURLParams = (query, year, showMore = 0) => {
+    const params = new URLSearchParams();
+    if (query) params.set('query', query);
+    if (year) params.set('year', year);
+    if (showMore) params.set('showMore', showMore);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, '', newUrl);
+  };
 
-      if (document.querySelectorAll('.grid .poetry-item.hidden').length === 0) {
-        toggleShowMore(false);
+  // Get query parameters from URL
+  const getParams = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+      query: urlParams.get('query') || "",
+      year: urlParams.get('year') || "",
+      showMore: parseInt(urlParams.get('showMore') || "0")
+    };
+  };
+
+  // Handle search functionality
+  function handleSearch(value) {
+    updateURLParams(value, "");
+
+    const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g, "").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
+    const query = removeDiacritics(value);
+    const items = document.querySelectorAll('.poetry-item');
+
+    if (query.length > 0) {
+      toggleShowMore(false);
+      toggleYearFilter(false);
+      toggleClearSearch(true);
+    } else {
+      toggleShowMore(true);
+      toggleYearFilter(true);
+      toggleClearSearch(false);
+    }
+
+    let found = 0;
+    items.forEach(function(item) {
+      const title = () => removeDiacritics(item.querySelector('.poem-title').textContent);
+      if (found < MAX_BOXES && title().includes(query)) {
+        item.classList.remove('hidden');
+        found++;
+      } else {
+        item.classList.add('hidden');
       }
     });
 
-    // Search functionality
-    function handleSearch(value) {
-      const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g,"").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
-
-      const query = removeDiacritics(value);
-      const items = document.querySelectorAll('.poetry-item');
-
-      resetYearFilter();
-
-      if (query.length > 0) {
-        toggleShowMore(false);
-        toggleYearFilter(false);
-        toggleClearSearch(true);
-      } else {
-        toggleShowMore(true);
-        toggleYearFilter(true);
-        toggleClearSearch(false);
-      }
-
-      let found = 0;
-      items.forEach(function(item) {
-        const title = () => removeDiacritics(item.querySelector('.poem-title').textContent);
-        if (found < MAX_BOXES && title().includes(query)) {
-          item.classList.remove('hidden');
-          found++;
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-
-      if (found === 0) {
-        document.getElementById('noResults').classList.remove('hidden');
-      } else {
-        document.getElementById('noResults').classList.add('hidden');
-      }
+    if (found === 0) {
+      document.getElementById('noResults').classList.remove('hidden');
+    } else {
+      document.getElementById('noResults').classList.add('hidden');
     }
+  }
+
+  // Handle year filter functionality
+  function handleYearFilter(value) {
+    updateURLParams("", value);
+
+    const items = document.querySelectorAll('.poetry-item');
+    let found = 0;
+    
+    items.forEach(function(item) {
+      const itemYear = item.getAttribute('data-year');
+      if ((value === "" && found < MAX_BOXES) || itemYear === value) {
+        item.classList.remove('hidden');
+        found++;
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    if (value !== "") {
+      toggleShowMore(false);
+    } else if (document.querySelectorAll('.grid .poetry-item.hidden').length > 0) {
+      toggleShowMore(true);
+    }
+  }
+
+  // Handle show more functionality
+  function handleShowMore() {
+    const { query, year, showMore } = getParams();
+    updateURLParams(query, year, showMore + 1);
+
+    const hiddenBoxes = document.querySelectorAll('.grid .poetry-item.hidden');
+    for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
+      hiddenBoxes[i].classList.remove('hidden');
+    }
+
+    if (document.querySelectorAll('.grid .poetry-item.hidden').length === 0) {
+      toggleShowMore(false);
+    }
+  }
+
+  // Initialize search and year filter from URL
+  function initializeFromURL() {
+    const { query, year, showMore } = getParams();
+
+    document.getElementById('searchInput').value = query;
+    document.getElementById('yearFilter').value = year;
+    if (query.length > 0) {
+      handleSearch(query);
+    } else {
+      handleYearFilter(year);
+    }
+
+    for (let i = 0; i < showMore; i++) {
+      handleShowMore();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize from URL on page load
+    initializeFromURL();
+
+    // Show More functionality
+    document.getElementById("showMore").addEventListener("click", function() {
+      handleShowMore();
+    });
+
+    // Search functionality with debounce
     document.getElementById("searchInput").addEventListener("input", debounce(function() {
       handleSearch(this.value);
     }));
+
+    // Clear search button functionality
     document.getElementById("clearSearch").addEventListener("click", function() {
       resetSearchInput();
       handleSearch("");
@@ -127,26 +206,7 @@ title: Poetry
 
     // Year filter functionality
     document.getElementById("yearFilter").addEventListener("change", function() {
-      const selectedYear = this.value;
-      const items = document.querySelectorAll('.poetry-item');
-
-      let found = 0;
-      items.forEach(function(item) {
-        const itemYear = item.getAttribute('data-year');
-        if ((selectedYear === "" && found < MAX_BOXES) || itemYear === selectedYear) {
-          item.classList.remove('hidden');
-          found++;
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-
-      // Adjust "Show More" visibility
-      if (selectedYear !== "") {
-        toggleShowMore(false);
-      } else if (document.querySelectorAll('.grid .poetry-item.hidden').length > 0) {
-        toggleShowMore(true);
-      }
+      handleYearFilter(this.value);
     });
   });
 </script>
