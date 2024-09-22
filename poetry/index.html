@@ -12,10 +12,6 @@ title: Poetry
   {% endfor %}
 {% endfor %}
 
-<noscript>
-  <p class="text-center mb-4 font-bold">JavaScript desativado. Esta página pode não funcionar corretamente.</p>
-</noscript>
-
 <div class="flex gap-2 mb-4">
   <div class="w-full flex-1 flex relative">
     <input
@@ -154,12 +150,12 @@ title: Poetry
   }
 
   // Handle show more functionality
-  function handleShowMore() {
+  function handleShowMore(times = 1) {
     const { query, year, showMore } = getParams();
-    updateURLParams(query, year, showMore + 1);
+    updateURLParams(query, year, showMore + times);
 
     const hiddenBoxes = document.querySelectorAll('.grid .poetry-item.hidden');
-    for (let i = 0; i < MAX_BOXES && i < hiddenBoxes.length; i++) {
+    for (let i = 0; i < MAX_BOXES * times && i < hiddenBoxes.length; i++) {
       hiddenBoxes[i].classList.remove('hidden');
     }
 
@@ -181,9 +177,7 @@ title: Poetry
       handleYearFilter(year);
     }
 
-    for (let i = 0; i < showMore; i++) {
-      handleShowMore();
-    }
+    handleShowMore(showMore);
   }
 
   document.addEventListener('DOMContentLoaded', function() {
