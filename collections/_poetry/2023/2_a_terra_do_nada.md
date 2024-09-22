@@ -1,7 +1,7 @@
 ---
 title: A terra do nada
 layout: post
-number: 1
+number: 2
 background: empty_office.jpg
 year: 2023
 ---

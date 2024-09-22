@@ -1,7 +1,7 @@
 ---
 title: Pedaço de estrada
 layout: post
-number: 5
+number: 6
 background: night_road.jpg
 year: 2023
 ---

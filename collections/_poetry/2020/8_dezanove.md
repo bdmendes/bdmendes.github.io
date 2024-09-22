@@ -1,7 +1,7 @@
 ---
 title: Dezanove
 layout: post
-number: 7
+number: 8
 background: train.jpg
 year: 2020
 ---

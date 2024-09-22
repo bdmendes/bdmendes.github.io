@@ -1,7 +1,7 @@
 ---
 title: O resgate
 layout: post
-number: 5
+number: 6
 background: trindade.jpg
 year: 2020
 ---

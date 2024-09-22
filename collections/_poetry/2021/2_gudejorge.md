@@ -1,7 +1,7 @@
 ---
 title: Gudejorge
 layout: post
-number: 1
+number: 2
 background: sea_drown.jpg
 year: 2021
 ---
