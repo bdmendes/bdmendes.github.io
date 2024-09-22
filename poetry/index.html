@@ -17,7 +17,7 @@ title: Poetry
 </noscript>
 
 <div class="flex gap-2 mb-4">
-  <form class="w-full flex-1 flex relative">
+  <div class="w-full flex-1 flex relative">
     <input
       type="text"
       id="searchInput"
@@ -27,7 +27,7 @@ title: Poetry
       id="clearSearch"
       class="absolute right-2 h-full hidden p-1"
       type="button">&times;</button>
-  </form>
+  </div>
   <select id="yearFilter" class="box p-2 rounded-md">
     <option value="">Ano</option>
     {% assign years = site.poetry | map: "year" | uniq | sort | reverse %}
@@ -57,7 +57,7 @@ title: Poetry
 
 <div class="flex flex-col">
   <button id="showMore" class="box p-2 mx-auto rounded-full mt-4">Ver mais</button>
-  <p id="noResults" class="hidden mt-2">Não foram encontrados poemas com título correspondente.</p>
+  <p id="noResults" class="hidden">Não foram encontrados poemas com título correspondente.</p>
 </div>
 
 <script>
@@ -104,6 +104,7 @@ title: Poetry
       toggleShowMore(false);
       toggleYearFilter(false);
       toggleClearSearch(true);
+      resetYearFilter();
     } else {
       toggleShowMore(true);
       toggleYearFilter(true);
@@ -173,6 +174,7 @@ title: Poetry
 
     document.getElementById('searchInput').value = query;
     document.getElementById('yearFilter').value = year;
+    
     if (query.length > 0) {
       handleSearch(query);
     } else {
