@@ -6,21 +6,19 @@ title: Blog
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
   {% for post in paginator.posts %}
     <div class="box pb-2 flex flex-col gap-3">
-      <div class="flex relative">
-        <a href="{{ post.url }}" class="w-full">
-          <img
-            href="{{ post.url }}"
-            src="/assets/blog/{{ post.image }}"
-            alt="{{ post.title }}"
-            class="object-cover h-40 sm:h-48 w-full" />
-        </a>
-        <div class="absolute bg-neutral-800 w-fit left-0 top-0 z-20 py-1 px-2 text-center">
+      <a href="{{ post.url }}" class="w-full flex relative text-inherit">
+        <img
+          href="{{ post.url }}"
+          src="/assets/blog/{{ post.image }}"
+          alt="{{ post.title }}"
+          class="object-cover h-40 sm:h-48 w-full" />
+        <div class="absolute bg-neutral-800 w-fit left-0 bottom-0 z-20 py-1 px-2 text-center">
           {{ post.date | date: "%b %d, %Y" }}
         </div>
-      </div>
+      </a>
       <div>
         <h4 class="mb-1 mx-2">
-          <a href="{{ post.url }}">{{ post.title }}</a>
+          <a class="inline-block w-full" href="{{ post.url }}">{{ post.title }}</a>
         </h4>
         <div class="text-base mx-2">
           {{ post.excerpt }}

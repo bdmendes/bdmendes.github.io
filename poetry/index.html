@@ -74,12 +74,14 @@ title: Poetry
 
   // Update URL parameters
   const updateURLParams = (query, year, showMore = 0) => {
-    const params = new URLSearchParams();
-    if (query) params.set('query', query);
-    if (year) params.set('year', year);
-    if (showMore) params.set('showMore', showMore);
-    const newUrl = `${window.location.pathname}?${params.toString()}`;
-    window.history.replaceState({}, '', newUrl);
+    const url = new URL(window.location.href);
+    url.search = '';
+    
+    if (query) url.searchParams.set('query', query);
+    if (year) url.searchParams.set('year', year);
+    if (showMore) url.searchParams.set('showMore', showMore);
+
+    window.history.replaceState({}, '', url);
   };
 
   // Get query parameters from URL
@@ -96,7 +98,7 @@ title: Poetry
   function handleSearch(value) {
     updateURLParams(value, "");
 
-    const removeDiacritics = (str) => str.normalize('NFD').replace(/[\W_]+/g, "").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
+    const removeDiacritics = (str) => str.normalize('NFD').replace(/[^\w\s]+/g, "").replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
     const query = removeDiacritics(value);
     const items = document.querySelectorAll('.poetry-item');
 
@@ -113,8 +115,7 @@ title: Poetry
 
     let found = 0;
     items.forEach(function(item) {
-      const title = () => removeDiacritics(item.querySelector('.poem-title').textContent);
-      if (found < MAX_BOXES && title().includes(query)) {
+      if (found < MAX_BOXES && removeDiacritics(item.querySelector('.poem-title').textContent).includes(query)) {
         item.classList.remove('hidden');
         found++;
       } else {
@@ -137,8 +138,7 @@ title: Poetry
     let found = 0;
     
     items.forEach(function(item) {
-      const itemYear = item.getAttribute('data-year');
-      if ((value === "" && found < MAX_BOXES) || itemYear === value) {
+      if ((value === "" && found < MAX_BOXES) || item.getAttribute('data-year') === value) {
         item.classList.remove('hidden');
         found++;
       } else {
@@ -208,6 +208,15 @@ title: Poetry
 
     // Year filter functionality
     document.getElementById("yearFilter").addEventListener("change", function() {
+      handleYearFilter(this.value);
+    });
+    document.getElementById("yearFilter").addEventListener("wheel", function(e) {
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        this.selectedIndex = Math.min(this.selectedIndex + 1, this.options.length - 1);
+      } else {
+        this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
+      }
       handleYearFilter(this.value);
     });
   });
