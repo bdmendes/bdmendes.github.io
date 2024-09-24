@@ -4,6 +4,7 @@ layout: post
 background: dense_road.jpg
 number: 3
 year: 2018
+originally: Nuance
 ---
 
 Atento, penso no que me faz sentir bem, quem sabe, ser feliz, fazer o que gosto sem definir objetivos em demasia ou remoer-me em preocupações e anseios.

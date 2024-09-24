@@ -4,6 +4,7 @@ layout: post
 number: 10
 background: mirror_nature_man.jpg
 year: 2024
+originally: O meu espelho
 ---
 
 Tu és o meu espelho  

@@ -4,6 +4,7 @@ layout: post
 number: 6
 background: trindade.jpg
 year: 2020
+originally: Trindade
 ---
 
 De regresso a casa depois de um almoço solitário, posso esperar que te atires, ou simplesmente atirar-te. Até onde estou disposto a ir para me ver debruçado sobre os carris, de braço estendido, deste lado e nunca daquele?

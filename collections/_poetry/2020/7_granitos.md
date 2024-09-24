@@ -4,6 +4,7 @@ layout: post
 number: 7
 background: rocks.jpg
 year: 2020
+originally: Texturas
 ---
 
 O perigo espreita em cada esquina, a cada badalada do relógio. Os granitos estão proibidos, caminhar nas ruas é um desporto radical de fraca visibilidade e rendimento baixo. Os espaços comuns estão alugados a ninguém, e não há quem ouse debatê-lo.

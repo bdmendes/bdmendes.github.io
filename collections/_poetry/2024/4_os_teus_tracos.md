@@ -4,6 +4,7 @@ layout: post
 number: 4
 background: foz_douro.jpg
 year: 2024
+originally: Menina da Foz
 ---
 
 > Com David Preda, verso sim, verso não.

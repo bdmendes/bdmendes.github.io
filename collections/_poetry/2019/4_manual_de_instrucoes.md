@@ -4,6 +4,7 @@ number: 4
 background: traffic_signs.jpg
 layout: post
 year: 2019
+originally: Sobressaltos
 ---
 
 As vantagens de ter uma rotina sólida são indubitáveis. Desde logo, a sensação continuada de realização sobrepõe-se a qualquer tipo de dilemas existenciais contraídos aquando da supressão dos motivos de agenda. Se a basearmos em atividades saudáveis, então, seremos habitantes de um paraíso intelectual de níveis quase bíblicos.

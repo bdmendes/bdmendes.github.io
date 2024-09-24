@@ -4,6 +4,7 @@ layout: post
 number: 1
 background: rising_sun.jpg
 year: 2020
+originally: Eles, o tempo, a elegância
 ---
 
 Hoje foi simples, foi elegante, foi perigoso, foi chuvoso, foi perfeito.

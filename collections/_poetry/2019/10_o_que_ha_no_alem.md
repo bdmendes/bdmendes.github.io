@@ -4,6 +4,7 @@ layout: post
 background: death.jpg
 number: 10
 year: 2019
+originally: Apenas mais um
 ---
 
 Sou apenas mais um no meio da multidão. Porque não simplesmente desaparecer, colocar termo na vida? Ninguém repararia, e todos os meus problemas seriam magicamente levados pelo oceano para terra de ninguém.

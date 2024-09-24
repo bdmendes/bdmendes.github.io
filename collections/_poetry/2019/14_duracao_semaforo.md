@@ -4,6 +4,7 @@ layout: post
 number: 14
 background: traffic_light.jpg
 year: 2019
+originally: Trabalhos de reanimação
 ---
 
 Três da manhã. Toda uma cidade concentrada aguardando a luz verde do semáforo. O chão trepidante, o suor quente escorrendo. Foi ali que ela morreu.
