@@ -175,9 +175,10 @@ title: Poetry
       handleSearch(query);
     } else {
       handleYearFilter(year);
+      if (year.length === 0) {
+        handleShowMore(showMore);
+      }
     }
-
-    handleShowMore(showMore);
   }
 
   document.addEventListener('DOMContentLoaded', function() {
