@@ -13,6 +13,4 @@ Sempre que ficas sozinho - ou, para ser mais preciso, te sentes só, porque faze
 
 E, resignado, devolves o telemóvel ao bolso.
 
-Ainda que penses que este ensaio é sobre ela, deixa-me dizer-te que é sobre ti, sobre a forma como foges de ti, como te aborreces com a tua mediocridade e procuras nas imagens dos outros uma pausa de ti mesmo. Tu não podes contigo, e tu sabes. Meia dúzia de kilobytes fazem-te esquecer disto, sempre que precisas.
-
-Continua - não te vou mudar. Sou apenas um rapaz teclando, calmo, numa terça-feira à noite, e sei que estás farto de moralismos.
+Ainda que penses que este ensaio é sobre ela, deixa-me dizer-te que é sobre a forma como foges de ti, como te aborreces contigo e te procuras nas imagens dos outros, comprimidas em meia dúzia de kilobytes.
