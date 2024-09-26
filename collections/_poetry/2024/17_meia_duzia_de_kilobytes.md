@@ -11,6 +11,4 @@ Sempre que ficas sozinho - ou, para ser mais preciso, te sentes só, porque faze
 1. Ela está bem, sem ti, o que te deixa amargurado.
 2. Não sabes se ela está bem, o que te deixa melancólico.
 
-E, resignado, devolves o telemóvel ao bolso.
-
-Ainda que penses que este ensaio é sobre ela, deixa-me dizer-te que é sobre a forma como foges de ti, como te procuras nas imagens dos outros, comprimidas em meia dúzia de kilobytes, sem nunca te encontrares.
+Resignado, devolves o telemóvel ao bolso.
