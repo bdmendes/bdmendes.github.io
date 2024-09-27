@@ -11,7 +11,7 @@ title: Blog
           href="{{ post.url }}"
           src="/assets/blog/{{ post.image }}"
           alt="{{ post.title }}"
-          class="object-cover h-40 sm:h-48 w-full" />
+          class="object-cover h-32 w-full" />
         <div class="absolute bg-neutral-800 w-fit left-0 bottom-0 z-20 py-1 px-2 text-center">
           {{ post.date | date: "%b %d, %Y" }}
         </div>
@@ -19,7 +19,7 @@ title: Blog
       <h4 class="mb-0">
         <a class="inline-block w-full pt-3 px-2 pb-1" href="{{ post.url }}">{{ post.title }}</a>
       </h4>
-      <div class="text-base px-2 pb-2">
+      <div class="px-2 pb-2">
         {{ post.excerpt }}
       </div>
     </div>
@@ -28,32 +28,13 @@ title: Blog
 
 {% if paginator.total_pages > 1 %}
   <div class="mt-4 mr-1">
-    <div class="w-fit mx-auto flex gap-8">
+    <div class="w-fit mx-auto flex gap-4 place-items-center">
       {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
+        <a class="box p-2 rounded-full text-inherit" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
       {% endif %}
 
-      <div class="flex gap-4">
-        {% assign current_page = paginator.page %}
-        {% assign page_range_start = current_page | minus: 2 %}
-        {% assign page_range_end = current_page | plus: 2 %}
-
-        {% for page in (page_range_start..page_range_end) %}
-          {% if page < 1 or page > paginator.total_pages %}
-            {% continue %}
-          {% endif %}
-          {% if page == paginator.page %}
-            <span class="font-bold">{{ page }}</span>
-          {% elsif page == 1 %}
-            <a href="{{ '/blog' | relative_url }}">{{ page }}</a>
-          {% else %}
-            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-          {% endif %}
-        {% endfor %}
-      </div>
-
       {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+        <a class="box p-2 rounded-full text-inherit" href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
       {% endif %}
     </div>
   </div>

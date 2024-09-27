@@ -57,7 +57,7 @@
     {% endif %}
   </head>
 
-  <body class="bg-neutral-950 text-slate-300">
+  <body class="bg-neutral-950 text-slate-200">
     {% if background %}
       <div
         id="background"
@@ -65,37 +65,36 @@
         style="background-image: url('{{site.url}}/assets/background/{{ background }}')"></div>
     {% endif %}
     <main class="max-w-3xl mx-auto sm:px-4 pt-4 sm:pt-6 sm:pb-6 z-10 relative flex flex-col gap-4 min-h-screen sm:min-h-fit">
-      <div class="flex min-w-fit flex-col place-items-center justify-center text-xl no-underline gap-6 mx-2">
-        <header class="flex flex-col sm:flex-row place-items-center gap-4 grow-0">
-          <img
-            src="{{site.baseurl}}/assets/about-me/bdmendes-2024.jpg"
-            alt="logo"
-            class="w-28 h-28 rounded-full saturate-[75%] aspect-square" />
-          <div class="flex flex-col">
-            <h2 class="playwrite leading-normal text-center">{{ site.title }}</h2>
-            <div class="flex gap-4 mt-2 justify-center sm:justify-start flex-wrap">
-              {% for page in site.social %}
-                <a href="{{ page.url }}" target="_blank">
-                  <img
-                    class="w-6 h-6 aspect-square"
-                    src="{{site.baseurl}}/assets/socials/{{ page.icon }}"
-                    alt="{{ page.name }}" />
-                </a>
-              {% endfor %}
-            </div>
+      <header class="flex flex-col sm:flex-row place-items-center gap-4 grow-0 mb-2 mx-auto px-2">
+        <img
+          src="{{site.baseurl}}/assets/about-me/bdmendes-2024.jpg"
+          alt="logo"
+          class="w-24 h-24 rounded-full aspect-square" />
+        <div class="flex flex-col">
+          <h2 class="playwrite leading-normal text-center">{{ site.title }}</h2>
+          <div class="flex gap-4 mt-1 justify-center sm:justify-start flex-wrap">
+            {% for page in site.social %}
+              <a href="{{ page.url }}" target="_blank">
+                <img
+                  class="w-6 h-6 aspect-square"
+                  src="{{site.baseurl}}/assets/socials/{{ page.icon }}"
+                  alt="{{ page.name }}" />
+              </a>
+            {% endfor %}
           </div>
-        </header>
-        <nav class="{{headerOpacity}} flex place-items-center gap-1 justify-center flex-wrap">
-          {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' %}
-          {% for p in site.navigation %}
-            {% if mainUrl == p.url %}
-              <a class="nav-btn-selected" href="{{p.url}}">{{ p.name }}</a>
-            {% else %}
-              <a class="nav-btn" href="{{p.url}}">{{ p.name }}</a>
-            {% endif %}
-          {% endfor %}
-        </nav>
-      </div>
+        </div>
+      </header>
+
+      <nav class="{{headerOpacity}} flex place-items-center gap-1 justify-center flex-wrap mx-2 text-xl">
+        {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' %}
+        {% for p in site.navigation %}
+          {% if mainUrl == p.url %}
+            <a class="nav-btn-selected" href="{{p.url}}">{{ p.name }}</a>
+          {% else %}
+            <a class="nav-btn" href="{{p.url}}">{{ p.name }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
 
       {% if background %}
         {% assign backProps = "backdrop-blur-2xl" %}

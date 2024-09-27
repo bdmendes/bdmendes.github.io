@@ -4,7 +4,7 @@ layout: post
 image: lp_burn_it_down.jpg
 ---
 
-Early 2013. The 11-year-old me was coming home from school and heard *Burn It Down* by Linkin Park on the radio, and was hooked instantly.
+Early 2013. The 11-year-old me was coming home from school and heard *Burn It Down* on the radio, and was hooked instantly.
 
 As an emerging teenager, unmoved by top-charting pop songs, the electronic rock sound of *Burn It Down*, coupled with Chester's soft but raspy voice, was the first time I was interested in music. While my father already jammed quite loudly back home to great artists such as Barclay James Harvest or Pink Floyd, they were never very interesting to me. After all, they were my father's favorites, not mine.
 
