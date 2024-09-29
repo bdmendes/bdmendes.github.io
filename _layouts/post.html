@@ -4,11 +4,11 @@ layout: default
 
 {% assign prev = page.url | split: '/' | slice: 1, 1 %}
 
-<div class="flex gap-4 w-min min-w-full place-items-center justify-between">
+<div class="flex gap-2 w-min min-w-full place-items-center justify-between">
   <h2 class="mb-0 flex-1">{{ page.title }}</h2>
   <div class="text-slate-400">
     {% if page.year %}
-      <div class="text-center">{{ page.year }}</div>
+      <div class="text-center pt-1">{{ page.year }}</div>
     {% else %}
       <div class="text-center">{{ page.date | date: "%b %d" }}</div>
       <div class="text-center">{{ page.date | date: "%Y" }}</div>
