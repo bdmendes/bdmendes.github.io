@@ -205,14 +205,5 @@ title: Poetry
     document.getElementById("yearFilter").addEventListener("change", function() {
       handleYearFilter(this.value);
     });
-    document.getElementById("yearFilter").addEventListener("wheel", function(e) {
-      e.preventDefault();
-      if (e.deltaY > 0) {
-        this.selectedIndex = Math.min(this.selectedIndex + 1, this.options.length - 1);
-      } else {
-        this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
-      }
-      handleYearFilter(this.value);
-    });
   });
 </script>
