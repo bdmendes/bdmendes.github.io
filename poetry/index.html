@@ -35,7 +35,7 @@ title: Poetry
 
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
   {% for text in all_texts %}
-    <div class="poetry-item relative {% if forloop.index > 16 %} hidden {% endif %}" data-year="{{ text.year }}">
+    <div class="poetry-item relative hidden" data-year="{{ text.year }}">
       <img
         loading="lazy"
         src="/assets/background/{{ text.background }}"
@@ -52,7 +52,7 @@ title: Poetry
 </div>
 
 <div class="flex flex-col">
-  <button id="showMore" class="box p-2 mx-auto rounded-full mt-4">Ver mais</button>
+  <button id="showMore" class="box p-2 mx-auto rounded-full mt-4 hidden">Ver mais</button>
   <p id="noResults" class="hidden">Não foram encontrados poemas com título correspondente.</p>
 </div>
 

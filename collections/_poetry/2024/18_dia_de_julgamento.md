@@ -1,7 +1,7 @@
 ---
 title: Dia de julgamento
 layout: post
-number: 20
+number: 18
 background: courtroom.jpg
 year: 2024
 ---

@@ -4,21 +4,20 @@ layout: default
 
 {% assign prev = page.url | split: '/' | slice: 1, 1 %}
 
-<div class="flex gap-2 w-min min-w-full place-items-center justify-between">
-  <h2 class="mb-0 flex-1">{{ page.title }}</h2>
-  <div class="text-slate-400">
+<h2 class="mb-0 min-w-fit w-min">
+  <span class="mr-1">{{ page.title }}</span>
+  <span class="text-slate-400 inline-block text-sm align-middle">
     {% if page.year %}
-      <div class="text-center pt-1">{{ page.year }}</div>
+      {{ page.year }}
     {% else %}
-      <div class="text-center">{{ page.date | date: "%b %d" }}</div>
-      <div class="text-center">{{ page.date | date: "%Y" }}</div>
+      {{ page.date | date: "%b %d, %Y" }}
     {% endif %}
-  </div>
-</div>
+  </span>
+</h2>
 
 <div class="mb-3 min-w-fit w-min">
   {% if page.originally %}
-    <p class="text-slate-400 mt-1">Originalmente
+    <p class="text-slate-400 mt-1 text-sm">Originalmente
       <span class="italic">{{ page.originally }}</span>
     </p>
   {% endif %}

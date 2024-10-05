@@ -76,7 +76,7 @@
 
   ol,
   ul {
-    @apply ml-12 mb-2;
+    @apply ml-4 mb-2;
   }
 
   ol > li {
@@ -85,6 +85,14 @@
 
   ul > li {
     @apply list-disc;
+  }
+
+  .footnotes {
+    @apply text-sm text-slate-400 mt-4 min-w-fit w-min;
+  }
+
+  .reversefootnote {
+    @apply hidden;
   }
 }
 

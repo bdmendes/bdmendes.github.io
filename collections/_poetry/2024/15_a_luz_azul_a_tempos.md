@@ -1,7 +1,7 @@
 ---
 title: A luz azul (a tempos)
 layout: post
-number: 16
+number: 15
 background: blue_lamp.jpg
 year: 2024
 ---
