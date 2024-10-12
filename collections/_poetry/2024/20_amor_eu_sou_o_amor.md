@@ -1,8 +1,8 @@
 ---
 title: Amor, eu sou o amor
 layout: post
-number: 19
-background: abstract_dark_red.jpg
+number: 20
+background: love_rain_grey.jpg
 year: 2024
 ---
 

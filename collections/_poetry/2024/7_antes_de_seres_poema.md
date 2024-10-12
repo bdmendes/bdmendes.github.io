@@ -6,8 +6,6 @@ background: woman_abstract.jpg
 year: 2024
 ---
 
-> "\[...\] terei um medo ainda maior do que o medo que me dá que te tenhas ido: o medo de que fiques." - Marwan em *Todos os Meus Futuros São Contigo*
-
 Perguntaram-me porque te amo  
 Porque ouso navegar no mar  
 ínfimo e tenebroso que é o outro  

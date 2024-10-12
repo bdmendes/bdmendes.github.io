@@ -6,8 +6,6 @@ background: alone_room.jpg
 year: 2021
 ---
 
-> "Please die, Ana / For as long as you're here we're not" - Silverchair em *Ana's Song (Open Fire)*
-
 É hora de jantar, mas tu não vens.  
 Deixas-te ficar no quarto, nessa  
 Vida condicionada pela teoria  
