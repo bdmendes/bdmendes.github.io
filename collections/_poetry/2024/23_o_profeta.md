@@ -1,0 +1,9 @@
+---
+title: O profeta
+layout: post
+number: 23
+background: prophet.jpg
+year: 2024
+---
+
+E nas antípodas do que profetizo vem o efeito borboleta, a ideia de que vivemos domados pela circunstância, que um pequeno mal-estar pode levar a um caos duradouro, ou que um laivo de felicidade pode levar a um caminho profundamente próspero. Rejeito isto totalmente, como o eterno idealista que resiste a uma ideia que é tão radical como a sua, como um apegado à máxima de que há que controlar o que importa para que o que importa não deixe de importar, como o que rejeita moralismos para não se desfazer dos seus próprios dogmas, como o que desenha cenários para evitar o colapso com o colapso na mão.
