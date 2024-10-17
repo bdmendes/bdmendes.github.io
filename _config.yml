@@ -50,3 +50,5 @@ collections:
     permalink: /blog/:title
   poetry:
     output: true
+  slides:
+    output: true

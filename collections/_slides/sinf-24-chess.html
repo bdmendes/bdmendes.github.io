@@ -1,0 +1,100 @@
+---
+layout: slide
+title: "Bulding a chess engine: from bit fiddling to search heuristics"
+---
+
+class: center, middle, inverse, small-images
+
+# Building a chess engine: from bit twiddling to search heuristics
+
+#### Or how Camel was built
+
+---
+
+class: center, middle, inverse
+
+### Your host
+
+<img src="/assets/about-me/bdmendes-2022.jpg" style="width: 20%; border-radius: 5em;">
+
+** Bruno Mendes **
+
+Software Engineer @ Kevel  
+M.EIC Alumni  
+4-year NIAEFEUP Member  
+Club Chess Player  
+
+---
+
+class: center, middle, inverse, small-images
+
+### Let's talk about chess programming
+
+Interrupt me anytime in case I am not being clear!
+
+---
+
+class: center
+
+## Chess programming is really simple
+
+<img src="/assets/slides/sinf-24-chess/iceberg.jpeg" style="width: 50%; margin: 0 auto;">
+
+---
+
+class: center, middle, inverse, small-images
+
+### The big picture
+
+#### What is the use case of our program?
+
+---
+
+class: center
+
+### A single user story
+
+"As an operator, I would like to retrieve the best move for a given position, given the time available for both players [so that I may win]"
+
+<img src="/assets/slides/sinf-24-chess/2-players-board.jpg" style="width: 100%;">
+
+---
+
+class: center, middle, small-images
+
+### A clear separation of concerns
+
+<img src="/assets/slides/sinf-24-chess/chess_call_graph.png" style="width: 60%;">
+
+---
+
+class: center, middle, inverse, small-images
+
+### Let's use a bottom-up approach
+
+What core abstractions do we need for a chess position?
+
+---
+
+### The `Position` structure: considerations
+
+- Needs to
+    - Encode the contents of the 64 squares of the chess board
+    - Store metadata such as castling rights, enpassant square
+    - Be serialized and unserialized to/from FEN
+    - Be flexible enough for very fast move making
+
+*Is an array enough?*
+
+```rust
+struct Position {
+    mailbox: [Option<Piece>; 64],
+    en_passant_square: Option<Square>,
+    castling_rights: u8, // bitset
+    ...
+}
+```
+
+---
+
+### Calculating slider movements using mailbox
