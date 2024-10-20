@@ -32,6 +32,8 @@ navigation:
     url: /blog
   - name: Poetry
     url: /poetry
+  - name: Misc
+    url: /misc
 
 # Build settings
 plugins:

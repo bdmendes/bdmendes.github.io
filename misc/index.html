@@ -1,0 +1,9 @@
+---
+layout: default
+title: Misc
+---
+
+<h3>Slides</h3>
+{% for slide in site.slides %}
+<a href="{{slide.url}}">{{slide.title}}</a>
+{% endfor %}
