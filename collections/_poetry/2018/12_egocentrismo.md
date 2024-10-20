@@ -1,9 +1,9 @@
 ---
 title: Egocentrismo
 layout: post
-number: 2
+number: 12
 background: dark_shirts.jpg
-year: 2019
+year: 2018
 ---
 
 Poucas vezes saio de casa a tempo para qualquer tipo de compromisso. Podem acusar-me de desorganização e desmazelo, mas tem tudo a ver com a necessidade de cumprimento de uma inabalável rotina que não cabe no fino intervalo horário entre o toque do despertador e o início oficial de mais um aborrecido dia.

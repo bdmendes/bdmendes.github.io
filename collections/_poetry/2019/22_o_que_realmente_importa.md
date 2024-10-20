@@ -1,7 +1,7 @@
 ---
 title: O que realmente importa
 layout: post
-number: 20
+number: 22
 background: nervous_system.jpg
 year: 2019
 originally: Cálculo da eficiência
