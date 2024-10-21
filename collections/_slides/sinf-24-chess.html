@@ -1,6 +1,6 @@
 ---
 layout: slide
-title: "Bulding a chess engine: from bit fiddling to search heuristics"
+title: "Building a chess engine: from bit twiddling to search heuristics"
 ---
 
 class: center, middle, inverse, small-images
@@ -8,6 +8,8 @@ class: center, middle, inverse, small-images
 # Building a chess engine: from bit twiddling to search heuristics
 
 #### Or how Camel was built
+
+#### Semana de Informática 2024 @ FEUP
 
 ---
 
@@ -22,7 +24,7 @@ class: center, middle, inverse
 Software Engineer @ Kevel  
 M.EIC Alumni  
 4-year NIAEFEUP Member  
-Club Chess Player  
+Club Chess Player @ GXP
 
 ---
 
@@ -381,7 +383,7 @@ How does a chess engine know which positions are best?
 
 - Assignment of how much a position is worth, in white's perspective
 - We like to use *centipawns* as a relative measure (although Stockfish is switching to being based on win probabilities...)
-- Checkmates should be scores outside of the reachable bounds for a playable position
+- Checkmates should be evaluated with scores outside of the reachable bounds for a playable position, e.g -999 for black and 999 for white
 
 - Q.: Why do we need centipawns? Can't we just count material?
 
@@ -389,7 +391,7 @@ How does a chess engine know which positions are best?
 
 ---
 
-### Evaluation 101
+### Evaluation philosophy
 
 - Unfortunately (or fortunately), we as humans use much more than material to assess a position:
     - Is my king safe?
@@ -583,6 +585,43 @@ if !is_check && !twofold_repetition && !may_be_zug {
 
 ---
 
+### Standing pat
+
+- Term used in poker variants, where you choose to keep your hand and withdraw from getting more cards
+- In chess programming, this is the static evaluation of a position inside a quiescence search
+    - Assuming captures cannot make the position worse, we must superseed this score
+    - Can also use it to "delta prune", i.e. fail if even a queen capture can't improve the score
+
+```rust
+let static_evaluation = position.value() * position.side_to_move.sign();
+
+alpha = alpha.max(static_evaluation);
+
+// Beta cutoff: position is too good
+if static_evaluation >= beta {
+    return (beta, 1);
+}
+
+// Delta pruning: sequence cannot improve the score
+if static_evaluation < alpha.saturating_sub(Piece::Queen.value()) {
+    return (alpha, 1);
+}
+
+static_evaluation
+```
+
+---
+
+### Selectivity
+
+- One can experiment with extension and reductions to further cut down the search tree size
+    - Check extensions are usually a good idea, since they are usually a hint of a forced, interesting variant
+    - Late move reductions trust that our move ordering is good enough to see later moves shallower
+    - Passed pawn extensions help the program in endgames
+- This is very unstable and the outcome in overall play strength might change drastically due to synergies
+
+---
+
 ### Transposition tables
 
 - A common theme in chess is finding the same positions with different move ordering
@@ -611,6 +650,26 @@ if let Some((score, score_type)) = table.get_table_score(position, depth, ply) {
 
 ### Zobrist hashing
 
+- Generate random u64 for (piece, square) pairs, and just XOR them into the hash as pieces move in and out of squares
+
+```rust
+fn xor_hash(&mut self, square: Square, piece: Piece, color: Color) {
+    let index = color as usize * 6 * 64 + piece as usize * 64 + square as usize;
+    self.hash ^= ZOBRIST_NUMBERS[index];
+}
+
+pub fn set_square(&mut self, square: Square, piece: Piece, color: Color) {
+    self.clear_square(square);
+    self.pieces[piece as usize].set(square);
+    self.occupancy[color as usize].set(square);
+    self.mailbox[square as usize] = Some(piece);
+    self.xor_hash(square, piece, color);
+}
+```
+
+- Probability of collision is very thin (around 10^-5), but exists
+    - As Sebastian Lague (Youtuber) says, "I guess that if we want speed we'll just have to live in danger"
+
 ---
 
 ### Iterative deepening
@@ -626,7 +685,7 @@ pub fn alphabeta_iterative(position: &Position, table: SearchTable) -> Option<Mo
 
     loop {
         let mov = alphabeta(position, current_depth, table);
-        if search_result.is_none() {
+        if mov.is_none() {
             // The search could not finish in time, or we are mated.
             // alphabeta checks for time termination.
             break;
@@ -641,6 +700,17 @@ pub fn alphabeta_iterative(position: &Position, table: SearchTable) -> Option<Mo
 
 ---
 
+### Time management
+
+- Our orchestrator (e.g. GUI or Lichess) provides us with a position and times, and now we need to assign some time to limit iterative deepening...
+    - This is highly subjective; we humans do it very differently based on personality and humor
+- A simple heuristic is to spend more time around move 20, when the game is more "tense" and past opening theory
+- May also factor estimated remaining moves
+
+<img src="/assets/slides/sinf-24-chess/time_management.jpg" style="width:400px;">
+
+---
+
 class: center, middle, inverse, small-images
 
 ### Advanced topics
@@ -649,7 +719,17 @@ If the organizers are not already impatient with me
 
 ---
 
-### LazySMP (or parallel search in general)
+### Opening books and endgame tablebases
+
+- People like to ask me, what about teaching the engine openings and using precomputed endgame results
+- This is done is some engines but is mostly handled by the operator, e.g. a GUI like Chessbase or Lichess
+- Opening books are a necessity, since the opening is very theory-based; endgame tablebases are not much of an help, since we can search much deeper in the endgame
+
+<img src="/assets/slides/sinf-24-chess/opening_book.png" style="width: 500px;">
+
+---
+
+### LazySMP
 
 - Minimax is a sequential algorithm by nature
     - Specially when we use (and we must) alpha-beta pruning
@@ -675,6 +755,18 @@ if (( hashtable[index].key ^ hashtable[index].data) == key )
 
 ### Texel Tuning
 
+- We discussed PSQTs and pawn structure bonuses
+    - Of course, there can be many other evaluation parameters, but the common theme is that they are a wild guess
+    - Unless, of course, we optimize them in some way
+- *Texel Tuning* optimizes the parameters in regards to the outcome of games in a database
+
+<img src="/assets/slides/sinf-24-chess/texel.jpg">
+
+where *Ri* is the result of the game (0 for black win, 0.5 for draw and 1 for white win); 
+q(i) is the quiescence search result;
+N is the number of test positions.
+
+
 ---
 
 ### NNUE
@@ -685,6 +777,18 @@ if (( hashtable[index].key ^ hashtable[index].data) == key )
     - Since most aspects of a position do not change after a move (only 2 squares generally) we can leave most intermediate matrix multiplications unchanged and just update the affected ones
 
 <img src="/assets/slides/sinf-24-chess/nnue.jpg" style="width:550px;">
+
+---
+
+### Integration testing
+
+- Perft is a good test suite for move generation, but a engine is so much more than that
+    - The *Strategic Test Suite* tests the program strength in strategic play
+    - Other suites test deep tactical patterns, uncovering bugs like the incorrect use of new heuristics
+- A good (regression-sort-of) testing is putting the new versions against the latest stable one in a long tournament
+    - I have this running in a Github Action
+
+<img src="/assets/slides/sinf-24-chess/gh_actions.png" style="width: 700px;">
 
 ---
 

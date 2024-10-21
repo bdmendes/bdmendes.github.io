@@ -85,7 +85,7 @@
         </div>
       </header>
 
-      <nav class="{{headerOpacity}} flex place-items-center gap-1 justify-center flex-wrap mx-2 text-xl">
+      <nav class="flex place-items-center sm:gap-1 justify-center flex-wrap mx-2 text-xl">
         {% assign mainUrl = page.url | split: '/' | slice: 1, 1 | first | prepend: '/' %}
         {% for p in site.navigation %}
           {% if mainUrl == p.url %}
