@@ -48,6 +48,8 @@ Interrupt me anytime in case I am not being clear!
 
 ---
 
+class: center
+
 ### A quick reminder of chess rules
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/ljvhGRBr4Qk?si=nYMX9lig9YNdWz0h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -84,7 +86,7 @@ class: center, middle, small-images
 
 ### A clear separation of concerns
 
-<img src="/assets/slides/sinf-24-chess/chess_call_graph.png" style="width: 60%;">
+<img src="/assets/slides/sinf-24-chess/chess_call_graph.png" style="width: 65%;">
 
 ---
 
@@ -123,9 +125,11 @@ struct Position {
 - A rather simple position representation
 - Very useful for communication protocols and chess analysis tools
 - Not suitable for efficient hashing... (why?)
+
+> 1k3R2/1pp4q/p1p5/7r/4P3/2PPQ3/P1P3P1/6K1 b - - 0 27
 ]
 .right-column-66[
-    <img src="/assets/slides/sinf-24-chess/fen.png" style="width: 400px; margin-left: 2em;">
+    <img src="/assets/slides/sinf-24-chess/fen.png" style="width: 450px;">
 ]
 
 ---
@@ -145,29 +149,28 @@ struct Position {
 
 ### Calculating movements using mailbox
 
+- Loop over directions as you learn to do in programming 101
+    - Stop when the board wraps around or you find an occupied square
+
+
 ```rust
 for &offset in directions {
     let mut current_offset = offset; // e.g. -1 (WEST) or 9 (NORTHEAST)
-    let mut last_column = square.col() as isize;
+
     loop {
         let to_index = (square.0 as isize + current_offset) as usize;
-        let current_col = (to_index % ROW_SIZE) as isize;
-        if to_index >= BOARD_SIZE || (current_col - last_column).abs() > 2 {
+        if to_index >= BOARD_SIZE {
             break;
         }
+
         if let Some(to_piece) = position.board[to_index] {
             if to_piece.color() != color {
-                moves.push(Move::new(square, to_index.into(), MoveFlags::CAPTURE));
+                moves.push(Move::new(square, to_index, MoveFlags::CAPTURE));
             }
             break;
         } else {
-            moves.push(Move::new(square, to_index.into(), MoveFlags::empty()));
-            if is_sliding_piece {
-                last_column = current_col;
-                current_offset += offset;
-                continue;
-            }
-            break;
+            moves.push(Move::new(square, to_index, MoveFlags::empty()));
+            current_offset += offset;
         }
     }
 }
@@ -207,16 +210,16 @@ let direction = MoveDirection::pawn_direction(position.side_to_move); // -8 or 8
 // Single push
 let single_push_pawns = our_pawns.shift(direction) & !occupancy; // << 8 or >> 8
 for to_square in single_push_pawns {
-    let from_square = to_square.shift(-direction).unwrap();
-    push_pawn_move(occupancy, moves, from_square, to_square);
+    let from_square = to_square.shift(-direction);
+    moves.push(occupancy, moves, from_square, to_square);
 }
 
 // West capture
-let west_pawns = (our_pawns & !PAWN_WEST_EDGE_FILE).shift(direction + MoveDirection::WEST)
+let west_pawns = (our_pawns & !WEST_FILE).shift(direction + MoveDirection::WEST)
     & occupancy_them;
 for to_square in west_pawns {
-    let from_square = to_square.shift(-direction - MoveDirection::WEST).unwrap();
-    push_pawn_move(occupancy_them, moves, from_square, to_square);
+    let from_square = to_square.shift(-direction - MoveDirection::WEST);
+    moves.push(occupancy_them, moves, from_square, to_square);
 }
 ...
 ```
@@ -225,7 +228,8 @@ for to_square in west_pawns {
 
 ### Calculating leaper movements
 
-Do it once, then be lazy.
+- Do it once, then be lazy.
+    - You're building a `Map<square, moves>`
 
 ```rust
 pub type LeaperAttackMap = [Bitboard; 64];
@@ -250,32 +254,25 @@ Works fine because knights simply jump and cannot be blocked.
 
 - Can do it on the fly, but there is a better approach
 
-- **Magic bitboards** is a perfect hashing technique that caches the available movements for a piece, given the occupancy of the board:
+- *Magic bitboards* is a perfect hashing technique that caches the available movements for a piece, given the occupancy of the board
+    - You're trying to build a `Map<(square, occupancy), moves>`
+    - But instead you use a custom data structure to speed things up: you find these "magics" that eventually yield the correct moves for all blocker setups
 
 ```rust
-// We have 128 square magics: one for each square a rook and a bishop can be.
-// Queen movements can simply be ORed aftwerwards.
+// We'll have 128 of these. 2 sliders (rook, bishop) and 64 squares.
 pub struct SquareMagic {
-    pub blockers_mask: Bitboard, // all the possible attacks in an empty board
+    pub blockers_mask: Bitboard, // piece ray in an empty board
     pub shift: u8, // the number of ones of the blockers mask
     pub magic: Bitboard, // a number used for hashing; calculated a priori
-    pub attacks: Vec<Bitboard>, // possible attacks for every blocker setup
+    pub attacks: Vec<Bitboard>, // all possible move combinations
 }
 
 pub fn magic_index(magic: &SquareMagic, occupancy: Bitboard) -> usize {
+    // Remove non-relevant pieces from blockers (i.e not in ray)
     let blockers = occupancy & magic.blockers_mask;
-    ((blockers * magic.magic) >> (64 - magic.shift)) as usize
-}
 
-pub fn piece_attacks(piece: Piece, square: Square, occupancy: Bitboard, color: Color) -> Bitboard {
-    match piece {
-        Piece::Rook => {
-            let magic = &ROOK_MAGICS[square as usize];
-            let index = magic_index(magic, occupancy);
-            magic.attacks[index]
-        }
-        ...
-    }
+    // Do the magic to find the index in `square.attacks`   
+    ((blockers * magic.magic) >> (64 - magic.shift)) as usize
 }
 ```
 
@@ -283,32 +280,26 @@ pub fn piece_attacks(piece: Piece, square: Square, occupancy: Bitboard, color: C
 
 ### Calculating attackers of a square
 
-Useful e.g. for check detection.
+- Useful e.g. for check detection.
+- Put a virtual piece on the square and find movements from here
+    - If you're simulating a rook and find rooks or queens in path, logically those will also "see" you and thus are attacking you
 
 ```rust
 pub fn square_attackers(board: &Board, square: Square, color: Color) -> Bitboard {
     let mut bb = Bitboard::new(0);
-    let occupancy = board.occupancy_bb_all();
-    let occupancy_attacker = board.occupancy_bb(color);
 
     // Attacked in file or rank
     let attacker_rooks_queens =
-        (board.pieces_bb(Piece::Rook) | board.pieces_bb(Piece::Queen)) & occupancy_attacker;
+        (board.pieces(Piece::Rook) | board.pieces(Piece::Queen)) & occ_attacker;
     let rook_attacks = piece_attacks(Piece::Rook, square, occupancy, color);
     bb |= rook_attacks & attacker_rooks_queens;
-
-    // Attacked in diagonal
-    let attacker_bishops_queens =
-        (board.pieces_bb(Piece::Bishop) | board.pieces_bb(Piece::Queen)) & occupancy_attacker;
-    let bishop_attacks = piece_attacks(Piece::Bishop, square, occupancy, color);
-    bb |= bishop_attacks & attacker_bishops_queens;
 
     ...
 }
 
 pub fn king_square_attackers(board: &Board, color: Color) -> Bitboard {
     let checked_king = board.pieces_bb_color(Piece::King, color.opposite());
-    square_attackers(board, checked_king.into_iter().next().unwrap(), color)
+    square_attackers(board, checked_king, color)
 }
 ```
 
@@ -355,7 +346,7 @@ pub fn perft(position: &Position, depth: u8) -> u64 {
         return 1;
     }
 
-    let moves = generate_moves(MoveStage::All, position);
+    let moves = generate_moves(position);
     let mut nodes = 0;
 
     for mov in moves {
@@ -423,6 +414,8 @@ const MIDGAME_KNIGHT_PSQT: PieceSquareTable = [
 ];
 ```
 
+*"Don't place knights in the corners"*
+
 ---
 
 ### Pawn structure considerations
@@ -443,9 +436,9 @@ pub fn evaluate_pawn_structure(position: &Position) -> ValueScore {
     score += doubled_pawns(white_pawns) as ValueScore * DOUBLED_PAWNS_PENALTY;
     score -= doubled_pawns(black_pawns) as ValueScore * DOUBLED_PAWNS_PENALTY;
 
-    score += passed_pawns(MoveDirection::pawn_direction(Color::White), white_pawns, black_pawns)
+    score += passed_pawns(pawn_direction(Color::White), white_pawns, black_pawns)
             .iter().fold(0, |acc, rank| acc + PASSED_PAWN_BONUS[*rank as usize]);
-    score -= passed_pawns(MoveDirection::pawn_direction(Color::Black), black_pawns, white_pawns)
+    score -= passed_pawns(pawn_direction(Color::Black), black_pawns, white_pawns)
             .iter().fold(0, |acc, rank| acc + PASSED_PAWN_BONUS[*rank as usize]);
 
     score
@@ -458,24 +451,30 @@ class: center, middle, inverse, small-images
 
 ### Now it should be simple to play chess, right?
 
+Maybe not
+
 ---
 
 ### A first trial
+
+- Make a move and use the one that results in the best position
 
 ```rust
 pub fn best_move(position: &Position) -> Move {
     let moves = position.moves();
     let best_idx = 0;
     let best_eval = -999;
+
     for (idx, mov) in moves.enumerate() {
-        let new_position = position.make_move(&move);
+        let new_position = position.make_move(&mov);
         let eval = new_position.evaluate();
         if (eval > best_eval) {
             best_eval = eval;
             best_idx = idx;
         }
     }
-    moves[idx]
+
+    moves[best_idx]
 }
 ```
 
@@ -485,10 +484,10 @@ Is this enough?
 
 ### 1-ply search isn't enough
 
-- Conceptually, we'd like to look for positions very further away
+- Conceptually, we'd like to look for positions very far away
     - "Grandmasters calculate 20 moves deep" is a bit misunderstood, but generally calculating deeper does result in better gameplay
 - 1-ply immediately misses recaptures, e.g. we'll grab a pawn with a queen missing that it would be hanging the next move or miss mate in 1
-    - There's a solution to this without increasing depth, but we'll return to that in a bit
+    - Is there a solution to this without increasing depth?
 
 <img src="/assets/slides/sinf-24-chess/blunder.png" style="width: 40%">
 
@@ -550,9 +549,9 @@ How to speedup search besides depths 4/5?
 ```rust
 pub fn evaluate_move(position: &Position, mov: Move) -> ValueScore {
     let mut score = 0;
-    let moving_piece = position.board.piece_at(mov.from()).unwrap();
+    let moving_piece = position.board.piece_at(mov.from());
     if mov.flag().is_capture() {
-        let captured_piece = position.board.piece_at(mov.to()).unwrap_or(Piece::Pawn);
+        let captured_piece = position.board.piece_at(mov.to());
         score += captured_piece.value() - moving_piece.value();
     }
     score += psqt_value(moving_piece, mov.to(), position.side_to_move, 0);
@@ -589,7 +588,7 @@ if !is_check && !twofold_repetition && !may_be_zug {
 
 - Term used in poker variants, where you choose to keep your hand and withdraw from getting more cards
 - In chess programming, this is the static evaluation of a position inside a quiescence search
-    - Assuming captures cannot make the position worse, we must superseed this score
+    - Assuming captures cannot make the position worse, one refutation is enough to cancel a capture
     - Can also use it to "delta prune", i.e. fail if even a queen capture can't improve the score
 
 ```rust
@@ -615,9 +614,9 @@ static_evaluation
 ### Selectivity
 
 - One can experiment with extension and reductions to further cut down the search tree size
-    - Check extensions are usually a good idea, since they are usually a hint of a forced, interesting variant
-    - Late move reductions trust that our move ordering is good enough to see later moves shallower
-    - Passed pawn extensions help the program in endgames
+    - *Check extensions* are usually a good idea, since they are usually a hint of a forced, interesting variant
+    - *Late move reductions* trust that our move ordering is good enough to see later moves shallower
+    - *Passed pawn extensions* help the program in endgames
 - This is very unstable and the outcome in overall play strength might change drastically due to synergies
 
 ---
@@ -651,6 +650,7 @@ if let Some((score, score_type)) = table.get_table_score(position, depth, ply) {
 ### Zobrist hashing
 
 - Generate random u64 for (piece, square) pairs, and just XOR them into the hash as pieces move in and out of squares
+    - This is because a ^ b ^ b = a
 
 ```rust
 fn xor_hash(&mut self, square: Square, piece: Piece, color: Color) {
@@ -667,7 +667,7 @@ pub fn set_square(&mut self, square: Square, piece: Piece, color: Color) {
 }
 ```
 
-- Probability of collision is very thin (around 10^-5), but exists
+- Probability of collision is very thin (around 10^-5 for 64-bit hashes), but exists
     - As Sebastian Lague (Youtuber) says, "I guess that if we want speed we'll just have to live in danger"
 
 ---
@@ -679,7 +679,7 @@ pub fn set_square(&mut self, square: Square, piece: Piece, color: Color) {
 - Ironically, due to introducing *hash moves* in the transposition table, a search with depth *n* inside an iterative deepening framework is faster that a single one outside of it
 
 ```rust
-pub fn alphabeta_iterative(position: &Position, table: SearchTable) -> Option<Move> {
+pub fn alphabeta_iter(position: &Position, table: SearchTable) -> Option<Move> {
     let mut current_depth = 1;
     let mut current_best_move = None;
 
@@ -798,7 +798,8 @@ N is the number of test positions.
 - Use the beauty of the Internet to learn and build amazing things yourself
     - The *chessprogrammingwiki* is your friend
 - Do it for the plot (and the knowledge), not for the job
-    - Trust me, the job will come naturally if you are passionate enough
+
+<img src="/assets/slides/sinf-24-chess/meme.jpg" style="width: 400px;">
 
 ---
 
