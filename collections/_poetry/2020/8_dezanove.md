@@ -6,7 +6,7 @@ background: train.jpg
 year: 2020
 ---
 
-Hoje não faz sentido repetir a mesma fórmula de há um ano. Não sou o mesmo homem, nem sou confrontado com os mesmos desafios.
+Hoje não faz sentido repetir a mesma fórmula de há um ano[^1]. Não sou o mesmo homem, nem sou confrontado com os mesmos desafios.
 Pegaram em mim e disseram-me para conhecer uma cidade e uma família ao mesmo tempo. Puseram-me às quatro da manhã a esperar um carro, grato e alentado. Deram-me um grupo de amizades que não sabia poderem existir. Mostraram-me que tudo isto é simples e que viver por algo que não faz sentido é a melhor maneira de encontrar um sentido.
 
 Mas agora estou confinado. Confinaram-me os anseios e os planos. Puseram a minha rotina em suspenso, desligaram a ficha e atiraram-me para aquela varanda.
@@ -14,3 +14,5 @@ Mas agora estou confinado. Confinaram-me os anseios e os planos. Puseram a minha
 Falta aqui uma cadeira, Nunca se falou nisso, não venho muito para aqui, Olhe que falta, enquanto debruço o meu tronco sobre aquela fachada e vejo nas luzes aquilo que hei de ser um dia, na azáfama dos comboios aquilo que sou, na soturnidade da praça o conforto daquilo que fui. E tudo isto em comunhão perfeita, Fecha a janela, ontem voltaste a esquecer-te, Vou tentar.
 
 Vou tentar, porque sei que hei de voltar. Sei que hei de voltar a esquecer-me de que tenho dezanove anos, porque tenho matéria em atraso, uma desculpa para dar, um futuro por talhar e um presente de que não me posso desligar, porque o presente é agora e agora é nunca mais.
+
+[^1]: Em referência ao meu *Maioridade*.

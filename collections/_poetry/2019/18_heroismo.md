@@ -1,7 +1,7 @@
 ---
 title: Heroísmo
 layout: post
-number: 20
+number: 18
 background: train_door.jpg
 year: 2019
 ---

@@ -2,7 +2,7 @@
 title: Curva perfeita
 layout: post
 background: standing_car.jpg
-number: 9
+number: 7
 year: 2019
 ---
 

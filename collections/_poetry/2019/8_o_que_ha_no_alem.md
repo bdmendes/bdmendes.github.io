@@ -2,7 +2,7 @@
 title: O que há no além?
 layout: post
 background: death.jpg
-number: 10
+number: 8
 year: 2019
 originally: Apenas mais um
 ---

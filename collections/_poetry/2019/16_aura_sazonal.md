@@ -1,7 +1,7 @@
 ---
 title: Aura sazonal
 layout: post
-number: 18
+number: 16
 background: bus.jpg
 year: 2019
 ---

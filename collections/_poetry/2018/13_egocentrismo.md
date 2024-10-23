@@ -1,7 +1,7 @@
 ---
 title: Egocentrismo
 layout: post
-number: 12
+number: 13
 background: dark_shirts.jpg
 year: 2018
 ---

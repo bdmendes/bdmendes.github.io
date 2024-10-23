@@ -2,7 +2,7 @@
 title: Autodestruição
 background: explosion.jpg
 layout: post
-number: 5
+number: 2
 year: 2019
 ---
 

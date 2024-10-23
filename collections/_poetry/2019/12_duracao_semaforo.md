@@ -1,7 +1,7 @@
 ---
 title: Duração de um semáforo
 layout: post
-number: 14
+number: 12
 background: traffic_light.jpg
 year: 2019
 originally: Trabalhos de reanimação

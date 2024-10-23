@@ -1,7 +1,7 @@
 ---
 title: Manta de retalhos
 layout: post
-number: 15
+number: 13
 year: 2019
 background: personalities.jpg
 ---

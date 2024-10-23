@@ -1,7 +1,7 @@
 ---
 title: A persistência da memória
 layout: post
-number: 12
+number: 10
 background: memory_time.jpg
 year: 2019
 ---
