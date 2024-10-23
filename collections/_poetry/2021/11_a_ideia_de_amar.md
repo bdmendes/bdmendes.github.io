@@ -1,7 +1,7 @@
 ---
 title: A ideia de amar
 layout: post
-number: 6
+number: 11
 background: the_idea_of_love.jpg
 year: 2021
 ---

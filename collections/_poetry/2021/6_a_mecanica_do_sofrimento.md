@@ -1,7 +1,7 @@
 ---
 title: A mecânica do sofrimento
 layout: post
-number: 1
+number: 6
 background: sky_monotony_girl.png
 year: 2021
 originally: Ermesinde
