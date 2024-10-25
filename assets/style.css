@@ -102,7 +102,7 @@
   }
 
   .nav-btn {
-    @apply p-2 px-4 hover:bg-neutral-900 hover:rounded-full;
+    @apply p-2 px-4 sm:hover:bg-neutral-900 sm:hover:rounded-full;
   }
 
   .box {
