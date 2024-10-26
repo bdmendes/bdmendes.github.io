@@ -18,7 +18,7 @@ para voltar sem nada?
 
 Quero dizer que não,  
 nāo, como é óbvio!  
-respeita-te, rapaz,  
+Respeita-te, rapaz,  
 respeita-te, valoriza-te,  
 abre os olhos!  
 
