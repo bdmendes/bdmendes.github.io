@@ -11,7 +11,7 @@ permitindo que a areia me bata,
 que o piso me manche a roupa,  
 que o sol me turve a visão.  
 
-Fosse eu vidente,  
+Soubesse o que viria,  
 faria tudo isto de novo?  
 Vale a pena sair do país  
 para voltar sem nada?  
