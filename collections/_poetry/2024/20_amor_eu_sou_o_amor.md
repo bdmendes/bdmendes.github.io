@@ -11,7 +11,7 @@ tenho em mim todos os sonhos
 do mundo.[^1]  
 (ah, que eu sou tudo e nada!)  
 
-Flutuo pela praça do infinito[^2]  
+Flutuo pela praça do infinito  
 que já não é minha,  
 (mau seria se fosse!)  
 passando por casas  
@@ -22,7 +22,7 @@ por dois que juntos anuem
 que sou uma construção,    
 (enfim alguma lucidez!)  
 que não sou o tempo  
-nem é o tempo que me faz,[^3]  
+nem é o tempo que me faz,[^2]  
 (rasguem-se os calendários!)  
 que não faço almas gémeas  
 mas almas encontradas,  
@@ -44,5 +44,4 @@ e sentido nenhum.
 (ah, que eu sou tudo e nada!)  
 
 [^1]: Como em *Tabacaria* de Álvaro de Campos.
-[^2]: Como no meu *A praça do infinito.*
-[^3]: Como em *Canção de engate* de António Variações.
+[^2]: Como em *Canção de engate* de António Variações.

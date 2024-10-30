@@ -14,6 +14,4 @@ Tinha eu quatro, cinco anos quando toquei a campainha do vizinho sem o perceber.
 
 Ao longo dos anos, aprendi a lidar com pessoas. Adquiri conceitos essenciais como a boa educação, bem como o seu carácter imperioso para o bom funcionamento da vida em sociedade. Fui notando, por outro lado, algum desgaste na horas sociais, um cansaço psicológico, um julgamento que desaparecia naturalmente após um sossegado diálogo comigo mesmo. A solução para ser feliz passava, pois, pela cedência ao grupo mesmo nas horas de tédio e repúdio pelas banalidades do quotidiano. E essa parte foi sendo executada com uma sublimidade notável, com notáveis exceções.
 
-Lembro-me perfeitamente de cair de queixo no chão duro do ciclo, da cara repleta de sangue, do terror em volta, e eu simplesmente com a mão na hemorragia, esperando apenas, desafiando a noção de sofrimento e encenação.
-
 Tive uma infância longa, desafiante, mas tão bela e única que ainda agora acabou e já sinto um amargo de boca, uma saudade palpitante, um sentimento de perda de algo que não volta mais.
