@@ -4,7 +4,7 @@
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "tailwind_watch": "npx tailwindcss -i ./assets/style.css -o ./dist/output.css -m -w",
+    "tailwind_watch": "npx tailwindcss -i ./assets/style.css -o ./assets/dist/output.css -m -w",
     "jekyll_install": "export BUNDLE_PATH=~/.gems && bundle install",
     "jekyll_serve": "export BUNDLE_PATH=~/.gems && bundle exec jekyll serve --livereload",
     "dev": "npm run jekyll_install; npx concurrently \"npm run tailwind_watch\" \"npm run jekyll_serve\""

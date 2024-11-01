@@ -9,9 +9,6 @@ author: Bruno Mendes
 icon: bdmendes.ico
 
 social:
-  - name: instagram
-    icon: instagram-line.svg
-    url: https://www.instagram.com/bd_mendes/
   - name: github
     icon: github-line.svg
     url: https://github.com/bdmendes
@@ -21,9 +18,6 @@ social:
   - name: email
     icon: mail-line.svg
     url: mailto:bd_mendes@outlook.com
-  - name: cv
-    icon: cv.svg
-    url: /assets/about-me/bdmendes-cv.pdf
 
 navigation:
   - name: About
@@ -54,3 +48,5 @@ collections:
     output: true
   slides:
     output: true
+  projects:
+    output: false

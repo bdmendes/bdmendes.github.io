@@ -5,5 +5,14 @@ title: Misc
 
 <h3>Slides</h3>
 {% for slide in site.slides %}
-<a href="{{slide.url}}">{{slide.title}}</a>
+    <p>
+        <a href="{{slide.url}}">{{slide.title}}</a>
+    </p>
+{% endfor %}
+
+<h3 class="mt-4">Projects</h3>
+{% for project in site.projects %}
+    <p>
+        <a href="{{project.href}}">{{project.name}}</a>
+    </p>
 {% endfor %}

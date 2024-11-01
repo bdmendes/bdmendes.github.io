@@ -7,9 +7,9 @@ title: About
 
 I'm a [software engineer](/assets/about-me/bdmendes-cv.pdf) based in Porto, Portugal, with a degree from [FEUP](https://sigarra.up.pt/feup/en).
 
-I share some of my stories and thoughts on [my blog](/blog), or through [poetry](/poetry). When I'm not coding or writing, you'll probably find me [playing chess](https://lichess.org/@/brod56), hitting the gym or watching a nice movie.
+I share some of my stories and thoughts on [my blog](/blog), or through [poetry](/poetry). Anything that doesn’t fit those categories can be found in the [miscellaneous](/misc) section.
 
-You might also find interesting slides and other resources in the [miscellaneous](/misc) section.
+When I'm not coding or writing, you'll probably find me [playing chess](https://lichess.org/@/brod56), hitting the gym, watching a movie or reading a book.
 
 If any of this strikes a chord with you, feel free to contact me in your preferred way.
 
