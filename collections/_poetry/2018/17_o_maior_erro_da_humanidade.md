@@ -3,7 +3,7 @@ title: O maior erro da humanidade
 layout: post
 number: 17
 background: statue_liberty.png
-year: 2019
+year: 2018
 originally: Estados de alma
 ---
 

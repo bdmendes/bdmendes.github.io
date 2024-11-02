@@ -1,7 +1,7 @@
 ---
 title: Granitos
 layout: post
-number: 7
+number: 8
 background: rocks.jpg
 year: 2020
 originally: Texturas
