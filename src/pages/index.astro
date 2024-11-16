@@ -7,17 +7,24 @@ import LargeTitle from "@components/LargeTitle.astro";
 import Card from "@components/Card.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
-const last_posts = posts.slice(0, 3);
+const last_posts = posts.slice(0, 2);
 ---
 
 <BaseLayout title="Home" sideBarActiveItemID="home">
   <div class="mb-16">
     <div class="text-xl py-1">Hey there</div>
     <div class="text-5xl font-bold">I'm Bruno Mendes.</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer</div>
+    <div class="text-lg py-3">
+      <p>
+        I'm a software engineer based in Porto, Portugal, holding an MSc from
+        FEUP. I enjoy crafting elegant code, playing chess, and exploring
+        interesting ideas through discussions and writing—hopefully offering
+        value to others along the way.
+      </p>
+    </div>
   </div>
 
   <LargeTitle title="Latest posts" />
@@ -27,11 +34,12 @@ const last_posts = posts.slice(0, 3);
       <>
         <HorizontalCard
           title={post.data.title}
-          img={post.data.heroImage}
+          img={post.data.hero}
           description={post.data.description}
           url={"/blog/" + createSlug(post.data.title, post.slug)}
           target="_self"
           badge={post.data.badge}
+          tags={post.data.tags}
         />
         <div class="divider my-0" />
       </>

@@ -3,9 +3,9 @@ import { z, defineCollection } from "astro:content";
 const blogSchema = z.object({
     title: z.string(),
     description: z.string(),
-    pubDate: z.coerce.date(),
+    date: z.coerce.date(),
     updatedDate: z.string().optional(),
-    heroImage: z.string().optional(),
+    hero: z.string().optional(),
     badge: z.string().optional(),
     tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
         message: 'tags must be unique',

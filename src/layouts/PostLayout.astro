@@ -9,26 +9,26 @@ export interface Props extends BlogSchema {}
 const {
   title,
   description,
-  pubDate,
+  date,
   updatedDate,
-  heroImage,
+  hero,
   badge,
   tags = [],
 } = Astro.props;
 dayjs.extend(localizedFormat);
-const displayDate = dayjs(pubDate).format("ll");
+const displayDate = dayjs(date).format("ll");
 ---
 
 <BaseLayout
   title={title}
   description={description}
-  image={heroImage}
+  image={hero}
   ogType="article"
 >
   <main class="md:flex md:justify-center">
     <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
-      {pubDate && <time>{displayDate}</time>}
+      {date && <time>{displayDate}</time>}
       <br />
       {badge && <div class="badge badge-primary my-1 mr-1">{badge}</div>}
       {

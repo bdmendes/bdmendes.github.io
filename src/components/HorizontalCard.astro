@@ -1,7 +1,7 @@
 ---
 export interface Props {
   title: string;
-  img: ImageMetadata;
+  img?: string;
   description?: string;
   url?: string;
   badge?: string;
@@ -24,17 +24,18 @@ import { Image } from "astro:assets";
 <div
   class="flex rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
 >
-  <a href={url} target={target}>
-    <div class="hero-content flex-col md:flex-row">
+  <a class="w-full" href={url} target={target}>
+    <div class="w-full hero-content flex-col sm:flex-row">
       {
         img && (
           <Image
+            class:list={["aspect-video", "object-cover"]}
             src={img}
             width={750}
             height={422}
             format="webp"
             alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
+            class="max-w-full sm:max-w-[13rem] rounded-lg"
           />
         )
       }
@@ -45,7 +46,11 @@ import { Image } from "astro:assets";
         </h1>
         <p class="py-1 text-1xl">{description}</p>
         <div class="card-actions justify-end">
-          {tags?.map((tag) => <span class="badge badge-outline">{tag}</span>)}
+          {
+            tags?.map((tag) => (
+              <span class="badge badge-outline mt-2">{tag}</span>
+            ))
+          }
         </div>
       </div>
     </div>

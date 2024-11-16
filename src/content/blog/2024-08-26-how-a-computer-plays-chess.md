@@ -1,8 +1,10 @@
 ---
 title: "How a computer plays chess"
 image: camel_wallpaper.jpg
-pubDate: 2024-08-26
+date: 2024-08-26
 description: I have developed a Masters-level chess engine. Care to know how it works?
+tags: ['chess']
+hero: /src/assets/blog/camel_wallpaper.jpg
 ---
 
 I have developed a Masters-level chess engine. Care to know how it works?
@@ -17,7 +19,7 @@ Chess engines are not new in any way. In fact, they go back to the very early da
 
 With this in mind, my goal for [Camel](https://github.com/bdmendes/camel/), my chess engine, was to learn chess programming and have some fun. In spite of that, as of the time of writing, the latest version (1.6.0) is estimated to be around 2200 Elo (in [CCRL](https://computerchess.org.uk/ccrl/404/)), which is actually really good. Let's dive into it!
 
-![](/assets/blog/camel_wallpaper.jpg)
+![](/src/assets/blog/camel_wallpaper.jpg)
 *A nice camel looking at water. I named the engine Camel in homage to a friend of mine.*
 
 ### Board representation and move making
@@ -81,7 +83,7 @@ Minimax sees the game as a tree. Each position is a node, and its children are t
 
 Let us see a very small portion of the game tree from the position above, with depth=2. White is the maximizing player and will evaluate two moves: Nxc6 and d7.
 
-![](/assets/blog/chess_engine_game_tree.png)
+![](/src/assets/blog/chess_engine_game_tree.png)
 *A simplified game search tree for r2qr2k/1p2N1bp/p1bP1pp1/2P1p3/2Bn4/8/PP1B2PP/2RQ1R1K w*
 
 Let's expand Nxc6. Now Black considers Nxc6 and Qd7. Nxc6 restores the material balance, so the evaluation is 0; Qd7 does not recapture the knight and thus White is now up a knight, hence the +3 evaluation. Black is trying to minimize the score, so the parent node will be the minimum of the two, hence 0.

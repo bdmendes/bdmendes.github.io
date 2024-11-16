@@ -5,3 +5,23 @@
 blockquote {
     quotes: none !important;
 }
+
+p>img {
+    margin-bottom: 0.75em !important;
+    max-width: 32rem;
+    border-radius: 0.5rem;
+    max-height: 24rem;
+}
+
+p img+em,
+.label {
+    display: inline-block;
+    text-align: center;
+    font-style: inherit;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+iframe {
+    margin: 0 auto;
+}

@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { SITE_TITLE, SITE_DESCRIPTION, PAGINATION_SIZE } from "../config";
 import { getCollection } from "astro:content";
 
 export async function GET() {
@@ -10,9 +10,9 @@ export async function GET() {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: import.meta.env.SITE,
-    items: blog.slice(0, maxItems).map((post) => ({
+    items: blog.slice(0, PAGINATION_SIZE).map((post) => ({
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      pubDate: post.data.date,
       description: post.data.description,
       link: `/blog/${post.slug}/`,
     })),
