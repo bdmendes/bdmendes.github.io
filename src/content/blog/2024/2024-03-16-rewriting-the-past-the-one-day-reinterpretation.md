@@ -3,7 +3,7 @@ title: "Rewriting the past: the One Day reinterpretation"
 date: 2024-03-16
 tags: ['cinema']
 description: I was mesmerized when I saw the One Day movie for the first time as a little teenager.
-hero: /src/assets/blog/one_day_vs.png
+hero: ./one_day_vs.png
 ---
 
 I was mesmerized when I saw the *One Day* movie for the first time as a little teenager.
@@ -12,7 +12,7 @@ Even though I hadn't experienced either of the protagonists' struggles at the ti
 
 As years went by, I rewatched the movie a couple of times on cable television. Every time it came up, I had to stop zapping and patiently wait for Hathaway's collision and death just after the couple finally got together. Admittedly still with the aching heart of a hopeless romantic, I had concluded that the crash was perhaps an inevitability given that despite the circumstances, they never really put the proper effort to fight for what they wanted in life. The reconciliation after all those years was, in the end, undeserved.
 
-![](/src/assets/blog/one_day_vs.png)
+![](one_day_vs.png)
 *The TV series version (2024) on the left, and the movie version (2011) on the right.*
 
 Fast forward some years, I was shocked to find that *One Day* was being remade as a Netflix mini-series. I am always skeptical of remakes and plot continuations on the big screen: I *hated* that *13 Reasons Why* ruined the original story with the "revelations" of the second season; I hated the mediocrity of *The Matrix Reloaded* and *The Matrix Revolutions* compared to the first installment of the series. This, however, was slightly different, as it was a *readaptation* of the original story by a different set of producers.
