@@ -5,6 +5,8 @@ export function createSlug(title: string, staticSlug: string = title) {
     !GENERATE_SLUG_FROM_TITLE ? staticSlug : title
       .trim()
       .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
       .replace(/\s+/g, '-')
       .replace(/[^\w-]/g, '')
       .replace(/^-+|-+$/g, '')
@@ -19,9 +21,31 @@ export function extractDate(path: string) {
 }
 
 export function extractDescription(body: string) {
-  return body
+  let processed = body
     .split('\n\n')[0]
+    .split('.')[0]
+    .replace(/\*/g, "")
+    .replace(/\>/g, "")
     .replaceAll('\n', '')
-    .replace(/[^\w\s\-,.!?;:()"'`]/g, '')
-    .replaceAll('  ', ' / ');
+    .replaceAll('  ', ' / ')
+    .trim();
+
+  if (processed.endsWith('/')) {
+    processed = processed.substring(0, processed.length - 1);
+  }
+
+  for (let punct of [',', '?', '!', '.']) {
+    const max = punct == ',' ? 4 : 2;
+    if (processed.split(punct).length > max) {
+      processed = processed.split(punct).slice(0, max).join(punct);
+    }
+  }
+
+  processed = processed.trimEnd();
+
+  if (processed.endsWith('?') || processed.endsWith('!')) {
+    return processed;
+  } else {
+    return processed + '.';
+  }
 }

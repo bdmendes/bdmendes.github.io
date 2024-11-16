@@ -5,3 +5,4 @@ export const TRANSITION_API = true
 export const PAGINATION_SIZE = 5
 export const BLOG_BADGE = "blog"
 export const SLIDES_BADGE = "slides"
+export const POETRY_BADGE = "poetry"

@@ -7,11 +7,12 @@
 }
 
 blockquote {
+    @apply max-w-min min-w-fit;
     quotes: none !important;
 }
 
 p>img {
-    @apply rounded !mb-3 w-auto object-contain;
+    @apply rounded-md !mb-3 w-auto object-contain max-h-96;
     max-width: min(100%, 32rem);
 }
 
@@ -22,4 +23,16 @@ iframe {
 p img+em,
 .label {
     @apply inline-block text-center not-italic text-base w-full;
+}
+
+.footnotes {
+    @apply text-sm max-w-min min-w-fit mt-8;
+}
+
+.data-footnote-backref {
+    @apply hidden;
+}
+
+#footnote-label {
+    @apply hidden;
 }

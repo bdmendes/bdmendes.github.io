@@ -40,12 +40,12 @@ import { Image } from "astro:assets";
         )
       }
       <div class="grow w-full">
-        <h1 class="text-xl font-bold">
+        <h1 class="text-xl font-bold mr-2">
           {title}
-          {badge && <div class="badge badge-primary mx-2">{badge}</div>}
         </h1>
         <p class="py-1 text-1xl">{description}</p>
         <div class="card-actions justify-end">
+          {badge && <span class="badge badge-primary mt-2">{badge}</span>}
           {
             tags?.map((tag) => (
               <span class="badge badge-outline mt-2">{tag}</span>
