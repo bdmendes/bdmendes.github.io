@@ -1,0 +1,12 @@
+---
+export interface Props {
+    title: string;
+    padTop?: boolean;
+}
+
+const { title, padTop = true } = Astro.props;
+---
+
+<div class={"text-3xl w-full font-bold mb-5" + (padTop ? " mt-12" : "")}>
+    {title}
+</div>

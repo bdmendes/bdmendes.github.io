@@ -1,15 +1,19 @@
 # bdmendes.github.io
 
-## Development
+My personal website serves as a portfolio for personal projects, blog, poetry collection and much more.
 
-First, get the dependencies:
+This project is currently based on the [Astrofy template](https://github.com/manuelernestog/astrofy).
 
-```sh
+## Installation
+
+Install dependencies using `npm`:
+
+```bash
 npm install
 ```
 
-You can then launch the development server by running:
+To start the development web server, simply:
 
-```sh
+```bash
 npm run dev
 ```
