@@ -6,14 +6,14 @@ This project is currently based on the [Astrofy template](https://github.com/man
 
 ## Installation
 
-Install dependencies using `npm`:
+Install dependencies using `pnpm`:
 
 ```bash
-npm install
+pnpm install
 ```
 
 To start the development web server, simply:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
