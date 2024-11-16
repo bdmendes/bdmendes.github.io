@@ -1,20 +1,32 @@
 import rss from "@astrojs/rss";
 import { SITE_TITLE, SITE_DESCRIPTION, PAGINATION_SIZE } from "../config";
 import { getCollection } from "astro:content";
+import { extractDescription, extractDate, createSlug } from "src/lib/util";
 
 export async function GET() {
-  const maxItems = 10;
-  const blog = await getCollection("blog");
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
+  );
+  const slides = (await getCollection("slides")).sort(
+    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
+  );
+
+  const items = posts.slice(0, PAGINATION_SIZE).map((post) => ({
+    title: post.data.title,
+    pubDate: extractDate(post.id),
+    description: extractDescription(post.body),
+    link: `/blog/${createSlug(post.data.title)}`,
+  })).concat(slides.slice(0, PAGINATION_SIZE).map((slide) => ({
+    title: slide.data.title,
+    pubDate: extractDate(slide.id),
+    description: slide.data.description,
+    link: `/slides/${createSlug(slide.data.title)}`,
+  })));
 
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: import.meta.env.SITE,
-    items: blog.slice(0, PAGINATION_SIZE).map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.description,
-      link: `/blog/${post.slug}/`,
-    })),
+    items: items.sort((a, b) => b.pubDate - a.pubDate),
   });
 }

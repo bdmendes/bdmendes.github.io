@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .time-line-container>div:last-child .education__time>.education__line {
     display: none;
 }
@@ -7,24 +11,15 @@ blockquote {
 }
 
 p>img {
-    margin-bottom: 0.75em !important;
+    @apply rounded !mb-3 w-auto object-contain;
     max-width: min(100%, 32rem);
-    border-radius: 0.5rem;
-    max-height: 24rem;
-    width: auto;
-    object-fit: contain;
 }
 
 iframe {
-    margin: 0 auto;   
-    margin-bottom: 0.5em !important;
+    @apply mx-auto mb-2;
 }
 
 p img+em,
 .label {
-    display: inline-block;
-    text-align: center;
-    font-style: inherit;
-    font-size: 0.9em;
-    width: 100%;
+    @apply inline-block text-center not-italic text-base w-full;
 }

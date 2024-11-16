@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import PostLayout from "../../layouts/PostLayout.astro";
-import { createSlug, extractDate } from "../../lib/util";
+import { createSlug, extractDate, extractDescription } from "../../lib/util";
 import { BLOG_BADGE } from "src/config";
 
 export async function getStaticPaths() {
@@ -22,7 +22,7 @@ const { Content } = await entry.render();
 
 <PostLayout
   title={entry.data.title}
-  description={entry.data.description}
+  description={extractDescription(entry.body)}
   date={extractDate(entry.id)}
   badge={BLOG_BADGE}
   tags={entry.data.tags}

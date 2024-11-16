@@ -1,7 +1,6 @@
 ---
 title: "How a computer plays chess"
 image: camel_wallpaper.jpg
-description: I have developed a Masters-level chess engine. Care to know how it works?
 tags: ['chess']
 hero: ./camel_wallpaper.jpg
 ---

@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { createSlug, extractDate, extractDescription } from "../../lib/util";
+import SlideLayout from "@layouts/SlideLayout.astro";
+
+export async function getStaticPaths() {
+    const slideEntries = await getCollection("slides");
+    return slideEntries.map((entry) => ({
+        params: { slug: createSlug(entry.data.title) },
+        props: { entry },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<"slides">;
+}
+
+const { entry } = Astro.props;
+---
+
+<SlideLayout title={entry.data.title} body={entry.body} />
