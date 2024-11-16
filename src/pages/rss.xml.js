@@ -7,6 +7,9 @@ export async function GET() {
   const posts = (await getCollection("blog")).sort(
     (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
   );
+  const poems = (await getCollection("poetry")).sort(
+    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
+  );
   const slides = (await getCollection("slides")).sort(
     (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
   );
@@ -16,7 +19,12 @@ export async function GET() {
     pubDate: extractDate(post.id),
     description: extractDescription(post.body),
     link: `/blog/${createSlug(post.data.title)}`,
-  })).concat(slides.slice(0, PAGINATION_SIZE).map((slide) => ({
+  })).concat(poems.slice(0, PAGINATION_SIZE).map((poem) => ({
+    title: poem.data.title,
+    pubDate: extractDate(poem.id),
+    description: extractDescription(poem.body),
+    link: `/poetry/${createSlug(poem.data.title)}`,
+  }))).concat(slides.slice(0, PAGINATION_SIZE).map((slide) => ({
     title: slide.data.title,
     pubDate: extractDate(slide.id),
     description: slide.data.description,
