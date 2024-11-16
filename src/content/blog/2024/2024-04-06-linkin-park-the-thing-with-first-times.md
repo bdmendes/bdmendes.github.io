@@ -1,6 +1,5 @@
 ---
 title: "Linkin Park: the thing with first times"
-date: 2024-04-06
 hero: ./lp_burn_it_down.jpg
 tags: [music]
 description: Some things never die.

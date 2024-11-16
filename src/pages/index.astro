@@ -2,21 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../lib/createSlug";
+import { createSlug, extractDate } from "../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
-import Card from "@components/Card.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
-
-const last_posts = posts.slice(0, 2);
+const last_post = posts.slice(0, 1);
 ---
 
 <BaseLayout title="Home" sideBarActiveItemID="home">
   <div class="mb-16">
-    <div class="text-xl py-1">Hey there</div>
-    <div class="text-5xl font-bold">I'm Bruno Mendes.</div>
+    <div class="text-3xl md:text-xl py-1">Hey there</div>
+    <div class="text-5xl font-bold hidden md:block">I'm Bruno Mendes.</div>
     <div class="text-lg py-3">
       <p>
         I'm a software engineer based in Porto, Portugal, holding an MSc from
@@ -27,10 +25,10 @@ const last_posts = posts.slice(0, 2);
     </div>
   </div>
 
-  <LargeTitle title="Latest posts" />
+  <LargeTitle title="Latest content" />
 
   {
-    last_posts.map((post) => (
+    last_post.map((post) => (
       <>
         <HorizontalCard
           title={post.data.title}
@@ -38,7 +36,7 @@ const last_posts = posts.slice(0, 2);
           description={post.data.description}
           url={"/blog/" + createSlug(post.data.title, post.slug)}
           target="_self"
-          badge={post.data.badge}
+          badge="blog"
           tags={post.data.tags}
         />
         <div class="divider my-0" />

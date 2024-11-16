@@ -1,6 +1,5 @@
 ---
 title: "Rewriting the past: the One Day reinterpretation"
-date: 2024-03-16
 tags: ['cinema']
 description: I was mesmerized when I saw the One Day movie for the first time as a little teenager.
 hero: ./one_day_vs.png

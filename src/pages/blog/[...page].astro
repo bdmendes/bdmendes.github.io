@@ -2,46 +2,47 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import createSlug from "../../lib/createSlug";
+import { createSlug, extractDate } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
-import { PAGINATION_SIZE } from "src/config";
+import { BLOG_BADGE, PAGINATION_SIZE } from "src/config";
+import type {
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "astro";
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getCollection("blog");
-  posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  posts.sort(
+    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
+  );
   return paginate(posts, { pageSize: PAGINATION_SIZE });
-}
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props;
 ---
 
 <BaseLayout title="Blog" sideBarActiveItemID="blog">
-  <LargeTitle title="Blog" padTop={false} />
-  {
-    page.data.length === 0 ? (
-      <div class="bg-base-200 border-l-4 border-secondary w-full p-4 min-w-full">
-        <p class="font-bold">Sorry!</p>
-        <p>There are no blog posts to show at the moment. Check back later!</p>
-      </div>
-    ) : (
-      <ul>
-        {page.data.map((post) => (
-          <>
-            <HorizontalCard
-              title={post.data.title}
-              img={post.data.hero}
-              description={post.data.description}
-              url={"/blog/" + createSlug(post.data.title, post.slug)}
-              target="_self"
-              badge={post.data.badge}
-              tags={post.data.tags}
-            />
-            <div class="divider my-0" />
-          </>
-        ))}
-      </ul>
-    )
-  }
+  <LargeTitle title="Blog" />
+  <ul>
+    {
+      page.data.map((post) => (
+        <>
+          <HorizontalCard
+            title={post.data.title}
+            img={post.data.hero}
+            description={post.data.description}
+            url={"/blog/" + createSlug(post.data.title, post.slug)}
+            target="_self"
+            tags={post.data.tags}
+          />
+          <div class="divider my-0" />
+        </>
+      ))
+    }
+  </ul>
   <PaginationButtons page={page} />
 </BaseLayout>

@@ -2,7 +2,6 @@
 title: My journey as a young club chess player
 description: I started playing chess at a very young age.
 tags: ['chess']
-date: 2023-12-30
 hero: ./chess_young1.jpg
 ---
 

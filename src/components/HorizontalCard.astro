@@ -1,11 +1,11 @@
 ---
 export interface Props {
   title: string;
-  img?: string;
+  img?: ImageMetadata;
   description?: string;
   url?: string;
   badge?: string;
-  tags?: [string];
+  tags?: string[];
   target?: string;
 }
 
@@ -29,7 +29,7 @@ import { Image } from "astro:assets";
       {
         img && (
           <Image
-            class:list={["aspect-video", "object-cover"]}
+            class:list={["aspect-video", "object-cover", "max-h-40"]}
             src={img}
             width={750}
             height={422}

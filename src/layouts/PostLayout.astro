@@ -1,30 +1,22 @@
 ---
-import { type BlogSchema } from "../content/config";
 import BaseLayout from "./BaseLayout.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
-export interface Props extends BlogSchema {}
+export interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  badge: string;
+  tags?: string[];
+}
 
-const {
-  title,
-  description,
-  date,
-  updatedDate,
-  hero,
-  badge,
-  tags = [],
-} = Astro.props;
+const { title, description, date, badge, tags = [] } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  image={hero}
-  ogType="article"
->
+<BaseLayout title={title} description={description} ogType="article">
   <main class="md:flex md:justify-center">
     <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
@@ -41,14 +33,6 @@ const displayDate = dayjs(date).format("ll");
               {tag}
             </a>
           ))
-      }
-      {
-        updatedDate && (
-          <div>
-            {" "}
-            Last updated on <time>{updatedDate}</time>{" "}
-          </div>
-        )
       }
       <div class="divider my-2"></div>
       <slot />

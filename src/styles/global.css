@@ -8,10 +8,16 @@ blockquote {
 
 p>img {
     margin-bottom: 0.75em !important;
-    max-width: 32rem;
+    max-width: min(100%, 32rem);
     border-radius: 0.5rem;
     max-height: 24rem;
-    width: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+iframe {
+    margin: 0 auto;   
+    margin-bottom: 0.5em !important;
 }
 
 p img+em,
@@ -21,8 +27,4 @@ p img+em,
     font-style: inherit;
     font-size: 0.9em;
     width: 100%;
-}
-
-iframe {
-    margin: 0 auto;
 }

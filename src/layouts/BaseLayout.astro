@@ -3,10 +3,9 @@ import BaseHead from "../components/BaseHead.astro";
 import SideBar from "../components/sidebar/SideBar.astro";
 import { ViewTransitions } from "astro:transitions";
 
-import { SITE_DESCRIPTION, TRANSITION_API } from "../config";
+import { SITE_DESCRIPTION, SITE_TITLE, TRANSITION_API } from "../config";
 
 const {
-  image,
   title,
   description = SITE_DESCRIPTION,
   sideBarActiveItemID,
@@ -17,12 +16,7 @@ const {
 <!doctype html>
 <html lang="en" data-theme="dark">
   <head>
-    <BaseHead
-      title={title}
-      description={description}
-      image={image}
-      ogType={ogType}
-    />
+    <BaseHead title={title} description={description} ogType={ogType} />
     {TRANSITION_API && <ViewTransitions />}
   </head>
   <body>
@@ -49,6 +43,9 @@ const {
               </label>
             </div>
             <div class="navbar-center"></div>
+            <a class="btn btn-ghost normal-case text-xl" href="/"
+              >{SITE_TITLE}</a
+            >
             <div class="navbar-end"></div>
           </div>
         </div>

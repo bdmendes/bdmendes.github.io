@@ -5,16 +5,10 @@ import "../styles/global.css";
 export interface Props {
 	title: string;
 	description: string;
-	image?: string;
 	ogType?: string;
 }
 
-const {
-	title,
-	description,
-	image = "/social_img.webp",
-	ogType = "website",
-} = Astro.props;
+const { title, description, ogType = "website" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -49,11 +43,8 @@ const {
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title + " | " + SITE_TITLE} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title + " | " + SITE_TITLE} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
