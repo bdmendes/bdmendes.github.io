@@ -27,15 +27,12 @@ export function extractDescription(body: string) {
     .trim();
 
   const punct = [',', '?', '!', '.', ':', '/']
-  const max_size = 120
+  const max_size = 140
   const max_size_small = 80
-  const max_puncts = 4
-  let seen_puncts = 0;
   for (let i = 0; i < processed.length; i++) {
     if (punct.includes(processed[i])) {
-      seen_puncts += 1;
-      if (i >= max_size || (processed[i] == '.' && i >= max_size_small) || seen_puncts >= max_puncts) {
-        processed = processed.substring(0, i).trimEnd() + '.';
+      if (i >= max_size || (processed[i] == '.' && i >= max_size_small)) {
+        processed = !['?', '!'].includes(processed[i]) ? processed.substring(0, i).trimEnd() + '.' : processed;
         break;
       }
     }
@@ -43,9 +40,9 @@ export function extractDescription(body: string) {
 
   processed = processed.trimEnd();
 
-  if (processed.endsWith('.')) {
+  if (['?', '!', '.'].includes(processed[processed.length - 1])) {
     return processed;
-  } else if (punct.includes(processed[processed.length - 1])) {
+  } else if (['/'].includes(processed[processed.length - 1])) {
     return processed.substring(0, processed.length - 1).trimEnd() + '.';
   } else {
     return processed + '.';
