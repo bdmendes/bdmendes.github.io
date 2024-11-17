@@ -17,22 +17,20 @@ const displayDate = dayjs(date).format("ll");
 ---
 
 <BaseLayout title={title} description={description} ogType="article">
-  <main class="md:flex md:justify-center">
-    <article class="prose prose-lg prose-img:mx-auto mb-4">
-      <h1 class="title my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
-      {date && <time>{displayDate}</time>}
-      <br />
-      <a href={`/${badge}`} class="badge badge-primary my-1 mr-1 no-underline">
-        {badge}
-      </a>
-      {
-        tags &&
-          tags.map((tag) => (
-            <div class="badge badge-outline mr-2 no-underline">{tag}</div>
-          ))
-      }
-      <div class="divider my-2"></div>
-      <slot />
-    </article>
-  </main>
+  <article class="prose prose-lg prose-img:mx-auto mb-4">
+    <h1 class="title my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
+    {date && <time>{displayDate}</time>}
+    <br />
+    <a href={`/${badge}`} class="badge badge-primary my-1 mr-1 no-underline">
+      {badge}
+    </a>
+    {
+      tags &&
+        tags.map((tag) => (
+          <div class="badge badge-outline mr-2 no-underline">{tag}</div>
+        ))
+    }
+    <div class="divider my-2"></div>
+    <slot />
+  </article>
 </BaseLayout>
