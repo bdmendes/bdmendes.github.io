@@ -7,7 +7,7 @@ import { BLOG_BADGE, POETRY_BADGE } from "src/config";
 export async function getStaticPaths() {
     const poetryEntries = await getCollection("poetry");
     return poetryEntries.map((entry) => ({
-        params: { slug: createSlug(entry.data.title, entry.slug) },
+        params: { slug: createSlug(entry.data.title) },
         props: { entry },
     }));
 }
