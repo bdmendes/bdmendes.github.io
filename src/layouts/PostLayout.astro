@@ -17,7 +17,7 @@ const displayDate = dayjs(date).format("ll");
 ---
 
 <BaseLayout title={title} description={description} ogType="article">
-  <article class="prose prose-img:mx-auto mb-4">
+  <article class="prose prose-lg prose-img:mx-auto mb-4">
     <h1 class="title my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
     {date && <time>{displayDate}</time>}
     <br />
