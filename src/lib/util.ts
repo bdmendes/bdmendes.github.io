@@ -16,8 +16,9 @@ export function extractDate(path: string) {
 }
 
 export function extractDescription(body: string) {
-  let processed = body
-    .split('\n\n')[0]
+  let processed = (body
+    .split('\n\n')
+    .find(s => s.trimStart()[0] != ">") ?? "")
     .replace(/[\*>]|\[\^[0-9]+\]/g, "")
     .replaceAll('\n', '')
     .replaceAll('  ', ' / ')
