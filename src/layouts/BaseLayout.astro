@@ -1,22 +1,59 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import SideBar from "../components/sidebar/SideBar.astro";
 import { ViewTransitions } from "astro:transitions";
+import "../styles/global.css";
 
-import { SITE_DESCRIPTION, SITE_TITLE, TRANSITION_API } from "../config";
+import { METADATA, TRANSITION_API } from "../config";
 
 const {
   title,
-  description = SITE_DESCRIPTION,
+  description = METADATA.description,
   sideBarActiveItemID,
   ogType,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="business">
   <head>
-    <BaseHead title={title} description={description} ogType={ogType} />
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title + " | " + METADATA.title}</title>
+    <meta name="title" content={title + " | " + METADATA.title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title + " | " + METADATA.title} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title + " | " + METADATA.title} />
+    <meta property="twitter:description" content={description} />
+
     {TRANSITION_API && <ViewTransitions />}
   </head>
   <body class="flex">
@@ -44,14 +81,14 @@ const {
             </div>
             <div class="navbar-center"></div>
             <a class="btn btn-ghost normal-case text-xl" href="/"
-              >{SITE_TITLE}</a
+              >{METADATA.title}</a
             >
             <div class="navbar-end"></div>
           </div>
         </div>
 
         <main
-          class="p-5 py-8 md:p-8 md:py-10 max-w-[80ch] mx-auto w-full flex justify-center"
+          class="p-5 py-8 md:p-8 md:py-10 max-w-screen-md mx-auto w-full flex justify-center"
         >
           <div>
             <slot />

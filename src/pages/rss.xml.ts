@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { SITE_TITLE, SITE_DESCRIPTION, PAGINATION_SIZE } from "../config";
+import { METADATA, PAGINATION_SIZE } from "../config";
 import { getCollection } from "astro:content";
 import { extractDescription, extractDate, createSlug } from "src/lib/util";
 
@@ -14,17 +14,17 @@ export async function GET() {
     (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
   );
 
-  const items = posts.slice(0, PAGINATION_SIZE).map((post) => ({
+  const items = posts.map((post) => ({
     title: post.data.title,
     pubDate: extractDate(post.id),
     description: extractDescription(post.body),
     link: `/blog/${createSlug(post.data.title)}`,
-  })).concat(poems.slice(0, PAGINATION_SIZE).map((poem) => ({
+  })).concat(poems.map((poem) => ({
     title: poem.data.title,
     pubDate: extractDate(poem.id),
     description: extractDescription(poem.body),
     link: `/poetry/${createSlug(poem.data.title)}`,
-  }))).concat(slides.slice(0, PAGINATION_SIZE).map((slide) => ({
+  }))).concat(slides.map((slide) => ({
     title: slide.data.title,
     pubDate: extractDate(slide.id),
     description: slide.data.description,
@@ -32,9 +32,11 @@ export async function GET() {
   })));
 
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: METADATA.title,
+    description: METADATA.description,
     site: import.meta.env.SITE,
-    items: items.sort((a, b) => b.pubDate - a.pubDate),
+    items: items
+      .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf())
+      .slice(0, PAGINATION_SIZE),
   });
 }

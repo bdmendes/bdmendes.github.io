@@ -9,7 +9,7 @@ I have developed a Masters-level chess engine. Care to know how it works?
 
 > This article assumes that you know the rules of chess, algebraic notation and understand basic strategic concepts like the importance of material and king safety. If you don't, head to [Lichess](https://lichess.org/learn) and follow along the tutorials. You could also use some [computer science knowledge](https://www.youtube.com/watch?v=CxGSnA-RTsA).
 
-### Motivation
+## Motivation
 
 I had some free time in February 2023 and wanted to do something new. I wanted to learn the [Rust programming language](https://www.rust-lang.org/) and was looking for a challenging new project. Since I was already a chess player and was interested in artificial intelligence, it quickly became apparent to me that developing a chess engine was the way to go.
 
@@ -20,7 +20,7 @@ With this in mind, my goal for [Camel](https://github.com/bdmendes/camel/), my c
 ![](camel_wallpaper.jpg)
 *A nice camel looking at water. I named the engine Camel in homage to a friend of mine.*
 
-### Board representation and move making
+## Board representation and move making
 
 In computer chess a position is typically represented using [FEN](https://computerchess.org.uk/ccrl/404/) notation. For instance, the following position is represented as *r2qr2k/1p2N1bp/p1bP1pp1/2P1p3/2Bn4/8/PP1B2PP/2RQ1R1K w - - 4 24*. That might look scary, but if you start at the 8th rank, in White's perspective, you might immediately recognize the pattern: we have a black rook, followed by 2 empty squares, followed by a black queen. */* represent rank changes, and capital letters distinguish white pieces from black pieces. Further along the way, we have *w - - 4 24*, meaning that it is White to move, neither White nor Black can castle, there have been 4 moves without a capture or a pawn push (needed for checking termination via the [50-move rule](https://en.wikipedia.org/wiki/Fifty-move_rule)) and we are in move 24 of the game.
 
@@ -31,9 +31,9 @@ As programmers, all we have to do here is implement a `parse_fen` function that 
 
 The state-of-the-art board representation is [bitboards](https://www.chessprogramming.org/Bitboards). As most processors nowadays have 64-bit architectures and the chess board has 64 squares, one could argue that that is a match made in heaven. We can represent a chess board by using 8 64-bit variables: 6 for each piece, 1 for White and 1 for Black. In the position above, the rooks bitboard would be 00010001 00000000 00000000 00000000 00000000 00000000 00000000 00100100 and the black pieces bitboard would be 10011001 11000010 01100101 00010000 00001000 00000000 00000000 00000000. Scary enough? Let's look at these with flipped endianness and 8 bits at a time...
 
-<div class="flex box my-4 p-2 justify-center gap-4">
+<div class="flex mb-4 p-2 justify-center gap-4">
     <div>
-        <p class="text-center font-bold">Rooks</p>
+        <div class="text-center font-bold">Rooks</div>
         <div class="text-center">10001000</div>
         <div class="text-center">00000000</div>
         <div class="text-center">00000000</div>
@@ -44,7 +44,7 @@ The state-of-the-art board representation is [bitboards](https://www.chessprogra
         <div class="text-center">00100100</div>
     </div>
     <div>
-        <p class="text-center font-bold">Black Pieces</p>
+        <div class="text-center font-bold">Rooks</div>
         <div class="text-center">10011001</div>
         <div class="text-center">01000011</div>
         <div class="text-center">10100110</div>
@@ -55,7 +55,7 @@ The state-of-the-art board representation is [bitboards](https://www.chessprogra
         <div class="text-center">00000000</div>
     </div>
         <div>
-        <p class="text-center font-bold">Black Rooks</p>
+        <div class="text-center font-bold">Rooks</div>
         <div class="text-center">10001000</div>
         <div class="text-center">00000000</div>
         <div class="text-center">00000000</div>
@@ -71,13 +71,13 @@ You might have noticed by now that querying the black rooks is a matter of execu
 
 An interesting challenge, though, is caching slider moves, because they depend on the position of other pieces (they cannot jump over them). The state-of-the-art way of caching this is using a perfect hashing technique known as [magic bitboards](https://analog-hors.github.io/site/magic-bitboards/).
 
-### Search
+## Search
 
 Now that we know how to generate moves, how exactly does our AI's brain work? To put it simply, it uses the [minimax algorithm](https://www.chessprogramming.org/Minimax) with lots of modifications and enhancements.
 
 Minimax sees the game as a tree. Each position is a node, and its children are the available positions after move making. With this in place, the best move is the one that yields the most benefitial position at a leaf node. Minimax gets its name by the fact that a maximizing player tries to maximize the score of a position and the minimizing player tries to minimize it: this is so because a position's score is always in White's perspective.
 
-#### Expanding the game tree
+### Expanding the game tree
 
 Let us see a very small portion of the game tree from the position above, with depth=2. White is the maximizing player and will evaluate two moves: Nxc6 and d7.
 
@@ -90,7 +90,7 @@ Let's expand d7 now. d7 is immediately refuted by a human player, but a computer
 
 Now with both variants at depth=1 explored, White prefers Nxc6 as the maximizing player. The initial position is evaluated as 0.
 
-#### The need for quiescence search
+### The need for quiescence search
 
 Notice that I colored the leaf node after Qxe7 in red. This is because, after Qxe7, had we searched a ply (half a move, or a "turn") deeper, with depth=3, we would have found White's promotion with dxe8=Q+, capturing a rook and replacing the pawn with a queen on the board. So, with the previously lost knight, we have *eval=-3+5+9-1=10*. However, the queen is now hanging, and with one ply deeper, we would have concluded the evaluation of the position with a value of +1.
 
@@ -98,7 +98,7 @@ This problem illustrates why we absolutely cannot simply evaluate a position at 
 
 [Quiescence search](https://www.chessprogramming.org/Quiescence_Search) solves this issue by performing a new game search at leaf nodes, this time only analyzing captures (and eventually checks), until all threats are resolved. This makes the search a bit slower but is crucial to avoid catastrophic blunders.
 
-#### Alpha-beta pruning and other heuristics
+### Alpha-beta pruning and other heuristics
 
 The most classical, lossless pruning technique used in the minimax algorithm is [alpha-beta pruning](https://www.chessprogramming.org/Alpha-Beta). The idea is fairly simple: if one already has found a good move and searches for alternatives, one refutation is enough to avoid them.
 
@@ -108,7 +108,7 @@ Since the effectiveness of this pruning technique highly depends on the order of
 
 Other pruning, reduction and extension techniques are available and might lead to a huge reduction in the branching factor, but possibly losing information. Alpha-beta pruning is one of the few lossless optimizations out there.
 
-### Evaluation
+## Evaluation
 
 We have been using a simple material evaluation for positions, with pawns evaluated as 1, bishops and knights as 3, rooks as 5 and queens as 9. Although simple, this is not sufficient for a high level play.
 
@@ -118,7 +118,7 @@ However, there is much more to a position than just checkmate and material. An i
 
 A decent evaluation function should include bonuses and penalties for piece placements, passed pawns and king attacks. This is however extremely difficult both to code efficiently and generalize. We'll return to this issue in the final section of this article.
 
-### Time management and iterative deepening
+## Time management and iterative deepening
 
 The example game search tree we used above had depth=2. We set this arbitrarily for demonstration purposes. Ideally, we would have like to set this to a very high value, to be able to think deeper. However, the goal of a chess engine is to be able to analyze positions quickly, both for game analysis and competition with tight time controls.
 
@@ -128,7 +128,7 @@ When it receives a position with only the remaining player time for the entire g
 
 After choosing the time to spend, we perform [iterative deepening](https://www.chessprogramming.org/Iterative_Deepening): we search with depth=1, then depth=2, and so on until the time is reached, the current search is aborted and the latest completed search result is returned. Funny enough, performing a iterative deepening search with the same depth as a regular search might be even faster than a single search with that depth, due to the use of [transposition tables](https://www.chessprogramming.org/Transposition_Table) that store results (either exact or bounds) from previous iterations. These require hashing positions efficiently, for example with [zobrist hashing](https://www.chessprogramming.org/Zobrist_Hashing).
 
-### Advanced topics
+## Advanced topics
 
 We looked at only the most important ideas of a classical chess engine. Camel implements all of these and some more, but state-of-the-art engines are much more advanced.
 
@@ -140,6 +140,8 @@ In the era of [deep learning](https://www.chessprogramming.org/Deep_Learning), t
 
 The sky is the limit for a chess engine, and the battle between speed, correctness and innovation is never ending. That is why it is such an extraordinary but tiring task.
 
-### Wrapping up
+## Wrapping up
 
 You can find the [full source code of Camel on my Github](https://github.com/bdmendes/camel/). I hope you found this interesting and are now more interested in developing projects like these or just digging into computing and/or chess in general. Make sure to learn beyond this article and hit me up with your thoughts!
+
+> Update: I gave a talk about this subject at Semana de Informática 2024 @ FEUP. You can find it at [the slides page](/slides).

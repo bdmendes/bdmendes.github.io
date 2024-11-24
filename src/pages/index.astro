@@ -4,7 +4,6 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import { createSlug, extractDate, extractDescription } from "../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
-import { BLOG_BADGE, POETRY_BADGE, SLIDES_BADGE } from "src/config";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
@@ -24,11 +23,11 @@ const last_slide = slides[0];
 
 <BaseLayout title="Home" sideBarActiveItemID="home">
   <div class="mb-12">
-    <div class="text-3xl font-bold md:font-normal md:text-xl py-1">
+    <div class="text-2xl font-bold md:font-normal md:text-xl py-1">
       Hey there
     </div>
     <div class="text-5xl font-bold hidden md:block">I'm Bruno Mendes.</div>
-    <div class="text-lg py-3">
+    <div class="text-lg py-1 md:py-3">
       <p>
         I'm a software engineer based in Porto, Portugal, holding an MSc from
         FEUP. I enjoy crafting elegant code, playing chess, and exploring
@@ -45,8 +44,7 @@ const last_slide = slides[0];
     img={last_post.data.hero}
     description={extractDescription(last_post.body)}
     url={"/blog/" + createSlug(last_post.data.title)}
-    target="_self"
-    badge={BLOG_BADGE}
+    badge={"blog"}
     tags={last_post.data.tags}
   />
   <div class="divider my-0"></div>
@@ -54,8 +52,7 @@ const last_slide = slides[0];
     title={last_poem.data.title}
     description={extractDescription(last_poem.body)}
     url={"/poetry/" + createSlug(last_poem.data.title)}
-    target="_self"
-    badge={POETRY_BADGE}
+    badge={"poetry"}
     tags={last_poem.data.tags}
   />
   <div class="divider my-0"></div>
@@ -63,8 +60,7 @@ const last_slide = slides[0];
     title={last_slide.data.title}
     description={last_slide.data.description}
     url={"/slides/" + createSlug(last_slide.data.title)}
-    target="_blank"
-    badge={SLIDES_BADGE}
+    badge={"slides"}
     tags={last_slide.data.tags}
   />
 </BaseLayout>

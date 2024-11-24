@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import { createSlug, extractDate, extractDescription } from "../../lib/util";
+import { createSlug, extractDate } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
 import { PAGINATION_SIZE } from "src/config";
@@ -31,7 +31,6 @@ const { page } = Astro.props;
                         title={slide.data.title}
                         description={slide.data.description}
                         url={"/slides/" + createSlug(slide.data.title)}
-                        target="_blank"
                         tags={slide.data.tags}
                     />
                     <div class="divider my-0" />

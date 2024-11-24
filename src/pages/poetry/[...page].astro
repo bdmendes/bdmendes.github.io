@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import { createSlug, extractDate, extractDescription } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
-import { BLOG_BADGE, PAGINATION_SIZE } from "src/config";
+import { PAGINATION_SIZE } from "src/config";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -31,7 +31,6 @@ const { page } = Astro.props;
                         title={poem.data.title}
                         description={extractDescription(poem.body)}
                         url={"/poetry/" + createSlug(poem.data.title)}
-                        target="_self"
                     />
                     <div class="divider my-0" />
                 </>

@@ -1,5 +1,3 @@
-import { GENERATE_SLUG_FROM_TITLE } from '../config'
-
 export function createSlug(title: string) {
   return title
     .trim()

@@ -1,36 +1,23 @@
 ---
+import { ROUTES } from "src/config";
+
 const { sideBarActiveItemID } = Astro.props;
 const activeClass = "active";
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
 <ul class="menu grow shrink menu-md overflow-y-auto items-center">
-    <li>
-        <a
-            class={`py-3 text-base mb-2 ${cleanId == "home" ? activeClass : ""}`}
-            id="home"
-            href="/">Home</a
-        >
-    </li>
-    <li>
-        <a
-            class={`py-3 text-base mb-2 ${cleanId == "blog" ? activeClass : ""}`}
-            id="blog"
-            href="/blog/">Blog</a
-        >
-    </li>
-    <li>
-        <a
-            class={`py-3 text-base mb-2 ${cleanId == "poetry" ? activeClass : ""}`}
-            id="poetry"
-            href="/poetry/">Poetry</a
-        >
-    </li>
-    <li>
-        <a
-            class={`py-3 text-base mb-2 ${cleanId == "slides" ? activeClass : ""}`}
-            id="slides"
-            href="/slides/">Slides</a
-        >
-    </li>
+    {
+        Object.entries(ROUTES).map(([key, value]) => (
+            <li>
+                <a
+                    class={`py-3 text-base mb-2 ${cleanId == key ? activeClass : ""}`}
+                    id={key}
+                    href={key == "home" ? "/" : "/" + key}
+                >
+                    {value}
+                </a>
+            </li>
+        ))
+    }
 </ul>
