@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.time-line-container>div:last-child .education__time>.education__line {
+@media print {
+    * {
+        @apply text-sm;
+    }
+
+    .no-print,
+    .no-print * {
+        display: none !important;
+    }
+}
+
+.time-line-container>div:last-child .entry_time>.entry_line {
     display: none;
 }
 

@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+import { SOCIALS } from "src/config";
+import { Icon } from "astro-icon/components";
+import LargeTitle from "@components/LargeTitle.astro";
+---
+
+<BaseLayout title="Curriculum Vitae" sideBarActiveItemID="cv">
+    <div class="mb-5 flex flex-col gap-8 sm:flex-row justify-between">
+        <div>
+            <div class="text-5xl w-full font-bold mb-1">Bruno Mendes</div>
+            <div class="text-2xl w-full mb-3">Software Engineer</div>
+            <div class="flex items-center mb-2">
+                <Icon size="20" name={SOCIALS.Email.icon} />
+                <a class="ml-2 text-sm" href={SOCIALS.Email.url}>
+                    {SOCIALS.Email.url.replace("mailto:", "")}
+                </a>
+            </div>
+
+            <div class="flex items-center mb-2">
+                <Icon size="20" name={SOCIALS.LinkedIn.icon} />
+                <a class="ml-2 text-sm" href={SOCIALS.LinkedIn.url}>
+                    {SOCIALS.LinkedIn.url.replace("https://www.", "")}
+                </a>
+            </div>
+        </div>
+        <img
+            class="rounded-full grow-0 h-min saturate-[90%]"
+            src="/assets/about-me/cv-profile.jpg"
+            width="120px"
+            height="120px"
+        />
+    </div>
+
+    <div class="mb-8 text-justify">
+        Bruno Mendes holds a Master's degree in Informatics and Computing
+        Engineering from the Faculty of Engineering, University of Porto (FEUP).
+        During his academic journey, he actively contributed to the university
+        community, serving as a class assistant for three years and playing a
+        key role in the Informatics Students' Association (NIAEFEUP) for four
+        years. Currently, he works as a Software Engineer, focusing on
+        large-scale SaaS projects with expertise in backend development.
+    </div>
+
+    <LargeTitle title="Experience" />
+
+    <div class="time-line-container mb-6">
+        <TimeLineElement
+            title="Software Engineer"
+            location="Kevel"
+            from="2024"
+            to="Present"
+        >
+            Developing a large-scale customer data platform, primarily in Scala,
+            entirely deployed in AWS using infrastructure-as-code.
+        </TimeLineElement>
+        <TimeLineElement
+            title="Class Assistant"
+            location="FEUP"
+            from="2022"
+            to="2024"
+        >
+            Provided in-class assistance to students and lectured on some topics
+            about the C language.
+        </TimeLineElement>
+        <TimeLineElement
+            title="Research and Development Intern"
+            location="Quorum Born IT"
+            from="2024"
+        >
+            Replaced a legacy code generator with a modern Kotlin DSL, enhancing
+            the system's performance and maintainability.
+        </TimeLineElement>
+        <TimeLineElement
+            title="Software Engineer Intern"
+            location="Synopsys"
+            from="2023"
+        >
+            Contributed to the development of open-source and proprietary
+            debugger tools for ARC processors in C++.
+        </TimeLineElement>
+    </div>
+
+    <LargeTitle title="Education" />
+
+    <div class="time-line-container mb-8">
+        <TimeLineElement
+            title="M.Sc. Informatics and Computing Engineering"
+            grade="18/20"
+            location="FEUP"
+            from="2022"
+            to="2024"
+        />
+        <TimeLineElement
+            title="B.Sc. Informatics and Computing Engineering"
+            grade="17/20"
+            location="FEUP"
+            from="2019"
+            to="2022"
+        />
+    </div>
+
+    <LargeTitle title="Miscellaneous" />
+
+    <ul class="list-disc mx-6 mb-10 grid gap-4 text-justify">
+        <li>
+            <span class="font-bold">Chess District Champion.</span> Won Braga U18
+            and Porto U20 (classical time control), in 2019 and 2021.
+        </li>
+        <li>
+            <span class="font-bold">Students' Branch Member. </span> From 2020 to
+            2024, I had the opportunity to join two boards, coordinate the development
+            of a mobile application with more than 5000 users and help organize two
+            editions of the flagship event <span class="italic"
+                >Semana de Informática</span
+            >.
+        </li>
+    </ul>
+</BaseLayout>

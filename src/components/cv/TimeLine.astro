@@ -1,0 +1,38 @@
+---
+export interface Props {
+    title: string;
+    from: string;
+    to?: string;
+    location: string;
+    grade?: string;
+}
+
+const { title, from, to, location, grade } = Astro.props;
+---
+
+<div class="flex mb-4">
+    <div class="entry_time pr-5">
+        <span class="w-4 h-4 bg-primary block rounded-full mt-1"></span>
+        <span
+            class="entry_line bg-primary block h-full w-[2px] translate-x-[7px]"
+        ></span>
+    </div>
+    <div class="entry_data bd-grid">
+        <h3 class="font-semibold mb-1">
+            {title} @ {location}
+            <span class="badge badge-outline font-normal text-sm ml-2"
+                >{from} {to ? `- ${to}` : ""}</span
+            >
+            {
+                grade && (
+                    <span class="badge badge-outline font-normal text-sm ml-2">
+                        {grade}
+                    </span>
+                )
+            }
+        </h3>
+        <p class="my-2 text-justify">
+            <slot />
+        </p>
+    </div>
+</div>

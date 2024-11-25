@@ -5,12 +5,12 @@ const { sideBarActiveItemID } = Astro.props;
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
-<ul class="menu grow overflow-y-auto items-center">
+<ul class="menu grow overflow-y-auto">
     {
         Object.entries(ROUTES).map(([key, value]) => (
             <li>
                 <a
-                    class={`py-3 text-base mb-2 ${cleanId == key ? "active" : ""}`}
+                    class={`py-3 text-base ${cleanId == key ? "active" : ""}`}
                     id={key}
                     href={key == "home" ? "/" : "/" + key}
                 >
