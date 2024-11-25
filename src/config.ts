@@ -12,3 +12,22 @@ export const ROUTES = {
     "poetry": "Poetry",
     "slides": "Slides",
 }
+
+export const SOCIALS = {
+    "GitHub": {
+        icon: "mdi:github",
+        url: "https://github.com/bdmendes",
+    },
+    "LinkedIn": {
+        icon: "mdi:linkedin",
+        url: "https://www.linkedin.com/in/bdmendes",
+    },
+    "Email": {
+        icon: "mdi:email",
+        url: "mailto:bd_mendes@outlook.com"
+    },
+    "RSS Feed": {
+        icon: "mdi:rss",
+        url: "https://bdmendes.com/rss.xml"
+    }
+}

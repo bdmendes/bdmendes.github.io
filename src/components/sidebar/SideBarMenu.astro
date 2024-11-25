@@ -2,16 +2,15 @@
 import { ROUTES } from "src/config";
 
 const { sideBarActiveItemID } = Astro.props;
-const activeClass = "active";
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
-<ul class="menu grow shrink menu-md overflow-y-auto items-center">
+<ul class="menu grow overflow-y-auto items-center">
     {
         Object.entries(ROUTES).map(([key, value]) => (
             <li>
                 <a
-                    class={`py-3 text-base mb-2 ${cleanId == key ? activeClass : ""}`}
+                    class={`py-3 text-base mb-2 ${cleanId == key ? "active" : ""}`}
                     id={key}
                     href={key == "home" ? "/" : "/" + key}
                 >

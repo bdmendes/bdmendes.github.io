@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.0.1",
     "@astrojs/tailwind": "^5.0.3",
     "astro": "^4.0.2",
+    "astro-icon": "^1.1.4",
     "daisyui": "^4.4.10",
     "dayjs": "^1.11.9",
     "sharp": "^0.32.6",
@@ -24,6 +25,7 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.2.1",
     "@tailwindcss/typography": "^0.5.10"
   },
   "packageManager": "pnpm@9.13.2"
