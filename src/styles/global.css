@@ -3,49 +3,53 @@
 @tailwind utilities;
 
 @media print {
-    * {
-        @apply text-sm;
-    }
+  * {
+    @apply text-sm;
+  }
 
-    .no-print,
-    .no-print * {
-        display: none !important;
-    }
+  main {
+    @apply pb-0 !important;
+  }
+
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
 }
 
-.time-line-container>div:last-child .entry_time>.entry_line {
-    display: none;
+.time-line-container > div:last-child .entry_time > .entry_line {
+  display: none;
 }
 
 .prose {
-    blockquote {
-        @apply max-w-min min-w-fit not-italic;
-        quotes: none !important;
-    }
+  blockquote {
+    @apply max-w-min min-w-fit not-italic;
+    quotes: none !important;
+  }
 
-    p>img {
-        @apply rounded-md !mb-3 w-auto object-contain max-h-96;
-        max-width: min(100%, 32rem);
-    }
+  p > img {
+    @apply rounded-md !mb-3 w-auto object-contain max-h-96;
+    max-width: min(100%, 32rem);
+  }
 
-    iframe {
-        @apply mx-auto mb-2;
-    }
+  iframe {
+    @apply mx-auto mb-2;
+  }
 
-    p img+em,
-    .label {
-        @apply inline-block text-center not-italic prose-sm w-full;
-    }
+  p img + em,
+  .label {
+    @apply inline-block text-center not-italic prose-sm w-full;
+  }
 
-    .footnotes {
-        @apply prose-sm max-w-min min-w-fit mt-8;
-    }
+  .footnotes {
+    @apply prose-sm max-w-min min-w-fit mt-8;
+  }
 
-    .data-footnote-backref {
-        @apply hidden;
-    }
+  .data-footnote-backref {
+    @apply hidden;
+  }
 
-    #footnote-label {
-        @apply hidden;
-    }
+  #footnote-label {
+    @apply hidden;
+  }
 }

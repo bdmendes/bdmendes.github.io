@@ -1,12 +1,11 @@
 ---
 export interface Props {
-    title: string;
-    padTop?: boolean;
+  title: string;
 }
 
-const { title, padTop = false } = Astro.props;
+const { title } = Astro.props;
 ---
 
-<div class={"text-3xl w-full font-bold mb-4" + (padTop ? " mt-12" : "")}>
-    {title}
+<div class={"text-3xl w-full font-bold mb-4"}>
+  {title}
 </div>

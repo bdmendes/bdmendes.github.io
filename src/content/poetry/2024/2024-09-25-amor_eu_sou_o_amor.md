@@ -4,7 +4,7 @@ title: Amor, eu sou o amor
 
 Não sou nada. Tirando isto,  
 tenho em mim todos os sonhos  
-do mundo.[^1]  
+do mundo.  
 (ah, que eu sou tudo e nada!)  
 
 Flutuo pela praça do infinito  
@@ -18,7 +18,7 @@ por dois que juntos anuem
 que sou uma construção,    
 (enfim alguma lucidez!)  
 que não sou o tempo  
-nem é o tempo que me faz,[^2]  
+nem é o tempo que me faz,  
 (rasguem-se os calendários!)  
 que não faço almas gémeas  
 mas almas encontradas,  
@@ -38,6 +38,3 @@ não posso ser analisado,
 tenho em mim todo o sentido  
 e sentido nenhum.  
 (ah, que eu sou tudo e nada!)  
-
-[^1]: Como em *Tabacaria* de Álvaro de Campos.
-[^2]: Como em *Canção de engate* de António Variações.
