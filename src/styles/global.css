@@ -22,6 +22,10 @@
 }
 
 .prose {
+  .title {
+    @apply mt-0;
+  }
+
   blockquote {
     @apply max-w-min min-w-fit not-italic;
     quotes: none !important;
