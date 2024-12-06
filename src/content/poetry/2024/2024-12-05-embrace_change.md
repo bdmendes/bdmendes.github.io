@@ -25,4 +25,4 @@ Heart-broken tangled cascade
 Now I can't help but feel  
 Love's no more than a deal  
 Isn't that so strange?  
-The will to embrace change  
+Willing to embrace change  
