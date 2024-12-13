@@ -41,7 +41,7 @@ export function extractDescription(body: string) {
 
   if (['?', '!', '.'].includes(processed[processed.length - 1])) {
     return processed;
-  } else if (['/'].includes(processed[processed.length - 1])) {
+  } else if (['/', ','].includes(processed[processed.length - 1])) {
     return processed.substring(0, processed.length - 1).trimEnd() + '.';
   } else {
     return processed + '.';
