@@ -24,7 +24,7 @@ while (pages.length < 5 && page.lastPage > pages.length) {
         pages.length > 1 && (
             <div class="join mx-auto mt-4">
                 {page.currentPage === 1 ? (
-                    <button class="join-item btn btn-disabled"> « </button>
+                    <button class="join-item btn btn-disabled">«</button>
                 ) : (
                     <a
                         href={
@@ -53,7 +53,7 @@ while (pages.length < 5 && page.lastPage > pages.length) {
                 ))}
 
                 {page.currentPage === page.lastPage ? (
-                    <button class="join-item btn btn-disabled"> « </button>
+                    <button class="join-item btn btn-disabled">»</button>
                 ) : (
                     <a href={path + "/" + (page.currentPage + 1)}>
                         <button class="join-item btn">»</button>
