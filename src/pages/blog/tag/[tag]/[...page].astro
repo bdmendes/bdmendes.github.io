@@ -23,13 +23,13 @@ export const getStaticPaths = (async ({ paginate }) => {
     const uniqueTags = [...new Set(tags)].filter((t) => t != null);
 
     return uniqueTags.flatMap((tag) => {
-        const matchingposts = posts.filter((p) =>
+        const matchingPosts = posts.filter((p) =>
             (p.data.tags ?? []).includes(tag),
         );
-        matchingposts.sort(
+        matchingPosts.sort(
             (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
         );
-        return paginate(matchingposts, {
+        return paginate(matchingPosts, {
             pageSize: PAGINATION_SIZE,
             params: { tag },
         });

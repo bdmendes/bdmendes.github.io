@@ -21,13 +21,13 @@ export const getStaticPaths = (async ({ paginate }) => {
     const uniqueYears = [...new Set(years)];
 
     return uniqueYears.flatMap((year) => {
-        const matchingposts = posts.filter(
+        const matchingPosts = posts.filter(
             (p) => extractDate(p.id).getFullYear().toString() === year,
         );
-        matchingposts.sort(
+        matchingPosts.sort(
             (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
         );
-        return paginate(matchingposts, {
+        return paginate(matchingPosts, {
             pageSize: PAGINATION_SIZE,
             params: { year },
         });
