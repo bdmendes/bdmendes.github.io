@@ -1,5 +1,6 @@
 ---
 title: Carros, iates, jatos
+tags: ['existencial']
 ---
 
 Desde tenra idade, prega-se o culto do dinheiro como chave universal para a felicidade.

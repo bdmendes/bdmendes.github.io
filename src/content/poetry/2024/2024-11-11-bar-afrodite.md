@@ -1,5 +1,6 @@
 ---
 title: Bar Afrodite
+tags: ['surreal']
 ---
 
 Ao Bar Afrodite chega todo o tipo de pessoas: desde miúdos irrequietos de liceu, até aos cinquentões de laço, passando pelos filhos de um qualquer credor, procuram apenas beber o seu cocktail em tons de rosa em boa companhia, discorrer com o bartender sobre o tempo, e esperar que o tempo lhes preencha um espaço que os mais céticos chamariam de vazio. Para efeitos desta história colorida, chamar-lhe-emos possibilidade.

@@ -32,11 +32,11 @@ import { Image } from "astro:assets";
           {title}
         </h1>
         <p class="py-1 text-1xl">{description}</p>
-        <div class="card-actions justify-end">
-          {badge && <span class="badge badge-primary mt-2">{badge}</span>}
+        <div class="card-actions justify-end mt-1">
+          {badge && <span class="badge badge-primary mt-1">{badge}</span>}
           {
             tags?.map((tag) => (
-              <span class="badge badge-outline mt-2">{tag}</span>
+              <span class="badge badge-outline mt-1">{tag}</span>
             ))
           }
         </div>

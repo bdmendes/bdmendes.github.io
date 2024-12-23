@@ -1,5 +1,6 @@
 ---
 title: Amor, eu sou o amor
+tags: ['romantic', 'existencial', 'minimal']
 ---
 
 Não sou nada. Tirando isto,  

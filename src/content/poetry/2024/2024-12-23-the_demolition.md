@@ -1,5 +1,6 @@
 ---
 title: The demolition
+tags: ['romantic', 'nostalgic']
 ---
 
 Now if I recall correctly  

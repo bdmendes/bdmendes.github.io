@@ -17,9 +17,9 @@ const { path, title, selector, filters } = Astro.props;
     {
       selector && (
         <div class="flex gap-2 items-center">
-          <div class="badge badge-outline">{selector}</div>
+          <div class="badge badge-primary">{selector}</div>
           <a href={path}>
-            <Icon name="mdi:close" />
+            <Icon name="mdi:close" size="18" />
           </a>
         </div>
       )
@@ -28,7 +28,7 @@ const { path, title, selector, filters } = Astro.props;
       filters && (
         <div class="flex items-center">
           <button class="" onclick="filters_modal.showModal()">
-            <Icon name="mdi:filter" size="24" />
+            <Icon name="mdi:filter" size="22" />
           </button>
           <dialog id="filters_modal" class="modal">
             <div class="modal-box w-min min-w-40 flex flex-col gap-3 items-center max-h-[90vh]">

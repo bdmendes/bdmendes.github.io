@@ -1,5 +1,6 @@
 ---
 title: Sonhar sozinho
+tags: ['introspective', 'romantic', 'nostalgic']
 ---
 
 Não há noite em que não sonho contigo.  

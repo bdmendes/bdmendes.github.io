@@ -1,5 +1,6 @@
 ---
 title: Objetivos semanais
+tags: ['introspective']
 ---
 
 Acordamos objetivos semanais, estou confiante de que agora vou apanhar o comboio para o sucesso.

@@ -1,5 +1,6 @@
 ---
 title: Oceano do meu sangue
+tags: ['dark', 'introspective']
 ---
 
 Amar-te foi entregar-te uma arma  

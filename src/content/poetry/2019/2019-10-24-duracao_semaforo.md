@@ -1,5 +1,6 @@
 ---
 title: Duração de um semáforo
+tags: ['surreal']
 ---
 
 Três da manhã. Toda uma cidade concentrada aguardando a luz verde do semáforo. O chão trepidante, o suor quente escorrendo. Foi ali que ela morreu.

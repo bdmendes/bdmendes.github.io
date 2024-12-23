@@ -1,5 +1,6 @@
 ---
 title: Ermesinde (por fora)
+tags: ['introspective', 'flâneur']
 ---
 
 É de noite mas não tanto como na semana passada. Ainda há autocarros decentes a esta hora, daqui a dez minutos. Quase não saía a tempo, para ser sincero. Tenho uma pilha de afazeres pela frente e uma saudade miudinha que me custa compreender. Vimo-nos há três ou quatro horas! Enfim. Está frio, em Ermesinde.

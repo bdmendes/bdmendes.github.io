@@ -1,5 +1,6 @@
 ---
 title: Espírito mecanizado
+tags: ['dark', 'introspective']
 ---
 
 O vento leva os romances nunca vividos, num sopro rápido que se faz sentir neste bungalow, pelas três da manhã. A porta está quase fechada mas deixa passar um resquício de luz que me mantém acordado, atento a uma voz única.

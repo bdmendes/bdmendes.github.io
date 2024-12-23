@@ -1,5 +1,6 @@
 ---
 title: Filme de super-heróis
+tags: ['surreal', 'existencial']
 ---
 
 Nunca me interessei por cinema fantástico, mas admito que gostaria de um tipo de filme específico, começando num senhor de casaco preto, deprimido. Embrenhado nas profundezas da noite, debate-se consigo mesmo. A paixão secretista que tem vivido é corrosiva, ameaça destruir a sua família, mas ele não consegue parar, sente uma atração grotesca pela rapariga que conheceu há um ano no bar, muito mais nova e obstinada do que a sua mulher.

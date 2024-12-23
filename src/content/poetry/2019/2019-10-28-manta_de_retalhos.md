@@ -1,5 +1,6 @@
 ---
 title: Manta de retalhos
+tags: ['dark', 'introspective']
 ---
 
 É o que sempre quis, encaixar  

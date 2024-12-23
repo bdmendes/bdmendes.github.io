@@ -1,5 +1,6 @@
 ---
 title: Direito ao apagamento
+tags: ['surreal']
 ---
 
 Caro corretor,

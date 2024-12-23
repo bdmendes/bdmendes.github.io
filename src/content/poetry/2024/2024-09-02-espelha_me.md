@@ -1,5 +1,6 @@
 ---
 title: Espelha-me
+tags: ['romantic', 'nostalgic']
 ---
 
 Tu és o meu espelho  

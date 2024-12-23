@@ -1,5 +1,6 @@
 ---
 title: Pedacinho de democracia
+tags: ['flâneur', 'introspective']
 ---
 
 Assistindo a um pseudodebate, dou por mim a pensar porque decidi não participar, ou porque mais uma vez me remeti ao silêncio quando devia falar, eu que tão bem falo quando devia remeter-me ao silêncio.

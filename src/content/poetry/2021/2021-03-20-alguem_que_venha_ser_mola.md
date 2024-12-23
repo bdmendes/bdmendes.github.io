@@ -1,5 +1,6 @@
 ---
 title: Alguém que venha ser mola
+tags: ['surreal']
 ---
 
 Eu cumpro, tu cais, eu pairo  

@@ -1,5 +1,6 @@
 ---
 title: Isto é coragem
+tags: ['introspective']
 ---
 
 Na faculdade, quando o professor pedir um trabalho sobre coragem, vou entregar uma folha em branco apenas com o dizer Isto é coragem, Isso não é coragem, isso é ser estúpido, Então qual é a tua definição de coragem, É pensar fora da caixa.

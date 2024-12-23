@@ -1,5 +1,6 @@
 ---
 title: Primeiro amor
+tags: ['existencial', 'nostalgic']
 ---
 
 O primeiro amor atinge-te de repente, faz-te apaixonar pela vida e converte o tempo em sensação, agarrada à estética do beijo e aos silêncios das conversas.

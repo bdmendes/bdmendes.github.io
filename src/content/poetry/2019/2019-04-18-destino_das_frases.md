@@ -1,5 +1,6 @@
 ---
 title: Destino das frases
+tags: ['introspective']
 ---
 
 Há frases que se destinam a nunca ser ditas. Plácidas, inertes, oscilam desde o vulgar Desculpa até ao complexo Amo-te, e ficam presas por largos anos na consciência.

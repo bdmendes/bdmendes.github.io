@@ -1,5 +1,6 @@
 ---
 title: A felicidade mais pura
+tags: ['existencial', 'nostalgic']
 ---
 
 Vivemos agarrados a premissas, a verdades fundamentais e pessoais que nos seguram nos momentos de maior aperto. Desde muito jovem, uma das premissas por que me rejo é a de que não há mal no mundo, apenas tragédias emocionais projetadas, comportamentos condicionados ou estados de caos.

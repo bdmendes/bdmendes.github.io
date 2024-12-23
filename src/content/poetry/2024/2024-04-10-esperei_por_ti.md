@@ -1,5 +1,6 @@
 ---
 title: Esperei por ti
+tags: ['dark', 'introspective']
 ---
 
 Esperei por ti.  

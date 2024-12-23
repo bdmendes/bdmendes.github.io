@@ -1,5 +1,6 @@
 ---
 title: Antes de seres poema
+tags: ['romantic', 'introspective']
 ---
 
 Perguntaram-me porque te amo  

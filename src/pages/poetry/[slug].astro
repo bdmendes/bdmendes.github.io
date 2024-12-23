@@ -24,6 +24,7 @@ const { Content } = await entry.render();
     description={extractDescription(entry.body)}
     date={extractDate(entry.id)}
     badge={"poetry"}
+    tags={entry.data.tags}
 >
     <Content />
 </PostLayout>

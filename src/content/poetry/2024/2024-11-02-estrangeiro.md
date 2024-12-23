@@ -1,5 +1,6 @@
 ---
 title: Estrangeiro
+tags: ['flâneur', 'introspective']
 ---
 
 Deito-me num qualquer areal,  

@@ -29,12 +29,22 @@ const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
     y,
     "/poetry/year/" + y,
 ]);
+const tags = poems.flatMap((p) => p.data.tags);
+const uniqueTags = [...new Set(tags)].filter((t) => t != null);
+const tagsPathsMap: [string, string][] = uniqueTags.map((y) => [
+    y,
+    "/poetry/tag/" + y,
+]);
 
 const { page } = Astro.props;
 ---
 
 <BaseLayout title="Poetry" sideBarActiveItemID="poetry">
-    <LargeTitle title="Poetry" path="/poetry" filters={yearPathsMap} />
+    <LargeTitle
+        title="Poetry"
+        path="/poetry"
+        filters={yearPathsMap.concat(tagsPathsMap)}
+    />
     <ul>
         {
             page.data.map((poem) => (

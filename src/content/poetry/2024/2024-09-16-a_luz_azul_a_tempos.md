@@ -1,5 +1,6 @@
 ---
 title: A luz azul (a tempos)
+tags: ['minimal']
 ---
 
 Vejo-te apenas a tempos  
