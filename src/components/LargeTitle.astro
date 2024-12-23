@@ -1,17 +1,47 @@
 ---
+import { Icon } from "astro-icon/components";
+
 export interface Props {
   path?: string;
   title: string;
   selector?: string;
-  filters?: [[string, string]];
+  filters?: [string, string][];
 }
 
-const { path, title, selector } = Astro.props;
+const { path, title, selector, filters } = Astro.props;
 ---
 
-<div class={"flex items-center gap-4 flex-wrap w-full mb-4"}>
+<div class={"flex items-center justify-between gap-4 flex-wrap w-full mb-4"}>
   <a href={path} class="text-3xl font-bold">{title}</a>
   <div class="mt-1">
-    {selector && <div class="badge badge-primary">{selector}</div>}
+    {
+      selector && (
+        <div class="flex gap-2 items-center">
+          <div class="badge badge-outline">{selector}</div>
+          <a href={path}>
+            <Icon name="mdi:close" />
+          </a>
+        </div>
+      )
+    }
+    {
+      filters && (
+        <div class="flex items-center">
+          <button class="" onclick="filters_modal.showModal()">
+            <Icon name="mdi:filter" size="24" />
+          </button>
+          <dialog id="filters_modal" class="modal">
+            <div class="modal-box w-min min-w-40 flex flex-col gap-3 items-center max-h-[90vh]">
+              {filters.map((f) => (
+                <a href={f[1]}>{f[0]}</a>
+              ))}
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        </div>
+      )
+    }
   </div>
 </div>

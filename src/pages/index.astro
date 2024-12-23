@@ -19,10 +19,6 @@ const poems = (await getCollection("poetry")).sort(
   (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
 const last_poem = poems[0];
-console.log(
-  (last_poem.data.tags ?? []) +
-    extractDate(last_poem.id).getFullYear().toString(),
-);
 
 const slides = (await getCollection("slides")).sort(
   (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
