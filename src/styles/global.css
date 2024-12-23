@@ -17,6 +17,10 @@
   }
 }
 
+* {
+  word-break: break-word;
+}
+
 .time-line-container > div:last-child .entry_time > .entry_line {
   display: none;
 }
@@ -28,8 +32,9 @@
   }
 
   p > img {
-    @apply rounded-md mb-1 w-auto object-contain max-h-96;
+    @apply rounded-md mb-1 w-auto object-contain;
     max-width: min(100%, 32rem);
+    max-height: min(70dvh, 28rem);
   }
 
   iframe {
