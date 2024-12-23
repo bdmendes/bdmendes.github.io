@@ -18,11 +18,30 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
+const slides = await getCollection("slides");
+const uniqueYears = [
+    ...new Set(slides.map((p) => extractDate(p.id).getFullYear().toString())),
+].toReversed();
+const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
+    y,
+    "/slides/year/" + y,
+]);
+const tags = slides.flatMap((p) => p.data.tags);
+const uniqueTags = [...new Set(tags)].filter((t) => t != null);
+const tagsPathsMap: [string, string][] = uniqueTags.map((y) => [
+    y,
+    "/slides/tag/" + y,
+]);
+
 const { page } = Astro.props;
 ---
 
 <BaseLayout title="Slides" sideBarActiveItemID="slides">
-    <LargeTitle title="Slides" path="/slides" />
+    <LargeTitle
+        title="Slides"
+        path="/slides"
+        filters={yearPathsMap.concat(tagsPathsMap)}
+    />
     <ul>
         {
             page.data.map((slide) => (

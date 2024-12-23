@@ -20,15 +20,15 @@ const displayDate = dayjs(date).format("ll");
   <article class="prose prose-img:mx-auto mb-4">
     <h1 class="mt-0 my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
     {date && <time>{displayDate}</time>}
-    <div class="flex max-w-min min-w-fit mt-1 gap-2 flex-wrap">
-      <a href={`/${badge}`} class="badge badge-primary no-underline mt-1">
+    <div class="flex max-w-min min-w-fit mt-2 gap-2 flex-wrap">
+      <a href={`/${badge}`} class="badge badge-primary no-underline">
         {badge}
       </a>
       {
         tags?.map((tag) => (
           <a
             href={`/${badge}/tag/${tag}`}
-            class="badge badge-outline no-underline mt-1"
+            class="badge badge-outline no-underline"
           >
             {tag}
           </a>
@@ -36,7 +36,7 @@ const displayDate = dayjs(date).format("ll");
       }
       <a
         href={`/${badge}/year/${date.getFullYear().toString()}`}
-        class="badge badge-outline no-underline mt-1"
+        class="badge badge-outline no-underline"
       >
         {date.getFullYear().toString()}
       </a>
