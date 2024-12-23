@@ -2,21 +2,30 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import { createSlug, extractDate, extractDescription } from "../lib/util";
+import {
+  createSlug,
+  extractDate,
+  extractDescription,
+  augmentTagsWithDate,
+} from "../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf()
+  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
 const last_post = posts[0];
 
 const poems = (await getCollection("poetry")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf()
+  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
 const last_poem = poems[0];
+console.log(
+  (last_poem.data.tags ?? []) +
+    extractDate(last_poem.id).getFullYear().toString(),
+);
 
 const slides = (await getCollection("slides")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf()
+  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
 const last_slide = slides[0];
 ---
@@ -45,7 +54,7 @@ const last_slide = slides[0];
     description={extractDescription(last_post.body)}
     url={"/blog/" + createSlug(last_post.data.title)}
     badge={"blog"}
-    tags={last_post.data.tags}
+    tags={augmentTagsWithDate(last_post.data.tags, last_post.id)}
   />
   <div class="divider my-0"></div>
   <HorizontalCard
@@ -53,7 +62,7 @@ const last_slide = slides[0];
     description={extractDescription(last_poem.body)}
     url={"/poetry/" + createSlug(last_poem.data.title)}
     badge={"poetry"}
-    tags={last_poem.data.tags}
+    tags={augmentTagsWithDate(last_poem.data.tags, last_poem.id)}
   />
   <div class="divider my-0"></div>
   <HorizontalCard
@@ -61,6 +70,6 @@ const last_slide = slides[0];
     description={last_slide.data.description}
     url={"/slides/" + createSlug(last_slide.data.title)}
     badge={"slides"}
-    tags={last_slide.data.tags}
+    tags={augmentTagsWithDate(last_slide.data.tags, last_slide.id)}
   />
 </BaseLayout>

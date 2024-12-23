@@ -8,7 +8,7 @@ const blogCollection = defineCollection({
             message: 'tags must be unique',
         }).optional(),
     }),
-});
+})
 
 const slidesCollection = defineCollection({
     schema: () => z.object({
@@ -18,9 +18,10 @@ const slidesCollection = defineCollection({
             message: 'tags must be unique',
         }).optional(),
     }),
-});
+})
 
 export const collections = {
     'blog': blogCollection,
+    'poetry': blogCollection,
     'slides': slidesCollection,
 }

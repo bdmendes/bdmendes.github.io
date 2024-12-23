@@ -1,11 +1,17 @@
 ---
 export interface Props {
+  path?: string;
   title: string;
+  selector?: string;
+  filters?: [[string, string]];
 }
 
-const { title } = Astro.props;
+const { path, title, selector } = Astro.props;
 ---
 
-<div class={"text-3xl w-full font-bold mb-4"}>
-  {title}
+<div class={"flex items-center gap-4 flex-wrap w-full mb-4"}>
+  <a href={path} class="text-3xl font-bold">{title}</a>
+  <div class="mt-1">
+    {selector && <div class="badge badge-primary">{selector}</div>}
+  </div>
 </div>
