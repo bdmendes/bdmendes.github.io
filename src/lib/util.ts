@@ -18,32 +18,28 @@ export function extractDate(path: string) {
 export function extractDescription(body: string) {
   let processed = (body
     .split('\n\n')
-    .find(s => s.trimStart()[0] != ">" && s.trimStart()[0] != "#") ?? "")
-    .replace(/[\*>]|\[\^[0-9]+\]/g, "")
-    .replaceAll('\n', '')
-    .replaceAll('  ', ' / ')
-    .replaceAll(/[,:.!?] \//g, ' /')
-    .trim();
+    .filter(s => s.trimStart()[0] !== ">" && s.trimStart()[0] !== "#") // Exclude quotes and headers
+    .map(s => s.replace(/[\*>]|\[\^[0-9]+\]/g, "")) // Clean markdown elements
+    .join(' ') // Combine paragraphs
+    .replace(/\n/g, '') // Remove newlines
+    .replace(/ {2,}/g, ' / ') // Replace multiple spaces with slashes
+    .replace(/[,:.!?] \//g, ' /') // Tidy up spacing around slashes
+    .trim());
 
   const punct = [',', '?', '!', '.', ':', '/']
-  const max_size = 140
-  const max_size_small = 80
+  const min_length = 140
+  const min_length_small = 100
+
   for (let i = 0; i < processed.length; i++) {
     if (punct.includes(processed[i])) {
-      if (i >= max_size || (processed[i] == '.' && i >= max_size_small)) {
-        processed = !['?', '!'].includes(processed[i]) ? processed.substring(0, i).trimEnd() + '.' : processed;
+      if (i >= min_length || (processed[i] == '.' && i >= min_length_small)) {
+        processed = !['?', '!'].includes(processed[i])
+          ? processed.substring(0, i).trimEnd() + '.'
+          : processed.substring(0, i + 1);
         break;
       }
     }
   }
 
-  processed = processed.trimEnd();
-
-  if (['?', '!', '.'].includes(processed[processed.length - 1])) {
-    return processed;
-  } else if (['/', ','].includes(processed[processed.length - 1])) {
-    return processed.substring(0, processed.length - 1).trimEnd() + '.';
-  } else {
-    return processed + '.';
-  }
+  return processed;
 }

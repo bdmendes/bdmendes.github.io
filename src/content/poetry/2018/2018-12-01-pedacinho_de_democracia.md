@@ -2,7 +2,7 @@
 title: Pedacinho de democracia
 ---
 
-Assistindo a um pseudodebate, dou por mim a pensar porque decidi não participar, ou porque mais uma vez me remeti ao silêncio quando deveria falar, eu que tão bem falo quando deveria remeter-me ao silêncio.
+Assistindo a um pseudodebate, dou por mim a pensar porque decidi não participar, ou porque mais uma vez me remeti ao silêncio quando devia falar, eu que tão bem falo quando devia remeter-me ao silêncio.
 
 Chego a casa, meto os fones, começo a andar. O álbum é novo, saiu há dias, e é a oportunidade ideal para parar de ouvir as mesmas quatro faixas todos os dias. A guitarra e a bateria envolvem-me, quiçá, da mesma forma que o latir do cão da casa junto à nacional; afinal, não são mais do que uma forma de suprimir o silêncio.
 
