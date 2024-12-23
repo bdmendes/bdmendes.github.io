@@ -17,18 +17,18 @@ const { page } = Astro.props;
 const { tag } = Astro.params;
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const poems = await getCollection("poetry");
-    const tags = poems.flatMap((p) => p.data.tags);
+    const posts = await getCollection("blog");
+    const tags = posts.flatMap((p) => p.data.tags);
     const uniqueTags = [...new Set(tags)].filter((t) => t != null);
 
     return uniqueTags.flatMap((tag) => {
-        const matchingPoems = poems.filter((p) =>
+        const matchingposts = posts.filter((p) =>
             (p.data.tags ?? []).includes(tag),
         );
-        matchingPoems.sort(
+        matchingposts.sort(
             (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
         );
-        return paginate(matchingPoems, {
+        return paginate(matchingposts, {
             pageSize: PAGINATION_SIZE,
             params: { tag },
         });
@@ -36,23 +36,23 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 ---
 
-<BaseLayout title={"Poetry | " + tag} sideBarActiveItemID="poetry">
-    <LargeTitle title="Poetry" path="/poetry" selector={tag} />
+<BaseLayout title={"Blog | " + tag} sideBarActiveItemID="blog">
+    <LargeTitle title="Blog" path="/blog" selector={tag} />
     <ul>
         {
-            page.data.map((poem) => (
+            page.data.map((post) => (
                 <>
                     <HorizontalCard
-                        title={poem.data.title}
-                        img={poem.data.hero}
-                        description={extractDescription(poem.body)}
-                        url={"/poetry/" + createSlug(poem.data.title)}
-                        tags={augmentTagsWithDate(poem.data.tags, poem.id)}
+                        title={post.data.title}
+                        img={post.data.hero}
+                        description={extractDescription(post.body)}
+                        url={"/blog/" + createSlug(post.data.title)}
+                        tags={augmentTagsWithDate(post.data.tags, post.id)}
                     />
                     <div class="divider my-0" />
                 </>
             ))
         }
     </ul>
-    <PaginationButtons page={page} path={"/poetry/tag/" + tag} />
+    <PaginationButtons page={page} path={"/blog/tag/" + tag} />
 </BaseLayout>

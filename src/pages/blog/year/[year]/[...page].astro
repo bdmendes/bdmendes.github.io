@@ -14,20 +14,20 @@ import { PAGINATION_SIZE } from "src/config";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const poems = await getCollection("poetry");
-    const years = poems.flatMap((p) =>
+    const posts = await getCollection("blog");
+    const years = posts.flatMap((p) =>
         extractDate(p.id).getFullYear().toString(),
     );
     const uniqueYears = [...new Set(years)];
 
     return uniqueYears.flatMap((year) => {
-        const matchingPoems = poems.filter(
+        const matchingposts = posts.filter(
             (p) => extractDate(p.id).getFullYear().toString() === year,
         );
-        matchingPoems.sort(
+        matchingposts.sort(
             (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
         );
-        return paginate(matchingPoems, {
+        return paginate(matchingposts, {
             pageSize: PAGINATION_SIZE,
             params: { year },
         });
@@ -40,23 +40,23 @@ const { page } = Astro.props;
 const { year } = Astro.params;
 ---
 
-<BaseLayout title={"Poetry | " + year} sideBarActiveItemID="poetry">
-    <LargeTitle title="Poetry" path="/poetry" selector={year} />
+<BaseLayout title={"Blog | " + year} sideBarActiveItemID="blog">
+    <LargeTitle title="Blog" path="/blog" selector={year} />
     <ul>
         {
-            page.data.map((poem) => (
+            page.data.map((post) => (
                 <>
                     <HorizontalCard
-                        title={poem.data.title}
-                        img={poem.data.hero}
-                        description={extractDescription(poem.body)}
-                        url={"/poetry/" + createSlug(poem.data.title)}
-                        tags={augmentTagsWithDate(poem.data.tags, poem.id)}
+                        title={post.data.title}
+                        img={post.data.hero}
+                        description={extractDescription(post.body)}
+                        url={"/blog/" + createSlug(post.data.title)}
+                        tags={augmentTagsWithDate(post.data.tags, post.id)}
                     />
                     <div class="divider my-0" />
                 </>
             ))
         }
     </ul>
-    <PaginationButtons page={page} path={"/poetry/year/" + year} />
+    <PaginationButtons page={page} path={"/blog/year/" + year} />
 </BaseLayout>

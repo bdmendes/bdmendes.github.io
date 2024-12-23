@@ -10,7 +10,7 @@ import {
 } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
-import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
 import { PAGINATION_SIZE } from "src/config";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -21,13 +21,30 @@ export const getStaticPaths = (async ({ paginate }) => {
   return paginate(posts, { pageSize: PAGINATION_SIZE });
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const posts = await getCollection("blog");
+const uniqueYears = [
+  ...new Set(posts.map((p) => extractDate(p.id).getFullYear().toString())),
+].toReversed();
+const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
+  y,
+  "/blog/year/" + y,
+]);
+const tags = posts.flatMap((p) => p.data.tags);
+const uniqueTags = [...new Set(tags)].filter((t) => t != null);
+const tagsPathsMap: [string, string][] = uniqueTags.map((y) => [
+  y,
+  "/blog/tag/" + y,
+]);
 
 const { page } = Astro.props;
 ---
 
 <BaseLayout title="Blog" sideBarActiveItemID="blog">
-  <LargeTitle title="Blog" path="/blog" />
+  <LargeTitle
+    title="Blog"
+    path="/blog"
+    filters={yearPathsMap.concat(tagsPathsMap)}
+  />
   <ul>
     {
       page.data.map((post) => (
