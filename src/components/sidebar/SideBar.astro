@@ -1,6 +1,11 @@
 ---
 import SideBarFooter from "./SideBarFooter.astro";
 import SideBarMenu from "./SideBarMenu.astro";
+
+export interface Props {
+  sideBarActiveItemID?: string;
+}
+
 const { sideBarActiveItemID } = Astro.props;
 ---
 

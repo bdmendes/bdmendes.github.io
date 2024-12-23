@@ -39,7 +39,11 @@ const tagsPathsMap: [string, string][] = uniqueTags.map((y) => [
 const { page } = Astro.props;
 ---
 
-<BaseLayout title="Poetry" sideBarActiveItemID="poetry">
+<BaseLayout
+    title="Poetry"
+    sideBarActiveItemID="poetry"
+    currentPage={page.currentPage}
+>
     <LargeTitle
         title="Poetry"
         path="/poetry"

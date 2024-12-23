@@ -7,6 +7,7 @@ import {
     extractDate,
     extractDescription,
     augmentTagsWithDate,
+    capitalize,
 } from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
@@ -36,7 +37,11 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 ---
 
-<BaseLayout title={"Poetry | " + tag} sideBarActiveItemID="poetry">
+<BaseLayout
+    title={"Poetry | " + capitalize(tag)}
+    sideBarActiveItemID="poetry"
+    currentPage={page.currentPage}
+>
     <LargeTitle title="Poetry" path="/poetry" selector={tag} />
     <ul>
         {

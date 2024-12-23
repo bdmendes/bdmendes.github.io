@@ -16,7 +16,12 @@ dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
 ---
 
-<BaseLayout title={title} description={description} ogType="article">
+<BaseLayout
+  title={title}
+  description={description}
+  ogType="article"
+  currentPage={1}
+>
   <article class="prose prose-img:mx-auto mb-4">
     <h1 class="mt-0 my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
     {date && <time>{displayDate}</time>}

@@ -9,6 +9,10 @@ export function createSlug(title: string) {
     .replace(/^-+|-+$/g, '')
 }
 
+export function capitalize(val: string) {
+  return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+
 export function extractDate(path: string) {
   const regex = /(\d{4}-\d{2}-\d{2})/;
   const match = path.match(regex) ?? ['1980-01-01'];

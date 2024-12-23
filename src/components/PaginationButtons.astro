@@ -7,9 +7,7 @@ export interface Props {
 }
 
 const { page, path } = Astro.props;
-
 const startPage = Math.max(1, page.currentPage - 2);
-
 let pages = Array.from(
     { length: Math.min(5, page.lastPage - startPage + 1) },
     (_, i) => startPage + i,

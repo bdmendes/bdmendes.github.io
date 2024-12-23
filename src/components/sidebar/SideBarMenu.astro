@@ -1,6 +1,10 @@
 ---
 import { ROUTES } from "src/config";
 
+export interface Props {
+    sideBarActiveItemID?: string;
+}
+
 const { sideBarActiveItemID } = Astro.props;
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---

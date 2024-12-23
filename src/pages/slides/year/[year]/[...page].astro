@@ -39,7 +39,11 @@ const { page } = Astro.props;
 const { year } = Astro.params;
 ---
 
-<BaseLayout title={"Slides | " + year} sideBarActiveItemID="slides">
+<BaseLayout
+    title={"Slides | " + year}
+    sideBarActiveItemID="slides"
+    currentPage={page.currentPage}
+>
     <LargeTitle title="Slides" path="/slides" selector={year} />
     <ul>
         {

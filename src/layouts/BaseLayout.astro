@@ -7,12 +7,27 @@ import { Icon } from "astro-icon/components";
 
 import { METADATA, TRANSITION_API } from "../config";
 
+export interface Props {
+  title: string;
+  description?: string;
+  sideBarActiveItemID?: string;
+  ogType?: string;
+  currentPage: number;
+}
+
 const {
   title,
   description = METADATA.description,
   sideBarActiveItemID,
   ogType,
+  currentPage,
 } = Astro.props;
+
+const completeTitle =
+  title +
+  " | " +
+  (currentPage > 1 ? "Page " + currentPage + " | " : "") +
+  METADATA.title;
 ---
 
 <!doctype html>
@@ -43,19 +58,19 @@ const {
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
-    <title>{title + " | " + METADATA.title}</title>
-    <meta name="title" content={title + " | " + METADATA.title} />
+    <title>{completeTitle}</title>
+    <meta name="title" content={completeTitle} />
     <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title + " | " + METADATA.title} />
+    <meta property="og:title" content={completeTitle} />
     <meta property="og:description" content={description} />
 
     <!-- Twitter -->
     <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title + " | " + METADATA.title} />
+    <meta property="twitter:title" content={completeTitle} />
     <meta property="twitter:description" content={description} />
 
     {TRANSITION_API && <ViewTransitions />}
