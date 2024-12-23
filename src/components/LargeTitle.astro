@@ -9,6 +9,7 @@ export interface Props {
 }
 
 const { path, title, selector, filters } = Astro.props;
+const modalId = title.replace(/[^a-zA-Z]+/g, "");
 ---
 
 <div class={"flex items-center justify-between gap-4 flex-wrap w-full mb-4"}>
@@ -27,10 +28,10 @@ const { path, title, selector, filters } = Astro.props;
     {
       filters && (
         <div class="flex items-center">
-          <button class="" onclick="filters_modal.showModal()">
+          <button class="" onclick={modalId + ".showModal()"}>
             <Icon name="mdi:filter" size="22" />
           </button>
-          <dialog id="filters_modal" class="modal">
+          <dialog id={modalId} class="modal">
             <div class="modal-box w-min min-w-40 flex flex-col gap-3 items-center max-h-[90vh]">
               {filters.map((f) => (
                 <a href={f[1]}>{f[0]}</a>
