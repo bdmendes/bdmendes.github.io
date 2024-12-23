@@ -5,7 +5,7 @@ export interface Props {
   description?: string;
   url?: string;
   badge?: string;
-  tags?: string[];
+  tags: string[];
 }
 
 const { title, img, description, url, badge, tags } = Astro.props;
@@ -32,13 +32,9 @@ import { Image } from "astro:assets";
           {title}
         </h1>
         <p class="py-1 text-1xl">{description}</p>
-        <div class="card-actions justify-end mt-1">
-          {badge && <span class="badge badge-primary mt-1">{badge}</span>}
-          {
-            tags?.map((tag) => (
-              <span class="badge badge-outline mt-1">{tag}</span>
-            ))
-          }
+        <div class="card-actions justify-end mt-2">
+          {badge && <span class="badge badge-primary">{badge}</span>}
+          {tags.map((tag) => <span class="badge badge-outline">{tag}</span>)}
         </div>
       </div>
     </div>
