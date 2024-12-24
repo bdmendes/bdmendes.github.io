@@ -32,11 +32,13 @@ const modalId = title.replace(/[^a-zA-Z]+/g, "");
             <Icon name="mdi:filter-variant" size="24" />
           </button>
           <dialog id={modalId} class="modal">
-            <div class="modal-box w-min min-w-40 flex flex-col gap-3 items-center max-h-[90svh]">
+            <ol class="modal-box w-min min-w-40 flex flex-col gap-3 items-center max-h-[90svh]">
               {filters.map((f) => (
-                <a href={f[1]}>{f[0]}</a>
+                <li>
+                  <a href={f[1]}>{f[0]}</a>
+                </li>
               ))}
-            </div>
+            </ol>
             <form method="dialog" class="modal-backdrop">
               <button>close</button>
             </form>
