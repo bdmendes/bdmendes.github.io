@@ -34,7 +34,7 @@
   p > img {
     @apply rounded-md mb-1 w-auto object-contain;
     max-width: min(100%, 32rem);
-    max-height: min(70dvh, 28rem);
+    max-height: min(70svh, 28rem);
   }
 
   iframe {
