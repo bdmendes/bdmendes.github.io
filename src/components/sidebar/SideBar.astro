@@ -14,17 +14,15 @@ const { sideBarActiveItemID } = Astro.props;
   <aside
     class="px-2 pt-2 h-auto min-h-full w-56 bg-base-200 text-base-content flex flex-col"
   >
-    <div class="w-fit mx-auto my-4">
-      <a href="/">
-        <div
-          class="avatar transition ease-in-out hover:scale-[102%] block m-auto"
-        >
-          <div class="w-28 rounded-full">
-            <img src="/assets/about-me/bdmendes-2024.jpg" />
-          </div>
-        </div>
-      </a>
-    </div>
+    <a
+      href="/"
+      class="my-4 transition ease-in-out hover:scale-[102%] self-center max-h-[30svh] aspect-square h-28"
+    >
+      <img
+        class="object-contain w-full h-full rounded-full"
+        src="/assets/about-me/bdmendes-2024.jpg"
+      />
+    </a>
     <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
     <SideBarFooter />
   </aside>
