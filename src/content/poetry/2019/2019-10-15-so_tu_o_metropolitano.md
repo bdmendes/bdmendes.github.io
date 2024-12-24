@@ -1,6 +1,6 @@
 ---
 title: Só tu, ó metropolitano!
-tags: ['dark', 'introspective']
+tags: ['dark', 'introspective', 'flâneur']
 ---
 
 Oh, metropolitano. És a minha ponte de contacto com as gentes da cidade, apressadas no seu percurso entre tudo e nada. Travas sempre que me alongo em olhares vazios, mas segues veloz quando só me olho a mim. Pareces sincronizado comigo, mesmo quando corres sem mim. Tens um acordo com o universo para me levares à civilização e me trazeres de volta ao descampado vazio que é a minha existência.
