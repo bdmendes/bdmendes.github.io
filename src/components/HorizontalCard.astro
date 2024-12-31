@@ -43,7 +43,13 @@ import { Image } from "astro:assets";
         <h1 class="text-xl font-bold mr-2">
           {title}
         </h1>
-        <p class="py-1 text-1xl">{description}</p>
+        {
+          description ? (
+            <p class="py-1 text-1xl">{description}</p>
+          ) : (
+            <div class="pb-1" />
+          )
+        }
         <div class="card-actions justify-end mt-2 mb-1">
           {badge && <span class="badge badge-primary">{badge}</span>}
           {tags.map((tag) => <span class="badge badge-outline">{tag}</span>)}
