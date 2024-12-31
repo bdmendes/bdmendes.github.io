@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HorizontalCard from "../../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import { extractDate, createChessSlug } from "../../lib/util";
+import LargeTitle from "@components/LargeTitle.astro";
+import PaginationButtons from "@components/PaginationButtons.astro";
+import { PAGINATION_SIZE } from "src/config";
+import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const games = await getCollection("chess");
+    games.sort(
+        (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
+    );
+    return paginate(games, { pageSize: PAGINATION_SIZE });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const games = await getCollection("chess");
+const tags = games.map((p) => p.data.tournament);
+const uniqueTournaments = [...new Set(tags)];
+const tournamentsPathsMap: [string, string][] = uniqueTournaments.map((y) => [
+    y,
+    "/chess/tournament/" + y,
+]);
+const { page } = Astro.props;
+---
+
+<BaseLayout
+    title="OTB Chess Games"
+    sideBarActiveItemID="chess"
+    currentPage={page.currentPage}
+>
+    <LargeTitle
+        title="OTB Chess Games"
+        path="/chess"
+        filters={tournamentsPathsMap}
+    />
+    <ul>
+        {
+            page.data.map((game) => (
+                <>
+                    <HorizontalCard
+                        title={`${game.data.white} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
+                        ${game.data.result} ${game.data.black} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`}
+                        url={"/chess/" + createChessSlug(game)}
+                        tags={[game.data.tournament]}
+                    />
+                    <div class="divider my-0" />
+                </>
+            ))
+        }
+    </ul>
+    <PaginationButtons page={page} path="/chess" />
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import PostLayout from "./PostLayout.astro";
+import "../styles/chess.css";
+
+export interface Props {
+    white: string;
+    black: string;
+    result: string;
+    tournament: string;
+    whiteElo?: number;
+    blackElo?: number;
+    pgn: string;
+    date: Date;
+}
+
+const { white, black, result, tournament, whiteElo, blackElo, pgn, date } =
+    Astro.props;
+const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${blackElo ? `(${blackElo})` : ""}`;
+---
+
+<PostLayout
+    title={title}
+    date={date}
+    badge="chess"
+    tags={[tournament]}
+    createYearBadge={false}
+    tagEndpoint="tournament"
+>
+    <script is:inline src="/lib/pgn-viewer.js" type="text/javascript"></script>
+    <div id="board"></div>
+    <script is:inline define:vars={{ pgn: pgn }}>
+        PGNV.pgnEdit("board", {
+            pgn: pgn,
+            figurine: "alpha",
+            showCoords: false,
+            boardSize: "320px",
+            pieceStyle: "wikipedia",
+            notationLayout: "inline",
+        });
+    </script>
+</PostLayout>

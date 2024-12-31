@@ -1,0 +1,16 @@
+#boardMoves {
+    @apply bg-gray-100 rounded p-1 mt-2 mb-2;
+}
+
+#boardButton {
+    @apply mt-1;
+}
+
+#boardFen,
+#commentboardButton {
+    @apply hidden;
+}
+
+#editboardButton {
+    @apply mx-auto mt-1;
+}

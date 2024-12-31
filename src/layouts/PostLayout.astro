@@ -5,13 +5,23 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 
 export interface Props {
   title: string;
-  description: string;
+  description?: string;
   date: Date;
   badge: string;
   tags?: string[];
+  createYearBadge?: boolean;
+  tagEndpoint?: string;
 }
 
-const { title, description, date, badge, tags = [] } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  badge,
+  tags = [],
+  createYearBadge = true,
+  tagEndpoint = "tag",
+} = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
 ---
@@ -21,6 +31,7 @@ const displayDate = dayjs(date).format("ll");
   description={description}
   ogType="article"
   currentPage={1}
+  shrink={true}
 >
   <div class="prose prose-img:mx-auto mb-4">
     <h1 class="mt-0 my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
@@ -33,19 +44,23 @@ const displayDate = dayjs(date).format("ll");
         {
           tags?.map((tag) => (
             <a
-              href={`/${badge}/tag/${tag}`}
+              href={`/${badge}/${tagEndpoint}/${tag}`}
               class="badge badge-outline no-underline"
             >
               {tag}
             </a>
           ))
         }
-        <a
-          href={`/${badge}/year/${date.getFullYear().toString()}`}
-          class="badge badge-outline no-underline"
-        >
-          {date.getFullYear().toString()}
-        </a>
+        {
+          createYearBadge && (
+            <a
+              href={`/${badge}/year/${date.getFullYear().toString()}`}
+              class="badge badge-outline no-underline"
+            >
+              {date.getFullYear().toString()}
+            </a>
+          )
+        }
       </div>
       <div class="divider my-2"></div>
     </div>

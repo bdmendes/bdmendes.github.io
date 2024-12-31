@@ -9,6 +9,13 @@ export function createSlug(title: string) {
     .replace(/^-+|-+$/g, '')
 }
 
+export function createChessSlug(game: any) {
+  return `${game.id.split("-").slice(0, 3).join("-")}_${game.data.white}_${game.data.black}`
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .split("/")[1];
+}
+
 export function capitalize(val: string) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }

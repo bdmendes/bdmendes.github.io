@@ -1,0 +1,30 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { createChessSlug, extractDate } from "../../lib/util";
+import ChessGameLayout from "@layouts/ChessGameLayout.astro";
+
+export async function getStaticPaths() {
+    const games = await getCollection("chess");
+    return games.map((game) => ({
+        params: { slug: createChessSlug(game) },
+        props: { game },
+    }));
+}
+
+interface Props {
+    game: CollectionEntry<"chess">;
+}
+
+const { game } = Astro.props;
+---
+
+<ChessGameLayout
+    date={extractDate(game.id)}
+    white={game.data.white}
+    black={game.data.black}
+    result={game.data.result}
+    tournament={game.data.tournament}
+    pgn={game.body}
+    whiteElo={game.data.whiteElo}
+    blackElo={game.data.blackElo}
+/>

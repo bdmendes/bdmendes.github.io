@@ -11,6 +11,7 @@ export const ROUTES = {
     "blog": "Blog",
     "poetry": "Poetry",
     "slides": "Slides",
+    "chess": "Chess",
     "cv": "CV",
 }
 

@@ -12,8 +12,8 @@ const { path, title, selector, filters } = Astro.props;
 const modalId = title.replace(/[^a-zA-Z]+/g, "");
 ---
 
-<div class={"flex items-center justify-between gap-4 flex-wrap w-full mb-4"}>
-  <a href={path} class="text-3xl font-bold">{title}</a>
+<div class={"flex items-center justify-between gap-2 flex-wrap w-full mb-4"}>
+  <a href={path} class="text-3xl font-bold mr-4">{title}</a>
   <div class="mt-0.5">
     {
       selector && (
@@ -32,7 +32,7 @@ const modalId = title.replace(/[^a-zA-Z]+/g, "");
             <Icon name="mdi:filter-variant" size="24" />
           </button>
           <dialog id={modalId} class="modal">
-            <ol class="modal-box w-min min-w-40 flex flex-col gap-3 items-center max-h-[90svh]">
+            <ol class="modal-box w-fit min-w-40 flex flex-col gap-3 items-center max-h-[90svh]">
               {filters.map((f) => (
                 <li>
                   <a href={f[1]}>{f[0]}</a>
