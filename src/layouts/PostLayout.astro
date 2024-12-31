@@ -11,6 +11,7 @@ export interface Props {
   tags?: string[];
   createYearBadge?: boolean;
   tagEndpoint?: string;
+  shrink?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   tags = [],
   createYearBadge = true,
   tagEndpoint = "tag",
+  shrink = true,
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
@@ -31,7 +33,7 @@ const displayDate = dayjs(date).format("ll");
   description={description}
   ogType="article"
   currentPage={1}
-  shrink={true}
+  shrink={shrink}
 >
   <div class="prose prose-img:mx-auto mb-4">
     <h1 class="mt-0 my-2 text-4xl font-bold max-w-min min-w-fit">{title}</h1>
