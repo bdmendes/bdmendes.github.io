@@ -37,11 +37,11 @@ export const getStaticPaths = (async ({ paginate }) => {
 ---
 
 <BaseLayout
-    title={"OTB Chess Games | " + capitalize(tournament)}
-    sideBarActiveItemID="poetry"
+    title={"Chess | " + capitalize(tournament)}
+    sideBarActiveItemID="chess"
     currentPage={page.currentPage}
 >
-    <LargeTitle title="OTB Chess Games" path="/chess" selector={tournament} />
+    <LargeTitle title="Chess" path="/chess" selector={tournament} />
     <ul>
         {
             page.data.map((game) => (

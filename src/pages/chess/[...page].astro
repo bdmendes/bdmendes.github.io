@@ -33,15 +33,11 @@ const { page } = Astro.props;
 ---
 
 <BaseLayout
-    title="OTB Chess Games"
+    title="Chess"
     sideBarActiveItemID="chess"
     currentPage={page.currentPage}
 >
-    <LargeTitle
-        title="OTB Chess Games"
-        path="/chess"
-        filters={tournamentsPathsMap}
-    />
+    <LargeTitle title="Chess" path="/chess" filters={tournamentsPathsMap} />
     <ul>
         {
             page.data.map((game) => (
