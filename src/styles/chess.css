@@ -1,5 +1,5 @@
 #boardMoves {
-    @apply bg-gray-100 rounded p-1 mt-2 mb-2;
+    @apply bg-gray-200 rounded p-1 mt-2 mb-2;
 }
 
 #boardButton {

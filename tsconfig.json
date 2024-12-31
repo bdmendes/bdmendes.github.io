@@ -1,4 +1,8 @@
 {
+  "exclude": [
+    "public",
+    "dist"
+  ],
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strictNullChecks": true,
