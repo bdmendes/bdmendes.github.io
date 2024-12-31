@@ -16,6 +16,11 @@ export function createChessSlug(game: any) {
     .split("/")[1];
 }
 
+export function createChessTitle(game: any) {
+  return `${game.data.white} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
+    ${game.data.result} ${game.data.black} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
+}
+
 export function capitalize(val: string) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }

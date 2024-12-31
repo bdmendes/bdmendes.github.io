@@ -30,6 +30,6 @@ export const SOCIALS = {
     },
     "RSS Feed": {
         icon: "mdi:rss",
-        url: "https://bdmendes.com/rss.xml"
+        url: "/rss.xml"
     }
 }

@@ -7,23 +7,30 @@ import {
   extractDate,
   extractDescription,
   augmentTagsWithDate,
+  createChessSlug,
+  createChessTitle,
 } from "../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
-const last_post = posts[0];
+const lastPost = posts[0];
 
 const poems = (await getCollection("poetry")).sort(
   (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
-const last_poem = poems[0];
+const lastPoem = poems[0];
 
 const slides = (await getCollection("slides")).sort(
   (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
 );
-const last_slide = slides[0];
+const lastSlide = slides[0];
+
+const chessGames = (await getCollection("chess")).sort(
+  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
+);
+const lastGame = chessGames[0];
 ---
 
 <BaseLayout title="Home" sideBarActiveItemID="home" currentPage={1}>
@@ -45,27 +52,34 @@ const last_slide = slides[0];
   <LargeTitle title="Latest content" />
 
   <HorizontalCard
-    title={last_post.data.title}
-    img={last_post.data.hero}
-    description={extractDescription(last_post.body)}
-    url={"/blog/" + createSlug(last_post.data.title)}
+    title={lastPost.data.title}
+    img={lastPost.data.hero}
+    description={extractDescription(lastPost.body)}
+    url={"/blog/" + createSlug(lastPost.data.title)}
     badge={"blog"}
-    tags={augmentTagsWithDate(last_post.data.tags, last_post.id)}
+    tags={augmentTagsWithDate(lastPost.data.tags, lastPost.id)}
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title={last_poem.data.title}
-    description={extractDescription(last_poem.body)}
-    url={"/poetry/" + createSlug(last_poem.data.title)}
+    title={lastPoem.data.title}
+    description={extractDescription(lastPoem.body)}
+    url={"/poetry/" + createSlug(lastPoem.data.title)}
     badge={"poetry"}
-    tags={augmentTagsWithDate(last_poem.data.tags, last_poem.id)}
+    tags={augmentTagsWithDate(lastPoem.data.tags, lastPoem.id)}
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title={last_slide.data.title}
-    description={last_slide.data.description}
-    url={"/slides/" + createSlug(last_slide.data.title)}
+    title={lastSlide.data.title}
+    description={lastSlide.data.description}
+    url={"/slides/" + createSlug(lastSlide.data.title)}
     badge={"slides"}
-    tags={augmentTagsWithDate(last_slide.data.tags, last_slide.id)}
+    tags={augmentTagsWithDate(lastSlide.data.tags, lastSlide.id)}
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title={createChessTitle(lastGame)}
+    badge="chess"
+    url={"/chess/" + createChessSlug(lastGame)}
+    tags={[lastGame.data.tournament]}
   />
 </BaseLayout>

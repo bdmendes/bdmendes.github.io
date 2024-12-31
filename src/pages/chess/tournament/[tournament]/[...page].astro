@@ -2,7 +2,12 @@
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import { extractDate, capitalize, createChessSlug } from "../../../../lib/util";
+import {
+    extractDate,
+    capitalize,
+    createChessSlug,
+    createChessTitle,
+} from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
 import { PAGINATION_SIZE } from "src/config";
@@ -42,8 +47,7 @@ export const getStaticPaths = (async ({ paginate }) => {
             page.data.map((game) => (
                 <>
                     <HorizontalCard
-                        title={`${game.data.white} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
-                        ${game.data.result} ${game.data.black} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`}
+                        title={createChessTitle(game)}
                         url={"/chess/" + createChessSlug(game)}
                         tags={[game.data.tournament]}
                     />
