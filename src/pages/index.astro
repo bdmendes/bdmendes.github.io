@@ -4,7 +4,6 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import {
   createSlug,
-  extractDate,
   extractDescription,
   augmentTagsWithDate,
   createChessSlug,
@@ -12,24 +11,16 @@ import {
 } from "../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-);
+const posts = (await getCollection("blog")).toReversed();
 const lastPost = posts[0];
 
-const poems = (await getCollection("poetry")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-);
+const poems = (await getCollection("poetry")).toReversed();
 const lastPoem = poems[0];
 
-const slides = (await getCollection("slides")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-);
+const slides = (await getCollection("slides")).toReversed();
 const lastSlide = slides[0];
 
-const chessGames = (await getCollection("chess")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-);
+const chessGames = (await getCollection("chess")).toReversed();
 const lastGame = chessGames[0];
 ---
 
@@ -59,7 +50,6 @@ const lastGame = chessGames[0];
     badge={"blog"}
     tags={augmentTagsWithDate(lastPost.data.tags, lastPost.id)}
   />
-  <div class="divider my-0"></div>
   <HorizontalCard
     title={lastPoem.data.title}
     description={extractDescription(lastPoem.body)}
@@ -67,7 +57,6 @@ const lastGame = chessGames[0];
     badge={"poetry"}
     tags={augmentTagsWithDate(lastPoem.data.tags, lastPoem.id)}
   />
-  <div class="divider my-0"></div>
   <HorizontalCard
     title={lastSlide.data.title}
     description={lastSlide.data.description}
@@ -75,7 +64,6 @@ const lastGame = chessGames[0];
     badge={"slides"}
     tags={augmentTagsWithDate(lastSlide.data.tags, lastSlide.id)}
   />
-  <div class="divider my-0"></div>
   <HorizontalCard
     title={createChessTitle(lastGame)}
     badge="chess"

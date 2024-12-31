@@ -24,10 +24,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         const matchingPosts = posts.filter(
             (p) => extractDate(p.id).getFullYear().toString() === year,
         );
-        matchingPosts.sort(
-            (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-        );
-        return paginate(matchingPosts, {
+        return paginate(matchingPosts.toReversed(), {
             pageSize: PAGINATION_SIZE,
             params: { year },
         });
@@ -57,7 +54,6 @@ const { year } = Astro.params;
                         url={"/blog/" + createSlug(post.data.title)}
                         tags={augmentTagsWithDate(post.data.tags, post.id)}
                     />
-                    <div class="divider my-0" />
                 </>
             ))
         }

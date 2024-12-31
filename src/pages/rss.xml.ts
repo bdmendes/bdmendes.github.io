@@ -4,18 +4,10 @@ import { getCollection } from "astro:content";
 import { extractDescription, extractDate, createSlug, createChessSlug, createChessTitle } from "src/lib/util";
 
 export async function GET() {
-  const posts = (await getCollection("blog")).sort(
-    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-  );
-  const poems = (await getCollection("poetry")).sort(
-    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-  );
-  const slides = (await getCollection("slides")).sort(
-    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-  );
-  const chessGames = (await getCollection("chess")).sort(
-    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-  );
+  const posts = (await getCollection("blog")).toReversed();
+  const poems = (await getCollection("poetry")).toReversed();
+  const slides = (await getCollection("slides")).toReversed();
+  const chessGames = (await getCollection("chess")).toReversed();
 
   const items = posts.map((post) => ({
     title: post.data.title,

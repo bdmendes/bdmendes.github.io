@@ -4,7 +4,6 @@ import HorizontalCard from "../../../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import {
     createSlug,
-    extractDate,
     augmentTagsWithDate,
     capitalize,
 } from "../../../../lib/util";
@@ -25,10 +24,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         const matchingSlides = slides.filter((p) =>
             (p.data.tags ?? []).includes(tag),
         );
-        matchingSlides.sort(
-            (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-        );
-        return paginate(matchingSlides, {
+        return paginate(matchingSlides.toReversed(), {
             pageSize: PAGINATION_SIZE,
             params: { tag },
         });
@@ -52,7 +48,6 @@ export const getStaticPaths = (async ({ paginate }) => {
                         url={"/slides/" + createSlug(slide.data.title)}
                         tags={augmentTagsWithDate(slide.data.tags, slide.id)}
                     />
-                    <div class="divider my-0" />
                 </>
             ))
         }

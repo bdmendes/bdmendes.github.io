@@ -4,7 +4,6 @@ import HorizontalCard from "../../../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import {
     createSlug,
-    extractDate,
     extractDescription,
     augmentTagsWithDate,
     capitalize,
@@ -26,10 +25,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         const matchingPoems = poems.filter((p) =>
             (p.data.tags ?? []).includes(tag),
         );
-        matchingPoems.sort(
-            (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-        );
-        return paginate(matchingPoems, {
+        return paginate(matchingPoems.toReversed(), {
             pageSize: PAGINATION_SIZE,
             params: { tag },
         });
@@ -54,7 +50,6 @@ export const getStaticPaths = (async ({ paginate }) => {
                         url={"/poetry/" + createSlug(poem.data.title)}
                         tags={augmentTagsWithDate(poem.data.tags, poem.id)}
                     />
-                    <div class="divider my-0" />
                 </>
             ))
         }

@@ -6,12 +6,24 @@ export interface Props {
   url?: string;
   badge?: string;
   tags: string[];
+  divideTop?: boolean;
+  divideBottom?: boolean;
 }
 
-const { title, img, description, url, badge, tags } = Astro.props;
+const {
+  title,
+  img,
+  description,
+  url,
+  badge,
+  tags,
+  divideBottom = true,
+  divideTop = false,
+} = Astro.props;
 import { Image } from "astro:assets";
 ---
 
+{divideTop && <div class="divider my-0" />}
 <div
   class="rounded bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
 >
@@ -40,3 +52,4 @@ import { Image } from "astro:assets";
     </div>
   </a>
 </div>
+{divideBottom && <div class="divider my-0" />}

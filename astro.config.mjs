@@ -8,5 +8,5 @@ export default defineConfig({
   site: 'https://bdmendes.com',
   integrations: [icon(), sitemap(), tailwind({
     applyBaseStyles: false,
-  })]
+  })],
 });

@@ -36,7 +36,7 @@ const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${
     import LichessPgnViewer from "lichess-pgn-viewer";
     class ChessGame extends HTMLElement {
         connectedCallback() {
-            const lpv = LichessPgnViewer(document.getElementById("board")!, {
+            LichessPgnViewer(document.getElementById("board")!, {
                 pgn: this.dataset.pgn,
             });
         }

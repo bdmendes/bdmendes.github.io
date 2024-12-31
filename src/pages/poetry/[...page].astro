@@ -15,16 +15,17 @@ import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
     const poems = await getCollection("poetry");
-    poems.sort(
-        (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-    );
-    return paginate(poems, { pageSize: PAGINATION_SIZE });
+    return paginate(poems.toReversed(), { pageSize: PAGINATION_SIZE });
 }) satisfies GetStaticPaths;
 
 const poems = await getCollection("poetry");
 const uniqueYears = [
-    ...new Set(poems.map((p) => extractDate(p.id).getFullYear().toString())),
-].toReversed();
+    ...new Set(
+        poems
+            .map((p) => extractDate(p.id).getFullYear().toString())
+            .toReversed(),
+    ),
+];
 const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
     y,
     "/poetry/year/" + y,
@@ -59,7 +60,6 @@ const { page } = Astro.props;
                         url={"/poetry/" + createSlug(poem.data.title)}
                         tags={augmentTagsWithDate(poem.data.tags, poem.id)}
                     />
-                    <div class="divider my-0" />
                 </>
             ))
         }

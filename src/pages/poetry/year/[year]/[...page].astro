@@ -24,10 +24,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         const matchingPoems = poems.filter(
             (p) => extractDate(p.id).getFullYear().toString() === year,
         );
-        matchingPoems.sort(
-            (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf(),
-        );
-        return paginate(matchingPoems, {
+        return paginate(matchingPoems.toReversed(), {
             pageSize: PAGINATION_SIZE,
             params: { year },
         });
@@ -57,7 +54,6 @@ const { year } = Astro.params;
                         url={"/poetry/" + createSlug(poem.data.title)}
                         tags={augmentTagsWithDate(poem.data.tags, poem.id)}
                     />
-                    <div class="divider my-0" />
                 </>
             ))
         }
