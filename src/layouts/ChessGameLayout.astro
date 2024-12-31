@@ -22,6 +22,11 @@ const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${
 
 <PostLayout
     title={title}
+    customHeader={[
+        `${white} ${whiteElo ? `(${whiteElo})` : ""}`,
+        result,
+        `${black} ${blackElo ? `(${blackElo})` : ""}`,
+    ]}
     date={date}
     badge="chess"
     tags={[tournament]}
