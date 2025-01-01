@@ -34,10 +34,10 @@ I expect you to have aced the following course units:
     - The C language
 - Computer Architecture
     - How a computer works, namely memory and I/O management
-- Software Design and Testing Laboratory
-    - How to design a high-level application
 - Operating Systems
     - How a kernel works; how programs are compiled
+- Software Design and Testing Laboratory
+    - How to design a high-level application; version-control systems
 
 If you are not familiar with these topics, you **must** use these first classes to catch up! Speak up.
 
@@ -130,7 +130,7 @@ class: center, middle, inverse
     - You could cross-compile it, but it is out of the scope of this course
     - The labs and project will compile to binaries that must be executed with special privileges in Minix (via `lcom_run`)
 - I recommend you **always have a Minix virtual machine instance running**
-    - Leave it in the background and connect "remotely" to it via `ssh`, host `localhost` and port `2222`
+    - Leave it in the background and connect "remotely" to it via `ssh`, host `localhost` and port `2222`, user `lcom` (`ssh lcom@localhost -p 2222`)
     - Have a terminal ready to use to compile and test the labs in the virtual machine as you develop
     - Use your host code editor (e.g. Visual Studio Code) for development on a shared directory
 
@@ -139,14 +139,16 @@ class: center, middle, inverse
 ### Proposed exercise
 
 Write a single-file, *REPL* (read-eval-print loop) program capable of responding to the following commands, printing the result to the console:
-- `and <int1> <int2>`: performs the AND bitwise operation with the 2 given operands
-- `or <int1> <int2>`: performs the OR bitwise operation with the 2 given operands
-- `set <int> <bitpos>`: sets bit at given position in the given operand
-- `unset <int> <bitpos>`: clears bit at given position in the given operand
+- `and <uint1> <uint2>`: performs the AND bitwise operation with the 2 given operands
+- `or <uint1> <uint2>`: performs the OR bitwise operation with the 2 given operands
+- `set <uint> <bitpos>`: sets bit at given position in the given operand
+- `unset <uint> <bitpos>`: clears bit at given position in the given operand
+- `byte <uint> <bytepos>`: extract byte at given position (little-endian) in the given operand
 
 Compile it in Minix using `clang` and verify it works. E.g:
 - `and 3 5` should respond with `1`
 - `set 4 1` should respond with `6`
+- `byte 65534 1` should respond with `255` (notice that `65534 = 0xFF_FE`)
 ---
 
 class: center, middle, inverse
