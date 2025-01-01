@@ -1,6 +1,13 @@
 @use "../../node_modules/lichess-pgn-viewer/scss/lichess-pgn-viewer.scss";
 
 .lpv {
-    --c-lpv-bg: #be9a7c;
     outline: none !important;
+}
+
+cg-board {
+    background-image: url("/assets/chess/brown.png");
+}
+
+coords {
+    display: none !important;
 }
