@@ -27,8 +27,6 @@ const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${
 const flipped = black === "Bruno Mendes";
 ---
 
-<chess-game data-pgn={pgn} data-flipped={flipped}> </chess-game>
-
 <PostLayout
   title={title}
   customHeader={[
@@ -43,6 +41,7 @@ const flipped = black === "Bruno Mendes";
   tagEndpoint="tournament"
   shrink={false}
 >
+  <chess-game data-pgn={pgn} data-flipped={flipped}> </chess-game>
   <div id="board"></div>
 </PostLayout>
 
