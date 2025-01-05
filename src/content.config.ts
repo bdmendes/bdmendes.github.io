@@ -39,7 +39,7 @@ const chessGamesCollection = defineCollection({
         white: z.string()
             .refine(
                 (name) =>
-                    /^[A-Z][a-z]+ [A-Z][a-z]+$/.test(name),
+                    /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿA-ZÀ-ÖØ-Ý'-]+ [A-ZÀ-ÖØ-Ý][a-zà-öø-ÿA-ZÀ-ÖØ-Ý'-]+$/.test(name),
                 { message: "White player's name must be two words with capitalized first letters." }
             )
             .optional(),
@@ -47,7 +47,7 @@ const chessGamesCollection = defineCollection({
             .string()
             .refine(
                 (name) =>
-                    /^[A-Z][a-z]+ [A-Z][a-z]+$/.test(name),
+                    /^[A-ZÀ-ÖØ-Ý][a-zà-öø-ÿA-ZÀ-ÖØ-Ý'-]+ [A-ZÀ-ÖØ-Ý][a-zà-öø-ÿA-ZÀ-ÖØ-Ý'-]+$/.test(name),
                 { message: "Black player's name must be two words with capitalized first letters." }
             )
             .optional(),
