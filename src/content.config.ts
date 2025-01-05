@@ -69,9 +69,22 @@ const chessGamesCollection = defineCollection({
     }),
 });
 
+const cvCollection = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/cv" }),
+    schema: () => z.object({
+        title: z.string(),
+        from: z.number(),
+        to: z.number().optional(),
+        location: z.string(),
+        grade: z.string().optional(),
+        type: z.enum(["education", "experience", "misc", "description"]),
+    }),
+});
+
 export const collections = {
     'blog': blogCollection,
     'poetry': poetryCollection,
     'slides': slidesCollection,
     'chess': chessGamesCollection,
+    'cv': cvCollection,
 }

@@ -4,6 +4,19 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 import { SOCIALS } from "src/config";
 import { Icon } from "astro-icon/components";
 import LargeTitle from "@components/LargeTitle.astro";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("cv");
+const description = entries.filter((e) => e.data.type === "description")[0];
+const educationEntries = entries
+  .filter((e) => e.data.type === "education")
+  .toReversed();
+const experienceEntries = entries
+  .filter((e) => e.data.type === "experience")
+  .toReversed();
+const miscellaneousEntries = entries
+  .filter((e) => e.data.type === "misc")
+  .toReversed();
 ---
 
 <BaseLayout title="Curriculum Vitae" sideBarActiveItemID="cv" currentPage={1}>
@@ -12,7 +25,7 @@ import LargeTitle from "@components/LargeTitle.astro";
       <div class="hidden sm:block text-5xl w-full font-bold mb-1">
         Bruno Mendes
       </div>
-      <div class="text-2xl w-full mb-3">Software Engineer</div>
+      <div class="text-2xl w-full mb-2">{description.data.title}</div>
 
       <div class="flex items-center mb-2">
         <Icon size="20" name={SOCIALS.LinkedIn.icon} />
@@ -28,94 +41,54 @@ import LargeTitle from "@components/LargeTitle.astro";
   </div>
 
   <div class="mb-8 text-justify">
-    Bruno Mendes holds a Master's degree in Informatics and Computing
-    Engineering from the Faculty of Engineering, University of Porto (FEUP).
-    During his academic journey, he actively contributed to the university
-    community, serving as a class assistant for three years and playing a key
-    role in the Informatics Students' Association (NIAEFEUP) for four years.
-    Currently, he works as a Software Engineer, focusing on large-scale SaaS
-    projects with expertise in backend development.
+    {description.body}
   </div>
 
   <LargeTitle title="Experience" />
 
   <div class="time-line-container mb-6">
-    <TimeLineElement
-      title="Software Engineer"
-      location="Kevel"
-      from="2024"
-      to="Present"
-    >
-      Developing a large-scale customer data platform, primarily in Scala,
-      deployed in AWS using infrastructure-as-code.
-    </TimeLineElement>
-    <TimeLineElement
-      title="Class Assistant"
-      location="FEUP"
-      from="2022"
-      to="2024"
-    >
-      Provided in-class assistance to students and lectured on some topics about
-      the C language.
-    </TimeLineElement>
-    <TimeLineElement
-      title="Research and Development Intern"
-      location="Quorum Born IT"
-      from="2024"
-    >
-      Replaced a legacy code generator with a Kotlin DSL, enhancing the system's
-      performance and maintainability.
-    </TimeLineElement>
-    <TimeLineElement
-      title="Software Engineer Intern"
-      location="Synopsys"
-      from="2023"
-    >
-      Contributed to the development of open-source and proprietary debugger
-      tools for ARC processors in C++.
-    </TimeLineElement>
+    {
+      experienceEntries.map((entry) => (
+        <TimeLineElement
+          title={entry.data.title}
+          location={entry.data.location}
+          from={entry.data.from.toString()}
+          to={entry.data.to?.toString()}
+        >
+          {entry.body}
+        </TimeLineElement>
+      ))
+    }
   </div>
 
   <LargeTitle title="Education" />
 
   <div class="time-line-container mb-8">
-    <TimeLineElement
-      title="MSc Informatics and Computing Engineering"
-      grade="18/20"
-      location="FEUP"
-      from="2022"
-      to="2024"
-    />
-    <TimeLineElement
-      title="BSc Informatics and Computing Engineering"
-      grade="17/20"
-      location="FEUP"
-      from="2019"
-      to="2022"
-    />
-    <TimeLineElement
-      title="Sciences and Technologies"
-      grade="19/20"
-      location="Escola Secundária de Felgueiras"
-      from="2016"
-      to="2019"
-    />
+    {
+      educationEntries.map((entry) => (
+        <TimeLineElement
+          title={entry.data.title}
+          location={entry.data.location}
+          from={entry.data.from.toString()}
+          to={entry.data.to?.toString()}
+          grade={entry.data.grade}
+        >
+          {entry.body}
+        </TimeLineElement>
+      ))
+    }
   </div>
 
   <LargeTitle title="Miscellaneous" />
 
   <ul class="list-disc mx-6 mb-10 grid gap-4 text-justify">
-    <li>
-      <span class="font-bold">Students' Branch Member. </span> From 2020 to 2024,
-      at NIAEFEUP, I had the opportunity to join two boards, coordinate the development
-      of a Flutter mobile application with more than 5000 active users and help organize
-      two editions of the flagship event <span class="italic"
-        >Semana de Informática</span
-      >.
-    </li>
-    <li>
-      <span class="font-bold">Chess District Champion.</span> Won Braga U18 and Porto
-      U20 (classical time control), in 2019 and 2021.
-    </li>
+    {
+      miscellaneousEntries.map((entry) => (
+        <li>
+          <span class="font-bold">{entry.data.title}.</span>
+          {entry.body}
+        </li>
+      ))
+    }
   </ul>
 </BaseLayout>
