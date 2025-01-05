@@ -1,50 +1,50 @@
 ---
 import PostLayout from "./PostLayout.astro";
-import "../styles/chess.scss";
+import "../styles/chess.css";
 
 export interface Props {
-    white: string;
-    black: string;
-    result: string;
-    tournament: string;
-    whiteElo?: number;
-    blackElo?: number;
-    pgn: string;
-    date: Date;
+  white: string;
+  black: string;
+  result: string;
+  tournament: string;
+  whiteElo?: number;
+  blackElo?: number;
+  pgn: string;
+  date: Date;
 }
 
 const { white, black, result, tournament, whiteElo, blackElo, pgn, date } =
-    Astro.props;
+  Astro.props;
 const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${blackElo ? `(${blackElo})` : ""}`;
 ---
 
 <chess-game data-pgn={pgn}> </chess-game>
 
 <PostLayout
-    title={title}
-    customHeader={[
-        `${white} ${whiteElo ? `(${whiteElo})` : ""}`,
-        result,
-        `${black} ${blackElo ? `(${blackElo})` : ""}`,
-    ]}
-    date={date}
-    badge="chess"
-    tags={[tournament]}
-    createYearBadge={false}
-    tagEndpoint="tournament"
-    shrink={false}
+  title={title}
+  customHeader={[
+    `${white} ${whiteElo ? `(${whiteElo})` : ""}`,
+    result,
+    `${black} ${blackElo ? `(${blackElo})` : ""}`,
+  ]}
+  date={date}
+  badge="chess"
+  tags={[tournament]}
+  createYearBadge={false}
+  tagEndpoint="tournament"
+  shrink={false}
 >
-    <div id="board"></div>
+  <div id="board"></div>
 </PostLayout>
 
 <script>
-    import LichessPgnViewer from "lichess-pgn-viewer";
-    class ChessGame extends HTMLElement {
-        connectedCallback() {
-            LichessPgnViewer(document.getElementById("board")!, {
-                pgn: this.dataset.pgn,
-            });
-        }
+  import LichessPgnViewer from "lichess-pgn-viewer";
+  class ChessGame extends HTMLElement {
+    connectedCallback() {
+      LichessPgnViewer(document.getElementById("board")!, {
+        pgn: this.dataset.pgn,
+      });
     }
-    customElements.define("chess-game", ChessGame);
+  }
+  customElements.define("chess-game", ChessGame);
 </script>

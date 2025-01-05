@@ -1,0 +1,13 @@
+@import url("/lib/lichess-pgn.css");
+
+.lpv {
+  outline: none !important;
+}
+
+cg-board {
+  background-image: url("/lib/lichess-brown.png");
+}
+
+coords {
+  display: none !important;
+}
