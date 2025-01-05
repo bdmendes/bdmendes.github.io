@@ -6,17 +6,14 @@ import { Icon } from "astro-icon/components";
 import LargeTitle from "@components/LargeTitle.astro";
 import { getCollection } from "astro:content";
 
-const entries = await getCollection("cv");
+const currentYear = new Date().getFullYear();
+const entries = (await getCollection("cv"))
+  .toSorted((a, b) => (a.data.to ?? currentYear) - (b.data.to ?? currentYear))
+  .toReversed();
 const description = entries.filter((e) => e.data.type === "description")[0];
-const educationEntries = entries
-  .filter((e) => e.data.type === "education")
-  .toReversed();
-const experienceEntries = entries
-  .filter((e) => e.data.type === "experience")
-  .toReversed();
-const miscellaneousEntries = entries
-  .filter((e) => e.data.type === "misc")
-  .toReversed();
+const educationEntries = entries.filter((e) => e.data.type === "education");
+const experienceEntries = entries.filter((e) => e.data.type === "experience");
+const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 ---
 
 <BaseLayout title="Curriculum Vitae" sideBarActiveItemID="cv" currentPage={1}>
