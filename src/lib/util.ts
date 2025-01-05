@@ -16,6 +16,10 @@ export function createChessSlug(game: any) {
     .split("/")[1];
 }
 
+export function createChessDescription(game: any) {
+  return `Chess game played between ${game.data.white ?? "Bruno Mendes"} and ${game.data.black ?? "Bruno Mendes"}.`;
+}
+
 export function createChessTitle(game: any) {
   return `${game.data.white ?? "Bruno Mendes"} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
     ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`;

@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { METADATA, PAGINATION_SIZE } from "../config";
 import { getCollection } from "astro:content";
-import { extractDescription, extractDate, createSlug, createChessSlug, createChessTitle } from "src/lib/util";
+import { extractDescription, extractDate, createSlug, createChessSlug, createChessTitle, createChessDescription } from "src/lib/util";
 
 export async function GET() {
   const posts = (await getCollection("blog")).toReversed();
@@ -24,11 +24,11 @@ export async function GET() {
     pubDate: extractDate(slide.id),
     description: slide.data.description,
     link: `/slides/${createSlug(slide.data.title)}`,
-  }))).concat(chessGames.map((slide) => ({
-    title: createChessTitle(slide),
-    pubDate: extractDate(slide.id),
-    description: "Chess game played between " + slide.data.white + " and " + slide.data.black + ".",
-    link: `/chess/${createChessSlug(slide)}`,
+  }))).concat(chessGames.map((game) => ({
+    title: createChessTitle(game),
+    pubDate: extractDate(game.id),
+    description: createChessDescription(game),
+    link: `/chess/${createChessSlug(game)}`,
   })));
 
   return rss({

@@ -1,6 +1,10 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import { createChessSlug, extractDate } from "../../lib/util";
+import {
+  createChessDescription,
+  createChessSlug,
+  extractDate,
+} from "../../lib/util";
 import ChessGameLayout from "@layouts/ChessGameLayout.astro";
 
 export async function getStaticPaths() {
@@ -27,4 +31,5 @@ const { game } = Astro.props;
   pgn={game.body!}
   whiteElo={game.data.whiteElo}
   blackElo={game.data.blackElo}
+  description={createChessDescription(game)}
 />

@@ -69,11 +69,13 @@ const completeTitle =
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={completeTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content="" />
 
     <!-- Twitter -->
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={completeTitle} />
     <meta property="twitter:description" content={description} />
+    <meta name="twitter:image" content="false" />
 
     {TRANSITION_API && <ClientRouter />}
   </head>
