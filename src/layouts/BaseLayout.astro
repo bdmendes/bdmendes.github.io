@@ -2,7 +2,7 @@
 import "../styles/global.css";
 
 import SideBar from "../components/sidebar/SideBar.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { Icon } from "astro-icon/components";
 
 import { METADATA, TRANSITION_API } from "../config";
@@ -75,7 +75,7 @@ const completeTitle =
     <meta property="twitter:title" content={completeTitle} />
     <meta property="twitter:description" content={description} />
 
-    {TRANSITION_API && <ViewTransitions />}
+    {TRANSITION_API && <ClientRouter />}
   </head>
 
   <body class="flex">
