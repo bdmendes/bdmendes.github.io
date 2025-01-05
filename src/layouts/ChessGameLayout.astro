@@ -43,7 +43,18 @@ const flipped = black === "Bruno Mendes";
 >
   <chess-game data-pgn={pgn} data-flipped={flipped}> </chess-game>
   <div id="board"></div>
+  <div class="mt-3 w-full text-center" id="rotate-hint">
+    Rotate your device to view the game analysis and explore the move list.
+  </div>
 </PostLayout>
+
+<style>
+  @media screen and (min-width: 501px) {
+    #rotate-hint {
+      display: none;
+    }
+  }
+</style>
 
 <script>
   import LichessPgnViewer from "lichess-pgn-viewer";
