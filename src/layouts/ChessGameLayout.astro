@@ -3,8 +3,8 @@ import PostLayout from "./PostLayout.astro";
 import "../styles/chess.css";
 
 export interface Props {
-  white: string;
-  black: string;
+  white?: string;
+  black?: string;
   result: string;
   tournament: string;
   whiteElo?: number;
@@ -13,12 +13,21 @@ export interface Props {
   date: Date;
 }
 
-const { white, black, result, tournament, whiteElo, blackElo, pgn, date } =
-  Astro.props;
+const {
+  white = "Bruno Mendes",
+  black = "Bruno Mendes",
+  result,
+  tournament,
+  whiteElo,
+  blackElo,
+  pgn,
+  date,
+} = Astro.props;
 const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${blackElo ? `(${blackElo})` : ""}`;
+const flipped = black === "Bruno Mendes";
 ---
 
-<chess-game data-pgn={pgn}> </chess-game>
+<chess-game data-pgn={pgn} data-flipped={flipped}> </chess-game>
 
 <PostLayout
   title={title}
@@ -43,6 +52,7 @@ const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${
     connectedCallback() {
       LichessPgnViewer(document.getElementById("board")!, {
         pgn: this.dataset.pgn,
+        orientation: this.dataset.flipped === "true" ? "black" : "white",
       });
     }
   }

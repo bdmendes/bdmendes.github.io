@@ -41,14 +41,16 @@ const chessGamesCollection = defineCollection({
                 (name) =>
                     /^[A-Z][a-z]+ [A-Z][a-z]+$/.test(name),
                 { message: "White player's name must be two words with capitalized first letters." }
-            ),
+            )
+            .optional(),
         black: z
             .string()
             .refine(
                 (name) =>
                     /^[A-Z][a-z]+ [A-Z][a-z]+$/.test(name),
                 { message: "Black player's name must be two words with capitalized first letters." }
-            ),
+            )
+            .optional(),
         tournament: z.string(),
         result: z
             .enum(["1-0", "0-1", "1/2-1/2"]),

@@ -1,5 +1,4 @@
 ---
-white: Bruno Mendes
 black: Duarte Duarte
 round: 1
 table: 7

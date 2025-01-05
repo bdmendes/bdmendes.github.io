@@ -1,6 +1,5 @@
 ---
 white: Duarte Duarte
-black: Bruno Mendes
 round: 3
 table: 3
 tournament: Liga da Maia 2024

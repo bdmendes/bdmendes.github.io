@@ -17,8 +17,8 @@ export function createChessSlug(game: any) {
 }
 
 export function createChessTitle(game: any) {
-  return `${game.data.white} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
-    ${game.data.result} ${game.data.black} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
+  return `${game.data.white ?? "Bruno Mendes"} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
+    ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
 }
 
 export function capitalize(val: string) {
