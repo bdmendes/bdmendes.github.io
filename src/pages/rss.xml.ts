@@ -12,12 +12,12 @@ export async function GET() {
   const items = posts.map((post) => ({
     title: post.data.title,
     pubDate: extractDate(post.id),
-    description: extractDescription(post.body),
+    description: extractDescription(post.body!),
     link: `/blog/${createSlug(post.data.title)}`,
   })).concat(poems.map((poem) => ({
     title: poem.data.title,
     pubDate: extractDate(poem.id),
-    description: extractDescription(poem.body),
+    description: extractDescription(poem.body!),
     link: `/poetry/${createSlug(poem.data.title)}`,
   }))).concat(slides.map((slide) => ({
     title: slide.data.title,

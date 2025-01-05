@@ -1,6 +1,8 @@
 import { z, defineCollection } from "astro:content";
+import { glob } from 'astro/loaders';
 
 const blogCollection = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/blog" }),
     schema: ({ image }) => z.object({
         title: z.string(),
         hero: image().optional(),
@@ -10,7 +12,18 @@ const blogCollection = defineCollection({
     }),
 })
 
+const poetryCollection = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/poetry" }),
+    schema: () => z.object({
+        title: z.string(),
+        tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
+            message: 'tags must be unique',
+        }).optional(),
+    }),
+})
+
 const slidesCollection = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/slides" }),
     schema: () => z.object({
         title: z.string(),
         description: z.string(),
@@ -21,6 +34,7 @@ const slidesCollection = defineCollection({
 })
 
 const chessGamesCollection = defineCollection({
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/chess" }),
     schema: () => z.object({
         white: z.string()
             .refine(
@@ -57,7 +71,7 @@ const chessGamesCollection = defineCollection({
 
 export const collections = {
     'blog': blogCollection,
-    'poetry': blogCollection,
+    'poetry': poetryCollection,
     'slides': slidesCollection,
     'chess': chessGamesCollection,
 }

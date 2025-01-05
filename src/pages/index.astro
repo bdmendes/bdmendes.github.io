@@ -45,14 +45,14 @@ const lastGame = chessGames[0];
   <HorizontalCard
     title={lastPost.data.title}
     img={lastPost.data.hero}
-    description={extractDescription(lastPost.body)}
+    description={extractDescription(lastPost.body!)}
     url={"/blog/" + createSlug(lastPost.data.title)}
     badge={"blog"}
     tags={augmentTagsWithDate(lastPost.data.tags, lastPost.id)}
   />
   <HorizontalCard
     title={lastPoem.data.title}
-    description={extractDescription(lastPoem.body)}
+    description={extractDescription(lastPoem.body!)}
     url={"/poetry/" + createSlug(lastPoem.data.title)}
     badge={"poetry"}
     tags={augmentTagsWithDate(lastPoem.data.tags, lastPoem.id)}
