@@ -44,7 +44,7 @@ The state-of-the-art board representation is [bitboards](https://www.chessprogra
         <div class="text-center">00100100</div>
     </div>
     <div>
-        <div class="text-center font-bold">Rooks</div>
+        <div class="text-center font-bold">Black Pieces</div>
         <div class="text-center">10011001</div>
         <div class="text-center">01000011</div>
         <div class="text-center">10100110</div>
@@ -55,7 +55,7 @@ The state-of-the-art board representation is [bitboards](https://www.chessprogra
         <div class="text-center">00000000</div>
     </div>
         <div>
-        <div class="text-center font-bold">Rooks</div>
+        <div class="text-center font-bold">Black Rooks</div>
         <div class="text-center">10001000</div>
         <div class="text-center">00000000</div>
         <div class="text-center">00000000</div>
