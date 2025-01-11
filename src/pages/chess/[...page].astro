@@ -2,24 +2,26 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import { createChessSlug, createChessTitle, extractDate } from "../../lib/util";
+import {
+  buildChessMetaTags,
+  createChessSlug,
+  createChessTitle,
+  extractDate,
+  sortedByDate,
+} from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
 import { PAGINATION_SIZE } from "src/config";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const games = (await getCollection("chess")).sort(
-    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf()
-  );
+  const games = sortedByDate(await getCollection("chess"));
   return paginate(games, { pageSize: PAGINATION_SIZE });
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const games = (await getCollection("chess")).sort(
-  (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf()
-);
+const games = sortedByDate(await getCollection("chess"));
 const tournaments = games.map((p) => p.data.tournament);
 let uniqueTournaments = [...new Set(tournaments)];
 const tournamentsPathsMap: [string, string][] = uniqueTournaments.map((y) => [
@@ -43,6 +45,7 @@ const { page } = Astro.props;
             title={createChessTitle(game)}
             url={"/chess/" + createChessSlug(game)}
             tags={[game.data.tournament]}
+            disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
           />
         </>
       ))

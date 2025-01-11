@@ -1,6 +1,7 @@
 ---
 import PostLayout from "./PostLayout.astro";
 import "../styles/chess.css";
+import { buildChessMetaTags } from "src/lib/util";
 
 export interface Props {
   white?: string;
@@ -9,6 +10,8 @@ export interface Props {
   tournament: string;
   whiteElo?: number;
   blackElo?: number;
+  round?: number;
+  board?: number;
   pgn: string;
   date: Date;
   description: string;
@@ -24,6 +27,8 @@ const {
   pgn,
   date,
   description,
+  board,
+  round,
 } = Astro.props;
 const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${blackElo ? `(${blackElo})` : ""}`;
 const flipped = black === "Bruno Mendes";
@@ -39,6 +44,7 @@ const flipped = black === "Bruno Mendes";
   date={date}
   badge="chess"
   tags={[tournament]}
+  disabledTags={buildChessMetaTags(round, board)}
   createYearBadge={false}
   tagEndpoint="tournament"
   shrink={false}

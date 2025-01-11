@@ -6,6 +6,7 @@ export interface Props {
   url?: string;
   badge?: string;
   tags: string[];
+  disabledTags?: string[];
   divideTop?: boolean;
   divideBottom?: boolean;
 }
@@ -17,6 +18,7 @@ const {
   url,
   badge,
   tags,
+  disabledTags = [],
   divideBottom = true,
   divideTop = false,
 } = Astro.props;
@@ -51,8 +53,17 @@ import { Image } from "astro:assets";
           )
         }
         <div class="card-actions justify-end mt-2 mb-1">
+          {
+            disabledTags
+              .toReversed()
+              .map((tag) => <span class="badge badge-ghost">{tag}</span>)
+          }
+          {
+            tags
+              .toReversed()
+              .map((tag) => <span class="badge badge-outline">{tag}</span>)
+          }
           {badge && <span class="badge badge-primary">{badge}</span>}
-          {tags.map((tag) => <span class="badge badge-outline">{tag}</span>)}
         </div>
       </div>
     </div>

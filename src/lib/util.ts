@@ -9,6 +9,21 @@ export function createSlug(title: string) {
     .replace(/^-+|-+$/g, '')
 }
 
+export function sortedByDate(entry: any) {
+  return entry.sort((a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf());
+}
+
+export function buildChessMetaTags(round?: number, board?: number) {
+  let metaTags: string[] = [];
+  if (round != null) {
+    metaTags.push("Round " + round!.toString());
+  }
+  if (board != null) {
+    metaTags.push("Board " + board!.toString());
+  }
+  return metaTags;
+}
+
 export function createChessSlug(game: any) {
   return `${game.id.split("-").slice(0, 3).join("-")}_${game.data.white ?? ""}_${game.data.black ?? ""}`
     .toLowerCase()
@@ -29,7 +44,7 @@ export function capitalize(val: string) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
-export function extractDate(path: string) : Date {
+export function extractDate(path: string): Date {
   const regex = /(\d{4}-\d{2}-\d{2})/;
   const match = path.match(regex) ?? ['1980-01-01'];
   return new Date(match[0])

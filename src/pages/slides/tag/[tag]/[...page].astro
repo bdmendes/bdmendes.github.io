@@ -6,6 +6,7 @@ import {
     createSlug,
     augmentTagsWithDate,
     capitalize,
+    sortedByDate,
 } from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
@@ -16,7 +17,7 @@ const { page } = Astro.props;
 const { tag } = Astro.params;
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const slides = await getCollection("slides");
+    const slides = sortedByDate(await getCollection("slides"));
     const tags = slides.flatMap((p) => p.data.tags);
     const uniqueTags = [...new Set(tags)].filter((t) => t != null);
 
@@ -24,7 +25,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         const matchingSlides = slides.filter((p) =>
             (p.data.tags ?? []).includes(tag),
         );
-        return paginate(matchingSlides.toReversed(), {
+        return paginate(matchingSlides, {
             pageSize: PAGINATION_SIZE,
             params: { tag },
         });

@@ -8,19 +8,21 @@ import {
   augmentTagsWithDate,
   createChessSlug,
   createChessTitle,
+  sortedByDate,
+  buildChessMetaTags,
 } from "../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 
-const posts = (await getCollection("blog")).toReversed();
+const posts = sortedByDate(await getCollection("blog"));
 const lastPost = posts[0];
 
-const poems = (await getCollection("poetry")).toReversed();
+const poems = sortedByDate(await getCollection("poetry"));
 const lastPoem = poems[0];
 
-const slides = (await getCollection("slides")).toReversed();
+const slides = sortedByDate(await getCollection("slides"));
 const lastSlide = slides[0];
 
-const chessGames = (await getCollection("chess")).toReversed();
+const chessGames = sortedByDate(await getCollection("chess"));
 const lastGame = chessGames[0];
 ---
 
@@ -69,5 +71,6 @@ const lastGame = chessGames[0];
     badge="chess"
     url={"/chess/" + createChessSlug(lastGame)}
     tags={[lastGame.data.tournament]}
+    disabledTags={buildChessMetaTags(lastGame.data.round, lastGame.data.board)}
   />
 </BaseLayout>

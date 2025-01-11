@@ -67,7 +67,7 @@ const chessGamesCollection = defineCollection({
                 message: "Black ELO must be between 0 and 3000.",
             }),
         round: z.number().optional(),
-        table: z.number().optional(),
+        board: z.number().optional(),
     }),
 });
 

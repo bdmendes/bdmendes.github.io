@@ -10,6 +10,7 @@ export interface Props {
   date: Date;
   badge: string;
   tags?: string[];
+  disabledTags?: string[];
   createYearBadge?: boolean;
   tagEndpoint?: string;
   shrink?: boolean;
@@ -22,6 +23,7 @@ const {
   date,
   badge,
   tags = [],
+  disabledTags = [],
   createYearBadge = true,
   tagEndpoint = "tag",
   shrink = true,
@@ -40,7 +42,7 @@ const displayDate = dayjs(date).format("ll");
   <div class="mx-auto prose prose-img:mx-auto mb-4">
     {
       customHeader ? (
-        <div class="flex w-full justify-between gap-6 mt-0 mb-2 items-center">
+        <div class="flex w-full justify-between gap-4 mt-0 mb-2 items-center">
           {Object.entries(customHeader).map(([_, h], idx) => (
             <div
               class={`text-lg md:text-2xl font-bold grow-0 ${idx == 2 ? "text-right" : ""} ${idx == 1 ? "shrink-0" : ""}`}
@@ -69,6 +71,11 @@ const displayDate = dayjs(date).format("ll");
             >
               {tag}
             </a>
+          ))
+        }
+        {
+          disabledTags?.map((tag) => (
+            <span class="badge badge-ghost">{tag}</span>
           ))
         }
         {

@@ -31,5 +31,7 @@ const { game } = Astro.props;
   pgn={game.body!}
   whiteElo={game.data.whiteElo}
   blackElo={game.data.blackElo}
+  round={game.data.round}
+  board={game.data.board}
   description={createChessDescription(game)}
 />

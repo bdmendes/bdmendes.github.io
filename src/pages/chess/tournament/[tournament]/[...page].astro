@@ -3,10 +3,12 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import HorizontalCard from "../../../../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import {
+  buildChessMetaTags,
   capitalize,
   createChessSlug,
   createChessTitle,
   extractDate,
+  sortedByDate,
 } from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
@@ -17,9 +19,7 @@ const { page } = Astro.props;
 const { tournament } = Astro.params;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const games = (await getCollection("chess")).sort(
-    (a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf()
-  );
+  const games = sortedByDate(await getCollection("chess"));
   const tournaments = games.map((p) => p.data.tournament);
   const uniqueTournaments = [...new Set(tournaments)];
 
@@ -47,6 +47,7 @@ export const getStaticPaths = (async ({ paginate }) => {
             title={createChessTitle(game)}
             url={"/chess/" + createChessSlug(game)}
             tags={[game.data.tournament]}
+            disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
           />
         </>
       ))
