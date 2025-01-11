@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 export function createSlug(title: string) {
   return title
     .trim()
@@ -9,7 +11,7 @@ export function createSlug(title: string) {
     .replace(/^-+|-+$/g, '')
 }
 
-export function sortedByDate(entry: any) {
+export function sortedByDate<C extends { id: string }>(entry: C[]): C[] {
   return entry.sort((a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf());
 }
 
@@ -24,18 +26,18 @@ export function buildChessMetaTags(round?: number, board?: number) {
   return metaTags;
 }
 
-export function createChessSlug(game: any) {
+export function createChessSlug(game: CollectionEntry<"chess">) {
   return `${game.id.split("-").slice(0, 3).join("-")}_${game.data.white ?? ""}_${game.data.black ?? ""}`
     .toLowerCase()
     .replace(/\s+/g, "_")
     .split("/")[1];
 }
 
-export function createChessDescription(game: any) {
+export function createChessDescription(game: CollectionEntry<"chess">) {
   return `Chess game played between ${game.data.white ?? "Bruno Mendes"} and ${game.data.black ?? "Bruno Mendes"}.`;
 }
 
-export function createChessTitle(game: any) {
+export function createChessTitle(game: CollectionEntry<"chess">) {
   return `${game.data.white ?? "Bruno Mendes"} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
     ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
 }
