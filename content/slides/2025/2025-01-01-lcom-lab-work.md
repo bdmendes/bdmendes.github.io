@@ -280,28 +280,286 @@ while (1) {
 
 class: center, middle, inverse
 
-### Remaining laboratories: some notes
-
-You can use the same framework as in lab2, with a couple of caveats.
-
----
-
 ### Lab 3: keyboard
 
 ---
+
+### Working with the i8042 ("KBC")
+
+- Controls both the keyboard and the mouse
+    - For this lab, we are interested in reading the keys pressed by the user
+- Exposes 3 main interfaces
+    - *Status*, at `0x64`, from where you'll read the state
+    - *Input Buffer*
+        - at `0x64` listening to command "identifiers"
+        - at `0x60` listening to command arguments
+    - *Output Buffer* at `0x60`, from where you'll read keys pressed (later mouse displacements)
+---
+
+### Reading data
+
+- Via *interrupts*: you already know this!
+    - But of course, the IRQ line is different from the timer
+    - Now you need to add the `IRQ_EXCLUSIVE` policy upon subscription, otherwise the kernel will "steal" keys from you
+
+- Via *polling*: check periodically if new data is available to read
+
+```c
+uint8_t st, data;
+while(...) {
+    util_sys_inb(0x64, &st); // read the status register
+    if (st & BIT(0)) { // output buffer full
+        util_sys_inb(0x60, &data); // fetch data from OB
+        printf("User pressed key 0x%x, data"); // or any other handle
+                                               // there are keys with 2 bytes...
+    }
+    microdelay(20000); // let the CPU breathe! (e.g. context switch)
+}
+```
+
+---
+
+### Issuing commands
+
+- You might notice weird things while polling...
+    - The IH steals keys from you, or you can no longer type in the shell after your program exits...
+- Modify the KBC configuration (the "command byte") to enable/disable interrupts as you please to handle this
+
+```c
+void disable_interrupts() {
+    uint8_t cmd_byte;
+    // ommited: check if IBF is cleared
+    sys_outb(0x64, 0x20); // issue "read command byte"
+    util_sys_inb(0x60, &cmd_byte); // current command byte
+    cmd_byte &= ~BIT(0); // clear INT bit
+    sys_outb(0x64, 0x60); // issue "write command byte"
+    sys_outb(0x60, cmd_byte); // new command byte is our argument
+}
+```
+
+- You can do better than this code
+    - Use macros for better readability
+    - Check the return values of the system calls
+
+---
+
+class: center, middle, inverse
 
 ### Lab 4: mouse
 
 ---
 
+### The i8042 and the mouse
+
+- As you know, the KBC also controls the mouse
+    - However, the `AUX` bit of the status register will be set when available data is from the mouse
+    - The IRQ line is also different
+- You are interested in reading mouse displacements
+    - Each "mouse packet" contains **3 bytes**
+        - 1st: metadata, such as sign of x, sign of y, first byte flag...
+        - 2st: 8-lsb of X-delta
+        - 3st: 8-lsb of Y-delta
+    - Since there isn't a 9-bit type in C, you'll need to convert the deltas to 16-bit using **2-complement**
+    - You only read one byte at a time, how to make sure we are **"synced"**?
+- You need to issue `ENABLE_DATA_REPORTING` to receive mouse data via interrupts (stream mode)
+---
+
+### Issuing commands
+
+- You can issue mouse-specific commands
+    - Via the `0xD4` command + 1 or more arguments
+    - After each byte (either command or argument) the KBC will ACK (`0xFA`) or NACK (`0xFE`); should retry entire command if NACK
+- One use case is switching from "stream mode" (the default) to "remote mode" (sort-of polling/on demand)
+
+```c
+void issue_mouse_cmd(uint8_t mouse_cmd) {
+    uint8_t response;
+    // ommited: wait for IBF cleared
+    sys_outb(0x64, 0xD4);
+    util_sys_inb(0x60, &response);
+    if (response != 0xFA) {issue_mouse_cmd(mouse_cmd); return;}
+    sys_outb(0x60, mouse_cmd);
+    util_sys_inb(0x60, &response);
+    if (response != 0xFA) {issue_mouse_cmd(mouse_cmd); return;}
+}
+
+void read_loop() {
+    issue_mouse_cmd(0xF5); // disable data reporting
+    issue_mouse_cmd(0xF0); // set remote mode
+    while(...) {
+        issue_mouse_cmd(0xEB); // read data
+        read_mouse_pckt(); // read from output buffer the 3 bytes
+    }
+}
+```
+
+---
+
+class: center, middle, inverse
+
 ### Lab 5: graphics card
 
 ---
 
-### Lab 6: RTC
+class: center, middle, inverse
+
+### Project
 
 ---
 
-### Lab 7: UART
+### Objectives
+
+- Use the studied I/O devices in a real-life application (+RTC and/or UART)
+    - Can you do better than simply copy-paste the code?
+    - I expect you to have a readable and maintainable codebase, *including* the Makefile
+- Can be a multiplayer game, a collaborative text editor...
+    - Computer graphics are not as important as you think
+- You might get some ideas from previous editions...
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DJt4Tn7C3Q8?si=d_1-iA9sRRAQPcTF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+---
+
+### Use cases for I/O devices
+
+- **Timer**: for counting the time
+    - Establishing a framerate
+- **Keyboard**: main app operation
+    - Scroll through the menu
+    - Move a player, do actions...
+    - Write your name (difficult; needs mapping keys to sprites)
+- **Mouse**: complementary app operation
+    - Making a gesture to trigger an action
+    - Implementing a fine-grained UI
+- **Graphics card**: draw the app
+- **RTC**: storing/showing the date+time
+- **UART**: multiplayer/collaborative!
+
+Anything else?
 
 ---
+
+### The RTC
+
+- A fairly simple controller
+    - Really, by all means find 1 or 2 hours to implement this
+
+---
+
+### The serial port (UART)
+
+- A not so simple endeavour...
+    - But necessary for multiplayer and maximum grade
+
+---
+
+### Double buffering
+
+- You will notice screen tearing (or *flickering*) if you update the graphics card memory in real-time
+    - Use "double buffering" to avoid this phenomenon: always write to a hidden buffer
+
+```c
+static char* buf; // mapped via `vm_map_phys`
+static char hidden_buf[BYTES_PER_COLOR * XRES * YRES]; // mind stack overflows...
+
+void draw_pixel(uint32_t color, uint16_t x, uint16_t y) {
+    uint32_t idx = ...;
+    memcpy(hidden_buf + idx, &color, BYTES_PER_COLOR);
+}
+
+void refresh_screen() {
+    memcpy(buf, hidden_buf, BYTES_PER_COLOR * XRES * YRES);
+}
+```
+
+- There is a better way: do it via HW!
+    - Allocate 2 times the amount of memory needed and flip the "screen start pointer" each frame
+    - Lookup function `SET_DISPLAY_START` in the VESA specification
+
+---
+
+### Event-driven programming
+
+- Make sure to **separate business logic with I/O functionality**
+    - Your app does not care about how to read keyboard data, it should only understand that a certain key was pressed and act upon that
+
+```c
+// main.c
+while (1) {
+    receive(&msg);
+    if (msg & BIT(timer_bit_no)) {
+        timer_ih(); // a basic IH data handler.
+        on_time_passed(get_time_counter());
+    } else {...}
+}
+```
+```c
+// app.c
+enum app_state_t {MAIN_MENU, IN_GAME};
+enum app_state_t state = MAIN_MENU;
+
+void on_time_passed(uint32_t counter) {
+    if (counter % (60/FPS) == 0) { draw(); }
+}
+
+void draw() {
+    switch (state) {
+        case MAIN_MENU: draw_main_menu(); break;
+        case IN_GAME: draw_game(); break;
+    }
+}
+```
+---
+
+### Object-oriented design in C
+
+- C is not an object-oriented language
+    - But you can achieve abstraction and encapsulation nevertheless!
+
+```c
+// sprite.c
+typedef struct sprite_t {
+    int32_t x, y;
+    uint16_t width, height;
+    char *map;
+} sprite_t;
+
+sprite_t* create_sprite(const char *pic[], int32_t x, int32_t y) {
+    sprite_t* sp = (sprite_t*) malloc(sizeof sprite_t); // why are we allocating?
+    if (sp == NULL) return NULL;
+    xpm_image_t img;
+    sp->map = (char *) xpm_load(pic, XPM_8_8_8_8, &img);
+    ...
+    return sp;
+}
+```
+```c
+// sprite.h
+typedef struct sprite_t sprite_t; // users of sprite.h won't access internals
+
+sprite_t* create_sprite(const char *pic[], int32_t x, int32_t y);
+int move_sprite(sprite_t* sprite, int16_t xmov, int16_t ymov);
+int draw_sprite(sprite_t* sprite);
+int destroy_sprite(sprite_t* sprite);
+...
+```
+
+---
+
+### Performance considerations
+
+- *Avoid memory allocations!* Dynamic memory is only needed if you do not know the size of an object before hand
+    - If you must, e.g. to create a pool of game objects, remember to free them eventually
+- Cache computations, and be lazy!
+    - You want to draw only at a specific frame rate, not when the user performs an action
+    - You do not need to recompute sprites for every frame! Load them at the start
+    - Do not branch in hot code! Conditionals are *slow*
+
+> LCOM-specific: define the `__LCOM_OPTIMIZED__` symbol when compiling to remove LCF checks.
+
+---
+
+class: center, middle, inverse
+
+## Good luck!
+
+#### Be creative, and have fun!
