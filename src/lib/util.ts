@@ -11,8 +11,15 @@ export function createSlug(title: string) {
     .replace(/^-+|-+$/g, '')
 }
 
-export function sortedByDate<C extends { id: string }>(entry: C[]): C[] {
-  return entry.sort((a, b) => extractDate(b.id).valueOf() - extractDate(a.id).valueOf());
+export function sortedByDate<C extends { id: string, data: any }>(entry: C[]): C[] {
+  return entry.sort((a, b) => {
+    const dateDiff = extractDate(b.id).valueOf() - extractDate(a.id).valueOf();
+    if (dateDiff != 0) {
+      return dateDiff;
+    }
+    const roundDiff = b.data.round - a.data.round;
+    return roundDiff != null ? roundDiff : 0;
+  });
 }
 
 export function buildChessMetaTags(round?: number, board?: number) {
