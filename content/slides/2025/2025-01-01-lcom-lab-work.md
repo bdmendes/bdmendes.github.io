@@ -1,7 +1,7 @@
 ---
 title: "LCOM laboratory work: getting started"
 description: Support material for my practical LCOM classes at FEUP.
-tags: ['lcom', 'feup']
+tags: ['class', 'feup']
 ---
 
 class: center, middle, inverse, small-images
@@ -16,7 +16,7 @@ Bruno Mendes
 
 class: center, middle, inverse, small-images
 
-This is my own support material for my *practical* classes. The theoretical slides+lab guides are your primary source of information.
+This material is designed to support practical classes. Your primary sources of information are the theoretical slides and lab guides available on Moodle. These slides are meant to complement those resources and should be used alongside them, either after reading or while reviewing them in parallel.
 
 ---
 
@@ -68,6 +68,18 @@ If you are not familiar with these topics, you **must** use these first classes 
 - My advice is **disable/refrain from using all of these helper tools**
     - You'll have plenty of time throughout your life to be more productive with these; now it is the time to learn the fundamentals
     - And of course, you will **fail** this course or be penalized if we suspect of plagiarism
+
+---
+
+### Grading
+
+- 60%: Project
+  - Reactive application from scratch using the devices you will interact with in the labs
+  - Graded by a group of 2 professors, one of them your class professor
+  - The labs are not *directly* evaluated
+- 40%: Tests
+  - Theoretical+practical, multiple choice
+  - Dates available in Moodle
 
 ---
 
@@ -401,6 +413,105 @@ class: center, middle, inverse
 
 ---
 
+### Direct I/O access?
+
+- Video cards are complicated...
+  - They have multiple cores, highly optimized memory management
+  - It would be innefficient to expose all functionality via direct I/O access
+- In the 1980s, manufacturers agreed on a set of high-level functions to access video card functionality
+  - Usually stored in a ROM in the video card
+  - These days there are more advanced standards such as DirectX or OpenGL (you will have a course unit for the latter next year!)
+  - However we'll focus on **VBE 2.0** for which VirtualBox has great emulation
+
+---
+
+### BIOS functions
+
+- The *Video Electronics Standards Association BIOS Extension* specifies a set of BIOS functions for interaction with video card functions
+  - BIOS functions are usually stored in a ROM, and are commonly called the PC *firmware*
+- You can invoke BIOS functions via a software interrupt (`INT` instruction in Intel ASM)
+  - For video functions, that will be `INT 0x10`
+  - For VBE-specific functions, the AH register must be set to `0x4F`
+- But of course, we won't do assembly directly here
+  - Use the `sys_int86` system call instead
+
+---
+
+### Switching to video mode
+
+- The first VBE function you'll need is `SET MODE (0x02)`
+  - It allows you to exit text mode and enter a graphics mode
+  - You have a list of common VBE modes in the lab handout
+
+```c
+void set_video_mode(uint16_t mode) {
+  struct reg86 args;
+  memset(&args, 0, sizeof(args)); // why do we need this?
+
+  args.ah = 0x4F; // VBE function
+  args.al = 0x02; // "set mode" function
+  args.bx = BIT(14) | mode; // given mode with linear frame model
+  args.intno = 0x10; // BIOS video service
+
+  sys_int86(&args);
+
+  // The function changes registers according to return status
+  // AL != 0x4F -> function not supported
+  // AH != 0x0 -> error
+  if (args.al != 0x4F || args.ah != 0x00) panic();
+}
+```
+
+---
+
+### Mapping the frame buffer
+
+- After you switch to video mode you'll be greeted with a nice black screen
+  - It would be great to be able to draw something, though
+- Solution: map the physical video memory to a protected address and use the linear frame model afterwards
+
+```c
+uint8_t* map_graphics_vram(uint16_t mode) {
+  vbe_mode_info_t mode_info;
+  vbe_get_mode_info(mode, &mode_info); // calls the 0x01 VBE function underneath
+
+  struct minix_mem_range mr;
+  memset(&mr, 0, sizeof(mr));
+
+  mr.mr_base = (phys_bytes)mode_info.PhysBasePtr;
+  mr.mr_limit = mr.mr_base + ...; // how many pixels do you need, given the mode?
+
+  // Request permission for our process to map memory
+  sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr);
+
+  return vm_map_phys(SELF, (void *)mr.mr_base, mr.mr_limit - mr.mr_base);
+}
+```
+---
+
+### Pointer arithmetic
+
+- After you have a pointer to the graphics memory, you can start painting
+  - You need to be aware of C pointer behaviour, e.g. adding 1 to a `int*` actually increments the memory location by 4 bytes (size of int)
+  - To avoid this trouble, cast to `uint8_t*` and do the arithmetic yourself
+
+```c
+void draw_pixel(uint16_t x, uint16_t y, uint32_t color) {
+  if (x >= mode_info.XResolution || y >= mode_info.YResolution) {
+    panic("invalid coordinate"); // do we want this check always?
+  }
+
+  uint8_t *pixel = video_mem + ...; // how to paint in (X, Y) in 1D buffer?
+                                    // remember the Y axis starts at top left
+  memcpy(pixel, &color, (mode_info.BitsPerPixel + 7) / 8); // why the +7?
+}
+
+void draw_rectangle(...) {
+    for (...) draw_pixel(...);
+}
+```
+---
+
 class: center, middle, inverse
 
 ### Project
@@ -442,6 +553,17 @@ Anything else?
 
 - A fairly simple controller
     - Really, by all means find 1 or 2 hours to implement this
+    - By the end you'll understand why some OS (Windows vs Linux...) show different dates!
+- Maintains the **date and time of day**, even when the PC is switched off
+- Has several internal one-byte registers
+  - The first 10 (`0x0` to `0x9`) are reserved for time-related functionality
+  - The next 4 (`0xA` to `0xD`) are control registers
+- Programmable via a 2-port interface
+  - Write the internal register number to `0x70`
+  - Read/write to `0x71`
+- Exposes updates via interrupts, if configured to do so
+
+> Be careful with read/writes during updates. How to avoid inconsistent dates?
 
 ---
 
@@ -449,7 +571,16 @@ Anything else?
 
 - A not so simple endeavour...
     - But necessary for multiplayer and maximum grade
+- The UART sends data signals over *one channel*, thus called *serial*
+  - The *asynchrony* is due to the fact that the receiver/sender clocks are not synchronized, and *characters* (sort-of packages) are surronded by a *frame* (start and stop bits) and a parity bit for error detection
+- Has 1 data R/W internal register (added to a base port offset for direct I/O access) and several control registers, with different functionality
+    - Data ready in polled operation
+    - Transmission errors
+    - Enabling interrupts
+- It is costly and **slow** to send data over the UART
+  - You must design an efficient multiplayer data schema
 
+> The UART can be emulated between two VBox instances using e.g. named pipes. Check the tutorial on Moodle.
 ---
 
 ### Double buffering
@@ -473,7 +604,7 @@ void refresh_screen() {
 
 - There is a better way: do it via HW!
     - Allocate 2 times the amount of memory needed and flip the "screen start pointer" each frame
-    - Lookup function `SET_DISPLAY_START` in the VESA specification
+    - Lookup function `SET_DISPLAY_START` in the VBE specification
 
 ---
 
