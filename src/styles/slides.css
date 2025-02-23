@@ -77,8 +77,13 @@ code {
 }
 
 .hljs-number,
-.hljs-string {
+.hljs-string,
+.hljs-subst {
     color: #ddd !important;
+}
+
+.hljs-type {
+    color: green !important;
 }
 
 /* Two-column layouts */
