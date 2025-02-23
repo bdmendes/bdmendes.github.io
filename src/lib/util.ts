@@ -76,7 +76,7 @@ export function extractDescription(body: string) {
 
   const end_punct = ['?', '!', '.', '/']
   const punct = [',', ':', ')'].concat(end_punct)
-  const min_length = 150
+  const min_length = 120
   const min_length_small = 80
 
   let par_count = 0
