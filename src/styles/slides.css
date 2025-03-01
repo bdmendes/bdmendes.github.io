@@ -60,13 +60,17 @@ blockquote {
 .remark-inline-code {
     font-family: "Ubuntu Mono";
     background-color: #282b2e !important;
-    color: white;
+    color: #f8f8f8;
     padding: 0.1em;
 }
 
 
 .hljs-class .hljs-title {
     text-decoration: none !important;
+}
+
+.hljs-type {
+    color: #f8f8f8 !important;
 }
 
 /* Two-column layouts */
