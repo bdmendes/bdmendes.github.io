@@ -29,11 +29,6 @@ h6 {
     margin-left: 0;
 }
 
-.remark-code,
-.remark-inline-code {
-    font-family: "Ubuntu Mono";
-}
-
 .small-images img {
     width: 30%;
 }
@@ -51,14 +46,6 @@ ul {
     margin-top: 1em;
 }
 
-.remark-code,
-.remark-inline-code {
-    font-family: "Ubuntu Mono";
-    background-color: #282b2e !important;
-    color: white;
-    padding: 0.1em;
-}
-
 blockquote {
     font-size: 1em;
     font-style: italic;
@@ -68,22 +55,18 @@ blockquote {
     margin: 0;
 }
 
-code {
-    color: #ddd !important;
+/* Code snippets overrides */
+.remark-code,
+.remark-inline-code {
+    font-family: "Ubuntu Mono";
+    background-color: #282b2e !important;
+    color: white;
+    padding: 0.1em;
 }
 
-.hljs-title {
-    color: orange !important;
-}
 
-.hljs-number,
-.hljs-string,
-.hljs-subst {
-    color: #ddd !important;
-}
-
-.hljs-type {
-    color: green !important;
+.hljs-class .hljs-title {
+    text-decoration: none !important;
 }
 
 /* Two-column layouts */
