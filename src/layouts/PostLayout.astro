@@ -14,6 +14,7 @@ export interface Props {
   createYearBadge?: boolean;
   tagEndpoint?: string;
   shrink?: boolean;
+  sideBarActiveItemID: string;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   createYearBadge = true,
   tagEndpoint = "tag",
   shrink = true,
+  sideBarActiveItemID
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
@@ -38,6 +40,7 @@ const displayDate = dayjs(date).format("ll");
   ogType="article"
   currentPage={1}
   shrink={shrink}
+  sideBarActiveItemID={sideBarActiveItemID}
 >
   <div class="mx-auto prose prose-img:mx-auto mb-4">
     {
