@@ -51,14 +51,18 @@
   }
 
   .footnotes {
-    @apply prose-sm max-w-min min-w-fit mt-8;
-  }
-
-  .data-footnote-backref {
-    @apply hidden;
+    @apply prose-sm max-w-min min-w-fit mt-12;
   }
 
   #footnote-label {
     @apply hidden;
+  }
+
+  .data-footnote-backref {
+    @apply no-underline after:content-none font-mono;
+  }
+
+  sup {
+    @apply ml-0.5;
   }
 }
