@@ -24,12 +24,12 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
       </div>
       <div class="text-2xl w-full mb-2">{description.data.title}</div>
 
-      <div class="flex items-center mb-2">
+      <a class="flex items-center mb-2" href={SOCIALS.LinkedIn.url} target="_blank">
         <Icon size="20" name={SOCIALS.LinkedIn.icon} />
-        <a class="ml-2 text-sm" href={SOCIALS.LinkedIn.url}>
+        <span class="ml-2 text-sm" >
           {SOCIALS.LinkedIn.url.replace("https://www.", "")}
-        </a>
-      </div>
+        </span>
+      </a>
     </div>
     <img
       class="rounded-full saturate-[90%] max-w-28 h-fit"
