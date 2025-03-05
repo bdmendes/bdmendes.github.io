@@ -79,7 +79,7 @@ const cvCollection = defineCollection({
         to: z.number().optional(),
         location: z.string(),
         grade: z.string().optional(),
-        type: z.enum(["education", "experience", "misc", "description"]),
+        type: z.enum(["education", "experience", "misc", "description", "short"]),
     }),
 });
 
