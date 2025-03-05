@@ -9,11 +9,11 @@ import { SOCIALS } from "../../config";
             <a
                 href={value.url}
                 target="_blank"
-                class="mx-3"
+                class="mx-3 transition ease-in-out hover:scale-[110%]"
                 aria-label={key}
                 title={key}
             >
-                <Icon name={value.icon} size="24" />
+                <Icon name={value.icon} class="hover:shadow-xl" size="24" />
             </a>
         ))
     }

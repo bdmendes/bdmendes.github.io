@@ -31,6 +31,10 @@
     quotes: none !important;
   }
 
+  a.badge {
+    @apply transition ease-in-out hover:scale-[105%];
+  }
+
   p > img {
     @apply rounded-md mb-1 w-auto object-contain;
     max-width: min(100%, 32rem);

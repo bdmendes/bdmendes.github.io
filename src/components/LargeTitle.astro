@@ -18,7 +18,7 @@ const modalId = title.replace(/[^a-zA-Z]+/g, "");
     {
       selector && (
         <div class="flex gap-2 items-center">
-          <div class="badge badge-primary mt-0.5">{selector}</div>
+          <a class="badge badge-primary mt-0.5">{selector}</a>
           <a href={path}>
             <Icon name="mdi:filter-variant-remove" size="24" />
           </a>
