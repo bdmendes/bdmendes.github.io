@@ -69,4 +69,8 @@
   sup {
     @apply ml-0.5;
   }
+
+  pre {
+    @apply whitespace-pre-wrap;
+  }
 }
