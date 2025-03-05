@@ -35,9 +35,17 @@ You have always one empty workspace ready, automatically. For example, if I were
 
 ## macOS: annoyances, concessions and workarounds
 
+### Desktop icons
+
+Desktop icons are annoying. They are a part of the original desktop metaphor, and we'll probably agree that it is quite comfortable to get access to the most used files or applications alognside a nice wallpaper. However, applications interact with the file system well enough, and there's no need for further visual clutter. Fortunately, to disable desktop icons one just needs to run a shell command.
+
+```sh
+defaults write com.apple.finder CreateDesktop false
+```
+
 ### No way to disable the dock
 
-macOS boasts a more traditional dock at bottom, tray icons indicators at the top and multiple ways to launch apps (for example, the Spotlight search, triggered with `Command+Space`, versus the dock). My first days involved trying to disable the trigger to show a hidden dock. Unfortunately, I found only [very obscure workarounds](https://superuser.com/questions/187367/in-mac-os-x-10-6-is-there-a-way-to-disable-the-trigger-that-shows-the-dock-when), given the fact that the dock is a very coupled system component, due to dubious design decisions. Some of the workarounds even involved installing random paid utilitaries. Well, I hadn't received my first paycheck, yet...[^5] I eventually gave up and just embraced the fact that the dock is there annoying me.
+macOS boasts a more traditional dock at the bottom, tray icons indicators at the top and multiple ways to launch apps (for example, the Spotlight search, triggered with `Command+Space`, versus the dock). My first days involved trying to disable the trigger to show a hidden dock. Unfortunately, I found only [very obscure workarounds](https://superuser.com/questions/187367/in-mac-os-x-10-6-is-there-a-way-to-disable-the-trigger-that-shows-the-dock-when), given the fact that the dock is a very coupled system component, due to dubious design decisions. Some of the workarounds even involved installing random paid utilitaries. Well, I hadn't received my first paycheck, yet...[^5] I eventually gave up and just embraced the fact that the dock is there annoying me.
 
 ### No dynamic workspaces
 
