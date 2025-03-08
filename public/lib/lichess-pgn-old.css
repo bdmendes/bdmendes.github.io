@@ -339,7 +339,7 @@ cg-board square.current-premove {
   grid-template-columns: minmax(200px, calc(100vh - var(--controls-height))) minmax(232px, 1fr);
   grid-template-rows: auto var(--controls-height);
 }
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .lpv--moves-auto {
     grid-template-areas: "board" "controls" "side";
     grid-template-columns: minmax(200px, calc(100vh - var(--controls-height) - 6em));
@@ -356,7 +356,7 @@ cg-board square.current-premove {
 }
 .lpv--players.lpv--moves-bottom {
   grid-template-areas: "player-top" "board" "player-bot" "controls" "side";
-  grid-template-rows: 2em auto 2em var(--controls-height) 6em;
+  grid-template-rows: 2em auto 2em var(--controls-height);
 }
 .lpv--players.lpv--moves-bottom .lpv__controls {
   border-bottom: 1px solid var(--c-lpv-border, hsl(0, 0%, 25%));
@@ -366,11 +366,11 @@ cg-board square.current-premove {
   grid-template-columns: minmax(200px, calc(100vh - 2 * 2em - var(--controls-height))) minmax(232px, 1fr);
   grid-template-rows: 2em auto 2em var(--controls-height);
 }
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .lpv--players.lpv--moves-auto {
     grid-template-areas: "player-top" "board" "player-bot" "controls" "side";
     grid-template-columns: minmax(200px, calc(100vh - 2 * 2em - var(--controls-height) - 6em));
-    grid-template-rows: 2em auto 2em var(--controls-height) 6em;
+    grid-template-rows: 2em auto 2em var(--controls-height);
   }
 }
 .lpv__board {
@@ -733,4 +733,4 @@ cg-board square.current-premove {
   outline: auto 2px var(--c-lpv-accent, hsl(88, 62%, 37%));
 }
 
-/*# sourceMappingURL=hey.css.map */
+/*# sourceMappingURL=lichess-pgn.css.map */

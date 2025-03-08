@@ -11,3 +11,7 @@ cg-board {
 coords {
   display: none !important;
 }
+
+.lpv__side {
+  min-height: 15em;
+}
