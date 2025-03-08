@@ -4,14 +4,6 @@ description: A hands-on Flutter workshop at FEUP, covering architecture and best
 tags: ['workshop', 'feup']
 ---
 
-class: center, middle, inverse
-
-#### You are about to scroll through an old version of NIAEFEUP's Flutter workshop that I prepared for an external event hosted in March 2024 @ FEUP.
-
-#### They have since simplified this for internal purposes, so here's the original version for anyone looking for a holisitic Flutter introduction.
-
----
-
 class: center, middle, inverse, small-images
 
 # Flutter
@@ -796,12 +788,6 @@ InkWell(
 
 class: center, middle, inverse
 
-### Of course, now can you can make it look better
+### Of course, now you can make it look better, but this is a good start
 
-#### But this is a good start
-
----
-
-class: center, middle, inverse
-
-### Thank you for your attention :)
+#### Thank you for your attention!

@@ -24,8 +24,8 @@ With this in mind, my goal for [Camel](https://github.com/bdmendes/camel/), my c
 
 In computer chess a position is typically represented using [FEN](https://www.chessprogramming.org/Forsyth-Edwards_Notation) notation. For instance, the following position is represented as *r2qr2k/1p2N1bp/p1bP1pp1/2P1p3/2Bn4/8/PP1B2PP/2RQ1R1K w - - 4 24*. That might look scary, but if you start at the 8th rank, in White's perspective, you might immediately recognize the pattern: we have a black rook, followed by 2 empty squares, followed by a black queen. */* represent rank changes, and capital letters distinguish white pieces from black pieces. Further along the way, we have *w - - 4 24*, meaning that it is White to move, neither White nor Black can castle, there have been 4 moves without a capture or a pawn push (needed for checking termination via the [50-move rule](https://en.wikipedia.org/wiki/Fifty-move_rule)) and we are in move 24 of the game.
 
-<iframe src="https://lichess.org/embed/game/g5KViadx?theme=auto&bg=auto#46"
-width="100%" height=397 frameborder=0></iframe>
+![](/assets/shared/chess-engine-position.png)
+*Example position from a random game I played on Lichess.*
 
 As programmers, all we have to do here is implement a `parse_fen` function that returns a `Position`. However, a `Position` structure might not exactly be designed like you would expect it to. As we need to look into millions of positions per second to be able to find the best moves quicker, move making must be extremely fast. Had we had used a simple 2D array, move making would be extremely costly due to the need of loops e.g. for calculating sliding pieces (bishop, rooks and queens) movements. In fact, the first Camel versions (0.x) used this approach and were about 100x slower than 1.x.
 

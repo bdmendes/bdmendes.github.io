@@ -29,11 +29,7 @@ Playing classical over-the-board chess at big, open tournaments became an habit 
 ![](chess_open.jpg)
 *As you start to win some games in an open [swiss-based](https://en.wikipedia.org/wiki/Swiss-system_tournament) tournament, you are able to play games in nice wood tables like this one and play against very experienced players, with live online transmission.*
 
-Although open tournaments were an extraordinary opportunity to gain experience, at a young age, chess players are able to compete for titles in junior tournaments - spiritually, the highlight of the year. After playing district championships for some years without much luck, in 2019, after losing my first game and free of pressure, I won a game against a much higher rated player and started a streak of winning games to win my first chess title - U18 Braga District Champion.
-
-<iframe width="100%" height="371" src="https://lichess.org/study/embed/T3xDPX6G/CC0ii4ii" frameborder=0></iframe>
-
-I also had the chance to finish the National School Tournament in the podium later that year.
+Although open tournaments were an extraordinary opportunity to gain experience, at a young age, chess players are able to compete for titles in junior tournaments - spiritually, the highlight of the year. After playing district championships for some years without much luck, in 2019, after losing my first game and free of pressure, [I won a game against a much higher rated player](/chess/2019-03-03_in%C3%AAs_silva_) and started a streak of winning games to win my first chess title - U18 Braga District Champion. I also had the chance to finish the National School Tournament in the podium later that year.
 
 ![](chess_school.jpg)
 *The players Felgueiras' High School brought to the 2019 School Regionals.*

@@ -21,6 +21,3 @@ It turns out that this phenomenon is not related to music at all. [Researchers a
 *It seems that some fellow Portuguese millennials felt the same as me and formed the remarkable tribute band Hybrid Theory.*
 
 With that said, it is still quite unclear to me whether lyrics like *You try to take the best of me. Go away!* are cheesy or great. Perhaps I'll never find the answer, and, honestly, it's not that important.
-
-<iframe style="border-radius:12px; max-width: 400px; margin-top:2em; margin-bottom: 0.75em;" src="https://open.spotify.com/embed/playlist/5HNFfj9IbPIOROGX2vsYnY?utm_source=generator" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<div class="label">It is hard to fit all of one's favorites from a band in a cohesive album, but that shouldn't stop one from trying.</div>
