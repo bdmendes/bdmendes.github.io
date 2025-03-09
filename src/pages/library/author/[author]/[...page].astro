@@ -17,7 +17,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     const authors = Array.from(new Set(libraryEntries.map((entry) => entry.data.author)));
 
     return authors.flatMap((author) => {
-        const entries = sortedByDate(libraryEntries.filter((e) => e.data.author === author));
+        const entries = sortedByDate(libraryEntries.filter((e) => e.data.author === author), true);
 
         return paginate(entries, {
             pageSize: PAGINATION_SIZE,
@@ -33,7 +33,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     currentPage={page.currentPage}
 >
     <LargeTitle title="Library" path="/library" selector={author}/>
-    <ul class="grid sm:grid-cols-2 gap-2 pt-2">
+    <ul class="grid sm:grid-cols-2 gap-3 py-2">
         {
             page.data.map((entry) => (
                 <>
@@ -47,5 +47,5 @@ export const getStaticPaths = (async ({ paginate }) => {
             ))
         }
     </ul>
-    <PaginationButtons page={page} path="/blog" />
+    <PaginationButtons page={page} path={"/library/author/" + author} />
 </BaseLayout>

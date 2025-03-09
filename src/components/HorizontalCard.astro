@@ -43,13 +43,7 @@ import { Image } from "astro:assets";
         <h1 class="text-xl font-bold mr-2">
           {title}
         </h1>
-        {
-          description ? (
-            <p class="py-1">{description}</p>
-          ) : (
-            <div class="pb-1" />
-          )
-        }
+        <p class="py-1">{description}</p>
         <div class="card-actions justify-end mt-2 mb-1">
           {
             disabledTags

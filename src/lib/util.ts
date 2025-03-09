@@ -11,21 +11,25 @@ export function createSlug(title: string) {
     .replace(/^-+|-+$/g, '')
 }
 
-export function sortedByDate<C extends { id: string, data: any }>(entry: C[]): C[] {
+export function sortedByDate<C extends { id: string, data: any }>(entry: C[], yearPriority: boolean = false): C[] {
   return entry.sort((a, b) => {
+    const yearDiff = b.data.year - a.data.year;
+    if (yearPriority && yearDiff != 0) {
+      return yearDiff;
+    }
+
     const dateDiff = extractDate(b.id).valueOf() - extractDate(a.id).valueOf();
     if (dateDiff != 0) {
       return dateDiff;
+    }
+    if (yearDiff != 0) {
+      return yearDiff;
     }
     const roundDiff = b.data.round - a.data.round;
     if (roundDiff != 0) {
       return dateDiff;
     }
-    const yearDiff = b.data.year - a.data.year;
-    if (yearDiff != 0) {
-      return dateDiff;
-    }
-    return yearDiff != null ? yearDiff : 0;
+    return 0;
   });
 }
 

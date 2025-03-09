@@ -13,7 +13,7 @@ const { title, tertiaryBadge, img, description, mainBadge, secondaryBadge } =
 import { Image } from "astro:assets";
 ---
 
-<div class="p-3 flex flex-col gap-2 shadow-2xl bg-base-300 rounded-md">
+<div class="p-3 flex flex-col gap-2 shadow-lg border border-gray-800 rounded-md">
   <div
     class="w-full gap-3 flex flex-col sm:flex-row items-start pb-0"
   >
@@ -23,7 +23,7 @@ import { Image } from "astro:assets";
           src={img}
           format="webp"
           alt={title}
-          class="sm:max-w-16 rounded aspect-square object-cover max-h-32"
+          class="sm:max-w-16 rounded aspect-square object-cover max-h-28"
         />
       )
     }
@@ -59,6 +59,6 @@ import { Image } from "astro:assets";
         }
       </div>
     </div>
-    <p class="pb-1 pt-2 text-sm">{description}</p>
+    <p class="pb-1 pt-2">{description}</p>
   </div>
 </div>

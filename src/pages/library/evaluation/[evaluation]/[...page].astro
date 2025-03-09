@@ -31,7 +31,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     currentPage={page.currentPage}
 >
     <LargeTitle title="Library" path="/library" selector={evaluation + "★"}/>
-    <ul class="grid sm:grid-cols-2 gap-2 pt-2">
+    <ul class="grid sm:grid-cols-2 gap-3 py-2">
         {
             page.data.map((entry) => (
                 <>
@@ -47,5 +47,5 @@ export const getStaticPaths = (async ({ paginate }) => {
             ))
         }
     </ul>
-    <PaginationButtons page={page} path="/blog" />
+    <PaginationButtons page={page} path={"/library/evaluation/" + evaluation} />
 </BaseLayout>

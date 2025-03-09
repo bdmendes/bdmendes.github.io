@@ -77,8 +77,8 @@ const libraryCollection = defineCollection({
         title: z.string(),
         author: z.string(),
         type: z.enum(["movie", "book", "album"]),
-        hero: image().optional(),
-        year: z.number().optional(),
+        hero: image(),
+        year: z.number(),
         evaluation: z.union([
             z.literal(0),
             z.literal(0.5),
