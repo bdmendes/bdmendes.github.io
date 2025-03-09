@@ -1,0 +1,77 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PaginationButtons from "@components/PaginationButtons.astro";
+import { sortedByDate } from "src/lib/util";
+import { getCollection } from "astro:content";
+import { PAGINATION_SIZE } from "src/config";
+import LargeTitle from "@components/LargeTitle.astro";
+import SmallEntryCard from "@components/SmallEntryCard.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const entries = sortedByDate(await getCollection("library"));
+    return paginate(entries, { pageSize: PAGINATION_SIZE });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const entries = await getCollection("library");
+
+const types = [...new Set(entries.map((e) => e.data.type))].toSorted();
+const typesPathsMap: [string, string][] = types.map((y) => [
+    y,
+    "/library/type/" + y,
+]);
+
+const evaluations = [...new Set(entries.map((e) => e.data.evaluation))].toSorted().reverse();
+const evaluationsPathsMap: [string, string][] = evaluations.map((y) => [
+    y + "★",
+    "/library/evaluation/" + y,
+]);
+
+const authors = [...new Set(entries.map((e) => e.data.author))].toSorted();
+const authorsPathsMap: [string, string][] = authors.map((y) => [
+    y,
+    "/library/author/" + y,
+]);
+---
+
+<BaseLayout
+    title="Library"
+    sideBarActiveItemID="library"
+    currentPage={page.currentPage}
+>
+    <LargeTitle
+        title="Library"
+        path="/library"
+        filters={typesPathsMap
+            .concat(evaluationsPathsMap)
+            .concat(authorsPathsMap)}
+    />
+    <ul class="grid sm:grid-cols-2 gap-2 pt-2">
+        {
+            page.data.map((entry) => (
+                <>
+                    <SmallEntryCard
+                        title={entry.data.title + " (" + entry.data.year + ")"}
+                        img={entry.data.hero!}
+                        description={entry.body!}
+                        mainBadge={[
+                            entry.data.type,
+                            "/library/type/" + entry.data.type,
+                        ]}
+                        secondaryBadge={[
+                            entry.data.author,
+                            "/library/author/" + entry.data.author,
+                        ]}
+                        tertiaryBadge={[
+                            entry.data.evaluation + "★/5",
+                            "/library/evaluation/" + entry.data.evaluation,
+                        ]}
+                    />
+                </>
+            ))
+        }
+    </ul>
+    <PaginationButtons page={page} path="/blog" />
+</BaseLayout>

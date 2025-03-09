@@ -12,6 +12,7 @@ export const ROUTES = {
     "poetry": "Poetry",
     "slides": "Slides",
     "chess": "Chess",
+    "library": "Library",
     "cv": "CV",
 }
 

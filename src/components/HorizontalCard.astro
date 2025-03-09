@@ -26,9 +26,7 @@ import { Image } from "astro:assets";
 ---
 
 {divideTop && <div class="divider my-0" />}
-<div
-  class="rounded bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
->
+<div class="rounded hover:shadow-xl transition ease-in-out hover:scale-[102%]">
   <a class="w-full" href={url}>
     <div class="w-full hero-content px-4 flex flex-col sm:flex-row items-start">
       {
@@ -47,7 +45,7 @@ import { Image } from "astro:assets";
         </h1>
         {
           description ? (
-            <p class="py-1 text-1xl">{description}</p>
+            <p class="py-1">{description}</p>
           ) : (
             <div class="pb-1" />
           )

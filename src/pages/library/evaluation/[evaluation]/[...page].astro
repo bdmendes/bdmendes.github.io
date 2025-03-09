@@ -1,0 +1,51 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PaginationButtons from "@components/PaginationButtons.astro";
+import { sortedByDate } from "src/lib/util";
+import { getCollection } from "astro:content";
+import { PAGINATION_SIZE } from "src/config";
+import LargeTitle from "@components/LargeTitle.astro";
+import SmallEntryCard from "@components/SmallEntryCard.astro";
+
+const { page } = Astro.props;
+const { evaluation } = Astro.params;
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const libraryEntries = await getCollection("library");
+    const evaluations = Array.from(new Set(libraryEntries.map((entry) => entry.data.evaluation)));
+
+    return evaluations.flatMap((evaluation) => {
+        const entries = sortedByDate(libraryEntries.filter((e) => e.data.evaluation === evaluation));
+        return paginate(entries, {
+            pageSize: PAGINATION_SIZE,
+            params: { evaluation: evaluation.toString() },
+        });
+    });
+}) satisfies GetStaticPaths;
+---
+
+<BaseLayout
+    title={"Library | " + evaluation + "★"}
+    sideBarActiveItemID="library"
+    currentPage={page.currentPage}
+>
+    <LargeTitle title="Library" path="/library" selector={evaluation + "★"}/>
+    <ul class="grid sm:grid-cols-2 gap-2 pt-2">
+        {
+            page.data.map((entry) => (
+                <>
+                    <SmallEntryCard
+                        title={entry.data.title + " (" + entry.data.year + ")"}
+                        img={entry.data.hero!}
+                        description={entry.body!}
+                        mainBadge={[entry.data.type, "/library/type/" + entry.data.type]}
+                        secondaryBadge={[entry.data.author, "/library/author/" + entry.data.author]}
+                        tertiaryBadge={[entry.data.evaluation + "★/5", "/library/evaluation/" + entry.data.evaluation]}
+                    />
+                </>
+            ))
+        }
+    </ul>
+    <PaginationButtons page={page} path="/blog" />
+</BaseLayout>

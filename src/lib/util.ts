@@ -18,7 +18,14 @@ export function sortedByDate<C extends { id: string, data: any }>(entry: C[]): C
       return dateDiff;
     }
     const roundDiff = b.data.round - a.data.round;
-    return roundDiff != null ? roundDiff : 0;
+    if (roundDiff != 0) {
+      return dateDiff;
+    }
+    const yearDiff = b.data.year - a.data.year;
+    if (yearDiff != 0) {
+      return dateDiff;
+    }
+    return yearDiff != null ? yearDiff : 0;
   });
 }
 
