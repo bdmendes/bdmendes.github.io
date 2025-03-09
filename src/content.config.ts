@@ -76,7 +76,7 @@ const libraryCollection = defineCollection({
     schema: ({ image }) => z.object({
         title: z.string(),
         author: z.string(),
-        type: z.enum(["movie", "book", "album"]),
+        type: z.enum(["movie", "book", "album", "series"]),
         hero: image(),
         year: z.number(),
         evaluation: z.union([

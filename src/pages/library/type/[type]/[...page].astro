@@ -13,12 +13,10 @@ const { type } = Astro.params;
 
 export const getStaticPaths = (async ({ paginate }) => {
     const libraryEntries = await getCollection("library");
-
     const types = Array.from(new Set(libraryEntries.map((entry) => entry.data.type)));
 
     return types.flatMap((type) => {
         const entries = sortedByDate(libraryEntries.filter((e) => e.data.type === type));
-
         return paginate(entries, {
             pageSize: PAGINATION_SIZE,
             params: { type },
