@@ -7,4 +7,4 @@ hero: ./eternal-sunshine.jpg
 author: Michel Gondry
 ---
 
-What if we could hit reset? Would we make the same choices all over again?
+The producer may have just gone through heartbreak, yet somehow, he made us believe even more.
