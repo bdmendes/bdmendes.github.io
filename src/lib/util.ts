@@ -14,7 +14,7 @@ export function createSlug(title: string) {
 export function sortedByDate<C extends { id: string, data: any }>(entry: C[], yearPriority: boolean = false): C[] {
   return entry.sort((a, b) => {
     const yearDiff = b.data.year - a.data.year;
-    if (yearPriority && yearDiff != 0) {
+    if (yearPriority && !Number.isNaN(yearDiff) && yearDiff != 0) {
       return yearDiff;
     }
 
@@ -22,13 +22,16 @@ export function sortedByDate<C extends { id: string, data: any }>(entry: C[], ye
     if (dateDiff != 0) {
       return dateDiff;
     }
-    if (yearDiff != 0) {
+
+    const roundDiff = b.data.round - a.data.round;
+    if (!Number.isNaN(roundDiff) && roundDiff != 0) {
+      return roundDiff;
+    }
+
+    if (!Number.isNaN(yearDiff) && yearDiff != 0) {
       return yearDiff;
     }
-    const roundDiff = b.data.round - a.data.round;
-    if (roundDiff != 0) {
-      return dateDiff;
-    }
+
     return 0;
   });
 }

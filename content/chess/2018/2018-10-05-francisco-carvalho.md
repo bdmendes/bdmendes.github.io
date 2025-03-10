@@ -3,7 +3,7 @@ white: Francisco Carvalho
 blackElo: 1382
 whiteElo: 0
 round: 2
-table: 56
+board: 56
 result: 0-1
 tournament: Guimarães Open 2018
 ---
