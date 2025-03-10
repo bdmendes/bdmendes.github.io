@@ -37,7 +37,7 @@ const { Content } = await render(shortDescription);
     </div>
     <div class="text-5xl font-bold hidden md:block">I'm Bruno Mendes.</div>
     <div class="py-1 px-4 md:px-0 md:py-3 prose text-lg">
-      <Content></Content>
+      <Content />
     </div>
   </div>
 
@@ -64,7 +64,7 @@ const { Content } = await render(shortDescription);
     tags={augmentTagsWithDate(lastSlide.data.tags, lastSlide.id)}
   />
   <HorizontalCard
-    title={createChessTitle(lastGame)}
+    title={createChessTitle(lastGame, false)}
     badge="chess"
     url={"/chess/" + createChessSlug(lastGame)}
     tags={[lastGame.data.tournament]}

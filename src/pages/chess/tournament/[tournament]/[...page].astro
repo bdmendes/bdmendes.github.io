@@ -13,6 +13,7 @@ import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
 import { PAGINATION_SIZE } from "src/config";
 import type { GetStaticPaths } from "astro";
+import ChessMiniature from "@components/ChessMiniature.astro";
 
 const { page } = Astro.props;
 const { tournament } = Astro.params;
@@ -43,11 +44,18 @@ export const getStaticPaths = (async ({ paginate }) => {
       page.data.map((game) => (
         <>
           <HorizontalCard
-            title={createChessTitle(game)}
+            title={createChessTitle(game, false)}
             url={"/chess/" + createChessSlug(game)}
             tags={[game.data.tournament]}
             disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
-          />
+          >
+            <ChessMiniature
+              id={game.id}
+              pgn={game.body}
+              white={game.data.white}
+              black={game.data.black}
+            />
+          </HorizontalCard>
         </>
       ))
     }

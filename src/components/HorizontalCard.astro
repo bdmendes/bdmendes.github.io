@@ -29,6 +29,7 @@ import { Image } from "astro:assets";
 <div class="rounded hover:shadow-xl transition ease-in-out hover:scale-[102%]">
   <a class="w-full" href={url}>
     <div class="w-full hero-content px-4 flex flex-col sm:flex-row items-start">
+      <slot></slot>
       {
         img && (
           <Image

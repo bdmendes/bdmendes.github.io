@@ -58,9 +58,9 @@ export function createChessDescription(game: CollectionEntry<"chess">) {
   return `Chess game played between ${game.data.white ?? "Bruno Mendes"} and ${game.data.black ?? "Bruno Mendes"}.`;
 }
 
-export function createChessTitle(game: CollectionEntry<"chess">) {
-  return `${game.data.white ?? "Bruno Mendes"} ${game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
-    ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
+export function createChessTitle(game: CollectionEntry<"chess">, showElo: boolean = true) {
+  return `${game.data.white ?? "Bruno Mendes"} ${showElo && game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
+    ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${showElo && game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
 }
 
 export function capitalize(val: string) {
