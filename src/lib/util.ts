@@ -63,6 +63,11 @@ export function createChessTitle(game: CollectionEntry<"chess">, showElo: boolea
     ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${showElo && game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
 }
 
+export function createChessTitleSplit(game: CollectionEntry<"chess">) {
+  return [`${game.data.white ?? "Bruno Mendes"} ${game.data.result.split("-")[0]}`,
+  `${game.data.black ?? "Bruno Mendes"} ${game.data.result.split("-")[1]}`];
+}
+
 export function capitalize(val: string) {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }

@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import {
   buildChessMetaTags,
   createChessSlug,
-  createChessTitle,
+  createChessTitleSplit,
   sortedByDate,
 } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
@@ -37,22 +37,26 @@ const { page } = Astro.props;
   currentPage={page.currentPage}
 >
   <LargeTitle title="Chess" path="/chess" filters={tournamentsPathsMap} />
-  <ul class="">
+  <ul class="grid sm:grid-cols-2 gap-3 auto-rows-min">
     {
       page.data.map((game) => (
-        <HorizontalCard
-          title={createChessTitle(game, false)}
-          url={"/chess/" + createChessSlug(game)}
-          tags={[game.data.tournament]}
-          disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
-        >
-          <ChessMiniature
-            id={game.id}
-            pgn={game.body}
-            white={game.data.white}
-            black={game.data.black}
-          />
-        </HorizontalCard>
+        <>
+          <HorizontalCard
+            title={createChessTitleSplit(game)[0]}
+            title2={createChessTitleSplit(game)[1]}
+            url={"/chess/" + createChessSlug(game)}
+            tags={[game.data.tournament]}
+            disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
+            forceVertical={true}
+          >
+            <ChessMiniature
+              id={game.id}
+              pgn={game.body}
+              white={game.data.white}
+              black={game.data.black}
+            />
+          </HorizontalCard>
+        </>
       ))
     }
   </ul>

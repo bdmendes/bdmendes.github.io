@@ -1,6 +1,7 @@
 ---
 export interface Props {
   title: string;
+  title2?: string;
   img?: ImageMetadata;
   description?: string;
   url?: string;
@@ -9,10 +10,12 @@ export interface Props {
   disabledTags?: string[];
   divideTop?: boolean;
   divideBottom?: boolean;
+  forceVertical?: boolean;
 }
 
 const {
   title,
+  title2,
   img,
   description,
   url,
@@ -21,18 +24,19 @@ const {
   disabledTags = [],
   divideBottom = true,
   divideTop = false,
+  forceVertical = false,
 } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
-<div>
+<div class="flex flex-col">
   {divideTop && <div class="divider my-0" />}
   <div
-    class="rounded hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+    class="rounded hover:shadow-xl transition ease-in-out hover:scale-[102%] grow"
   >
     <a class="w-full" href={url}>
       <div
-        class="w-full hero-content px-4 flex flex-col sm:flex-row items-start"
+        class={`w-full hero-content px-4 flex flex-col items-start ${forceVertical ? "" : "sm:flex-row"}`}
       >
         <slot />
         {
@@ -49,6 +53,7 @@ import { Image } from "astro:assets";
           <h1 class="text-xl font-bold mr-2">
             {title}
           </h1>
+          {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
           <p class="py-1">{description}</p>
           <div class="card-actions justify-end mt-2 mb-1">
             {
