@@ -42,21 +42,19 @@ export const getStaticPaths = (async ({ paginate }) => {
   <ul>
     {
       page.data.map((game) => (
-        <>
-          <HorizontalCard
-            title={createChessTitle(game, false)}
-            url={"/chess/" + createChessSlug(game)}
-            tags={[game.data.tournament]}
-            disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
-          >
-            <ChessMiniature
-              id={game.id}
-              pgn={game.body}
-              white={game.data.white}
-              black={game.data.black}
-            />
-          </HorizontalCard>
-        </>
+        <HorizontalCard
+          title={createChessTitle(game, false)}
+          url={"/chess/" + createChessSlug(game)}
+          tags={[game.data.tournament]}
+          disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
+        >
+          <ChessMiniature
+            id={game.id}
+            pgn={game.body}
+            white={game.data.white}
+            black={game.data.black}
+          />
+        </HorizontalCard>
       ))
     }
   </ul>
