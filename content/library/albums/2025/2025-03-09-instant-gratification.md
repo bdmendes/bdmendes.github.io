@@ -7,4 +7,4 @@ evaluation: 4.5
 type: album
 ---
 
-Fantano and I have opposite biases. Instant Gratification introduced me to post-hardcore and has stuck with me ever since.
+Perhaps a little biased, since this album was my introduction to the genre, but I cannot help but feel that it is as groovy as one can get.

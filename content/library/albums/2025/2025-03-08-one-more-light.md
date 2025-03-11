@@ -7,4 +7,4 @@ author: Linkin Park
 type: album
 ---
 
-One More Light leans into pop, perhaps too much, and while it has its moments, it ends up feeling generic and forgettable.
+One More Light leans into pop, perhaps too much, and while it has its moments, it ends up feeling forgettable.
