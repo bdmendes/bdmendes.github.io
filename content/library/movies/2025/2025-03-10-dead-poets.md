@@ -1,6 +1,6 @@
 ---
 title: Dead Poets Society
-year: 2013
+year: 1989
 evaluation: 4.5
 author: Peter Weir
 type: movie
