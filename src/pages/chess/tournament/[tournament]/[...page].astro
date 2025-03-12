@@ -40,7 +40,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   currentPage={page.currentPage}
 >
   <LargeTitle title="Chess" path="/chess" selector={tournament} />
-  <ul class="grid sm:grid-cols-2 gap-3 auto-rows-min">
+  <ul class="grid sm:grid-cols-2 gap-x-3 auto-rows-min">
     {
       page.data.map((game) => (
         <>
