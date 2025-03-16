@@ -2,52 +2,51 @@
 import "../styles/chess.css";
 
 export interface Props {
-    id: string;
-    pgn?: string;
-    ply?: number;
-    white?: string;
-    black?: string;
+  id: string;
+  pgn?: string;
+  ply?: number;
+  white?: string;
+  black?: string;
 }
 
 const {
-    id,
-    pgn = "",
-    ply = 20,
-    white = "Bruno Mendes",
-    black = "Bruno Mendes",
+  id,
+  pgn = "",
+  ply = 20,
+  white = "Bruno Mendes",
+  black = "Bruno Mendes",
 } = Astro.props;
 ---
 
-<div inert class="w-52 h-52">
-    <chess-game
-        data-id={id}
-        data-pgn={pgn}
-        data-ply={ply}
-        data-white={white}
-        data-black={black}></chess-game>
+<div inert class="w-52 h-52 !bg-transparent">
+  <chess-game
+    data-id={id}
+    data-pgn={pgn}
+    data-ply={ply}
+    data-white={white}
+    data-black={black}></chess-game>
 </div>
 
 <script>
-    import LichessPgnViewer from "lichess-pgn-viewer";
+  import LichessPgnViewer from "lichess-pgn-viewer";
 
-    class ChessGame extends HTMLElement {
-        connectedCallback() {
-            const boardId = `board-${this.dataset.id}`;
-            this.innerHTML = `<div id="${boardId}"></div>`;
+  class ChessGame extends HTMLElement {
+    connectedCallback() {
+      const boardId = `board-${this.dataset.id}`;
+      this.innerHTML = `<div id="${boardId}"></div>`;
 
-            LichessPgnViewer(document.getElementById(boardId)!, {
-                scrollToMove: false,
-                showControls: false,
-                showMoves: false,
-                pgn: this.dataset.pgn,
-                initialPly: Number(this.dataset.ply),
-                orientation:
-                    this.dataset.black == "Bruno Mendes" ? "black" : "white",
-            });
-        }
+      LichessPgnViewer(document.getElementById(boardId)!, {
+        scrollToMove: false,
+        showControls: false,
+        showMoves: false,
+        pgn: this.dataset.pgn,
+        initialPly: Number(this.dataset.ply),
+        orientation: this.dataset.black == "Bruno Mendes" ? "black" : "white",
+      });
     }
+  }
 
-    if (!customElements.get("chess-game")) {
-        customElements.define("chess-game", ChessGame);
-    }
+  if (!customElements.get("chess-game")) {
+    customElements.define("chess-game", ChessGame);
+  }
 </script>
