@@ -2,62 +2,58 @@
 import type { Page } from "astro";
 
 export interface Props {
-    page: Page;
-    path: string;
+  page: Page;
+  path: string;
 }
 
 const { page, path } = Astro.props;
 const startPage = Math.max(1, page.currentPage - 2);
 let pages = Array.from(
-    { length: Math.min(5, page.lastPage - startPage + 1) },
-    (_, i) => startPage + i,
+  { length: Math.min(5, page.lastPage - startPage + 1) },
+  (_, i) => startPage + i
 );
 while (pages.length < 5 && page.lastPage > pages.length) {
-    pages = [pages[0] - 1].concat(pages);
+  pages = [pages[0] - 1].concat(pages);
 }
 ---
 
 <div class="flex">
-    {
-        pages.length > 1 && (
-            <div class="join mx-auto mt-4">
-                {page.currentPage === 1 ? (
-                    <button class="join-item btn btn-disabled">«</button>
-                ) : (
-                    <a
-                        href={
-                            path +
-                            "/" +
-                            (page.currentPage - 1 == 1
-                                ? ""
-                                : page.currentPage - 1)
-                        }
-                    >
-                        <button class="join-item btn">«</button>
-                    </a>
-                )}
+  {
+    pages.length > 1 && (
+      <div class="join mx-auto my-4">
+        {page.currentPage === 1 ? (
+          <button class="join-item btn btn-disabled">«</button>
+        ) : (
+          <a
+            href={
+              path +
+              "/" +
+              (page.currentPage - 1 == 1 ? "" : page.currentPage - 1)
+            }
+          >
+            <button class="join-item btn">«</button>
+          </a>
+        )}
 
-                {pages.map((p) => (
-                    <a href={path + "/" + (p == 1 ? "" : p)}>
-                        <button
-                            class={`join-item btn ${p === page.currentPage ? "btn-active" : ""}`}
-                            aria-current={
-                                p === page.currentPage ? "page" : undefined
-                            }
-                        >
-                            {p}
-                        </button>
-                    </a>
-                ))}
+        {pages.map((p) => (
+          <a href={path + "/" + (p == 1 ? "" : p)}>
+            <button
+              class={`join-item btn ${p === page.currentPage ? "btn-active" : ""}`}
+              aria-current={p === page.currentPage ? "page" : undefined}
+            >
+              {p}
+            </button>
+          </a>
+        ))}
 
-                {page.currentPage === page.lastPage ? (
-                    <button class="join-item btn btn-disabled">»</button>
-                ) : (
-                    <a href={path + "/" + (page.currentPage + 1)}>
-                        <button class="join-item btn">»</button>
-                    </a>
-                )}
-            </div>
-        )
-    }
+        {page.currentPage === page.lastPage ? (
+          <button class="join-item btn btn-disabled">»</button>
+        ) : (
+          <a href={path + "/" + (page.currentPage + 1)}>
+            <button class="join-item btn">»</button>
+          </a>
+        )}
+      </div>
+    )
+  }
 </div>

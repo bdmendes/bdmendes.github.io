@@ -11,6 +11,7 @@ export interface Props {
   divideTop?: boolean;
   divideBottom?: boolean;
   forceVertical?: boolean;
+  blockScale?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   divideBottom = true,
   divideTop = false,
   forceVertical = false,
+  blockScale = false,
 } = Astro.props;
 import { Image } from "astro:assets";
 ---
@@ -32,7 +34,7 @@ import { Image } from "astro:assets";
 <div class="flex flex-col">
   {divideTop && <div class="divider my-0" />}
   <div
-    class="rounded hover:shadow-xl transition ease-in-out hover:scale-[102%] grow"
+    class=`rounded grow hover:shadow-xl transition ease-in-out hover:scale-[102%] ${blockScale ? "block-scale" : ""}`
   >
     <a class="w-full" href={url}>
       <div

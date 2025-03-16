@@ -25,6 +25,10 @@
   display: none;
 }
 
+.block-scale {
+  @apply hover:!scale-[100%];
+}
+
 a.badge {
   @apply transition ease-in-out hover:scale-[105%];
 }
