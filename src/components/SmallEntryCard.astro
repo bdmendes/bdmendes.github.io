@@ -13,10 +13,10 @@ const { title, tertiaryBadge, img, description, mainBadge, secondaryBadge } =
   Astro.props;
 ---
 
-<div class="p-3 flex flex-col gap-2 shadow-lg border border-gray-800 rounded-md">
-  <div
-    class="w-full gap-2 flex flex-row items-start pb-0"
-  >
+<div
+  class="p-3 flex flex-col gap-2 shadow-lg border border-gray-800 rounded-md"
+>
+  <div class="w-full gap-2 flex flex-row items-start pb-0">
     {
       (
         <Image
@@ -33,7 +33,7 @@ const { title, tertiaryBadge, img, description, mainBadge, secondaryBadge } =
       </h1>
     </div>
   </div>
-  <div class= w-full">
+  <div class="w-full">
     <div class="grow w-full">
       <div class="card-actions mt-2 mb-1">
         {
@@ -59,6 +59,6 @@ const { title, tertiaryBadge, img, description, mainBadge, secondaryBadge } =
         }
       </div>
     </div>
-    <p class="pb-1 pt-2">{description}</p>
+    <p class="pb-1 pt-1.5">{description}</p>
   </div>
 </div>

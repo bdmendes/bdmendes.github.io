@@ -2,25 +2,25 @@
 import { ROUTES } from "src/config";
 
 export interface Props {
-    sideBarActiveItemID?: string;
+  sideBarActiveItemID?: string;
 }
 
 const { sideBarActiveItemID } = Astro.props;
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
-<ul class="menu grow overflow-y-auto">
-    {
-        Object.entries(ROUTES).map(([key, value]) => (
-            <li>
-                <a
-                    class={`py-3 text-base ${cleanId == key ? "active" : ""}`}
-                    id={key}
-                    href={key == "home" ? "/" : "/" + key}
-                >
-                    {value}
-                </a>
-            </li>
-        ))
-    }
+<ul class="menu grow overflow-y-auto gap-1">
+  {
+    Object.entries(ROUTES).map(([key, value]) => (
+      <li>
+        <a
+          class={`py-2.5 text-base ${cleanId == key ? "active" : ""}`}
+          id={key}
+          href={key == "home" ? "/" : "/" + key}
+        >
+          {value}
+        </a>
+      </li>
+    ))
+  }
 </ul>
