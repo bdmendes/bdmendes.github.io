@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="h-52 w-52 -mb-0.5" id={id + "-container"}>
+<div inert class="h-52 w-52 -mb-0.5" id={id + "-container"}>
   <chess-game
     data-id={id}
     data-pgn={pgn}
