@@ -15,3 +15,9 @@ coords {
 .lpv__side {
   min-height: 15em;
 }
+
+.lpv--moves-false {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
