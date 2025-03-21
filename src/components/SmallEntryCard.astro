@@ -6,11 +6,19 @@ export interface Props {
   mainBadge?: [string, string];
   secondaryBadge?: [string, string];
   tertiaryBadge?: [string, string];
+  ghostBadge?: string;
 }
 import { Image } from "astro:assets";
 
-const { title, tertiaryBadge, img, description, mainBadge, secondaryBadge } =
-  Astro.props;
+const {
+  title,
+  tertiaryBadge,
+  img,
+  description,
+  mainBadge,
+  secondaryBadge,
+  ghostBadge,
+} = Astro.props;
 ---
 
 <div
@@ -59,6 +67,9 @@ const { title, tertiaryBadge, img, description, mainBadge, secondaryBadge } =
         }
       </div>
     </div>
-    <p class="pb-1 pt-1.5">{description}</p>
+    <p class="pb-1 pt-1.5">
+      {description}
+      {ghostBadge && <span class="text-sm opacity-70">{ghostBadge}</span>}
+    </p>
   </div>
 </div>
