@@ -1,0 +1,12 @@
+---
+title: Lisboa-Espinho
+tags: ['flâneur', 'introspective']
+---
+
+Fanático pela estabilidade, adepto fervoroso da rotina ou da mesmice para os mais céticos, não me veria, à partida, a regressar sozinho de comboio da capital para o norte, mas, para o bem ou para o mal, existem certos eventos que escolhem uma só cidade num país pequeno como o nosso, e, naturalmente, por razões logísticas, tendem a priorizar a densidade populacional face a todos os outros fatores como a beleza relativa aos olhos de um dos interessados.
+
+A minha estadia na capital foi positiva. Como esperado, não pôde faltar uma passagem pelos inigualáveis pastéis de Belém, e uma caminhada perto do rio evocando uma certa grandiosidade que ainda que distante é um tanto reconfortante. Entre lugares, usei os novos elétricos que são o mais semelhante que há ao metro de que dependo diariamente. Não me falharam. Se fosse ligeiramente mais justo, diria até que superaram as minhas expectativas. Não sendo, fiquemo-nos por dizer que funcionaram como esperado.
+
+Regresso então de comboio. Gostaria de ter optado pelo alfa-pendular, mas não passa em Espinho, e quis a vida que fosse este o ponto de desembarque mais conveniente para o compromisso que tenho a seguir. Saio pois do inter-cidades. Sem grande entusiasmo. Eu gosto de evitar os lugares que me deixam desconfortável. Escondo-me pelas ruas e ligo três vezes a quem me vem buscar pedindo explicações pelo atraso. Apanharam trânsito. O motor do carro não respondeu corretamente. Um funcionário do restaurante onde o condutor almoçou teve de sair mais cedo porque a filha se esgotou na escola. Não me resta outra alternativa senão sentar-me à beira-mar. Respiro fundo. Nisto recordo-me de que estou na terra do primeiro-ministro, conjeturo que irá ser reempossado potencialmente com maioria absoluta, porque a história se repete, e, na minha visão, não fez este mais do que ser ingénuo e parco em bom-senso, o que não deve descurar a sua governação razoavelzinha, pelo menos, aos olhos do povo. Quem sabe, contratará no próximo mandato um orador que torne as suas intenções e planos de vida mais claros.
+
+É esta a história que espero que aconteça. Na verdade, ainda estou no Porto, farei a viagem de ida de autocarro, e o TIC é francamente cinzento e aborrecido.
