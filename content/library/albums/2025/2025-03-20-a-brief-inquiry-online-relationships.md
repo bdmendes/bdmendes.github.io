@@ -1,7 +1,7 @@
 ---
 title: A Brief Inquiry Into Online Relationships
 year: 2018
-evaluation: 5
+evaluation: 4.5
 hero: ./a-brief-inquiry-online-relationships.png
 author: The 1975
 type: album
