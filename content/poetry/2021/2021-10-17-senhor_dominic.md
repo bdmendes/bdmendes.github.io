@@ -1,6 +1,6 @@
 ---
 title: Senhor Dominic
-tags: ['nostalgic', 'existencial']
+tags: ['nostalgic', 'existential']
 ---
 
 É assim a vida, mais curta que comprida, porquanto o pouco tempo que temos nos é tomado por afazeres inócuos e inseguranças absurdas. Na era potencialmente mais íntima de sempre, escolhemos as imagens aos momentos, e a distância ao toque. Caímos sobre nós mesmos receando cair sobre o outro, quando aquilo que o outro deseja é que caiam sobre ele, com todo o sombrio que possa vir atracado e que se torna ainda mais sombrio se cabe só no imaginário.

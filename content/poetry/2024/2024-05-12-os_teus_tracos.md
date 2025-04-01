@@ -1,6 +1,6 @@
 ---
 title: Os teus traços
-tags: ['nostalgic', 'introspective', 'existencial']
+tags: ['nostalgic', 'introspective', 'existential']
 ---
 
 > Com David Preda, verso sim, verso não.

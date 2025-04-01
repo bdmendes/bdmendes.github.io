@@ -1,6 +1,6 @@
 ---
 title: Linha forcada
-tags: ['existencial']
+tags: ['existential']
 ---
 
 Não reparei em nada, Como assim, vou passar outra vez, Nada, Não viste?

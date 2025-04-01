@@ -1,6 +1,6 @@
 ---
 title: Telescópio
-tags: ['introspective', 'existencial']
+tags: ['introspective', 'existential']
 ---
 
 É evidente que uma noite de céu limpo não é ocasião para celebrar a existência. Há por fim clarividência para aceitar a circunstância de que a felicidade é demasiado cara para durar tão pouco, e suficientemente inútil para não haver de ser fingida.

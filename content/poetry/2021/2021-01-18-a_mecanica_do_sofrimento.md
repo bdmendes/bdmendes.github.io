@@ -1,6 +1,6 @@
 ---
 title: A mecânica do sofrimento
-tags: ['introspective', 'existencial']
+tags: ['introspective', 'existential']
 ---
 
 As pessoas são egoístas, são complicadas, são desnecessárias, são inconsequentes. Propõem alargar o sofrimento às pequenas execuções do dia, e fazem-no de forma prepotente e comiserada, na esperança de que esteja assim solucionada a problemática da existência sem sentido.

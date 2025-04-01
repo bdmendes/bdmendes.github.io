@@ -1,6 +1,6 @@
 ---
 title: O que há no além?
-tags: ['dark', 'existencial']
+tags: ['dark', 'existential']
 ---
 
 Sou apenas mais um no meio da multidão. Porque não simplesmente desaparecer, colocar termo nesta existência? Ninguém repararia, e todos os meus problemas seriam magicamente levados pelo oceano para terra de ninguém.
