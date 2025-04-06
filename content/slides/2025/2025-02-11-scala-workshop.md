@@ -103,7 +103,37 @@ def transparentDivide(a: Int, b: Int): Option[Int] = {
 }
 ```
 
-> `Option` is a monad encapsulating the absence of a value. Monads wrap a value with context, allowing more concise operation chaining. Here e.g. `val result = divide(10, 2).flatMap(x => divide(x, 2))` would avoid pattern matching. Monads have well-defined mathematical properties.
+> `Option` is a monad encapsulating the absence of a value. Monads wrap a value with context, allowing more concise operation chaining. Here e.g. `val result = transparentDivide(10, 2).flatMap(x => transparentDivide(x, 2))` would avoid pattern matching. Monads have well-defined mathematical properties.
+
+---
+
+### Referential transparency
+
+- The lack of referential transparency makes reasoning harder
+  - Not being able to perform subexpression substitution leads to unexpected bugs
+
+```scala
+def div(a: Int, b: Int, c: Int): Int = {
+    val denum = opaqueDivide(b, c)
+    try {
+      opaqueDivide(a, denum)
+    } catch {
+      case _ => -1
+    }
+}
+```
+
+```scala
+def div(a: Int, b: Int, c: Int): Int = {
+    try {
+      opaqueDivide(a, opaqueDivide(b, c))
+    } catch {
+      case _ => -1
+    }
+}
+```
+
+What's the difference between these two?
 ---
 
 ### Evaluation strategies
@@ -113,15 +143,28 @@ def transparentDivide(a: Int, b: Int): Option[Int] = {
 
 ```scala
 case class User(name: String, age: Int)
-case class OrderPlaced(description: String)
+case class OrderPlaced(ticketId: Int)
 
-def validUser(user: User): Boolean = user.age >= 18
+object Store {
+    lazy val paymentsSystem: PaymentsSystem = {
+      // Here we interact with an hypothetical Java-like API
+      // with a synchronous `register` method.
+      val sys = new PaymentsSystem()
+      sys.register()
+      sys
+    }
+  
+    def validUser(user: User): Boolean = user.age >= 18
 
-def sellWine(user: User, onWineSold: => String): Option[OrderPlaced] = {
-    if (validUser(user)) {
-        Some(OrderPlaced(onWineSold)) // 'onWineSold' is evaluated lazily
-    } else {
-        None
+    def sellWine(user: User, onError: => String): Option[Future[OrderPlaced]] = {
+        if (validUser(user)) {
+            // `paymentsSystem` is only evaluated here, and only once
+            Some(paymentsSystem.place(user))
+        } else {
+            // `onError` is a long string; by-name evaluation avoids allocations
+            log(s"Wine could not be sold: $onError")
+            None
+        }
     }
 }
 ```
@@ -170,7 +213,7 @@ var count = 0
 count = count + 1
 
 // A function is a first-class citizen.
-val odds = (numbers: List[Int]) => numbers.filter(n => n % 2 != 0).toList
+val odds = (numbers: List[Int]) => numbers.filter(n => n % 2 != 0)
 
 // Methods are evaluated every time they are called.
 def calculator = {
@@ -193,10 +236,11 @@ lazy val numbersDescription = s"Odd numbers are ${calculator(numbers)}"
 import java.util.concurrent.atomic._
 
 // As in Java, you can create a regular class, with some syntax sugar.
-class NumberProcessor(val numbers: List[Int]) {
-    var requests = new AtomicInteger(0)
+class NumberProcessor(numbers: List[Int]) {
+    val requests = new AtomicInteger(0)
     def double = {
-        requests.incrementAndGet()
+        requests.incrementAndGet() // How can we "mutate" requests
+                                   // when it is a "val"?
         numbers.map(_ * 2).toList
     }
     def requested = requests.get()
@@ -213,7 +257,11 @@ object NumberProcessor {
 
 ---
 
-### Case classes and pattern matching
+### Algebraic Data Types
+
+- ADTs allow structural recursion over types
+  - You exhaustively match against a deeply nested type
+- Scala provides facilities for implementing *sum* and *product* types
 
 ```scala
 // A trait is analogous to a Java interface, but with allowed implementations.
@@ -232,14 +280,17 @@ def id(person: Person): String = {
         case Admin(id) => id
     }
 }
-
-// And may be instantiated without the `new` keyword.
-println(id(Admin("big-boss")))
 ```
+
+> *Sum types* may also be implemented with the modern `enum` keyword.
 
 ---
 
-### Contextual parameters ("implicits")
+### Type classes and contextual parameters
+
+- Type classes allow implementing ad-hoc behavior
+  - We may require a behavior that was not provided by a library
+  - Using a contextual parameter often makes your code more expressive
 
 ```scala
 case class User(age: Int)
@@ -256,7 +307,7 @@ given userComparator: Comparator[User] with {
     def compare(x: User, y: User): Int = Integer.compare(x.age, y.age)
 }
 
-// Notice the multiple parameter lists ("currying"), needed for contextuals.
+// Notice the multiple parameter lists, needed for contextuals.
 // `sorted` is defined as Iterable[A] => Comparator[A] => List[A].
 def sorted[A](items: Iterable[A])(using comparator: Comparator[A]): List[A] =
   items.toList.sortWith((x, y) => comparator.compare(x, y) < 0)
@@ -275,6 +326,7 @@ println(sorted(List(User(18), User(16))))
 
 def occurences[A](numbers: List[A]): Map[A, Int] = {
   // Notice the private nested looping method.
+  @tailrec // What is this for?
   def occurencesInner(list: List[A], acc: Map[A, Int]): Map[A, Int] = {
     list match {
       case Nil => acc
@@ -297,7 +349,7 @@ println(occurences(List(1, 2, 2, 2)))
 
 ```
 
-> Could you implement this with a `fold`?
+> Could you implement this with a `foldLeft`? What about with a `foldRight`? What's better?
 
 ---
 
@@ -310,39 +362,33 @@ For you to dig into at home...
 ```scala
 def fetchUsers: Future[List] = Http.get(...)
 ```
-- Abstract type members and type bounds
-
-```scala
-trait Buffer {
-    type T
-    val element: T
-}
-
-abstract class SeqBuffer extends Buffer {
-    type U
-    type T <: Seq[U]
-    def length = element.length
-}
-```
 
 - Variance
 
 ```scala
 class List[+A] // A covariant class
+               // A List[Duck] is also a List[Animal]
+
 class Printer[-A] // A contravariant class
+                  // A Printer[Animal] is also a Printer[Duck]
+
 class Comparator[A] // An invariant class
 ```
+
+- Abstract type members and type bounds
+- Macros
+- ...
 
 ---
 
 ### A community effort
 
 - Originally created in academia, Scala has evolved into a mature language widely used in industry
-  - *Twitter*, *LinkedIn*, *Netflix*, *Lichess* use Scala to power their backends  
+  - *Twitter*, *LinkedIn*, *Netflix*, *Lichess*, *Kevel* use Scala to power their backends  
 
 - The native ecosystem is rich
   - [Cats](https://typelevel.org/cats/) – Pure functional abstractions  
-  - [Pekko](https://pekko.apache.org/) – Actor-based concurrency (formerly Akka)  
+  - [Apache Pekko](https://pekko.apache.org/) – Actor-based concurrency
   - [Apache Spark](https://spark.apache.org/) – Distributed computing  
   - [Play Framework](https://www.playframework.com/) – Full-stack web framework  
   - [Slick](https://scala-slick.org/) – Functional relational mapping  
@@ -358,4 +404,73 @@ class: center, middle, inverse
 #### Practical exercise
 
 ---
+
+### Setup
+
+- Grab the latest release of `scala`: https://www.scala-lang.org/
+  - You may use `Coursier`, the Scala installer CLI
+- Grab the latest release of `sbt`: https://www.scala-sbt.org/
+  - You may also compile manually, but a build tool helps you `run`, `test` and perform other systematic actions seamlessly
+- Grab the workshop source code
+  - `git clone https://github.com/bdmendes/n-queens-horses-scala.git`
+- Try to run the tests
+  - `sbt test`
+
+---
+
+### The problem: *N-Queen-Horses*
+
+- The `N-Queens` is a hard LeetCode problem in which one wants to place `n` queens in a `n*n` board, without them attacking each other, and output available possibilities
+  - In their provided example, for `n=4` you have `[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]`
+
+<img src="/assets/slides/enei-25-scala/nqueens-leetcode.jpg" style="width: 40%;">
+
+- Let's make it a bit more interesting... What if there are already pieces on the board, or if you mant to place knights instead?
+  - You'll search not only from an empty board, but from a set of occupied boards in my test cases
+  - I'll sometimes ask you to place knights instead of queens
+  - No piece can *see* each other!
+---
+
+### Our approach
+
+- I've left you some functions to develop in order and tests for each of them
+  - Test-driven development will help you reach your goal
+
+```scala
+type PieceEntry = (FromTopLeftPosition, Piece)
+case class Board(val squares: Vector[Option[Piece]]) {
+  // The board, updated with a new piece in the given position.
+  def set(pieceEntry: PieceEntry): Board = ???
+}
+```
+
+```scala
+// Whether `entry1` "sees" `entry2`, based on its kind and position.
+def attacks(entry1: PieceEntry, entry2: PieceEntry): Boolean = ???
+```
+
+```scala
+extension (board: Board) {
+  // Whether it is safe to place a piece in the board, considering
+  // the current board configuration.
+  def isSafe(toPlace: PieceEntry) = ???
+}
+```
+
+```scala
+// The boards resulting of safely placing `many` pieces of `kind` in `board`.
+def search(board: Board, kind: Piece, many: Int): List[Board] = ???
+```
+
+Good luck!
+
+---
+
+class: center, middle, inverse
+
+### Proposed solutions
+
+---
+
+### `Board.set`
 
