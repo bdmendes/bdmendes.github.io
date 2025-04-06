@@ -12,6 +12,8 @@ class: center, middle, inverse, small-images
 
 #### ENEI 2025 @ FEUP/ISEP
 
+#### Follow @ *enei25scala.bdmendes.com*
+
 ---
 
 class: center, middle, inverse
@@ -454,13 +456,13 @@ def attacks(entry1: PieceEntry, entry2: PieceEntry): Boolean = ???
 extension (board: Board) {
   // Whether it is safe to place a piece in the board, considering
   // the current board configuration.
-  def isSafe(toPlace: PieceEntry) = ???
+  def isSafe(toPlace: PieceEntry): Boolean = ???
 }
 ```
 
 ```scala
-// The boards resulting of safely placing `many` pieces of `kind` in `board`.
-def search(board: Board, kind: Piece, many: Int): List[Board] = ???
+// The boards resulting of safely placing `many` pieces `put` in `board`.
+def search(board: Board, put: Piece, many: Int): List[Board] = ???
 ```
 
 ---
@@ -487,7 +489,7 @@ def set(pieceEntry: PieceEntry): Board = {
     squares.updated(
       position.y * size + position.x, // Our vector is 1D for performance.
                                       // We calculate this manually here,
-                                      // but feel free to write an helper.
+                                      // but feel free to write a helper.
       Some(piece) // `None` would "clear" this square.
     )
   )
@@ -499,7 +501,7 @@ def set(pieceEntry: PieceEntry): Board = {
 ### `attacks`
 
 ```scala
-def attacks(entry1: PieceEntry, entry2: PieceEntry) = {
+def attacks(entry1: PieceEntry, entry2: PieceEntry): Boolean = {
   val (pos1, piece1) = entry1
   val (pos2, piece2) = entry2
 
