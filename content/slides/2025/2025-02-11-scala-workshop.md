@@ -415,6 +415,7 @@ class: center, middle, inverse
   - `git clone https://github.com/bdmendes/n-queens-horses-scala.git`
 - Try to run the tests
   - `sbt test`
+  - Of course, they should fail with `NotImplementedError`
 
 ---
 
@@ -425,13 +426,13 @@ class: center, middle, inverse
 
 <img src="/assets/slides/enei-25-scala/nqueens-leetcode.jpg" style="width: 40%;">
 
-- Let's make it a bit more interesting... What if there are already pieces on the board, or if you mant to place knights instead?
+- Let's make it a bit more interesting... What if there are already pieces on the board, or if you want to place knights instead?
   - You'll search not only from an empty board, but from a set of occupied boards in my test cases
   - I'll sometimes ask you to place knights instead of queens
-  - No piece can *see* each other!
+  - No piece can *see* each other! (Consider that a queen *sees through* obstacles.)
 ---
 
-### Our approach
+### Your job
 
 - I've left you some functions to develop in order and tests for each of them
   - Test-driven development will help you reach your goal
@@ -462,15 +463,117 @@ extension (board: Board) {
 def search(board: Board, kind: Piece, many: Int): List[Board] = ???
 ```
 
-Good luck!
-
 ---
 
 class: center, middle, inverse
 
 ### Proposed solutions
 
+<img src="/assets/slides/enei-25-scala/specs.png" width="40%">
+
 ---
 
 ### `Board.set`
 
+```scala
+def set(pieceEntry: PieceEntry): Board = {
+  // Destructure the entry for better readability.
+  val (position, piece) = pieceEntry
+
+  // Simply return a new board with a new internal vector.
+  // Notice that everything is immutable here;
+  // the current `Board` isn't changed.
+  Board(
+    squares.updated(
+      position.y * size + position.x, // Our vector is 1D for performance.
+                                      // We calculate this manually here,
+                                      // but feel free to write an helper.
+      Some(piece) // `None` would "clear" this square.
+    )
+  )
+}
+```
+
+---
+
+### `attacks`
+
+```scala
+def attacks(entry1: PieceEntry, entry2: PieceEntry) = {
+  val (pos1, piece1) = entry1
+  val (pos2, piece2) = entry2
+
+  (piece1, piece2) match {
+    // We don't care whether the other piece sees us;
+    // this function is "1 attacks 2".
+    case (Piece.Queen, _) =>
+      pos1.x == pos2.x || pos1.y == pos2.y ||
+      (pos1.x - pos2.x).abs == (pos1.y - pos2.y).abs
+    case (Piece.Knight, _) =>
+      (pos1.x - pos2.x).abs == 1 && (pos1.y - pos2.y).abs == 2 ||
+      (pos1.x - pos2.x).abs == 2 && (pos1.y - pos2.y).abs == 1
+  }
+}
+```
+
+Notice that this function does not depend on the board. Why? In which circumstances would we require visualizing the board?
+
+> Shameless plug: in real world chess, this is a bit more complicated... See what I do in my chess engine [Camel](https://github.com/bdmendes/camel/), and/or search for `chess engine sliding piece move generation`.
+
+---
+
+### `Board.isSafe`
+
+```scala
+def isSafe(toPlace: PieceEntry): Boolean = {
+  // Notice how easy it is now to code a complex operation, via composition.
+  board.pieces.forall { entry =>
+    // We cannot "see" anyone and nobody can "see" us.
+    !attacks(entry, toPlace) && !attacks(toPlace, entry)
+  }
+}
+```
+
+---
+
+### `search`
+
+```scala
+def search(board: Board, put: Piece, many: Int): List[Board] = {
+  val possiblePositions = (0 until board.size) // Cache squares.
+    .flatMap { y =>
+      (0 until board.size).map { x =>
+        FromTopLeftPosition(x, y)
+      }
+    }
+
+  def go(board: Board, many: Int): Seq[Board] = { // Our recursion helper.
+    if (many == 0) {
+      Seq(board) // The recursion base case.
+    } else {
+      // The children of a board is the board with
+      // each available safe position set.
+      val emptyPositions = possiblePositions
+        .filter { position =>
+          board.at(position).isEmpty && board.isSafe((position, put))
+        }
+
+      emptyPositions.flatMap { position =>
+        val newBoard = board.set((position, put))
+        go(newBoard, many - 1)
+      }
+    }
+  }
+
+  go(board, many).toSet.toList // Convert to set here to remove permutations.
+                               // Could we "cut" the search and avoid doing this?
+}
+```
+
+---
+
+class: center, middle, inverse, small-images
+
+### Thank you for your attention!
+
+#### And have a nice ENEI!
