@@ -74,7 +74,7 @@ class: center, middle, inverse
 
 ```scala
 def transformed(numbers: List[Int], op: Int => Int): List[Int] = { 
-    numbers.map(op).toList // How is this implemented?
+    numbers.map(op) // How is this implemented?
 }
 
 val numbers = List(1, 2, 3)
@@ -243,7 +243,7 @@ class NumberProcessor(numbers: List[Int]) {
     def double = {
         requests.incrementAndGet() // How can we "mutate" requests
                                    // when it is a "val"?
-        numbers.map(_ * 2).toList
+        numbers.map(_ * 2)
     }
     def requested = requests.get()
 }
