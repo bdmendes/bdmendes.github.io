@@ -419,6 +419,8 @@ class: center, middle, inverse
   - `sbt test`
   - Of course, they should fail with `NotImplementedError`
 
+> If you are a bit fancy, you can use *Dev Containers* instead. A kind contributor has provided a `.devcontainers` in the workshop repository for that purpose.
+
 ---
 
 ### The problem: *N-Queen-Horses*
