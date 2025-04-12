@@ -6,11 +6,9 @@ tags: ['workshop', 'feup']
 
 class: center, middle, inverse, small-images
 
-# Rethinking programming
+# Rethinking programming: an introduction to functional programming with Scala
 
-### A gentle introduction to functional programming with Scala
-
-#### ENEI 2025 @ FEUP/ISEP
+### ENEI 2025 @ FEUP/ISEP
 
 #### Follow @ *enei25scala.bdmendes.com*
 
@@ -79,7 +77,7 @@ def transformed(numbers: List[Int], op: Int => Int): List[Int] = {
 
 val numbers = List(1, 2, 3)
 
-val doubledNumbers = transformed(numbers, n => n*2)
+val doubledNumbers = transformed(numbers, n => n*2) // List(2, 4, 6)
 ```
 
 > Think of side-effects as something that mutates the external state of a system. For instance, reading from the console (or any kind of I/O).
@@ -211,8 +209,13 @@ class: center, middle, inverse
 val numbers = List(1, 2, 3)
 
 // A variable is mutable.
-var count = 0
-count = count + 1
+var weight = 0
+// A conditional is also an expression.
+weight = if (numbers.isEmpty) {
+  weight + 1
+} else {
+  weight + 2
+}
 
 // A function is a first-class citizen.
 val odds = (numbers: List[Int]) => numbers.filter(n => n % 2 != 0)
@@ -220,6 +223,7 @@ val odds = (numbers: List[Int]) => numbers.filter(n => n % 2 != 0)
 // Methods are evaluated every time they are called.
 def calculator = {
     println("Calculating.")
+    // A block evaluates to the value of its last expression.
     odds
 }
 
@@ -235,7 +239,7 @@ lazy val numbersDescription = s"Odd numbers are ${calculator(numbers)}"
 
 ```scala
 // You may import qualifications as in Java.
-import java.util.concurrent.atomic._
+import java.util.concurrent.atomic.*
 
 // As in Java, you can create a regular class, with some syntax sugar.
 class NumberProcessor(numbers: List[Int]) {
@@ -262,13 +266,13 @@ object NumberProcessor {
 ### Algebraic Data Types
 
 - ADTs allow structural recursion over types
-  - You exhaustively match against a deeply nested type
+  - You are able to exhaustively match against a deeply nested type
 - Scala provides facilities for implementing *sum* and *product* types
 
 ```scala
 // A trait is analogous to a Java interface, but with allowed implementations.
-// Making it sealed means that it may only be extends in "this" file.
-sealed trait Person 
+// Making it sealed means that it may only be extended in the current file.
+sealed trait Person
 
 // To adhere to the functional schema, your classes should be immutable.
 // A `case class` leverages just that meaning.
@@ -322,10 +326,10 @@ println(sorted(List(User(18), User(16))))
 
 ### Immutable collections
 
-```scala
-// In functional programming a data structure should also be immutable.
-// This is done efficiently by intelligently reusing memory allocations.
+- In functional programming a data structure should also be immutable
+  - This is done efficiently by intelligently reusing memory allocations
 
+```scala
 def occurences[A](numbers: List[A]): Map[A, Int] = {
   // Notice the private nested looping method.
   @tailrec // What is this for?
@@ -346,9 +350,6 @@ def occurences[A](numbers: List[A]): Map[A, Int] = {
   }
   occurencesInner(numbers, Map.empty[A, Int])
 }
-
-println(occurences(List(1, 2, 2, 2)))
-
 ```
 
 > Could you implement this with a `foldLeft`? What about with a `foldRight`? What's better?
@@ -425,7 +426,7 @@ class: center, middle, inverse
 
 ### The problem: *N-Queen-Horses*
 
-- The `N-Queens` is a hard LeetCode problem in which one wants to place `n` queens in a `n*n` board, without them attacking each other, and output available possibilities
+- *N-Queens* is a hard LeetCode problem in which one wants to place `n` queens in a `n*n` board, without them attacking each other, and output available possibilities
   - In their provided example, for `n=4` you have `[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]`
 
 <img src="/assets/slides/enei-25-scala/nqueens-leetcode.jpg" style="width: 40%;">
@@ -538,6 +539,10 @@ def isSafe(toPlace: PieceEntry): Boolean = {
 }
 ```
 
+What's the advantage of using the `forall` method versus e.g.
+- The `foreach` method with an auxiliary variable?
+- A `.map(...).filter(_ == false).isEmpty` kind-of composition?
+
 ---
 
 ### `search`
@@ -545,11 +550,7 @@ def isSafe(toPlace: PieceEntry): Boolean = {
 ```scala
 def search(board: Board, put: Piece, many: Int): List[Board] = {
   val possiblePositions = (0 until board.size) // Cache squares.
-    .flatMap { y =>
-      (0 until board.size).map { x =>
-        FromTopLeftPosition(x, y)
-      }
-    }
+    .flatMap { y => (0 until board.size).map(x => FromTopLeftPosition(x, y))}
 
   def go(board: Board, many: Int): Seq[Board] = { // Our recursion helper.
     if (many == 0) {
@@ -574,10 +575,12 @@ def search(board: Board, put: Piece, many: Int): List[Board] = {
 }
 ```
 
+Can you draw the search tree? What does each node represent?
+
 ---
 
 class: center, middle, inverse, small-images
 
 ### Thank you for your attention!
 
-#### And have a nice ENEI!
+#### Have a nice ENEI!

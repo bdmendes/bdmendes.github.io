@@ -610,7 +610,7 @@ void refresh_screen() {
 
 ### Event-driven programming
 
-- Make sure to **separate business logic with I/O functionality**
+- Make sure to **separate business logic from I/O functionality**
     - Your app does not care about how to read keyboard data, it should only understand that a certain key was pressed and act upon that
 
 ```c
