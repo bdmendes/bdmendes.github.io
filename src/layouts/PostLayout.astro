@@ -64,7 +64,11 @@ const displayDate = dayjs(date).format("ll");
     <div class="pagefind-exclude" aria-hidden="true">
       {date && <time>{displayDate}</time>}
       <div class="flex max-w-min min-w-fit mt-2 gap-2 flex-wrap">
-        <a href={`/${badge}`} class="badge badge-primary no-underline">
+        <a
+          data-pagefind-filter="category"
+          href={`/${badge}`}
+          class="badge badge-primary no-underline"
+        >
           {badge}
         </a>
         {

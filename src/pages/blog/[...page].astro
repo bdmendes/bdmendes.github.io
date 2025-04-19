@@ -38,7 +38,7 @@ const { page } = Astro.props;
   sideBarActiveItemID="blog"
   currentPage={page.currentPage}
 >
-  <LargeTitle title="Blog" path="/blog" filters={yearPathsMap} />
+  <LargeTitle title="Blog" path="/blog" filters={yearPathsMap} search={true} />
   <ul>
     {
       page.data.map((post) => (

@@ -37,7 +37,7 @@ const { year } = Astro.params;
   sideBarActiveItemID="slides"
   currentPage={page.currentPage}
 >
-  <LargeTitle title="Slides" path="/slides" selector={year} />
+  <LargeTitle title="Slides" path="/slides" selector={year} search={true} />
   <ul>
     {
       page.data.map((slide) => (

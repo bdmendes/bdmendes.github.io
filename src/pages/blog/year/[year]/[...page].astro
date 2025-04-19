@@ -42,7 +42,7 @@ const { year } = Astro.params;
   sideBarActiveItemID="blog"
   currentPage={page.currentPage}
 >
-  <LargeTitle title="Blog" path="/blog" selector={year} />
+  <LargeTitle title="Blog" path="/blog" selector={year} search={true} />
   <ul>
     {
       page.data.map((post) => (

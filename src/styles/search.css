@@ -8,6 +8,10 @@
   --pagefind-ui-border: oklch(var(--bc) / 0.1);
 }
 
+.pagefind-ui__drawer {
+  gap: 0.5em !important;
+}
+
 .pagefind-ui__search-input {
   font-size: 17px !important;
 }

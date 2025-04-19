@@ -42,7 +42,7 @@ const { year } = Astro.params;
   sideBarActiveItemID="poetry"
   currentPage={page.currentPage}
 >
-  <LargeTitle title="Poetry" path="/poetry" selector={year} />
+  <LargeTitle title="Poetry" path="/poetry" selector={year} search={true} />
   <ul>
     {
       page.data.map((poem) => (
