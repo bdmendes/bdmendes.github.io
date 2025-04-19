@@ -28,7 +28,7 @@ const {
   createYearBadge = true,
   tagEndpoint = "tag",
   shrink = true,
-  sideBarActiveItemID
+  sideBarActiveItemID,
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
@@ -41,6 +41,7 @@ const displayDate = dayjs(date).format("ll");
   currentPage={1}
   shrink={shrink}
   sideBarActiveItemID={sideBarActiveItemID}
+  index={true}
 >
   <div class="mx-auto prose prose-img:mx-auto">
     {
@@ -60,7 +61,7 @@ const displayDate = dayjs(date).format("ll");
         </h1>
       )
     }
-    <div aria-hidden="true">
+    <div class="pagefind-exclude" aria-hidden="true">
       {date && <time>{displayDate}</time>}
       <div class="flex max-w-min min-w-fit mt-2 gap-2 flex-wrap">
         <a href={`/${badge}`} class="badge badge-primary no-underline">

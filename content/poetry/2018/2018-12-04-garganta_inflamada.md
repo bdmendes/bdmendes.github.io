@@ -1,6 +1,5 @@
 ---
 title: Garganta inflamada
-tags: ['dark', 'introspective']
 ---
 
 as vozes ecoam no andar de cima  

@@ -1,0 +1,38 @@
+:root {
+  --pagefind-ui-background: inherit;
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-text: inherit;
+  --pagefind-ui-font: inherit;
+  --pagefind-ui-primary: inherit;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border: oklch(var(--bc) / 0.1);
+}
+
+.pagefind-ui__search-input {
+  font-size: 17px !important;
+}
+
+.pagefind-ui__search-input:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 var(--pagefind-ui-border-width) oklch(var(--bc) / 0.1) !important;
+}
+
+.pagefind-ui__form::before {
+  background-color: oklch(var(--bc)) !important;
+  opacity: 0.9 !important;
+}
+
+.pagefind-ui__search-input::placeholder {
+  color: var(--bc) !important;
+  opacity: 0.5 !important;
+}
+
+.pagefind-ui__result-inner {
+  padding: 0.25em 0 0.25em !important;
+  margin-top: 0 !important;
+}
+
+mark {
+  background-color: oklch(var(--bc) / 0.2) !important;
+  color: inherit !important;
+}

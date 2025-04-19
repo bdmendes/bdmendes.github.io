@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import Search from "astro-pagefind/components/Search";
+import "../styles/search.css";
 
 export interface Props {
   path?: string;
@@ -9,12 +11,13 @@ export interface Props {
 }
 
 const { path, title, selector, filters } = Astro.props;
-const modalId = title.replace(/[^a-zA-Z]+/g, "");
+const filterModalId = title.replace(/[^a-zA-Z]+/g, "") + "filter";
+const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 ---
 
 <div class={"flex items-center justify-between gap-2 flex-wrap w-full mb-4"}>
   <a href={path} class="text-3xl font-bold mr-4">{title}</a>
-  <div class="mt-0.5">
+  <div class="mt-0.5 flex gap-2">
     {
       selector && (
         <div class="flex gap-2 items-center">
@@ -25,13 +28,14 @@ const modalId = title.replace(/[^a-zA-Z]+/g, "");
         </div>
       )
     }
+
     {
       filters && (
         <div class="flex items-center">
-          <button class="" onclick={modalId + ".showModal()"}>
+          <button class="" onclick={filterModalId + ".showModal()"}>
             <Icon name="mdi:filter-variant" size="24" />
           </button>
-          <dialog id={modalId} class="modal">
+          <dialog id={filterModalId} class="modal">
             <ol class="modal-box w-fit min-w-40 flex flex-col gap-3 items-center max-h-[90svh]">
               {filters.map((f) => (
                 <li class="text-center">
@@ -46,5 +50,19 @@ const modalId = title.replace(/[^a-zA-Z]+/g, "");
         </div>
       )
     }
+
+    <button class="" onclick={searchModalId + ".showModal()"}>
+      <Icon name="mdi:search" class="mt-0.5" size="24" />
+    </button>
+    <dialog id={searchModalId} class="modal">
+      <ol
+        class="modal-box w-fit max-w-sm flex flex-col gap-3 items-center h-[90svh] md:h-[60svh]"
+      >
+        <Search uiOptions={{ showImages: false, resetStyles: false }} />
+      </ol>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   </div>
 </div>
