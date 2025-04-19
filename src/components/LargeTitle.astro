@@ -18,11 +18,11 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 
 <div class={"flex items-center justify-between gap-2 flex-wrap w-full mb-4"}>
   <a href={path} class="text-3xl font-bold mr-4">{title}</a>
-  <div class="mt-0.5 flex gap-2">
+  <div class="flex gap-2 mt-0.5 items-center">
     {
       selector && (
         <div class="flex gap-2 items-center">
-          <span class="badge badge-primary mt-0.5">{selector}</span>
+          <span class="badge badge-primary">{selector}</span>
           <a href={path}>
             <Icon name="mdi:filter-variant-remove" size="24" />
           </a>
@@ -52,19 +52,45 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
       )
     }
 
-{
-  search && (
-    <button class="" onclick={searchModalId + ".showModal()"}>
-      <Icon name="mdi:search" class="mt-0.5" size="24" />
-    </button>
-    <dialog id={searchModalId} class="modal">
-      <ol
-        class="modal-box w-fit max-w-sm flex flex-col gap-3 items-center max-h-[80svh] md:h-[65svh]"
-      >
-        <Search uiOptions={{ showImages: false, resetStyles: false }} />
-      </ol>
-      <form method="dialog" class="modal-backdrop">
-        <button>close</button>
-      </form>
-    </dialog>)}
+    {
+      search && (
+        <div>
+          <button
+            class="pt-1.5"
+            onclick={
+              searchModalId +
+              ".showModal();" +
+              (path ? 'filterCategory("' + path!.replace("/", "") + '");' : "")
+            }
+          >
+            <Icon name="mdi:search" class="" size="24" />
+          </button>
+          <dialog id={searchModalId} class="modal">
+            <div class="modal-box max-h-[85svh] md:h-[70svh] md:min-w-[700px]">
+              <Search uiOptions={{ showImages: false, resetStyles: false }} />
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        </div>
+      )
+    }
+  </div>
 </div>
+
+<script is:inline>
+  let clicked = false;
+  function filterCategory(category) {
+    if (clicked) {
+      return;
+    }
+    clicked = true;
+    setTimeout(() => {
+      const filter = document.getElementById("category-" + category);
+      if (filter) {
+        filter.click();
+      }
+    }, 500);
+  }
+</script>

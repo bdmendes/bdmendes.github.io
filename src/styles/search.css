@@ -8,8 +8,16 @@
   --pagefind-ui-border: oklch(var(--bc) / 0.1);
 }
 
+.pagefind-ui__filter-panel {
+  min-width: min(calc(150px * var(--pagefind-ui-scale)), 100%) !important;
+}
+
+.pagefind-ui__filter-name::after {
+  top: 14px !important;
+}
+
 .pagefind-ui__drawer {
-  gap: 0.5em !important;
+  gap: 2em !important;
 }
 
 .pagefind-ui__search-input {
