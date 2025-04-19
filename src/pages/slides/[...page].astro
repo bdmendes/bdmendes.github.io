@@ -43,7 +43,6 @@ const { page } = Astro.props;
             title={slide.data.title}
             description={slide.data.description}
             url={"/slides/" + createSlug(slide.data.title)}
-            tags={dateTag(slide.id)}
           />
         </>
       ))

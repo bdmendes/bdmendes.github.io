@@ -48,7 +48,6 @@ const { page } = Astro.props;
             img={post.data.hero}
             description={extractDescription(post.body!)}
             url={"/blog/" + createSlug(post.data.title)}
-            tags={dateTag(post.id)}
           />
         </>
       ))

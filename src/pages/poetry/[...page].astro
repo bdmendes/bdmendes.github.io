@@ -47,7 +47,6 @@ const { page } = Astro.props;
             title={poem.data.title}
             description={extractDescription(poem.body!)}
             url={"/poetry/" + createSlug(poem.data.title)}
-            tags={dateTag(poem.id)}
           />
         </>
       ))
