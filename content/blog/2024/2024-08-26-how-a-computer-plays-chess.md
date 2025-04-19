@@ -1,7 +1,6 @@
 ---
 title: "How a computer plays chess"
 image: camel_wallpaper.jpg
-tags: ['chess']
 hero: ./camel_wallpaper.jpg
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Propósito do lanche
-tags: ['flâneur', 'dark']
 ---
 
 Esta rapariga almoça sozinha, mas nós, como equipa grande e respeitável que somos, ocupamos-lhe a mesa por inteiro, ficando esta rodeada por estranhos, um pequeno incómodo que não deverá tirar-lhe o sono porque está de fones e habita num mundo que claramente não é o nosso. Não se lembrará, com grande probabilidade, disto que descrevo, e eu, não fosse a necessidade de dar contexto a esta narrativa, seria vítima da mesma circunstância.

@@ -1,6 +1,5 @@
 ---
 title: Tempo perdido / Estacionado (no sonho de te ter)
-tags: ['introspective', 'existential']
 ---
 
 devia tirar tempo ao tempo que tira tempo  

@@ -1,7 +1,6 @@
 ---
 title: "LCOM laboratory work: getting started"
 description: Support material for my practical LCOM classes at FEUP.
-tags: ['class', 'feup']
 ---
 
 class: center, middle, inverse, small-images

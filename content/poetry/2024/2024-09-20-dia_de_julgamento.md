@@ -1,6 +1,5 @@
 ---
 title: Dia de julgamento
-tags: ['surreal']
 ---
 
 É dia de julgamento. Ciente da delicadeza do caso, desloco-me nervoso até ao tribunal. Faço-me acompanhar do meu advogado, que me garante uma boa probabilidade de condenação.

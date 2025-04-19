@@ -1,6 +1,5 @@
 ---
 title: Janela do quarto
-tags: ['surreal']
 ---
 
 Ao passo que a cama estremece, alguém toca as minhas costas. Tento abrir os olhos, mas não posso.

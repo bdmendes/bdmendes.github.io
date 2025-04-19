@@ -1,6 +1,5 @@
 ---
 title: O silêncio que há em tudo
-tags: ['introspective']
 ---
 
 Reuniões, equipas, sugestões, projetos explanados e analisados, compromissos marcados e cancelados, desentendimentos por cansaço sem espaço, questões que só surgem porque não há foco no relato. Torna-se duro andar quando o desespero invade o subconsciente toda e completamente sem permitir contraponto. Deixei que estas semanas se passassem não sem construir memórias, mas sem construir certezas essenciais à sanidade do julgamento.

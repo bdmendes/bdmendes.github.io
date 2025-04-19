@@ -1,6 +1,5 @@
 ---
 title: Monomania
-tags: ['bright', 'flâneur']
 ---
 
 Viver presumindo que o mundo é fundado em bondade é potencialmente fatal. Sei eu disto nas horas livres em que atravesso as ruas e aceno aos motoristas, mas o pensamento se desvanece quando há que encarar a massa populacional que me rodeia e me dá propósito.

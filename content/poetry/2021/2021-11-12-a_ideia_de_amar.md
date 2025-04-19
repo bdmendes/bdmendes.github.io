@@ -1,6 +1,5 @@
 ---
 title: A ideia de amar
-tags: ['introspective']
 ---
 
 O que constitui a completa devoção ao outro?  

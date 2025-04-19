@@ -1,6 +1,5 @@
 ---
 title: O que há de errado em mim
-tags: ['introspective']
 ---
 
 Sei exatamente o que fazer,  

@@ -1,6 +1,5 @@
 ---
 title: Desligar as câmaras
-tags: ['dark', 'existential', 'introspective']
 ---
 
 Não gosto de escrever muito depois de me surgir uma ideia ou de assistir a um episódio que mereça reflexão. O tempo é um fator de desgaste que ludibria o pensamento e ofusca os factos, transformando-os numa mentira poderosa, com aspeto de verdade.

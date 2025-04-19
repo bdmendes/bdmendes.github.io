@@ -1,6 +1,5 @@
 ---
 title: "Rewriting the past: the One Day reinterpretation"
-tags: ['cinema']
 hero: ./one_day_vs.png
 ---
 

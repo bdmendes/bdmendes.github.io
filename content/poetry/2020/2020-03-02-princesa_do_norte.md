@@ -1,6 +1,5 @@
 ---
 title: Princesa do norte
-tags: ['minimal', 'existential']
 ---
 
 Onde leva a indiscrição  

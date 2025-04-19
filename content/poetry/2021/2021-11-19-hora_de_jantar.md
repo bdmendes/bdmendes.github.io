@@ -1,6 +1,5 @@
 ---
 title: Hora de jantar
-tags: ['dark']
 ---
 
 É hora de jantar, mas tu não vens.  

@@ -1,6 +1,5 @@
 ---
 title: Regra de Paris
-tags: ['nostalgic', 'dark', 'introspective']
 ---
 
 Todas as noites em que me deitei abatido,  

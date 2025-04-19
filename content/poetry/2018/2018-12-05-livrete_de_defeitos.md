@@ -1,6 +1,5 @@
 ---
 title: Livrete de defeitos
-tags: ['introspective']
 ---
 
 Mentes brilhantes troçam o meu gosto pela bajulação, dizem que qualquer mulher que me queira deve pura e simplesmente elogiar-me ao desbarato, já está, casamento consumado. A verdade é que somos todos assim, vivemos à espera das palmas, choramos silenciosamente enquanto não vemos a nossa triste vida lá em cima, num placard de publicidade brilhante.

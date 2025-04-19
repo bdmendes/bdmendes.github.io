@@ -1,6 +1,5 @@
 ---
 title: A estação mais quente
-tags: ['nostalgic', 'introspective']
 ---
 
 Quisesse o destino dar-nos uma outra base relacional, capaz de expandir além do eu e fletir os hábitos para além do que havíamos treinado, seríamos porventura um só. Quiséssemos nós outra história, estaríamos gozando o inverno como se da estação mais quente se tratasse, tal seria o calor do toque e a pequenez do espaço que nos separaria quiçá no mesmo lote.

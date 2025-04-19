@@ -1,6 +1,5 @@
 ---
 title: Estrada da vida
-tags: ['existential']
 ---
 
 Surjo. Como uma sombra  

@@ -6,9 +6,6 @@ const blogCollection = defineCollection({
     schema: ({ image }) => z.object({
         title: z.string(),
         hero: image().optional(),
-        tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
-            message: 'tags must be unique',
-        }).optional(),
     }),
 })
 
@@ -16,9 +13,6 @@ const poetryCollection = defineCollection({
     loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/poetry" }),
     schema: () => z.object({
         title: z.string(),
-        tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
-            message: 'tags must be unique',
-        }).optional(),
     }),
 })
 
@@ -27,9 +21,6 @@ const slidesCollection = defineCollection({
     schema: () => z.object({
         title: z.string(),
         description: z.string(),
-        tags: z.array(z.string()).refine(items => new Set(items).size === items.length, {
-            message: 'tags must be unique',
-        }).optional(),
     }),
 })
 

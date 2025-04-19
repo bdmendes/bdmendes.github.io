@@ -1,7 +1,6 @@
 ---
 title: "Linkin Park: the thing with first times"
 hero: ./lp_burn_it_down.jpg
-tags: [music]
 ---
 
 Early 2013. The 11-year-old me was coming home from school and heard *Burn It Down* on the radio, and was hooked instantly.

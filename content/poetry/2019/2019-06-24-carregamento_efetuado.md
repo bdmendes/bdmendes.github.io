@@ -1,6 +1,5 @@
 ---
 title: Carregamento efetuado
-tags: ['surreal']
 ---
 
 Então, como estás  

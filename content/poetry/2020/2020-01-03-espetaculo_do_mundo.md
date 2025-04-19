@@ -1,6 +1,5 @@
 ---
 title: Espetáculo do mundo
-tags: ['bright', 'minimal']
 ---
 
 Hoje foi simples, foi elegante, foi perigoso, foi chuvoso, foi perfeito.

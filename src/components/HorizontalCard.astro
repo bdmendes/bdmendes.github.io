@@ -6,7 +6,7 @@ export interface Props {
   description?: string;
   url?: string;
   badge?: string;
-  tags: string[];
+  tags?: string[];
   disabledTags?: string[];
   divideTop?: boolean;
   divideBottom?: boolean;
@@ -21,7 +21,7 @@ const {
   description,
   url,
   badge,
-  tags,
+  tags = [],
   disabledTags = [],
   divideBottom = true,
   divideTop = false,
@@ -57,19 +57,19 @@ import { Image } from "astro:assets";
           </h1>
           {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
           <p class="py-1">{description}</p>
-          <div class="card-actions justify-end mt-2 mb-1">
-            {
-              disabledTags
-                .toReversed()
-                .map((tag) => <span class="badge badge-ghost">{tag}</span>)
-            }
-            {
-              tags
-                .toReversed()
-                .map((tag) => <span class="badge badge-outline">{tag}</span>)
-            }
-            {badge && <span class="badge badge-primary">{badge}</span>}
-          </div>
+          {
+            (tags.length > 0 || badge || disabledTags.length > 0) && (
+              <div class="card-actions justify-end mt-2 mb-1">
+                {disabledTags.toReversed().map((tag) => (
+                  <span class="badge badge-ghost">{tag}</span>
+                ))}
+                {tags.toReversed().map((tag) => (
+                  <span class="badge badge-outline">{tag}</span>
+                ))}
+                {badge && <span class="badge badge-primary">{badge}</span>}
+              </div>
+            )
+          }
         </div>
       </div>
     </a>

@@ -1,6 +1,5 @@
 ---
 title: Disparo rente e focado
-tags: ['dark', 'introspective']
 ---
 
 Se há que falar de prepotência  

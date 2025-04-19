@@ -1,6 +1,5 @@
 ---
 title: Making macOS less annoying (or more like GNOME)
-tags: ['tech']
 hero: ./gnome-overview.webp
 ---
 

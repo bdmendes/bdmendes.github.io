@@ -6,7 +6,7 @@ import {
   createSlug,
   extractDate,
   extractDescription,
-  augmentTagsWithDate,
+  dateTag,
   sortedByDate,
 } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
@@ -29,12 +29,6 @@ const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
   y,
   "/poetry/year/" + y,
 ]);
-const tags = poems.flatMap((p) => p.data.tags);
-const uniqueTags = [...new Set(tags)].filter((t) => t != null);
-const tagsPathsMap: [string, string][] = uniqueTags.map((y) => [
-  y,
-  "/poetry/tag/" + y,
-]);
 
 const { page } = Astro.props;
 ---
@@ -44,11 +38,7 @@ const { page } = Astro.props;
   sideBarActiveItemID="poetry"
   currentPage={page.currentPage}
 >
-  <LargeTitle
-    title="Poetry"
-    path="/poetry"
-    filters={yearPathsMap.concat(tagsPathsMap)}
-  />
+  <LargeTitle title="Poetry" path="/poetry" filters={yearPathsMap} />
   <ul>
     {
       page.data.map((poem) => (
@@ -57,7 +47,7 @@ const { page } = Astro.props;
             title={poem.data.title}
             description={extractDescription(poem.body!)}
             url={"/poetry/" + createSlug(poem.data.title)}
-            tags={augmentTagsWithDate(poem.data.tags, poem.id)}
+            tags={dateTag(poem.id)}
           />
         </>
       ))

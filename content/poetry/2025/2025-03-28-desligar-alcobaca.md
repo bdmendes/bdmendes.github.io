@@ -1,6 +1,5 @@
 ---
 title: Desligar / Alcobaça
-tags: ['surreal', 'flâneur', 'dark']
 ---
 
 Corajoso é este rapaz que ergue esta rapariga com os braços e a coloca a voar, e nisto voa também no seu mundo interior com a imagem dela em ponto grande enquanto ela voa por cima de si. Não tem nada a temer. Conhece bem o seu corpo, sabe como o equilibrar em todas as posições, não fossem eles conhecidos de longa data, que só não se equilibraram mais cedo porque o tempo e as circunstâncias não o permitiram. Por fim, estando os dois sós e sem nada com que especular, podem ser felizes. Podem voar. Parece que a rapariga voa mesmo, agora que se desequilibra, desliza pelos braços dele e cai de cabeça para trás, bate contra o chão, perde imediatamente os sentidos e como que se desliga para sempre.

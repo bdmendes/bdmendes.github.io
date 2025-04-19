@@ -1,6 +1,5 @@
 ---
 title: Puzzle da vida
-tags: ['minimal', 'introspective']
 ---
 
 Trava, trava, trava, trava!, e ele finalmente mete o pé no pedal com um intensidade que me faz descolar do banco. Sai daí! Naturalmente, deram-me por descontrolado, desmancha-prazeres, gritando por uma banalidade, uma mão cheia de nada que parece fazer desabar o mundo. Irresponsáveis!

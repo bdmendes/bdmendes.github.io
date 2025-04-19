@@ -1,6 +1,5 @@
 ---
 title: Pragmatismo / Punhado de ideias
-tags: ['existential', 'introspective', 'romantic']
 ---
 
 Não há viagem que faça sem me deparar com esta ideia mesquinha, este dogma patético segundo o qual acumular créditos é o caminho, e fora deste caminho estaremos perdidos. Não há viagem que faça sem me deparar com moralidade, com formatação, com vida que tem pouco de singular ou relevante, porque se verga a objetivos, e implode na tentativa de fazer o bem, fazer cumprir uma qualquer promessa.

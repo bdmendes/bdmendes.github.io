@@ -6,7 +6,6 @@ import {
   createSlug,
   extractDate,
   extractDescription,
-  augmentTagsWithDate,
   sortedByDate,
 } from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
@@ -17,13 +16,13 @@ import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = sortedByDate(await getCollection("blog"));
   const years = posts.flatMap((p) =>
-    extractDate(p.id).getFullYear().toString(),
+    extractDate(p.id).getFullYear().toString()
   );
   const uniqueYears = [...new Set(years)];
 
   return uniqueYears.flatMap((year) => {
     const matchingPosts = posts.filter(
-      (p) => extractDate(p.id).getFullYear().toString() === year,
+      (p) => extractDate(p.id).getFullYear().toString() === year
     );
     return paginate(matchingPosts, {
       pageSize: PAGINATION_SIZE,
@@ -53,7 +52,6 @@ const { year } = Astro.params;
             img={post.data.hero}
             description={extractDescription(post.body!)}
             url={"/blog/" + createSlug(post.data.title)}
-            tags={augmentTagsWithDate(post.data.tags, post.id)}
           />
         </>
       ))

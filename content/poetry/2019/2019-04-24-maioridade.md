@@ -1,6 +1,5 @@
 ---
 title: Maioridade
-tags: ['introspective']
 ---
 
 Maioridade. O tão desejado marco dos últimos anos da minha vida chegou, sem pressas, e está aqui para ficar até ao fim dos meus tempos.

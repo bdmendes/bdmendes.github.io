@@ -5,7 +5,7 @@ import { getCollection, render } from "astro:content";
 import {
   createSlug,
   extractDescription,
-  augmentTagsWithDate,
+  dateTag,
   createChessSlug,
   createChessTitle,
   sortedByDate,
@@ -49,19 +49,19 @@ const { Content } = await render(shortDescription);
     description={extractDescription(lastPost.body!)}
     url={"/blog/" + createSlug(lastPost.data.title)}
     badge={"blog"}
-    tags={augmentTagsWithDate(lastPost.data.tags, lastPost.id)}
+    tags={dateTag(lastPost.id)}
   />
   <HorizontalCard
     title={lastPoem.data.title}
     url={"/poetry/" + createSlug(lastPoem.data.title)}
     badge={"poetry"}
-    tags={augmentTagsWithDate(lastPoem.data.tags, lastPoem.id)}
+    tags={dateTag(lastPoem.id)}
   />
   <HorizontalCard
     title={lastSlide.data.title}
     url={"/slides/" + createSlug(lastSlide.data.title)}
     badge={"slides"}
-    tags={augmentTagsWithDate(lastSlide.data.tags, lastSlide.id)}
+    tags={dateTag(lastSlide.id)}
   />
   <HorizontalCard
     title={createChessTitle(lastGame, false)}

@@ -1,6 +1,5 @@
 ---
 title: Pretérito perfeito
-tags: ['nostalgic', 'minimal']
 ---
 
 Não sei onde fomos  

@@ -1,6 +1,5 @@
 ---
 title: Embrace change
-tags: ['existential', 'dark']
 ---
 
 My hands are stained with blood  

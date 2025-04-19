@@ -1,6 +1,5 @@
 ---
 title: Chuva desesperada
-tags: ['introspective']
 ---
 
 O dia está soalheiro  

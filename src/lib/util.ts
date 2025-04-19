@@ -78,8 +78,8 @@ export function extractDate(path: string): Date {
   return new Date(match[0])
 }
 
-export function augmentTagsWithDate(tags: string[] | undefined, path: string) {
-  return (tags ?? []).concat([extractDate(path).getFullYear().toString()]);
+export function dateTag(path: string) {
+  return [extractDate(path).getFullYear().toString()];
 }
 
 export function extractDescription(body: string) {

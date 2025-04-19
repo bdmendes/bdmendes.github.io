@@ -1,6 +1,5 @@
 ---
 title: Lisboa-Espinho
-tags: ['flâneur', 'introspective']
 ---
 
 Fanático pela estabilidade, adepto fervoroso da rotina ou da mesmice para os mais céticos, não me veria, à partida, a regressar sozinho de comboio da capital para o norte, mas, para o bem ou para o mal, existem certos eventos que escolhem uma só cidade num país pequeno como o nosso, e, naturalmente, por razões logísticas, tendem a priorizar a densidade populacional face a todos os outros fatores como a beleza relativa aos olhos de um dos interessados.

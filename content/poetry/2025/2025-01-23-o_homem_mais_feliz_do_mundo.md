@@ -1,6 +1,5 @@
 ---
 title: O homem mais feliz do mundo
-tags: ['introspective', 'nostalgic']
 ---
 
 tenho a dizer, o que fizemos  

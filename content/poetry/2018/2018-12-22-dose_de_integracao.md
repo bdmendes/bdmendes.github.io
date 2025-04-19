@@ -1,6 +1,5 @@
 ---
 title: Dose de integração
-tags: ['surreal', 'introspective']
 ---
 
 Um café, faz favor, melhor seria dizer, Uma dose de integração, se não for muito incómodo. A cara de perplexão dos envolvidos seria inevitável. A somar aos olhares indiscretos, estaríamos perante uma situação peculiar, se não aliciante.

@@ -1,6 +1,5 @@
 ---
 title: My journey as a young club chess player
-tags: ['chess']
 hero: ./chess_young1.jpg
 ---
 

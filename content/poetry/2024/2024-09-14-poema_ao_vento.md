@@ -1,6 +1,5 @@
 ---
 title: Poema ao vento
-tags: ['introspective', 'dark']
 ---
 
 Hoje, o governo parece cair  

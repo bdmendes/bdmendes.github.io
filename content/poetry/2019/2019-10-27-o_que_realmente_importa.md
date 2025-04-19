@@ -1,6 +1,5 @@
 ---
 title: O que realmente importa
-tags: ['romantic', 'introspective']
 ---
 
 Passaste o tempo a tremer, Eu sou assim, talvez seja mais eficiente do que o ser humano comum, dissipando o nervosismo com um espasmo, focando o raciocínio naquilo que realmente importa, o que se mede, o que se calcula, o que é finito e definido.

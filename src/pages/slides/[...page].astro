@@ -2,67 +2,52 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import HorizontalCard from "@components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import {
-    createSlug,
-    extractDate,
-    augmentTagsWithDate,
-    sortedByDate,
-} from "../../lib/util";
+import { createSlug, extractDate, dateTag, sortedByDate } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
 import { PAGINATION_SIZE } from "src/config";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const slides = sortedByDate(await getCollection("slides"));
-    return paginate(slides, { pageSize: PAGINATION_SIZE });
+  const slides = sortedByDate(await getCollection("slides"));
+  return paginate(slides, { pageSize: PAGINATION_SIZE });
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const slides = await getCollection("slides");
 const uniqueYears = [
-    ...new Set(slides.map((p) => extractDate(p.id).getFullYear().toString())),
+  ...new Set(slides.map((p) => extractDate(p.id).getFullYear().toString())),
 ]
-    .toSorted()
-    .toReversed();
+  .toSorted()
+  .toReversed();
 const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
-    y,
-    "/slides/year/" + y,
-]);
-const tags = slides.flatMap((p) => p.data.tags);
-const uniqueTags = [...new Set(tags)].filter((t) => t != null);
-const tagsPathsMap: [string, string][] = uniqueTags.map((y) => [
-    y,
-    "/slides/tag/" + y,
+  y,
+  "/slides/year/" + y,
 ]);
 
 const { page } = Astro.props;
 ---
 
 <BaseLayout
-    title="Slides"
-    sideBarActiveItemID="slides"
-    currentPage={page.currentPage}
+  title="Slides"
+  sideBarActiveItemID="slides"
+  currentPage={page.currentPage}
 >
-    <LargeTitle
-        title="Slides"
-        path="/slides"
-        filters={yearPathsMap.concat(tagsPathsMap)}
-    />
-    <ul>
-        {
-            page.data.map((slide) => (
-                <>
-                    <HorizontalCard
-                        title={slide.data.title}
-                        description={slide.data.description}
-                        url={"/slides/" + createSlug(slide.data.title)}
-                        tags={augmentTagsWithDate(slide.data.tags, slide.id)}
-                    />
-                </>
-            ))
-        }
-    </ul>
-    <PaginationButtons page={page} path="/slides" />
+  <LargeTitle title="Slides" path="/slides" filters={yearPathsMap} />
+  <ul>
+    {
+      page.data.map((slide) => (
+        <>
+          <HorizontalCard
+            title={slide.data.title}
+            description={slide.data.description}
+            url={"/slides/" + createSlug(slide.data.title)}
+            tags={dateTag(slide.id)}
+          />
+        </>
+      ))
+    }
+  </ul>
+  <PaginationButtons page={page} path="/slides" />
 </BaseLayout>

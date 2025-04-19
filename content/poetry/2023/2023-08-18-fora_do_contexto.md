@@ -1,6 +1,5 @@
 ---
 title: Fora do contexto
-tags: ['introspective']
 ---
 
 Coloquem-se-me à frente mil motivos  

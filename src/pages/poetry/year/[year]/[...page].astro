@@ -6,7 +6,6 @@ import {
   createSlug,
   extractDate,
   extractDescription,
-  augmentTagsWithDate,
   sortedByDate,
 } from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
@@ -17,13 +16,13 @@ import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 export const getStaticPaths = (async ({ paginate }) => {
   const poems = sortedByDate(await getCollection("poetry"));
   const years = poems.flatMap((p) =>
-    extractDate(p.id).getFullYear().toString(),
+    extractDate(p.id).getFullYear().toString()
   );
   const uniqueYears = [...new Set(years)];
 
   return uniqueYears.flatMap((year) => {
     const matchingPoems = poems.filter(
-      (p) => extractDate(p.id).getFullYear().toString() === year,
+      (p) => extractDate(p.id).getFullYear().toString() === year
     );
     return paginate(matchingPoems, {
       pageSize: PAGINATION_SIZE,
@@ -52,7 +51,6 @@ const { year } = Astro.params;
             title={poem.data.title}
             description={extractDescription(poem.body!)}
             url={"/poetry/" + createSlug(poem.data.title)}
-            tags={augmentTagsWithDate(poem.data.tags, poem.id)}
           />
         </>
       ))

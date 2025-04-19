@@ -1,7 +1,6 @@
 ---
 title: "Flutter: develop once, run everywhere"
 description: A hands-on Flutter workshop at FEUP, covering architecture and best practices. Hosted as a NIAEFEUP external event.
-tags: ['workshop', 'feup']
 ---
 
 class: center, middle, inverse, small-images

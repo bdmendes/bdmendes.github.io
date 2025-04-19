@@ -1,6 +1,5 @@
 ---
 title: Perturba-me (o que dizem dos homens)
-tags: ['introspective']
 ---
 
 Perturba-me!  

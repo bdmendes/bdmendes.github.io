@@ -25,7 +25,6 @@ const { Content } = await render(entry);
   description={extractDescription(entry.body!)}
   date={extractDate(entry.id)}
   badge={"poetry"}
-  tags={entry.data.tags}
   sideBarActiveItemID="poetry"
 >
   <Content />

@@ -1,6 +1,5 @@
 ---
 title: O rapaz das flores
-tags: ['existential', 'dark']
 ---
 
 Há tempos escrevi um texto sobre a morte de uma pessoa, e como fiz com tantos outros textos ou deslumbres, maltratei-o, mas com pouco sucesso, porque ele habita na minha mente, está tatuado na minha memória, é um artefacto irrefutável da minha história.

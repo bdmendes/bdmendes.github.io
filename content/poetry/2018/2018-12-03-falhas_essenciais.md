@@ -1,6 +1,5 @@
 ---
 title: Falhas essenciais
-tags: ['introspective']
 ---
 
 Atento, penso no que me faz sentir bem, quem sabe, ser feliz, fazer o que gosto sem definir objetivos em demasia ou remoer-me em preocupações e anseios.

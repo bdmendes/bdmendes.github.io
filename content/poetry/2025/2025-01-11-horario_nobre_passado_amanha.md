@@ -1,6 +1,5 @@
 ---
 title: Horário nobre / O passado amanhã
-tags: ['dark', 'introspective', 'existential']
 ---
 
 E se nos desfizermos dos dias? Ficarmos só com as noites, com o escuro denso e impecável, com as alucinações que criamos em horário nobre, enfim desprovidas de sentido por ausência de contexto. Ficarmos só com a noite, num lugar onde o tempo é estanque e paira sorrateiro pelo ar, criando um tempo onde não há um tempo nem há tempo para sonhar, oh!, acabem com o tempo, acabem com o significado e sua lamentável evangelização.

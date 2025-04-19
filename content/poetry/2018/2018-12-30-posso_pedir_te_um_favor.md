@@ -1,6 +1,5 @@
 ---
 title: Posso pedir-te um favor?
-tags: ['introspective']
 ---
 
 Podias tentar desligar-te.  

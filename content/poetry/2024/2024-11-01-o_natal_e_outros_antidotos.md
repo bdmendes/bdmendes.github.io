@@ -1,6 +1,5 @@
 ---
 title: O Natal (e outros antídotos)
-tags: ['dark', 'nostalgic', 'minimal']
 ---
 
 Há um tipo muito específico de tristeza que é absolutamente viciante: infiltra-se nas frinchas das paredes, impregna o ar ambiente e ainda insatisfeita entra pelos pulmões adentro e dificulta a respiração. Provoca tonturas, dores de cabeça, e não dorme, não sabe dormir, é inumana.
