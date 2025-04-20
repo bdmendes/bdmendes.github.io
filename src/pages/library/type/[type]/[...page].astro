@@ -43,6 +43,11 @@ export const getStaticPaths = (async ({ paginate }) => {
             title={entry.data.title + " (" + entry.data.year + ")"}
             img={entry.data.hero!}
             description={entry.body!}
+            mainBadge={[entry.data.type, "/library/type/" + entry.data.type]}
+            secondaryBadge={[
+              entry.data.author,
+              "/library/author/" + entry.data.author,
+            ]}
             tertiaryBadge={[
               entry.data.evaluation + "★/5",
               "/library/evaluation/" + entry.data.evaluation,
