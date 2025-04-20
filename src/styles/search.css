@@ -9,6 +9,10 @@
 }
 
 .pagefind-ui__filter-panel {
+  display: none !important;
+}
+
+.pagefind-ui__filter-panel {
   min-width: min(calc(150px * var(--pagefind-ui-scale)), 100%) !important;
 }
 
