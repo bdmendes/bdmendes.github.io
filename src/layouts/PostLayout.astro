@@ -46,23 +46,24 @@ const displayDate = dayjs(date).format("ll");
   <div class="mx-auto prose prose-img:mx-auto">
     {
       customHeader ? (
-        <div class="flex w-full justify-between gap-4 mt-0 mb-2 items-center">
-          {Object.entries(customHeader).map(([_, h], idx) => (
-            <div
-              class={`text-lg md:text-2xl font-bold grow-0 ${idx == 2 ? "text-right" : ""} ${idx == 1 ? "shrink-0" : ""}`}
-            >
-              {h}
-            </div>
-          ))}
+        <div>
+          <h1 hidden>{title}</h1>
+          <div class="flex w-full justify-between gap-4 mt-0 mb-2 items-center pagefind-exclude">
+            {Object.entries(customHeader).map(([_, h], idx) => (
+              <div
+                class={`text-lg md:text-2xl grow-0 ${idx == 2 ? "text-right" : ""} ${idx == 1 ? "shrink-0" : ""}`}
+              >
+                {h}
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
-        <h1 class="mt-0 mb-2 text-4xl font-bold max-w-min min-w-fit">
-          {title}
-        </h1>
+        <h1 class="mb-2 text-4xl max-w-min min-w-fit font-bold">{title}</h1>
       )
     }
     <div aria-hidden="true">
-      {date && <time>{displayDate}</time>}
+      {date && <time class="pagefind-exclude">{displayDate}</time>}
       <div class="flex max-w-min min-w-fit mt-2 gap-2 flex-wrap">
         <a
           data-pagefind-filter="category"
