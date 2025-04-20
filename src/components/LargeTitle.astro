@@ -36,8 +36,8 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
           <button class="" onclick={filterModalId + ".showModal()"}>
             <Icon name="mdi:filter-variant" size="24" />
           </button>
-          <dialog id={filterModalId} class="modal">
-            <ol class="modal-box w-fit min-w-40 flex flex-col gap-3 items-center max-h-[90svh]">
+          <dialog id={filterModalId} class="modal modal-top">
+            <ol class="modal-box w-fit min-w-40 flex flex-col gap-3 items-center max-h-[90svh] mx-auto">
               {filters.map((f) => (
                 <li class="text-center">
                   <a href={f[1]}>{f[0]}</a>
@@ -65,8 +65,8 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
           >
             <Icon name="mdi:search" class="" size="24" />
           </button>
-          <dialog id={searchModalId} class="modal">
-            <div class="modal-box max-h-[85svh] md:h-[70svh] md:min-w-[700px]">
+          <dialog id={searchModalId} class="modal modal-top">
+            <div class="modal-box max-w-[700px] max-h-[80svh] mx-auto">
               <Search uiOptions={{ showImages: false, resetStyles: false }} />
             </div>
             <form method="dialog" class="modal-backdrop">
