@@ -80,17 +80,20 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 </div>
 
 <script is:inline>
-  let clicked = false;
+  var clicked = false;
   function filterCategory(category) {
-    if (clicked) {
+    if (clicked || !category) {
       return;
     }
-    clicked = true;
     setTimeout(() => {
       const filter = document.getElementById("category-" + category);
       if (filter) {
         filter.click();
+        clicked = true;
+      } else {
+        filterCategory(category);
       }
-    }, 500);
+    }, 100);
   }
+  filterCategory;
 </script>
