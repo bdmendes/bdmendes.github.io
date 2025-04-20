@@ -38,5 +38,6 @@ export async function GET() {
     items: items
       .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf())
       .slice(0, PAGINATION_SIZE),
+    trailingSlash: false,
   });
 }
