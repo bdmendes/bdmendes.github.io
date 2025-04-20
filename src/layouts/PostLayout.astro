@@ -67,7 +67,7 @@ const displayDate = dayjs(date).format("ll");
         <a
           data-pagefind-filter="category"
           href={`/${badge}`}
-          class="badge badge-primary no-underline"
+          class="badge badge-primary no-underline pagefind-exclude"
         >
           {badge}
         </a>
@@ -83,14 +83,14 @@ const displayDate = dayjs(date).format("ll");
         }
         {
           disabledTags?.map((tag) => (
-            <span class="badge badge-ghost">{tag}</span>
+            <span class="badge badge-ghost pagefind-exclude">{tag}</span>
           ))
         }
         {
           createYearBadge && (
             <a
               href={`/${badge}/year/${date.getFullYear().toString()}`}
-              class="badge badge-outline no-underline"
+              class="badge badge-outline no-underline pagefind-exclude"
             >
               {date.getFullYear().toString()}
             </a>
