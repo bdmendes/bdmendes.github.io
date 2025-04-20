@@ -17,7 +17,7 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 const iconSize = 26;
 ---
 
-<div class={"flex items-center justify-between gap-2 flex-wrap w-full mb-4"}>
+<div class="flex items-center justify-between gap-2 flex-wrap w-full mb-4">
   <a href={path} class="text-3xl font-bold mr-4">{title}</a>
   <div class="flex gap-2 items-center mt-0.5">
     {
@@ -37,7 +37,7 @@ const iconSize = 26;
           <button onclick={filterModalId + ".showModal()"}>
             <Icon name="mdi:filter" size={iconSize} />
           </button>
-          <dialog id={filterModalId} class="modal modal-top md:pl-52">
+          <dialog id={filterModalId} class="modal modal-top">
             <ol class="modal-box w-fit min-w-40 flex flex-col gap-4 items-center max-h-[95svh] md:max-h-[80svh] mx-auto">
               {filters.map((f) => (
                 <li class="text-center">
@@ -65,8 +65,8 @@ const iconSize = 26;
           >
             <Icon name="mdi:magnify" size={iconSize} />
           </button>
-          <dialog id={searchModalId} class="modal modal-top md:pl-52">
-            <div class="modal-box max-w-xl max-h-[95svh] md:max-h-[80svh] mx-auto">
+          <dialog id={searchModalId} class="modal modal-top">
+            <div class="modal-box max-w-lg max-h-[95svh] md:max-h-[80svh] mx-auto">
               <Search
                 uiOptions={{
                   showImages: false,
