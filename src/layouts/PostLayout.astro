@@ -51,7 +51,7 @@ const displayDate = dayjs(date).format("ll");
           <div class="flex w-full justify-between gap-4 mt-0 mb-2 items-center pagefind-exclude">
             {Object.entries(customHeader).map(([_, h], idx) => (
               <div
-                class={`text-lg md:text-2xl grow-0 ${idx == 2 ? "text-right" : ""} ${idx == 1 ? "shrink-0" : ""}`}
+                class={`text-lg md:text-2xl grow-0 font-bold ${idx == 2 ? "text-right" : ""} ${idx == 1 ? "shrink-0" : ""}`}
               >
                 {h}
               </div>
