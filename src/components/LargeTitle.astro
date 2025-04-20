@@ -14,17 +14,18 @@ export interface Props {
 const { path, title, selector, filters, search = false } = Astro.props;
 const filterModalId = title.replace(/[^a-zA-Z]+/g, "") + "filter";
 const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
+const iconSize = 26;
 ---
 
 <div class={"flex items-center justify-between gap-2 flex-wrap w-full mb-4"}>
   <a href={path} class="text-3xl font-bold mr-4">{title}</a>
-  <div class="flex gap-3 mt-0.5 items-center">
+  <div class="flex gap-2 items-center mt-0.5">
     {
       selector && (
         <div class="flex gap-2 items-center">
           <span class="badge badge-primary">{selector}</span>
           <a href={path}>
-            <Icon name="mdi:filter-variant-remove" size="24" />
+            <Icon name="mdi:filter-off" size={iconSize} />
           </a>
         </div>
       )
@@ -33,11 +34,11 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
     {
       filters && (
         <div class="flex items-center">
-          <button class="" onclick={filterModalId + ".showModal()"}>
-            <Icon name="mdi:filter-variant" size="24" />
+          <button onclick={filterModalId + ".showModal()"}>
+            <Icon name="mdi:filter" size={iconSize} />
           </button>
-          <dialog id={filterModalId} class="modal modal-top">
-            <ol class="modal-box w-fit min-w-40 flex flex-col gap-3 items-center max-h-[90svh] mx-auto">
+          <dialog id={filterModalId} class="modal modal-top md:pl-52">
+            <ol class="modal-box w-fit min-w-40 flex flex-col gap-4 items-center max-h-[95svh] md:max-h-[80svh] mx-auto">
               {filters.map((f) => (
                 <li class="text-center">
                   <a href={f[1]}>{f[0]}</a>
@@ -54,19 +55,18 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 
     {
       search && (
-        <div>
+        <div class="flex items-center">
           <button
-            class="pt-1.5"
             onclick={
               searchModalId +
               ".showModal();" +
               (path ? 'filterCategory("' + path!.replace("/", "") + '");' : "")
             }
           >
-            <Icon name="mdi:search" class="" size="24" />
+            <Icon name="mdi:magnify" size={iconSize} />
           </button>
-          <dialog id={searchModalId} class="modal modal-top">
-            <div class="modal-box max-w-xl max-h-[90svh] mx-auto">
+          <dialog id={searchModalId} class="modal modal-top md:pl-52">
+            <div class="modal-box max-w-xl max-h-[95svh] md:max-h-[80svh] mx-auto">
               <Search
                 uiOptions={{
                   showImages: false,
