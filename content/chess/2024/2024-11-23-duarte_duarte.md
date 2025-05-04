@@ -2,7 +2,7 @@
 black: Duarte Duarte
 round: 1
 board: 7
-tournament: Liga da Maia 2024
+tournament: Liga da Maia 2024/2025
 result: 1-0
 whiteElo: 1737
 blackElo: 1460
