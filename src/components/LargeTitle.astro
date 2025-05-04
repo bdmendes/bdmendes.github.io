@@ -34,7 +34,10 @@ const iconSize = 26;
     {
       filters && (
         <div class="flex items-center">
-          <button onclick={filterModalId + ".showModal()"}>
+          <button
+            class="cursor-pointer"
+            onclick={filterModalId + ".showModal()"}
+          >
             <Icon name="mdi:filter" size={iconSize} />
           </button>
           <dialog id={filterModalId} class="modal modal-top">
@@ -57,6 +60,7 @@ const iconSize = 26;
       search && (
         <div class="flex items-center">
           <button
+            class="cursor-pointer"
             onclick={
               searchModalId +
               ".showModal();" +

@@ -30,7 +30,7 @@
 
 .pagefind-ui__search-input:focus {
   outline: none !important;
-  box-shadow: 0 0 0 var(--pagefind-ui-border-width) color-mix(in oklab, var(--color-base-content) 10%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-base-content) 10%, transparent) !important;
 }
 
 .pagefind-ui__form::before {
