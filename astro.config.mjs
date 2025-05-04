@@ -7,12 +7,16 @@ import pagefind from "astro-pagefind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://bdmendes.com",
+  vite: {
+    plugins: [
+      tailwindcss({
+        applyBaseStyles: false,
+      }),
+    ],
+  },
   integrations: [
     icon(),
     sitemap(),
-    tailwindcss({
-      applyBaseStyles: false,
-    }),
     pagefind({
       indexConfig: {
         excludeSelectors: [".pagefind-exclude"],
