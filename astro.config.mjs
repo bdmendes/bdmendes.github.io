@@ -4,7 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import pagefind from "astro-pagefind";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://bdmendes.com",
   vite: {

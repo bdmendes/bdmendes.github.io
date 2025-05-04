@@ -19,6 +19,10 @@
   }
 }
 
+@theme {
+  --breakpoint-sm: 576px;
+}
+
 * {
   word-break: break-word;
 }
