@@ -39,10 +39,6 @@ a.badge {
   @apply transition ease-in-out hover:scale-[105%];
 }
 
-.badge {
-  @apply h-min min-h-5 py-[0.05rem];
-}
-
 .prose {
   blockquote {
     @apply max-w-min min-w-fit not-italic;
