@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import pagefind from "astro-pagefind";
 
@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [
     icon(),
     sitemap(),
-    tailwind({
+    tailwindcss({
       applyBaseStyles: false,
     }),
     pagefind({

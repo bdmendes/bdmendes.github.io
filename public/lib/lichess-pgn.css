@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .cg-wrap {
   box-sizing: content-box;
   position: relative;
@@ -732,5 +733,3 @@ cg-board square.current-premove {
 .lpv:focus {
   outline: auto 2px var(--c-lpv-accent, hsl(88, 62%, 37%));
 }
-
-/*# sourceMappingURL=hey.css.map */
