@@ -20,9 +20,9 @@ while (pages.length < 5 && page.lastPage > pages.length) {
 <div class="flex">
   {
     pages.length > 1 && (
-      <div class="join mx-auto my-4">
+      <div class="join mx-auto my-4 h-11">
         {page.currentPage === 1 ? (
-          <button class="join-item btn btn-disabled">«</button>
+          <button class="join-item btn btn-disabled h-full">«</button>
         ) : (
           <a
             href={
@@ -30,14 +30,14 @@ while (pages.length < 5 && page.lastPage > pages.length) {
               (page.currentPage - 1 == 1 ? "" : "/" + (page.currentPage - 1))
             }
           >
-            <button class="join-item btn">«</button>
+            <button class="join-item btn h-full">«</button>
           </a>
         )}
 
         {pages.map((p) => (
           <a href={path + (p == 1 ? "" : "/" + p)}>
             <button
-              class={`join-item btn ${p === page.currentPage ? "btn-active" : ""}`}
+              class={`join-item btn h-full ${p === page.currentPage ? "btn-active" : ""}`}
               aria-current={p === page.currentPage ? "page" : undefined}
             >
               {p}
@@ -46,10 +46,10 @@ while (pages.length < 5 && page.lastPage > pages.length) {
         ))}
 
         {page.currentPage === page.lastPage ? (
-          <button class="join-item btn btn-disabled">»</button>
+          <button class="join-item btn h-full btn-disabled">»</button>
         ) : (
           <a href={path + "/" + (page.currentPage + 1)}>
-            <button class="join-item btn">»</button>
+            <button class="join-item btn h-full">»</button>
           </a>
         )}
       </div>
