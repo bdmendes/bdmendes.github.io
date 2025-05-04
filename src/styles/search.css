@@ -5,7 +5,7 @@
   --pagefind-ui-font: inherit;
   --pagefind-ui-primary: inherit;
   --pagefind-ui-border-width: 2px;
-  --pagefind-ui-border: oklch(var(--bc) / 0.1);
+  --pagefind-ui-border: color-mix(in oklab, var(--color-base-content) 10%, transparent);
 }
 
 .pagefind-ui__filter-panel {
@@ -30,11 +30,11 @@
 
 .pagefind-ui__search-input:focus {
   outline: none !important;
-  box-shadow: 0 0 0 var(--pagefind-ui-border-width) oklch(var(--bc) / 0.1) !important;
+  box-shadow: 0 0 0 var(--pagefind-ui-border-width) color-mix(in oklab, var(--color-base-content) 10%, transparent) !important;
 }
 
 .pagefind-ui__form::before {
-  background-color: oklch(var(--bc)) !important;
+  background-color: color-mix(in oklab, var(--color-base-content) 100%, transparent) !important;
   opacity: 0.9 !important;
 }
 
@@ -53,6 +53,6 @@
 }
 
 mark {
-  background-color: oklch(var(--bc) / 0.2) !important;
+  background-color: color-mix(in oklab, var(--color-base-content) 20%, transparent) !important;
   color: inherit !important;
 }
