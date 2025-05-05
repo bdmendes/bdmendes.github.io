@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: sunset;
+  themes: dim;
 }
 @plugin "@tailwindcss/typography";
 
