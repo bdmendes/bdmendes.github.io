@@ -6,4 +6,4 @@ Hoje, ao jantar pela banca uma taça de cereais, talvez pelo perigo associado a 
 
 ---
 
-Como se te houvesse conhecido há anos, como que amantes ao sol na costa, preencheste-me o quarto todo, foste luz e ar pela noite dentro, saturaste-me o dia a seguir tão completamente que fiquei-me perguntando se haviam banido a cor do mundo.
+Como se te houvesse conhecido há anos, como que amantes ao sol na costa, preencheste-me o quarto todo, foste luz e ar pela noite dentro, dessaturaste-me o dia a seguir tão completamente que fiquei-me perguntando se haviam banido a cor do mundo.
