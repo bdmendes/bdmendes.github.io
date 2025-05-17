@@ -1,0 +1,9 @@
+---
+title: Formigas-gigante
+---
+
+Da última vez que verifiquei, eram pouco mais de oito as formigas-gigante que vagueavam pela cidade, fazendo o mesmo percurso do 502, mas levando objetos em vez de pessoas, nunca se sabendo com que finalidade. Quando passavam por aqui, como o 502, estavam já perto do seu destino, exaustas, como quem teve de fazer estrada apenas pelo fim desta e nunca pelo prazer de fazer estrada.
+
+Foram sendo capa de jornal, as formigas, em todo o Porto. O JN, pela Trindade, estava, naturalmente, em excelentes condições para cobrir o acontecimento, e, veja-se, até o Comércio do Porto renasceu das cinzas duas décadas depois aliciado pela possibilidade de fazer negócio com as formigas. Via-se sempre muita gente na rua perplexada com a história destes seres coloniais, num misto de medo e fascínio que há de ter tornado a cidade ainda mais atrativa a julgar pela massa turística que agora não parava de chocar ali pelos Leões e veio cá acima até à Boavista saturar as ruas, não obstante as formigas terem já fama de subtrair carteiras de bolsos nos seus dias mais produtivos.
+
+Entre histórias, mudanças e outra fenomenologia que aqui não se abordou porque não foi possível chegar a nada coerente ou relevante, ter-me-á passado completamente ao lado o grande saque das formigas-gigante. Ontem, na minha caminhada diária pelo palácio, qual o meu espanto ao verificar que não havia palácio no palácio; tinham pegado no Rosa Mota pelas costas e qual pacote de arroz levaram-no até à Cordoaria, onde dançaram alegremente com ele aos pedaços. Chocado com esta visão, dei meia volta, passei pelo mercado, peguei num pacote de arroz agulha pelas mãos, tirei deste meio copo já em casa a que acrescentei um de água e jantei-o com uma proteína qualquer, enquanto atentava nas formigas-gigante pela janela.
