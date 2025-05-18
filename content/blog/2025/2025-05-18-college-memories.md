@@ -29,7 +29,7 @@ Then came Covid. The second semester was just starting, and we were sent home fo
 Slowly, we returned to in-person classes. At first, this meant biweekly practical lessons, with half the class missing half of the sessions each week. Then, we transitioned to normal practical lessons while theoretical classes remained online. Social events were also making a comeback, but perhaps due to my age, the influence of the lonely months we've had, or both, I found myself less excited about them. Coincidentally, around that time, I moved from my second place in Porto, in São Mamede de Infesta, where I had stayed for only a couple of months, to what would become my longest and most story-filled residence: our house in Areosa.
 
 ![](./christmas-shopping-areosa.jpg)
-*(Some of the) Areosa gang in a December. I insisted for paying for this picture, which was a great decision.*
+*(Some of) The Areosa gang in a December. I insisted on paying for this picture, which was a great decision.*
 
 I’d say that the third year, the final year of the Bachelor’s degree[^integrated-bsc-msc], was one of the happiest times of my life. I finally managed to establish a routine that included cooking, sharing a space with others who became very good friends, and balancing my responsibilities. I also had just started dating, and despite all the butterflies, my academic results improved. What's more, I made the difficult decision to pause my chess hobby to focus on what mattered most at the time. This period saw me grow as never before and helped me alleviate some of my worst personality traits. And I'll forever be grateful for that.
 
