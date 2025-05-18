@@ -56,3 +56,20 @@ while (pages.length < 5 && page.lastPage > pages.length) {
     )
   }
 </div>
+
+<style>
+  .btn-active {
+    --btn-bg: color-mix(
+      in oklab,
+      var(--btn-color, var(--color-base-200)),
+      #000 14%
+    );
+  }
+  .btn-disabled {
+    background-color: color-mix(
+      in oklab,
+      var(--color-base-content) 5%,
+      transparent
+    );
+  }
+</style>
