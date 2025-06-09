@@ -7,6 +7,7 @@ export interface Props {
   ply?: number;
   white?: string;
   black?: string;
+  fen?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   ply = 20,
   white = "Bruno Mendes",
   black = "Bruno Mendes",
+  fen,
 } = Astro.props;
 ---
 
@@ -24,7 +26,10 @@ const {
     data-pgn={pgn}
     data-ply={ply}
     data-white={white}
-    data-black={black}></chess-game>
+    data-black={black}
+    data-fen={fen}
+  >
+  </chess-game>
 </div>
 
 <script>
@@ -39,6 +44,7 @@ const {
         pgn: this.dataset.pgn,
         initialPly: Number(this.dataset.ply),
         orientation: this.dataset.black == "Bruno Mendes" ? "black" : "white",
+        fen: this.dataset.fen,
       });
 
       const container = document.getElementById(`${this.dataset.id}-container`);

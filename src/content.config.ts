@@ -59,6 +59,7 @@ const chessGamesCollection = defineCollection({
             }),
         round: z.number().optional(),
         board: z.number().optional(),
+        fen: z.string().optional(),
     }),
 });
 

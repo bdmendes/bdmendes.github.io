@@ -57,6 +57,7 @@ export const getStaticPaths = (async ({ paginate }) => {
               pgn={game.body}
               white={game.data.white}
               black={game.data.black}
+              fen={game.data.fen}
             />
           </HorizontalCard>
         </>

@@ -15,6 +15,7 @@ export interface Props {
   pgn: string;
   date: Date;
   description: string;
+  fen?: string;
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   description,
   board,
   round,
+  fen,
 } = Astro.props;
 const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${blackElo ? `(${blackElo})` : ""}`;
 const flipped = black === "Bruno Mendes";
@@ -51,7 +53,8 @@ const flipped = black === "Bruno Mendes";
   shrink={false}
   description={description}
 >
-  <chess-game data-pgn={pgn} data-flipped={flipped}> </chess-game>
+  <chess-game data-pgn={pgn} data-fen={fen} data-flipped={flipped}>
+  </chess-game>
   <div id="board"></div>
 </PostLayout>
 
@@ -61,6 +64,7 @@ const flipped = black === "Bruno Mendes";
     connectedCallback() {
       LichessPgnViewer(document.getElementById("board")!, {
         pgn: this.dataset.pgn,
+        fen: this.dataset.fen,
         orientation: this.dataset.flipped === "true" ? "black" : "white",
       });
     }
