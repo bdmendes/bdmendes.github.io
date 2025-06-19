@@ -63,30 +63,6 @@ const chessGamesCollection = defineCollection({
     }),
 });
 
-const libraryCollection = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/library" }),
-    schema: ({ image }) => z.object({
-        title: z.string(),
-        author: z.string(),
-        type: z.enum(["movie", "book", "album", "series"]),
-        hero: image(),
-        year: z.number(),
-        evaluation: z.union([
-            z.literal(0),
-            z.literal(0.5),
-            z.literal(1),
-            z.literal(1.5),
-            z.literal(2),
-            z.literal(2.5),
-            z.literal(3),
-            z.literal(3.5),
-            z.literal(4),
-            z.literal(4.5),
-            z.literal(5),
-          ]),
-    }),
-});
-
 const cvCollection = defineCollection({
     loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./content/cv" }),
     schema: () => z.object({
@@ -104,6 +80,5 @@ export const collections = {
     'poetry': poetryCollection,
     'slides': slidesCollection,
     'chess': chessGamesCollection,
-    'library': libraryCollection,
     'cv': cvCollection,
 }
