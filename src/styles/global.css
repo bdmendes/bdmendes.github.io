@@ -43,6 +43,11 @@
   }
 }
 
+body {
+  width: 100vw;
+  overflow-x: clip;
+}
+
 * {
   word-break: break-word;
 }
