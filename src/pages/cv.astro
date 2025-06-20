@@ -29,8 +29,12 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
         href={SOCIALS.LinkedIn.url}
         target="_blank"
       >
-        <Icon size="20" name={SOCIALS.LinkedIn.icon} />
-        <span class="ml-2 text-sm">
+        <Icon
+          size="20"
+          name={SOCIALS.LinkedIn.icon}
+          class:list={["no-print mr-2"]}
+        />
+        <span class="text-sm">
           {SOCIALS.LinkedIn.url.replace("https://www.", "")}
         </span>
       </a>
