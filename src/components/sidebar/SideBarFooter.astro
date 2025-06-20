@@ -3,18 +3,18 @@ import { Icon } from "astro-icon/components";
 import { SOCIALS } from "../../config";
 ---
 
-<div class="py-5 flex justify-center w-full bg-base-200">
-    {
-        Object.entries(SOCIALS).map(([key, value]) => (
-            <a
-                href={value.url}
-                target="_blank"
-                class="mx-3 transition ease-in-out hover:scale-[110%]"
-                aria-label={key}
-                title={key}
-            >
-                <Icon name={value.icon} class="hover:shadow-xl" size="24" />
-            </a>
-        ))
-    }
+<div class="py-5 flex justify-center w-full">
+  {
+    Object.entries(SOCIALS).map(([key, value]) => (
+      <a
+        href={value.url}
+        target="_blank"
+        class="mx-3 transition ease-in-out hover:scale-[110%]"
+        aria-label={key}
+        title={key}
+      >
+        <Icon name={value.icon} class="hover:shadow-xl" size="24" />
+      </a>
+    ))
+  }
 </div>
