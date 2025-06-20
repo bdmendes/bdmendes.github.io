@@ -87,7 +87,7 @@ const completeTitle =
 
   <body class="flex justify-center">
     <div class="flex-1 bg-base-200"></div>
-    <div class="bg-base-100 drawer md:drawer-open max-w-4xl">
+    <div class="bg-base-100 drawer md:drawer-open w-4xl">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <SideBar sideBarActiveItemID={sideBarActiveItemID} />
       <div class="drawer-content bg-base-100">
@@ -110,7 +110,7 @@ const completeTitle =
         </div>
 
         <main
-          class={"p-5 pt-8 pb-12 md:p-10 max-w-(--breakpoint-md) mx-auto w-full flex justify-center" +
+          class={"p-5 pt-8 pb-12 md:p-10 mx-auto w-full flex justify-center" +
             (index ? "" : " pagefind-exclude")}
         >
           <div class={shrink ? "" : "w-full"}>
