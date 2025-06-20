@@ -24,6 +24,10 @@
 }
 
 @layer utilities {
+  .badge {
+    @apply h-fit;
+  }
+
   .modal {
     transition:
       translate 0.3s ease-out,
