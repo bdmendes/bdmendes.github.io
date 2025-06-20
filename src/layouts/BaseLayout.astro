@@ -85,11 +85,11 @@ const completeTitle =
     {TRANSITION_API && <ClientRouter />}
   </head>
 
-  <body class="flex justify-center bg-base-200">
+  <body class="flex justify-center">
     <div class="drawer md:drawer-open w-4xl divide-x divide-base-300">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <SideBar sideBarActiveItemID={sideBarActiveItemID} />
-      <div class="drawer-content bg-base-200">
+      <div class="drawer-content">
         <div
           class="no-print md:hidden top-0 z-30 flex h-16 w-full justify-center transition-all duration-100 text-base-content"
         >
@@ -109,7 +109,7 @@ const completeTitle =
         </div>
 
         <main
-          class={"p-5 pt-8 pb-12 md:p-10 mx-auto w-full flex justify-center" +
+          class={"p-8 mx-auto w-full flex justify-center" +
             (index ? "" : " pagefind-exclude")}
         >
           <div class={shrink ? "" : "w-full"}>
