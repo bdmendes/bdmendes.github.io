@@ -56,14 +56,6 @@ body {
   display: none;
 }
 
-.block-scale {
-  @apply hover:scale-[100%]!;
-}
-
-a.badge {
-  @apply transition ease-in-out hover:scale-[105%];
-}
-
 .prose {
   blockquote {
     @apply max-w-min min-w-fit not-italic;

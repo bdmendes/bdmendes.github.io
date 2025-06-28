@@ -11,7 +11,6 @@ export interface Props {
   divideTop?: boolean;
   divideBottom?: boolean;
   forceVertical?: boolean;
-  blockScale?: boolean;
 }
 
 const {
@@ -26,16 +25,13 @@ const {
   divideBottom = true,
   divideTop = false,
   forceVertical = false,
-  blockScale = false,
 } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
 <div class="flex flex-col">
   {divideTop && <div class="divider my-0" />}
-  <div
-    class=`rounded grow hover:shadow-xl transition ease-in-out hover:scale-[102%] ${blockScale ? "block-scale" : ""}`
-  >
+  <div class=`group rounded grow`>
     <a class="w-full" href={url}>
       <div
         class={`w-full hero-content px-4 flex flex-col items-start ${forceVertical ? "" : "sm:flex-row"}`}
@@ -52,10 +48,16 @@ import { Image } from "astro:assets";
           )
         }
         <div class="grow w-full">
-          <h1 class="text-xl font-bold mr-2">
+          <h1 class="text-xl font-bold mr-2 group-hover:underline">
             {title}
           </h1>
-          {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
+          {
+            title2 && (
+              <h1 class="text-xl font-bold mr-2 group-hover:underline">
+                {title2}
+              </h1>
+            )
+          }
           <p class="py-1">{description}</p>
           {
             (tags.length > 0 || badge || disabledTags.length > 0) && (

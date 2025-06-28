@@ -46,18 +46,6 @@ const {
         orientation: this.dataset.black == "Bruno Mendes" ? "black" : "white",
         fen: this.dataset.fen,
       });
-
-      const container = document.getElementById(`${this.dataset.id}-container`);
-      const scaledParent =
-        container?.parentElement?.parentElement?.parentElement;
-      if (!scaledParent?.classList.contains("block-scale")) {
-        throw new Error(
-          "ChessMiniature must be wrapped in a block-scale parent"
-        );
-      }
-      if (scaledParent) {
-        scaledParent.classList.remove("block-scale");
-      }
     }
 
     connectedCallback() {

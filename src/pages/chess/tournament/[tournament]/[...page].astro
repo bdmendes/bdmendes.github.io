@@ -50,7 +50,6 @@ export const getStaticPaths = (async ({ paginate }) => {
             tags={[game.data.tournament]}
             disabledTags={buildChessMetaTags(game.data.round, game.data.board)}
             forceVertical={true}
-            blockScale={true}
           >
             <ChessMiniature
               id={game.id}
