@@ -30,7 +30,7 @@
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/typography": "^0.5.16",
-    "prettier": "^3.5.3"
+    "prettier": "^3.6.2"
   },
   "packageManager": "pnpm@9.0.6"
 }
