@@ -70,7 +70,7 @@ class UsersService(database: UsersDatabaseApi) extends RestApi:
     }
 ```
 
-We've just applied the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). However, as with most rules and principles, they should not be followed blindly. In this case, we could argue that we are just duplicating code where in reality (production code) we will just have one implementation. Isn't that boilerplate?[^boilerplate]
+We've just applied the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). However, I don't think rules should be followed blindly. In this case, we could argue that we are just duplicating code where in reality (production code) we will just have one implementation. Isn't that boilerplate?[^boilerplate]
 
 A mocking framework solves just this problem.
 
@@ -147,7 +147,7 @@ assertEquals(database.times(it.getUsers), 2)
 
 Behind the scenes, we are desugaring into Mockito API calls, using the likes of `ArgumentMatcher` and `ArgumentCaptor`, and leveraging type checking through inlining, a powerful Scala 3 feature.
 
-Smockito also makes an effort to guide users into solutions upon common problems, such as reasoning over the wrong stub:
+Smockito also makes an effort to guide users with meaningful error messages in the case of common errors, such as reasoning about the wrong stub:
 
 ```scala
 val database = mock[Database[User]].on(it.getUsers)(_ => mockUsers)
