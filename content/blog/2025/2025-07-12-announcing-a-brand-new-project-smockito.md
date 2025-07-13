@@ -3,7 +3,7 @@ title: "Announcing a brand new project: Smockito"
 hero: ./mojito.jpeg
 ---
 
-It's been two and a half years since I've started a new personal project. Since then, I gratuated, started a life on my own, and, to be fair, programming after 8 hours of daily work doing just the same is not as fun as it used to. For better or for worse, watching a sitcom at home with friends or a going out for a casual drink, returning home not past two, is usually a better plan, and one that allows me to clear my mind for the challenges to come the following day.
+It's been two and a half years since I've started a new personal project. Since then, I graduated, started a life on my own, and, to be fair, programming after 8 hours of daily work doing just the same is not as fun as it used to. For better or for worse, watching a sitcom at home with friends or a going out for a casual drink, returning home not past two, is usually a better plan, and one that allows me to clear my mind for the challenges to come the following day.
 
 Nevertheless, *sometimes* there comes a challenge that turns my all-nighter mode on again. This time, instead of a desire to discover the world of chess programming, it was a frustration.
 
