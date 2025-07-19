@@ -17,30 +17,30 @@ Software is usually built as modules, in a layered layout. Say our platform boas
 
 ```scala
 class UsersDatabase(ctx: PostgresContext) extends Database[User]:
-    override val table = ctx.getTable("users")
-    def getUsers(limit: Int): List[User] = table.get.limit(limit)
-    def updatePassword(user: User, password: String): Boolean = 
-        table.upsert(user.updated(password = password.hashed))
+  override val table = ctx.getTable("users")
+  def getUsers(limit: Int): List[User] = table.get.limit(limit)
+  def updatePassword(user: User, password: String): Boolean = 
+    table.upsert(user.updated(password = password.hashed))
 ```
 
 In front of that we'll have a user-facing API that the frontend communicates with, and that requires a database.
 
 ```scala
 class UsersService(database: Database[User]) extends RestApi:
-    val usersRoute = get {
-        complete(database.getUsers(limit = 10))
-    }
+  val usersRoute = get {
+    complete(database.getUsers(limit = 10))
+  }
 ```
 
 We now want to test this integration in our unit tests.
 
 ```scala
 class UsersServiceSpec extends Specification:
-    val mockUsers = List(User("jose"), User("bruno"))
+  val mockUsers = List(User("jose"), User("bruno"))
 
-    test("retrieve the first 10 known users"):
-        val service = UsersService(???) // how to inject a database?
-        assertEquals(service.usersRoute.get().await, mockUsers)
+  test("retrieve the first 10 known users"):
+    val service = UsersService(???) // how to inject a database?
+    assertEquals(service.usersRoute.get().await, mockUsers)
 ```
 
 It's not free to *mimic* a full database just to test some business logic. We could use the likes of [Embedded Postgres](https://github.com/zonkyio/embedded-postgres), but that would make tests severely slower. In theory, we just need to summon a class that acts *like* a database, and returns some fake response.
@@ -51,23 +51,23 @@ The most obvious remedy is to decouple what a `UsersDatabase` needs to be able t
 
 ```scala
 trait UsersDatabaseApi:
-    def getUsers(limit: Int): List[User]
-    def updatePassword(user: User, password: String): Boolean
+  def getUsers(limit: Int): List[User]
+  def updatePassword(user: User, password: String): Boolean
 
 class UsersDatabase(ctx: PostgresContext) extends Database[User] with UsersDatabaseApi:
-    override val table = ctx.getTable("users")
-    override def getUsers(limit: Int): List[User] = table.get.limit(limit)
-    override def updatePassword(user: User, password: String): Boolean = 
-        table.upsert(user.updated(password = password.hashed))
+  override val table = ctx.getTable("users")
+  override def getUsers(limit: Int): List[User] = table.get.limit(limit)
+  override def updatePassword(user: User, password: String): Boolean = 
+    table.upsert(user.updated(password = password.hashed))
 ```
 
 And then, at the service level, require the interface instead of the implementation.
 
 ```scala
 class UsersService(database: UsersDatabaseApi) extends RestApi:
-    val usersRoute = get {
-        complete(database.getUsers(limit = 10))
-    }
+  val usersRoute = get {
+    complete(database.getUsers(limit = 10))
+  }
 ```
 
 We've just applied the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle). However, I don't think rules should be followed blindly. In this case, we could argue that we are just duplicating code where in reality (production code) we will just have one implementation. Isn't that boilerplate?[^boilerplate]
@@ -83,29 +83,29 @@ Using [Mockito](https://github.com/mockito/mockito), the most popular mocking fr
 
 ```scala
 class UsersServiceSpec extends Specification:
-    val mockUsers = List(User("jose"), User("bruno"))
+  val mockUsers = List(User("jose"), User("bruno"))
 
-    def setUpMockDatabase(): Database[User] =
-        val database = Mockito.mock(classOf[Database[User]])
-        Mockito
-            .when(database.getUsers(ArgumentMatchers.any[Int]))
-            .thenReturn(mockUsers)
-        database
+  def setUpMockDatabase(): Database[User] =
+    val database = Mockito.mock(classOf[Database[User]])
+    Mockito
+      .when(database.getUsers(ArgumentMatchers.any[Int]))
+      .thenReturn(mockUsers)
+    database
 
-    test("retrieve the first 10 known users"):
-        val service = UsersService(setUpMockDatabase())
-        assertEquals(usersRoute.get().await, mockUsers)
+  test("retrieve the first 10 known users"):
+    val service = UsersService(setUpMockDatabase())
+    assertEquals(usersRoute.get().await, mockUsers)
 ```
 
 All good. However, we can very easily do nasty things with the Mockito API:
 
 ```scala
 def setUpMockDatabase(): Database[User] =
-    val database = Mockito.mock(classOf[Database[User]])
-    Mockito
-        .when(database.getUsers(ArgumentMatchers.any[String]))
-        .thenAnswer(_ => "a chess board")
-    database
+  val database = Mockito.mock(classOf[Database[User]])
+  Mockito
+    .when(database.getUsers(ArgumentMatchers.any[String]))
+    .thenAnswer(_ => "a chess board")
+  database
 ```
 
 This will blow up at runtime, for sure, but being able to compile should raise up some red flags. This example is obviously made up, but more subtle bugs surface in very large codebases when the tooling is not rigid enough.
@@ -114,9 +114,9 @@ Let's try a different framework. [Scalamock](https://scalamock.org/) has a very 
 
 ```scala
 def setUpMockDatabase(): Database[User] =
-    val database = stub[Database[User]]
-    database.getUsers.returnsWith(mockUsers)
-    database
+  val database = stub[Database[User]]
+  database.getUsers.returnsWith(mockUsers)
+  database
 ```
 
 Much more readable! But, unfortunately, this blows up at runtime with a `NullPointerException`. What? Yeah. Well, from the Scalamock docs...
@@ -154,7 +154,7 @@ val database = mock[Database[User]].on(it.getUsers)(_ => mockUsers)
 val service = UsersService(database)
 val _ = service.usersRoute.get()
 assertEquals(database.times(it.updatePassword), 1)
-    // throws UnstubbedMethod: ...did you forget to stub this?
+  // throws UnstubbedMethod: ...did you forget to stub this?
 ```
 
 [Smockito](https://github.com/bdmendes/smockito) is fully open-source and is published in Maven Central. I now hope that it will be of use to Scala developers and am open to any contributions.
