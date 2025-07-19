@@ -128,7 +128,7 @@ Which is followed by a fat rule:
 
 > Instead, your components must depend on interfaces (traits), not implementations, so you can easily stub/mock them.
 
-Well, then, I'd argue there is no point in having a mocking framework. If I have to introduce interfaces, I might as well instantiate them myself in tests.
+Well, then, I'd argue that there might be no point in having a mocking framework. If I have to introduce interfaces, I might as well instantiate them myself in tests, even if it turns out to be slightly more verbose.
 
 ## Enter Smockito
 
