@@ -1,0 +1,11 @@
+---
+blackElo: 1745
+whiteElo: 1605
+white: Fábio Magalhães
+tournament: Absoluto Equipas Maia 2025
+result: 1-0
+board: 3
+round: 6
+---
+
+1. e4 { [%eval 0.18] } 1... d6 { [%eval 0.43] } 2. d4 { [%eval 0.43] } 2... Nf6 { [%eval 0.43] } 3. Nc3 { [%eval 0.38] } 3... g6 { [%eval 0.63] } 4. Nf3 { [%eval 0.44] } 4... Bg7 { [%eval 0.56] } 5. Bc4 { [%eval 0.19] } 5... Bg4?! { [%eval 0.95] } { Inaccuracy. O-O was best. } (5... O-O 6. Bb3 Bg4 7. h3 Bxf3 8. Qxf3 Nc6 9. Qd1 Na5 10. Qe2) 6. Be3?! { [%eval 0.29] } { Inaccuracy. e5 was best. } (6. e5 dxe5 7. Bxf7+ Kf8 8. Bb3 exd4 9. Qxd4 Qxd4 10. Nxd4 c5) 6... O-O { [%eval 0.34] } 7. h3 { [%eval 0.39] } 7... Bxf3 { [%eval 0.39] } 8. gxf3 { [%eval 0.05] } 8... c6 { [%eval -0.03] } 9. a4 { [%eval 0.02] } 9... Qc7 { [%eval 0.12] } 10. Qd2 { [%eval 0.12] } 10... a5?! { [%eval 0.77] } { Inaccuracy. Nbd7 was best. } (10... Nbd7) 11. f4?! { [%eval 0.02] } { Inaccuracy. h4 was best. } (11. h4 Nbd7) 11... Nxe4?! { [%eval 0.66] } { Inaccuracy. d5 was best. } (11... d5) 12. Nxe4 { [%eval 0.72] } 12... d5 { [%eval 0.71] } 13. Bd3? { [%eval -0.5] } { Mistake. f5 was best. } (13. f5 dxe4) 13... dxe4 { [%eval -0.62] } 14. Bxe4 { [%eval -0.57] } 14... e6 { [%eval -0.76] } 15. h4 { [%eval -0.83] } 15... h5 { [%eval -0.76] } 16. O-O-O { [%eval -0.8] } 16... Nd7 { [%eval -0.71] } 17. Rdg1 { [%eval -1.0] } 17... Kh7? { [%eval 0.33] } { Mistake. Nf6 was best. } (17... Nf6 18. Bf3) 18. Rg5?! { [%eval -0.33] } { Inaccuracy. f5 was best. } (18. f5) 18... Nf6 { [%eval -0.22] } 19. Bd3 { [%eval -0.58] } 19... Bh6?! { [%eval 0.04] } { Inaccuracy. b5 was best. } (19... b5 20. axb5) 20. Qe2 { [%eval -0.14] } 20... Kg7 { [%eval -0.02] } 21. Rg2 { [%eval -0.45] } 21... Bxf4 { [%eval -0.47] } 22. Rhg1 { [%eval -0.41] } 22... Ng4 { [%eval 0.13] } 23. Rxg4 { [%eval 0.21] } 23... Bxe3+ { [%eval 0.26] } 24. fxe3 { [%eval 0.13] } 24... hxg4 { [%eval 0.24] } 25. Qxg4 { [%eval 0.28] } 25... Qe7?? { [%eval 8.38] } { Blunder. Rg8 was best. } (25... Rg8) 26. Bxg6 { [%eval 7.82] } 26... fxg6? { [%eval #5] } { Checkmate is now unavoidable. Qxh4 was best. } (26... Qxh4 27. Qxh4 fxg6 28. Rh1 Rf5 29. Qh7+ Kf6 30. Rg1 Rg5 31. Qh4 Ke7 32. Rxg5) 27. Qxg6+ { [%eval #4] } 27... Kh8 { [%eval #4] } 28. Qh5+ { [%eval #3] } 28... Qh7 { [%eval #3] } 29. Qe5+ { [%eval #2] } *
