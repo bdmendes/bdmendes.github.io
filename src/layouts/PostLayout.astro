@@ -59,12 +59,12 @@ const displayDate = dayjs(date).format("ll");
           </div>
         </div>
       ) : (
-        <h1 class="mb-2 text-4xl max-w-min min-w-fit font-bold">{title}</h1>
+        <h1 class="mb-2 text-4xl max-w-min min-w-full font-bold">{title}</h1>
       )
     }
     <div aria-hidden="true">
       {date && <time class="pagefind-exclude">{displayDate}</time>}
-      <div class="flex max-w-min min-w-fit mt-2 gap-2 flex-wrap">
+      <div class="flex max-w-min min-w-full mt-2 gap-2 flex-wrap">
         <a
           data-pagefind-filter="category"
           href={`/${badge}`}

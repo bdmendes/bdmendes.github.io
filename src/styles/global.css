@@ -58,7 +58,7 @@ body {
 
 .prose {
   blockquote {
-    @apply max-w-min min-w-fit not-italic;
+    @apply max-w-min min-w-full not-italic;
     quotes: none !important;
   }
 
@@ -82,7 +82,7 @@ body {
   }
 
   .footnotes {
-    @apply prose-sm max-w-min min-w-fit mt-12;
+    @apply prose-sm max-w-min min-w-full mt-12;
   }
 
   #footnote-label {
