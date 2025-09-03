@@ -15,4 +15,4 @@ A feeling, psychedelic affairs
 We kissed and I lied on you  
 Those freaking nightmares!  
 Hoped we'd make it to noon  
-But I live in an empty saloon  
+But I woke in an empty saloon  
