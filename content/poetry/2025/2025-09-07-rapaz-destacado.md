@@ -13,10 +13,10 @@ Certo certo, sim, aconteceu
 Mas foi o que foi, o que passou  
 Está visto, produto do destino  
 E a acrescentar a isto, fez-me  
-Sentir vivo  
+Sentir presente  
 
 Precisavas disso para te sentires  
-Vivo? Indiferença mirabolante  
+Presente? Indiferença mirabolante  
 Que roça o desrespeito  
 
 Agora veio uma rapariga com  
