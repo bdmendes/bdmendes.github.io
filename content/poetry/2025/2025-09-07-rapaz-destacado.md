@@ -20,8 +20,8 @@ Vivo? Indiferença mirabolante
 Que roça o desrespeito  
 
 Agora veio uma rapariga com  
-Quem estive sem que ela soubesse  
-Foi um erro, é passado  
+Quem estive no passado  
+Foi um erro, ultrapassado  
 (criatividade!)  
 Não sei que quer ela, disse-lhe  
 Quem sou e o que quero  
