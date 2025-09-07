@@ -3,7 +3,7 @@ title: Rapaz (destacado)
 ---
 
 E dela que tens a contar?  
-Nada nada nada nada!  
+Nada nada nada!  
 (excelente piada)  
 Então não te deixou ela,  
 Em manhã comum de maio,  
