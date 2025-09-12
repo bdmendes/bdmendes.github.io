@@ -13,6 +13,12 @@ class: center, middle, inverse, small-images
 
 ---
 
+class: center, middle
+
+Updated @ 12/09/2025 to conform with the new Scala 3 syntax.
+
+---
+
 class: center, middle, inverse
 
 ### Your host
@@ -36,8 +42,8 @@ class: center, middle, inverse
 
 ** João Azevedo **
 
-Principal Engineer @ Kevel  
-FEUP Alumnus  
+Principal Engineer @ Kevel
+FEUP Alumnus
 
 ---
 
@@ -50,7 +56,7 @@ FEUP Alumnus
   - Recursion (more specifically, search algorithms)
 - A computer with an IDE
   - VS Code or IntelliJ are recommended
-  
+
 > If any of these concepts is unfamiliar to you, feel free to interrupt me.
 
 ---
@@ -70,9 +76,8 @@ class: center, middle, inverse
   - Functions are **first-class citizens** and may be used as arguments or return values, as any other type
 
 ```scala
-def transformed(numbers: List[Int], op: Int => Int): List[Int] = { 
-    numbers.map(op) // How is this implemented?
-}
+def transformed(numbers: List[Int], op: Int => Int): List[Int] =
+  numbers.map(op) // How is this implemented?
 
 val numbers = List(1, 2, 3)
 
@@ -89,17 +94,15 @@ val doubledNumbers = transformed(numbers, n => n*2) // List(2, 4, 6)
   - Hence you can replace any subexpression by its value and get the same result
   - This property helps compilers reason about the program more easily and perform optimizations (e.g., *common subexpression elimination*)
 
-```scala 
+```scala
 // This version may throw instead of returning.
 // We cannot safely compose this computation.
-def opaqueDivide(a: Int, b: Int): Int = {
-    if (b == 0) throw new IllegalArgumentException("division by 0") else a / b
-}
+def opaqueDivide(a: Int, b: Int): Int =
+  if b == 0 then throw IllegalArgumentException("division by 0") else a / b
 
-// Here, we use the `Option` type to clearly state that this function may fail. 
-def transparentDivide(a: Int, b: Int): Option[Int] = {
-    if (b == 0) None else Some(a / b)
-}
+// Here, we use the `Option` type to clearly state that this function may fail.
+def transparentDivide(a: Int, b: Int): Option[Int] =
+  if b == 0 then None else Some(a / b)
 ```
 
 > `Option` is a monad encapsulating the absence of a value. Monads wrap a value with context, allowing more concise operation chaining. Here e.g. `val result = transparentDivide(10, 2).flatMap(x => transparentDivide(x, 2))` would avoid pattern matching. Monads have well-defined mathematical properties.
@@ -112,24 +115,16 @@ def transparentDivide(a: Int, b: Int): Option[Int] = {
   - Not being able to perform subexpression substitution leads to unexpected bugs
 
 ```scala
-def div(a: Int, b: Int, c: Int): Int = {
-    val denum = opaqueDivide(b, c)
-    try {
-      opaqueDivide(a, denum)
-    } catch {
-      case _ => -1
-    }
-}
+def div(a: Int, b: Int, c: Int): Int =
+  val denum = opaqueDivide(b, c)
+  try opaqueDivide(a, denum)
+  catch case _ => -1
 ```
 
 ```scala
-def div(a: Int, b: Int, c: Int): Int = {
-    try {
-      opaqueDivide(a, opaqueDivide(b, c))
-    } catch {
-      case _ => -1
-    }
-}
+def div(a: Int, b: Int, c: Int): Int =
+  try opaqueDivide(a, opaqueDivide(b, c))
+  catch case _ => -1
 ```
 
 What's the difference between these two?
@@ -144,28 +139,24 @@ What's the difference between these two?
 case class User(name: String, age: Int)
 case class OrderPlaced(ticketId: Int)
 
-object Store {
-    lazy val paymentsSystem: PaymentsSystem = {
-      // Here we interact with an hypothetical Java-like API
-      // with a synchronous `register` method.
-      val sys = new PaymentsSystem()
-      sys.register()
-      sys
-    }
-  
-    def validUser(user: User): Boolean = user.age >= 18
+object Store:
+  lazy val paymentsSystem: PaymentsSystem =
+    // Here we interact with an hypothetical Java-like API
+    // with a synchronous `register` method.
+    val sys = PaymentsSystem()
+    sys.register()
+    sys
 
-    def sellWine(user: User, onError: => String): Option[Future[OrderPlaced]] = {
-        if (validUser(user)) {
-            // `paymentsSystem` is only evaluated here, and only once
-            Some(paymentsSystem.place(user))
-        } else {
-            // `onError` is a long string; by-name evaluation avoids allocations
-            log(s"Wine could not be sold: $onError")
-            None
-        }
-    }
-}
+  def validUser(user: User): Boolean = user.age >= 18
+
+  def sellWine(user: User, onError: => String): Option[Future[OrderPlaced]] =
+    if validUser(user) then
+      // `paymentsSystem` is only evaluated here, and only once
+      Some(paymentsSystem.place(user))
+    else
+      // `onError` is a long string; by-name evaluation avoids allocations
+      log(s"Wine could not be sold: $onError")
+      None
 ```
 
 ---
@@ -196,7 +187,7 @@ class: center, middle, inverse
   - Allows you to make use of the entire ecosystem in a much more functional way
   - Is not rigid, in that it allows to introduce mutable state *when needed*
   - Leverages a very powerful and expressive type-system with OOP support
-  
+
 > We'll focus in Scala 3; however, all concepts apply to Scala 2, although possibly with different syntax.
 
 ---
@@ -209,22 +200,18 @@ val numbers = List(1, 2, 3)
 
 // A variable is mutable.
 var weight = 0
+
 // A conditional is also an expression.
-weight = if (numbers.isEmpty) {
-  weight + 1
-} else {
-  weight + 2
-}
+weight = if numbers.isEmpty then weight + 1 else weight + 2
 
 // A function is a first-class citizen.
 val odds = (numbers: List[Int]) => numbers.filter(n => n % 2 != 0)
 
 // Methods are evaluated every time they are called.
-def calculator = {
-    println("Calculating.")
-    // A block evaluates to the value of its last expression.
-    odds
-}
+def calculator =
+  println("Calculating.")
+  // A block evaluates to the value of its last expression.
+  odds
 
 // A value can also be lazily evaluated, but only once.
 lazy val numbersDescription = s"Odd numbers are ${calculator(numbers)}"
@@ -241,23 +228,21 @@ lazy val numbersDescription = s"Odd numbers are ${calculator(numbers)}"
 import java.util.concurrent.atomic.*
 
 // As in Java, you can create a regular class, with some syntax sugar.
-class NumberProcessor(numbers: List[Int]) {
-    val requests = new AtomicInteger(0)
-    def double = {
-        requests.incrementAndGet() // How can we "mutate" requests
-                                   // when it is a "val"?
-        numbers.map(_ * 2)
-    }
-    def requested = requests.get()
-}
+class NumberProcessor(numbers: List[Int]):
+  val requests = AtomicInteger(0)
+
+  def double =
+    requests.incrementAndGet() // How can we "mutate" requests
+                               // when it is a "val"?
+    numbers.map(_ * 2)
+
+  def requested = requests.get()
 
 // And have static symbols under its namespace.
-object NumberProcessor {
-    def fromOdds(until: Int): NumberProcessor = {
-        val odds = (0 to until).filter(_ % 2 != 0).toList
-        new NumberProcessor(odds)
-    }
-}
+object NumberProcessor:
+  def fromOdds(until: Int): NumberProcessor =
+    val odds = (0 to until).filter(_ % 2 != 0).toList
+    NumberProcessor(odds)
 ```
 
 ---
@@ -279,12 +264,10 @@ case class User(name: String, cookie: Option[String]) extends Person
 case class Admin(id: String) extends Person
 
 // And enables pattern matching.
-def id(person: Person): String = {
-    person match {
-        case User(name, _) => s"user-${name}"
-        case Admin(id) => id
-    }
-}
+def id(person: Person): String =
+  person match
+    case User(name, _) => s"user-${name}"
+    case Admin(id) => id
 ```
 
 > *Sum types* may also be implemented with the modern `enum` keyword.
@@ -302,15 +285,13 @@ case class User(age: Int)
 
 // A parameterized type let's you add behavior without subtyping,
 // or provide ad-hoc polymorphism. It's informally called a "type class".
-trait Comparator[A] {
-    def compare(x: A, y: A): Int
-}
+trait Comparator[A]:
+  def compare(x: A, y: A): Int
 
 // It may become cumbersome to pass configurations/implementations around.
 // Contextual parameters help capture a value in-scope.
-given userComparator: Comparator[User] with {
-    def compare(x: User, y: User): Int = Integer.compare(x.age, y.age)
-}
+given userComparator: Comparator[User] with
+  def compare(x: User, y: User): Int = Integer.compare(x.age, y.age)
 
 // Notice the multiple parameter lists, needed for contextuals.
 // `sorted` is defined as Iterable[A] => Comparator[A] => List[A].
@@ -329,26 +310,24 @@ println(sorted(List(User(18), User(16))))
   - This is done efficiently by intelligently reusing memory allocations
 
 ```scala
-def occurences[A](numbers: List[A]): Map[A, Int] = {
+def occurences[A](numbers: List[A]): Map[A, Int] =
   // Notice the private nested looping method.
   @tailrec // What is this for?
-  def occurencesInner(list: List[A], acc: Map[A, Int]): Map[A, Int] = {
-    list match {
+  def occurencesInner(list: List[A], acc: Map[A, Int]): Map[A, Int] =
+    list match
       case Nil => acc
       case x :: xs =>
-        occurencesInner(
-          xs,
-          // The last parameter list of the `updatedWith` method in Map
-          // has a single "remapping function" Option[V] => Option[V].
-          acc.updatedWith(x) {
-            case Some(count) => Some(count + 1)
-            case None        => Some(1)
-          }
-        )
-    }
-  }
+      occurencesInner(
+        xs,
+        // The last parameter list of the `updatedWith` method in Map
+        // has a single "remapping function" Option[V] => Option[V].
+        acc.updatedWith(x) {
+          case Some(count) => Some(count + 1)
+          case None  => Some(1)
+        }
+      )
+
   occurencesInner(numbers, Map.empty[A, Int])
-}
 ```
 
 > Could you implement this with a `foldLeft`? What about with a `foldRight`? What's better?
@@ -369,10 +348,10 @@ def fetchUsers: Future[List] = Http.get(...)
 
 ```scala
 class List[+A] // A covariant class
-               // A List[Duck] is also a List[Animal]
+     // A List[Duck] is also a List[Animal]
 
 class Printer[-A] // A contravariant class
-                  // A Printer[Animal] is also a Printer[Duck]
+    // A Printer[Animal] is also a Printer[Duck]
 
 class Comparator[A] // An invariant class
 ```
@@ -386,16 +365,16 @@ class Comparator[A] // An invariant class
 ### A community effort
 
 - Originally created in academia, Scala has evolved into a mature language widely used in industry
-  - *Twitter*, *LinkedIn*, *Netflix*, *Lichess*, *Kevel* use Scala to power their backends  
+  - *Twitter*, *LinkedIn*, *Netflix*, *Lichess*, *Kevel* use Scala to power their backends
 
 - The native ecosystem is rich
-  - [Cats](https://typelevel.org/cats/) – Pure functional abstractions  
+  - [Cats](https://typelevel.org/cats/) – Pure functional abstractions
   - [Apache Pekko](https://pekko.apache.org/) – Actor-based concurrency
-  - [Apache Spark](https://spark.apache.org/) – Distributed computing  
-  - [Play Framework](https://www.playframework.com/) – Full-stack web framework  
-  - [Slick](https://scala-slick.org/) – Functional relational mapping  
+  - [Apache Spark](https://spark.apache.org/) – Distributed computing
+  - [Play Framework](https://www.playframework.com/) – Full-stack web framework
+  - [Slick](https://scala-slick.org/) – Functional relational mapping
 
-Scala’s ecosystem enables scalable, type-safe, and functional development across diverse domains like **finance, big data, AI and cloud services**.  
+Scala’s ecosystem enables scalable, type-safe, and functional development across diverse domains like **finance, big data, AI and cloud services**.
 
 ---
 
@@ -443,10 +422,9 @@ class: center, middle, inverse
 
 ```scala
 type PieceEntry = (FromTopLeftPosition, Piece)
-case class Board(val squares: Vector[Option[Piece]]) {
+case class Board(val squares: Vector[Option[Piece]]):
   // The board, updated with a new piece in the given position.
   def set(pieceEntry: PieceEntry): Board = ???
-}
 ```
 
 ```scala
@@ -455,11 +433,10 @@ def attacks(entry1: PieceEntry, entry2: PieceEntry): Boolean = ???
 ```
 
 ```scala
-extension (board: Board) {
+extension (board: Board)
   // Whether it is safe to place a piece in the board, considering
   // the current board configuration.
   def isSafe(toPlace: PieceEntry): Boolean = ???
-}
 ```
 
 ```scala
@@ -480,7 +457,7 @@ class: center, middle, inverse
 ### `Board.set`
 
 ```scala
-def set(pieceEntry: PieceEntry): Board = {
+def set(pieceEntry: PieceEntry): Board =
   // Destructure the entry for better readability.
   val (position, piece) = pieceEntry
 
@@ -495,7 +472,6 @@ def set(pieceEntry: PieceEntry): Board = {
       Some(piece) // `None` would "clear" this square.
     )
   )
-}
 ```
 
 ---
@@ -503,21 +479,19 @@ def set(pieceEntry: PieceEntry): Board = {
 ### `attacks`
 
 ```scala
-def attacks(entry1: PieceEntry, entry2: PieceEntry): Boolean = {
+def attacks(entry1: PieceEntry, entry2: PieceEntry): Boolean =
   val (pos1, piece1) = entry1
   val (pos2, piece2) = entry2
 
-  (piece1, piece2) match {
-    // We don't care whether the other piece sees us;
-    // this function is "1 attacks 2".
+  (piece1, piece2) match
+  // We don't care whether the other piece sees us;
+  // this function is "1 attacks 2".
     case (Piece.Queen, _) =>
       pos1.x == pos2.x || pos1.y == pos2.y ||
       (pos1.x - pos2.x).abs == (pos1.y - pos2.y).abs
     case (Piece.Knight, _) =>
       (pos1.x - pos2.x).abs == 1 && (pos1.y - pos2.y).abs == 2 ||
       (pos1.x - pos2.x).abs == 2 && (pos1.y - pos2.y).abs == 1
-  }
-}
 ```
 
 Notice that this function does not depend on the board. Why? In which circumstances would we require visualizing the board?
@@ -529,13 +503,12 @@ Notice that this function does not depend on the board. Why? In which circumstan
 ### `Board.isSafe`
 
 ```scala
-def isSafe(toPlace: PieceEntry): Boolean = {
+def isSafe(toPlace: PieceEntry): Boolean =
   // Notice how easy it is now to code a complex operation, via composition.
   board.pieces.forall { entry =>
     // We cannot "see" anyone and nobody can "see" us.
     !attacks(entry, toPlace) && !attacks(toPlace, entry)
   }
-}
 ```
 
 What's the advantage of using the `forall` method versus e.g.
@@ -549,29 +522,26 @@ What's the advantage of using the `forall` method versus e.g.
 ```scala
 def search(board: Board, put: Piece, many: Int): List[Board] = {
   val possiblePositions = (0 until board.size) // Cache squares.
-    .flatMap { y => (0 until board.size).map(x => FromTopLeftPosition(x, y))}
+    .flatMap { y => (0 until board.size).map(x => FromTopLeftPosition(x, y)) }
 
-  def go(board: Board, many: Int): Seq[Board] = { // Our recursion helper.
-    if (many == 0) {
+  def go(board: Board, many: Int): Seq[Board] = // Our recursion helper.
+    if many == 0 then
       Seq(board) // The recursion base case.
-    } else {
+    else
       // The children of a board is the board with
       // each available safe position set.
-      val emptyPositions = possiblePositions
-        .filter { position =>
-          board.at(position).isEmpty && board.isSafe((position, put))
-        }
+      val emptyPositions = possiblePositions.filter { position =>
+        board.at(position).isEmpty && board.isSafe((position, put))
+      }
 
       emptyPositions.flatMap { position =>
         val newBoard = board.set((position, put))
         go(newBoard, many - 1)
       }
-    }
-  }
 
-  go(board, many).toSet.toList // Convert to set here to remove permutations.
-                               // Could we "cut" the search and avoid doing this?
-}
+  // Convert to set here to remove permutations.
+  // Could we "cut" the search and avoid doing this?
+  go(board, many).toSet.toList
 ```
 
 Can you draw the search tree? What does each node represent?
