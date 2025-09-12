@@ -1,6 +1,6 @@
 ---
 title: "LCOM laboratory work: getting started"
-description: Support material for my practical LCOM classes at FEUP.
+description: Support material for my practical Computer Laboratory classes at FEUP.
 ---
 
 class: center, middle, inverse, small-images
@@ -29,13 +29,13 @@ class: center, middle, inverse
 
 I expect you to have aced the following course units:
 
-- Programming
+- Programming (**Prog**)
     - The C language
-- Computer Architecture
+- Computer Architecture (**AC**)
     - How a computer works, namely memory and I/O management
-- Operating Systems
+- Operating Systems (**SO**) -> [so.bdmendes.com](http://so.bdmendes.com)
     - How a kernel works; how programs are compiled
-- Software Design and Testing Laboratory
+- Software Design and Testing Laboratory (**LDTS**)
     - How to design a high-level application; version-control systems
 
 If you are not familiar with these topics, you **must** use these first classes to catch up! Speak up.

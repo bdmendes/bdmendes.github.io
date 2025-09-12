@@ -1,21 +1,15 @@
 ---
 title: "SO practical work: getting started"
-description: Support material for my practical SO classes at FEUP.
+description: Support material for my practical Operating Systems classes at FEUP.
 ---
 
 class: center, middle, inverse, small-images
 
-# SO laboratory work: getting started
+# SO practical work: getting started
 
 L.EIC, 2nd year, 1st Semester, FEUP 2025
 
 Bruno Mendes
-
----
-
-class: center, middle
-
-This is WIP for now!
 
 ---
 
@@ -35,11 +29,11 @@ class: center, middle, inverse
 
 I expect you to have aced the following course units:
 
-- Programming Fundamentals
+- Programming Fundamentals (**FPro**)
     - Computational thinking
-- Programming
+- Programming (**Prog**)
     - The C language
-- Computer Architecture
+- Computer Architecture (**AC**)
     - Memory layers: registers, main memory (stack)
 
 If you are not familiar with these topics, you **must** use these first classes to catch up! Speak up.
@@ -48,13 +42,14 @@ If you are not familiar with these topics, you **must** use these first classes 
 
 ### Course objectives
 
-- Learn **how an OS is implemented**
+- Learn **how an OS is implemented** -> theorethicals
   - How its functionality is split into layers
   - The protection and encapsulation principles that motivate its API
-- Learn about **core OS services**
+- Learn about **core OS services** -> theorethicals + practicals
   - How they allow functionality to be developed easily in user space
-- Exercise **systems-level programming**
+- Exercise **systems-level programming** -> practicals
   - Interact with POSIX/libc APIs in Linux
+
 ---
 
 ### Grading
@@ -82,7 +77,7 @@ class: center, middle, inverse
 - [2w] F3: File manipulation (libc: fread, fwrite, ...)
 - [2w] F4: File manipulation (kernel API: open, read, write, ...)
 - [2w] F5: Processes (exec, fork, ...)
-- [2w] F6: IPC (pipes, shared memory, ...)
+- [2w] F6: IPC (pipes, signals, ...)
 - [1w] F7: Threads (management, synchronization, ...)
 ---
 
@@ -95,7 +90,7 @@ class: center, middle, inverse
 - Responsibly
   - You are adults, I expect you to behave as such
   - If you miss a class, it's your responsibility to catch up
-  - If you have questions, ask me (during class, or by email)
+  - If you have questions, ask me (during class, or by email -> [bdmendes@fe.up.pt](mailto:bdmendes@fe.up.pt))
 
 ---
 
@@ -106,7 +101,7 @@ class: center, middle, inverse
   - You can install it in a VM (e.g., VirtualBox) or dual-boot it
   - I recommend Ubuntu or Fedora
 - A Mac is fine, but you might want to use *bash* instead of *zsh*
-  - macOS is UNIX but not fully POSIX-compliant, so some things might be slightly different
+  - macOS is also UNIX but so some things might be slightly different
   - For example, system utilities are not GNU versions and might have different flags
 - Windows will **not** work for this course
 
@@ -233,7 +228,7 @@ class: center, middle, inverse
 - The C compiler (e.g. `gcc`) performs:
   - **Preprocessing**: handles directives like `#include` and `#define`
   - **Code analysis**: checks for syntax and semantic errors (based on a AST)
-  - **Compilation**: translates C code to assembly code (architecture-dependent file, `.s`)
+  - **Code generation**: translates C code to assembly code (architecture-dependent file, `.s`)
   - **Assembly**: converts assembly code to position-independent machine code (object file, `.o`)
   - **Linking**: combines object files and libraries into an executable (binary, e.g., ELF format)
 - The loader (e.g. `ld.so`) loads the executable into memory and starts its execution when the shell calls `execve()`
@@ -520,13 +515,13 @@ int some_mask = 0x04; // binary: 0000 0100
 some_mask |= (1 << 1); // now some_mask is 0000 0110
 
 // Deactivate bit 2
-some_mask &= ~(1 << 2); // now some_mask is 0000 001
+some_mask &= ~(1 << 2); // now some_mask is 0000 0010
 
 // Check if bit 2 is active
-int active = (some_mask & (1 << 2)) ? 1 : 0; // active is 0
+int active = (some_mask & (1 << 2)) ? 1 : 0; // 0
 
 // Toggle bit 0 (via XOR)
-some_mask ^= (1 << 0); // now some_mask is 0000 0000
+some_mask ^= (1 << 0); // now some_mask is 0000 0011
 ```
 
 - Storing data in bits is memory-efficient and fast
@@ -555,3 +550,323 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+class: center, middle, inverse
+
+### F5: Processes
+
+---
+
+### Processes
+
+- At a high level, the materialization of a running program is called a *process*
+  - It has its own memory space (virtual memory), file descriptors, and execution context (registers, stack, ...)
+  - The kernel keeps its information in a data structure called *process control block* (PCB)
+- A process may manage and communicate with other processes
+  - A process that creates another process is called a *parent*; the created process is a *child*
+  - One may create a process using the `fork()` system call
+  - One may replace itself with another program using the `exec()` family of system calls
+  - A parent may wait for a child to finish using the `wait()` family of system calls
+- More advanced ways of communicating soon...
+
+---
+
+### Dispatching computations to processes
+
+- Some tasks are naturally parallel and independent and can be split into multiple processes
+  - E.g., a web browser typically spawns a new process for each tab
+
+```c
+#include <stdio.h>    // for printf, perror
+#include <stdlib.h>   // for exit
+#include <unistd.h>   // for fork, exec, _exit
+#include <sys/wait.h> // for wait
+
+int main() {
+    pid_t pid = fork(); // create a new process
+                        // might do so in bulk...
+    if (pid < 0) {
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        // Child process; variables copied via copy-on-write (CoW)
+        char *args[] = {"/bin/ls", "-l", NULL};
+        execv(args[0], args); // replace child with `ls -l`
+    } else {
+        // Parent process
+        int status;
+        waitpid(pid, &status, 0); // wait for child to finish
+        if (WIFEXITED(status)) {
+            printf("Child exited with status %d\n", WEXITSTATUS(status));
+        }
+    }
+}
+```
+
+---
+
+class: center, middle, inverse
+
+### F6: Inter-Process Communication (IPC)
+
+---
+
+### Why IPC?
+
+- Processes are isolated from each other by the OS for security and stability
+  - Each process has its own memory space, file descriptors, and execution context
+- However, processes often need to communicate and share data
+  - E.g., a web server process might need to communicate with a database process
+- IPC mechanisms provide ways for processes to exchange data and synchronize their actions
+  - Some IPC mechanisms are suitable for small amounts of data and low latency (e.g. pipes)
+  - Others are suitable for larger amounts of data and more complex interactions (e.g. shared memory)
+  - Many others: files, signals, message queues, sockets, ...
+  
+---
+
+### Pipes
+
+- A pipe is a unidirectional communication channel that can be used for IPC
+  
+```c
+#include <stdio.h>    // for printf, perror
+#include <stdlib.h>   // for exit
+#include <unistd.h>   // for fork, pipe, read, write, close
+#include <string.h>   // for strlen
+
+int main() {
+    int fd[2];
+    pipe(fd);
+    pid_t pid = fork();
+    
+    if (pid < 0) {
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        // Child process
+        close(fd[0]); // Close unused read end
+        const char *msg = "Hello from child!";
+        write(fd[1], msg, strlen(msg));
+        close(fd[1]); // Close write end
+    } else {
+        // Parent process
+        close(fd[1]); // Close unused write end
+        char buffer[256];
+        ssize_t bytes_read = read(fd[0], buffer, (sizeof buffer) - 1);
+        printf("Parent received: %s\n", buffer);
+        close(fd[0]); // Close read end
+    }
+}
+```
+
+---
+
+### Named pipes (FIFOs) (1/2)
+
+- A named pipe (FIFO) is a special type of file that acts as a pipe
+  - It can be used for IPC between unrelated processes
+  - It is created using the `mkfifo()` system call or the `mkfifo` utility
+- Supports bidirectional communication:
+  - Many processes may write to the same pipe
+  - Many processes may read from the same pipe, but the OS ensures that each message is read by only one reader
+  
+---
+
+### Named pipes (FIFOs) (2/2)
+
+```c
+#include <stdio.h>    // for printf, perror
+#include <stdlib.h>   // for exit
+#include <unistd.h>   // for fork, read, write, close, unlink
+#include <fcntl.h>    // for open, O_RDONLY, O_WRONLY
+#include <string.h>   // for strlen
+#include <sys/stat.h> // for mkfifo
+
+int main() {
+    const char *fifo_path = "/tmp/my_fifo";
+    mkfifo(fifo_path, 0666); // create the FIFO with read/write permissions
+    pid_t pid = fork();
+    if (pid < 0) {
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        // Child process
+        int fd = open(fifo_path, O_WRONLY);
+        const char *msg = "Hello from child!";
+        write(fd, msg, strlen(msg));
+        close(fd);
+    } else {
+        // Parent process
+        int fd = open(fifo_path, O_RDONLY);
+        char buffer[256];
+        ssize_t bytes_read = read(fd, buffer, (sizeof buffer) - 1);
+        buffer[bytes_read] = '\0'; // Null-terminate the string
+        printf("Parent received: %s\n", buffer);
+        close(fd);
+        unlink(fifo_path); // "delete" the FIFO
+    }
+}
+```
+
+---
+
+### Signals
+
+- Signals are a form of asynchronous notification sent to a process to notify it of an event
+  - E.g., `SIGTERM` is sent to request a process to terminate gracefully - highly used e.g. by Kubernetes!
+  
+```c
+#include <stdio.h>    // for printf, perror
+#include <stdlib.h>   // for exit
+#include <unistd.h>   // for fork, pause
+#include <signal.h>   // for signal, SIGINT, SIGCHLD
+#include <sys/wait.h> // for wait
+
+// Provide a handler to this particular signal.
+// Some handlers are non-reprogrammable (e.g., SIGKILL); handled by the OS.
+void handle_sigterm(int sig) {
+    printf("Caught SIGINT (signal %d). Exiting gracefully...\n", sig);
+}
+
+int main() {
+    signal(SIGTERM, handle_sigint); // Register signal handler
+    pause(); // Wait for signals
+    return 0;
+}
+```
+
+```bash
+$ ./myprogram
+$ ps # find its PID
+$ kill -SIGINT <PID>
+```
+
+---
+
+### Sockets
+
+- Sockets provide a way for processes to communicate over a network
+  - They can be used for IPC on the same machine (using Unix domain sockets) or between machines (using TCP/IP)
+  - The `AF_UNIX` family is used for IPC on the same host machine
+
+```c
+int main(int argc, char* argv[]) {
+    char buf[1024]; int sockets[2];
+    socketpair(AF_UNIX, SOCK_STREAM, 0, sockets);
+    int pid = fork();
+    if (pid > 0) { /* parent */
+        char string1[] = "In every walk with nature...";
+        close(sockets[1]);
+        write(sockets[0], string1, sizeof string1);
+        read(sockets[0], buf, sizeof buf);
+        printf("message from %d-->%s\n", getpid(), buf);
+        close(sockets[0]);
+        wait(NULL);
+    } else { /* child */
+        char string2[] = "...one receives far more than he seeks.";
+        close(sockets[0]);
+        read(sockets[1], buf, sizeof buf);
+        printf("message from %d-->%s\n", getppid(), buf);
+        write(sockets[1], string2, sizeof string2);
+        close(sockets[1]);
+    }
+}
+```
+
+---
+
+class: center, middle, inverse
+
+### F7: Threads
+
+---
+
+### Why threads?
+
+- Some tasks are very naturally tailored to be executed in parallel in the same process
+  - E.g., a web server might spawn a new thread for each incoming request
+  - Although in practice threads are not infinite and a thread pool is used (likely implemented via a queue)
+- Threads are more lightweight than processes
+  - They share the same memory space and file descriptors, which makes context switching faster
+  - However, this also means that threads must be carefully synchronized, if they attempt access to shared data
+
+---
+
+### Creating and managing threads
+
+- The POSIX threads (`pthreads`) library provides a standard API for creating and managing threads in C
+
+```c
+void* thread_function(void* arg) {
+    char* message = (char*)arg;
+    for (int i = 0; i < 5; i++) {
+        printf("%s: iteration %d\n", message, i);
+        struct timespec ts = {0, 500000000}; // 0.5 seconds
+        nanosleep(&ts, NULL); // sleep for a while to simulate work
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    const char* msg1 = "Thread 1";
+    const char* msg2 = "Thread 2";
+
+    if (pthread_create(&thread1, NULL, thread_function, (void*)msg1) != 0) {
+        exit(EXIT_FAILURE);
+    }
+    if (pthread_create(&thread2, NULL, thread_function, (void*)msg2) != 0) {
+        exit(EXIT_FAILURE);
+    }
+
+    pthread_join(thread1, NULL); // Wait for thread 1 to finish
+    pthread_join(thread2, NULL); // Wait for thread 2 to finish
+}
+```
+
+---
+
+### Synchronizing threads
+
+- You need to use a synchronization mechanism if you need a certain semantic when accessing shared data, e.g. you might want to ensure that only one thread can access a shared resource at a time
+- Mutexes (mutual exclusion locks) are a common way to achieve this; semaphores and monitors are other options
+
+```c
+static int counter = 0; // shared resource
+pthread_mutex_t counter_mutex = PTHREAD_MUTEX_INITIALIZER; // static initializer
+
+void* increment(void* arg) {
+    pthread_mutex_lock(&counter_mutex); // lock the mutex
+    counter++; // critical section
+    pthread_mutex_unlock(&counter_mutex); // unlock the mutex
+                                          // what happens if we forget to do this?
+}
+
+int main () {
+    pthread_t threads[10];
+    for (int i = 0; i < 10; i++) {
+        pthread_create(&threads[i], NULL, increment, NULL);
+    }
+    for (int i = 0; i < 10; i++) {
+        pthread_join(threads[i], NULL);
+    }
+    printf("Final counter value: %d\n", counter);
+    pthread_mutex_destroy(&counter_mutex); // destroy the mutex when done
+}
+```
+
+---
+
+class: center, middle, inverse
+
+### What's next?
+
+---
+
+### Final remarks
+
+- This was an introductory course on operating systems and systems programming
+- You'll continue to explore some of these topics in upcoming curricular units, such as:
+  - I/O management and low-level application design in **Computer Laboratory** (2nd year, 2nd semester) -> [lcom.bdmendes.com](https://lcom.bdmendes.com)
+  - Networking in **Computer Networks** (3rd year, 1st semester)
+  - Concurrency, parallelism and distributed computing in **Parallel and Distributed Programming** (3rd year, 2nd semester)
+- See you soon!
