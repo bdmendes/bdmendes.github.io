@@ -7,7 +7,7 @@ class: center, middle, inverse, small-images
 
 # LCOM laboratory work: getting started
 
-L.EIC, 2nd year, FEUP 2025
+L.EIC, 2nd year, 2nd Semester, FEUP 2025
 
 Bruno Mendes
 
