@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import PostLayout from "@layouts/PostLayout.astro";
-import { createSlug, extractDate, extractDescription } from "../../lib/util";
+import { createSlug, extractDate, extractDescription, validateBody } from "../../lib/util";
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -18,6 +18,8 @@ interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+validateBody(entry.data.title, entry.body!);
 ---
 
 <PostLayout

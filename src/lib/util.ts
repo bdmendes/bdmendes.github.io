@@ -1,17 +1,28 @@
 import type { CollectionEntry } from "astro:content";
 
+export function validateBody(title: string, body: string) {
+  if (body.includes(" -") || body.includes(" –")) {
+    throw new Error(
+      `"${title}" contains a dash ("-") or an en-dash ("–") after a space. Please replace it with an em-dash ("—").`,
+    );
+  }
+}
+
 export function createSlug(title: string) {
   return title
     .trim()
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]/g, '')
-    .replace(/^-+|-+$/g, '')
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]/g, "")
+    .replace(/^-+|-+$/g, "");
 }
 
-export function sortedByDate<C extends { id: string, data: any }>(entry: C[], yearPriority: boolean = false): C[] {
+export function sortedByDate<C extends { id: string; data: any }>(
+  entry: C[],
+  yearPriority: boolean = false,
+): C[] {
   return entry.sort((a, b) => {
     const yearDiff = b.data.year - a.data.year;
     if (yearPriority && !Number.isNaN(yearDiff) && yearDiff != 0) {
@@ -58,14 +69,19 @@ export function createChessDescription(game: CollectionEntry<"chess">) {
   return `Chess game played between ${game.data.white ?? "Bruno Mendes"} and ${game.data.black ?? "Bruno Mendes"}.`;
 }
 
-export function createChessTitle(game: CollectionEntry<"chess">, showElo: boolean = true) {
-  return `${game.data.white ?? "Bruno Mendes"} ${showElo && game.data.whiteElo ? `(${game.data.whiteElo})` : ""} 
+export function createChessTitle(
+  game: CollectionEntry<"chess">,
+  showElo: boolean = true,
+) {
+  return `${game.data.white ?? "Bruno Mendes"} ${showElo && game.data.whiteElo ? `(${game.data.whiteElo})` : ""}
     ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${showElo && game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
 }
 
 export function createChessTitleSplit(game: CollectionEntry<"chess">) {
-  return [`${game.data.white ?? "Bruno Mendes"} ${game.data.result.split("-")[0]}`,
-  `${game.data.black ?? "Bruno Mendes"} ${game.data.result.split("-")[1]}`];
+  return [
+    `${game.data.white ?? "Bruno Mendes"} ${game.data.result.split("-")[0]}`,
+    `${game.data.black ?? "Bruno Mendes"} ${game.data.result.split("-")[1]}`,
+  ];
 }
 
 export function capitalize(val: string) {
@@ -74,8 +90,8 @@ export function capitalize(val: string) {
 
 export function extractDate(path: string): Date {
   const regex = /(\d{4}-\d{2}-\d{2})/;
-  const match = path.match(regex) ?? ['1980-01-01'];
-  return new Date(match[0])
+  const match = path.match(regex) ?? ["1980-01-01"];
+  return new Date(match[0]);
 }
 
 export function dateTag(path: string) {
@@ -84,32 +100,35 @@ export function dateTag(path: string) {
 
 export function extractDescription(body: string) {
   let processed = body
-    .split('\n\n')
-    .filter(s => s.trimStart()[0] !== ">" && s.trimStart()[0] !== "#") // Exclude quotes and headers
-    .map(s => s.replace(/[\*>]|\[\^[0-9]+\]/g, "")) // Clean markdown elements
-    .join(' ') // Combine paragraphs
-    .replace(/\n/g, '') // Remove newlines
-    .replace(/ {2,}/g, ' / ') // Replace multiple spaces with slashes
-    .replace(/[,:.!?] \//g, ' /') // Tidy up spacing around slashes
+    .split("\n\n")
+    .filter((s) => s.trimStart()[0] !== ">" && s.trimStart()[0] !== "#") // Exclude quotes and headers
+    .map((s) => s.replace(/[\*>]|\[\^[0-9]+\]/g, "")) // Clean markdown elements
+    .join(" ") // Combine paragraphs
+    .replace(/\n/g, "") // Remove newlines
+    .replace(/ {2,}/g, " / ") // Replace multiple spaces with slashes
+    .replace(/[,:.!?] \//g, " /") // Tidy up spacing around slashes
     .trim();
 
-  const end_punct = ['?', '!', '.', '/']
-  const punct = [',', ':', ')'].concat(end_punct)
-  const min_length = 120
-  const min_length_small = 80
+  const end_punct = ["?", "!", ".", "/"];
+  const punct = [",", ":", ")"].concat(end_punct);
+  const min_length = 120;
+  const min_length_small = 80;
 
-  let par_count = 0
+  let par_count = 0;
   for (let i = 0; i < processed.length; i++) {
-    if (processed[i] == '(') {
+    if (processed[i] == "(") {
       par_count += 1;
-    } else if (processed[i] == ')') {
+    } else if (processed[i] == ")") {
       par_count -= 1;
     }
 
     if (par_count == 0 && punct.includes(processed[i])) {
-      if (i >= min_length || (end_punct.includes(processed[i]) && i >= min_length_small)) {
-        processed = !['?', '!'].includes(processed[i])
-          ? processed.substring(0, i).trimEnd() + '.'
+      if (
+        i >= min_length ||
+        (end_punct.includes(processed[i]) && i >= min_length_small)
+      ) {
+        processed = !["?", "!"].includes(processed[i])
+          ? processed.substring(0, i).trimEnd() + "."
           : processed.substring(0, i + 1);
         break;
       }

@@ -17,7 +17,7 @@ Mostrar-te coisas que conserto
 Mas que há a fazer se estou errado?  
 Estou errado desde que me lembro  
 
-Brigamos em setembro – sem razão!  
+Brigamos em setembro — sem razão!  
 Certamente que estava errado  
 Discutimos a noite em vão  
 

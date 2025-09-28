@@ -3,8 +3,8 @@ title: Manta de retalhos
 ---
 
 É o que sempre quis, encaixar  
-Mas dói, ouvir isto –  
-Que não és estranho –  
+Mas dói, ouvir isto —  
+Que não és estranho —  
 
 Arrancaram uma parte de mim  
 Em seu lugar colocaram  

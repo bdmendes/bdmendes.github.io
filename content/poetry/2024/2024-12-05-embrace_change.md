@@ -8,8 +8,8 @@ I sit alone with this disease
 A terse desire to cease  
 
 Yet you came back around  
-Whispering calmly to my ear –  
-Love's nothing to fear, dear –  
+Whispering calmly to my ear —  
+Love's nothing to fear, dear —  
 As if you hadn't disappeared  
 
 My muscles froze  
