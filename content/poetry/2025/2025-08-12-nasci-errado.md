@@ -17,10 +17,10 @@ Mostrar-te coisas que conserto
 Mas que há a fazer se estou errado?  
 Estou errado desde que me lembro  
 
-Brigamos em setembro - sem razão!  
+Brigamos em setembro – sem razão!  
 Certamente que estava errado  
 Discutimos a noite em vão  
 
 Contigo vejo-me transtornado!  
 Eu estou errado, nasci errado!  
-Tu insistes em ficar a meu lado!  
+Tu insistes em ficar a meu lado!
