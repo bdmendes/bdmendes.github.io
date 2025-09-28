@@ -110,7 +110,7 @@ export function extractDescription(body: string) {
     .trim();
 
   const end_punct = ["?", "!", ".", "/"];
-  const punct = [",", ":", ")"].concat(end_punct);
+  const punct = [",", ":", ")", ";"].concat(end_punct);
   const min_length = 120;
   const min_length_small = 80;
 
