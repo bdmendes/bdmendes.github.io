@@ -7,7 +7,7 @@ I started playing chess at a very young age.
 
 My father taught me the rules and we used to play using an handmade chessboard we had at home. We were never very good; in fact, we used to hang pieces all the time and play without any structured positional consideration, like every beginner chess player.
 
-I started to win some games in our home disputes and one day, at 13, I showed up in a regional [blitz](https://en.wikipedia.org/wiki/Fast_chess) tournament. It was a very challenging experience, as I had never experienced the rules of over-the-board chess. [J'adoube](https://en.wikipedia.org/wiki/Fast_chess) was something I had never heard and I barely remembered to push the clock after a move. In spite of this, I managed to score 3 out of 7 points. In the world of chess, a win translates to 1 point, a draw to 0.5 points and a loss to 0, so it was not that bad.
+I started to win some games in our home disputes and one day, at 13, I showed up in a regional [blitz](https://en.wikipedia.org/wiki/Fast_chess) tournament. It was a very challenging experience, as I had never experienced the rules of over-the-board chess. J'adoube was something I had never heard and I barely remembered to push the clock after a move. In spite of this, I managed to score 3 out of 7 points. In the world of chess, a win translates to 1 point, a draw to 0.5 points and a loss to 0, so it was not that bad.
 
 ![](chess_young1.jpg)
 *Me at my very first tournament, in Barcelos. My kingside is very weak here, but it was probably left unexploited by my young opponent.*
