@@ -19,7 +19,7 @@ Estou errado desde que me lembro
 
 Brigamos em setembro — sem razão!  
 Certamente que estava errado  
-Discutimos a noite em vão  
+Extinguimos a noite em vão  
 
 Contigo vejo-me transtornado!  
 Eu estou errado, nasci errado!  
