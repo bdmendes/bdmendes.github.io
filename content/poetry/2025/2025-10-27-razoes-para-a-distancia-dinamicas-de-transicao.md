@@ -6,4 +6,4 @@ Não percebes? A pressão que me infliges é avassaladora, dás-me pouco ou nenh
 
 ---
 
-Estou nervoso, desatento, é evidente que sim, há demasiada coisa em jogo, e a dinâmica entre o cansaço e a ansiedade nunca é trivial. A vida não cessa de clivar, desbalancear-se, mas fica a sensação de que nos modera, por desgaste, e nos tempos livres, que não são maiores mas são mais densos, deixa-se apreciar um bocadinho.
+Estou nervoso, desatento, é evidente que sim, há demasiada coisa em jogo, eu nunca gostei de mudança, e a dinâmica entre o cansaço e a ansiedade nunca é trivial. A vida não cessa de clivar, desbalancear-se, mas fica a sensação de que nos modera, por desgaste, e nos tempos livres, que não são maiores mas são mais densos, deixa-se apreciar um bocadinho.
