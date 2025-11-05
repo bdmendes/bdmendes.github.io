@@ -22,5 +22,5 @@ porque tem a evolução
 plantada como chave.  
 
 levantai-vos, com pulmão  
-gritai por fim que não  
+gritai cabalmente não  
 fazei a revolução  
