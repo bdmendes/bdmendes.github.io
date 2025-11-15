@@ -1,7 +1,7 @@
 ---
 black: Ariana Pintor
 blackElo: 1947
-whiteElo: 1466
+whiteElo: 1426
 tournament: Internacional Famalicão 2018
 round: 7
 table: 26
