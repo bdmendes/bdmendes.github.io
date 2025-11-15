@@ -2,7 +2,7 @@
 title: Céu-relâmpago
 ---
 
-sentimo-nos assim, desta forma  
+sentimo-nos assim, desta exata forma  
 febris, acamados, ficando a observar  
 céu-relâmpago, tempestade no mar  
 
