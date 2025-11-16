@@ -8,6 +8,7 @@ import {
   createChessTitleSplit,
   sortedByDate,
   getChessPoints,
+  gameColor,
 } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
@@ -51,6 +52,7 @@ const { page } = Astro.props;
       page.data.map((game) => (
         <>
           <HorizontalCard
+            status={gameColor(game)}
             title={createChessTitleSplit(game)[0]}
             title2={createChessTitleSplit(game)[1]}
             url={"/chess/" + createChessSlug(game)}

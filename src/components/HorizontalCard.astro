@@ -11,6 +11,7 @@ export interface Props {
   divideTop?: boolean;
   divideBottom?: boolean;
   forceVertical?: boolean;
+  status?: "red" | "grey" | "green" | undefined;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   divideBottom = true,
   divideTop = false,
   forceVertical = false,
+  status,
 } = Astro.props;
 import { Image } from "astro:assets";
 ---
@@ -48,10 +50,17 @@ import { Image } from "astro:assets";
           )
         }
         <div class="grow w-full">
-          <h1 class="text-xl font-bold mr-2">
-            {title}
-          </h1>
-          {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
+          <div class="flex gap-3 items-center">
+            {status == "green" && (<div aria-label="status" class="status bg-green-400"></div>)}
+            {status == "grey" && (<div aria-label="status" class="status bg-gray-400"></div>)}
+            {status == "red" && (<div aria-label="status" class="status bg-red-400"></div>)}
+            <div>
+              <h1 class="text-xl font-bold mr-2">
+              {title}
+              </h1>
+              {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
+            </div>
+          </div>
           <p class="py-1">{description}</p>
           {
             (tags.length > 0 || badge || disabledTags.length > 0) && (
