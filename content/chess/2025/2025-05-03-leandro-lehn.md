@@ -1,5 +1,5 @@
 ---
-tournament: Liga da Maia 2024/2025
+tournament: Liga da Maia 2024-2025
 round: 6
 whiteElo: 1737
 black: Leandro Lehn

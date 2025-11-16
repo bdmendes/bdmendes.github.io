@@ -1,4 +1,7 @@
 import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+const myName = "Bruno Mendes";
 
 export function validateBody(title: string, body: string) {
   if (body.includes(" -") || body.includes(" –")) {
@@ -66,21 +69,21 @@ export function createChessSlug(game: CollectionEntry<"chess">) {
 }
 
 export function createChessDescription(game: CollectionEntry<"chess">) {
-  return `Chess game played between ${game.data.white ?? "Bruno Mendes"} and ${game.data.black ?? "Bruno Mendes"}.`;
+  return `Chess game played between ${game.data.white ?? myName} and ${game.data.black ?? myName}.`;
 }
 
 export function createChessTitle(
   game: CollectionEntry<"chess">,
   showElo: boolean = true,
 ) {
-  return `${game.data.white ?? "Bruno Mendes"} ${showElo && game.data.whiteElo ? `(${game.data.whiteElo})` : ""}
-    ${game.data.result} ${game.data.black ?? "Bruno Mendes"} ${showElo && game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
+  return `${game.data.white ?? myName} ${showElo && game.data.whiteElo ? `(${game.data.whiteElo})` : ""}
+    ${game.data.result} ${game.data.black ?? myName} ${showElo && game.data.blackElo ? `(${game.data.blackElo})` : ""}`;
 }
 
 export function createChessTitleSplit(game: CollectionEntry<"chess">) {
   return [
-    `${game.data.white ?? "Bruno Mendes"} ${game.data.result.split("-")[0]}`,
-    `${game.data.black ?? "Bruno Mendes"} ${game.data.result.split("-")[1]}`,
+    `${game.data.white ?? myName} ${game.data.result.split("-")[0]}`,
+    `${game.data.black ?? myName} ${game.data.result.split("-")[1]}`,
   ];
 }
 
@@ -109,8 +112,8 @@ export function extractDescription(body: string) {
     .replace(/[,:.!?] \//g, " /") // Tidy up spacing around slashes
     .trim();
 
-  const end_punct = ["?", "!", ".", "/"];
-  const punct = [",", ":", ")", ";"].concat(end_punct);
+  const end_punct = ["?", "!", ".", "/", ";"];
+  const punct = [",", ":", ")"].concat(end_punct);
   const min_length = 120;
   const min_length_small = 80;
 
@@ -137,3 +140,17 @@ export function extractDescription(body: string) {
 
   return processed;
 }
+
+export async function getChessPoints(tournament?: string) {
+  const games = await getCollection("chess");
+  const matching = tournament ? games.filter((p) => p.data.tournament === tournament) : games;
+  const points = matching.map((game) => {
+    if (game.data.result === "1/2-1/2") return 0.5;
+    else if (
+      (game.data.result === "1-0" && (game.data.black ?? myName) !== myName) ||
+      (game.data.result === "0-1" && (game.data.white ?? myName) !== myName)
+    ) return 1;
+    else return 0;
+  });
+  return [points.reduce((total, n) => total + n, 0), matching.length];
+};

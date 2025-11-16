@@ -42,7 +42,9 @@ const chessGamesCollection = defineCollection({
                 { message: "Black player's name must be two words with capitalized first letters." }
             )
             .optional(),
-        tournament: z.string(),
+        tournament: z.string().refine((val) => !val.includes("/"), {
+          message: "Tournament name cannot contain slashes"
+        }),
         result: z
             .enum(["1-0", "0-1", "1/2-1/2"]),
         whiteElo: z

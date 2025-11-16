@@ -8,12 +8,14 @@ import {
   createChessSlug,
   createChessTitleSplit,
   sortedByDate,
+  getChessPoints,
 } from "../../../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
 import PaginationButtons from "@components/PaginationButtons.astro";
 import { PAGINATION_SIZE } from "src/config";
 import type { GetStaticPaths } from "astro";
 import ChessMiniature from "@components/ChessMiniature.astro";
+import ChessProgress from "@components/ChessProgress.astro";
 
 const { page } = Astro.props;
 const { tournament } = Astro.params;
@@ -31,6 +33,8 @@ export const getStaticPaths = (async ({ paginate }) => {
     });
   });
 }) satisfies GetStaticPaths;
+
+const [points, totalGames] = await getChessPoints(tournament);
 ---
 
 <BaseLayout
@@ -39,6 +43,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   currentPage={page.currentPage}
 >
   <LargeTitle title="Chess" path="/chess" selector={tournament} search={true} />
+  <ChessProgress points={points} totalGames={totalGames} />
   <ul class="grid sm:grid-cols-2 gap-x-3 auto-rows-min">
     {
       page.data.map((game) => (

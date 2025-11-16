@@ -1,5 +1,5 @@
 ---
-tournament: Liga da Maia 2024/2025
+tournament: Liga da Maia 2024-2025
 white: Gonçalo Montenegro
 whiteElo: 1654
 blackElo: 1739
