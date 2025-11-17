@@ -43,8 +43,9 @@ const [points, totalGames] = await getChessPoints(tournament);
   sideBarActiveItemID="chess"
   currentPage={page.currentPage}
 >
-  <LargeTitle title="Chess" path="/chess" selector={tournament} search={true} />
-  <ChessProgress points={points} totalGames={totalGames} />
+  <LargeTitle title="Chess" path="/chess" selector={tournament} search={true}>
+    <ChessProgress points={points} totalGames={totalGames} />
+  </LargeTitle>
   <ul class="grid sm:grid-cols-2 gap-x-3 auto-rows-min">
     {
       page.data.map((game) => (
