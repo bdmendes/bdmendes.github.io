@@ -17,12 +17,10 @@ const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 const iconSize = 26;
 ---
 
-<div class="flex items-center justify-between gap-2 flex-wrap w-full mb-4">
-  <a href={path} class="text-3xl font-bold mr-4">{title}</a>
+<div class="flex items-center justify-between gap-3 flex-wrap w-full mb-4">
+  <a href={path} class="text-3xl font-bold">{title}</a>
   <div class="flex gap-2 items-center mt-0.5">
-    <div class="mr-2">
-      <slot />
-    </div>
+    <slot />
     {
       selector && (
         <div class="flex gap-2 items-center">
