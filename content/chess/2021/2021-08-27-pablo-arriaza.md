@@ -4,7 +4,7 @@ blackElo: 1483
 whiteElo: 1938
 tournament: Guimarães Open 2021
 round: 6
-table: 98
+board: 98
 result: 1/2-1/2
 ---
 

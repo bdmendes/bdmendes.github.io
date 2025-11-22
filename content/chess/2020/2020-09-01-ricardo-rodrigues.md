@@ -1,0 +1,11 @@
+---
+result: 1-0
+tournament: CN Jovens S20 2020
+black: Ricardo Rodrigues
+blackElo: 1449
+whiteElo: 1440
+round: 3
+board: 5
+---
+
+1. e4 { [%eval 0.18] } 1... e5 { [%eval 0.22] } 2. Nf3 { [%eval 0.13] } 2... Nf6 { [%eval 0.34] } 3. Nxe5 { [%eval 0.29] } 3... d6 { [%eval 0.22] } 4. Nf3 { [%eval 0.31] } 4... Nxe4 { [%eval 0.27] } 5. Nc3 { [%eval 0.17] } 5... Nxc3 { [%eval 0.24] } 6. dxc3 { [%eval 0.14] } 6... Be7 { [%eval 0.11] } 7. Be3 { [%eval 0.13] } 7... b6?! { [%eval 0.95] } { Inaccuracy. O-O was best. } (7... O-O 8. Qd2 Nd7 9. O-O-O Re8 10. Bd3 Nf6 11. Rhe1 Bg4 12. Bg5) 8. Bc4 { [%eval 0.4] } 8... Bb7 { [%eval 0.38] } 9. Qd2 { [%eval 0.43] } 9... h6?! { [%eval 1.23] } { Inaccuracy. Nd7 was best. } (9... Nd7 10. O-O-O) 10. O-O-O { [%eval 1.22] } 10... Nd7 { [%eval 1.67] } 11. Rde1? { [%eval 0.52] } { Mistake. Rhe1 was best. } (11. Rhe1 Kf8 12. Bd5 Qc8 13. c4 Bf6 14. Bd4 Bxd4 15. Nxd4 Nf6 16. Bxb7 Qxb7) 11... Nf6?! { [%eval 1.11] } { Inaccuracy. Ne5 was best. } (11... Ne5 12. Bd5 c6 13. Nxe5 dxe5 14. Bc4 O-O 15. Qe2 b5 16. Bd3 f5 17. f3) 12. Bd3 { [%eval 0.99] } 12... d5 { [%eval 0.84] } 13. Nd4 { [%eval 1.03] } 13... Qd6?? { [%eval 4.56] } { Blunder. Ne4 was best. } (13... Ne4 14. Qe2 O-O 15. Nf5 Bg5 16. f4 Bf6 17. Qg4 Kh7 18. Ng3 Qd6 19. Bxe4+) 14. Bf4?! { [%eval 3.02] } { Inaccuracy. Nf5 was best. } (14. Nf5 Qd7 15. Nxg7+ Kd8 16. f3 Ng8 17. Bf4 a5 18. g4 Ba6 19. Bxa6 Rxa6) 14... Qd8 { [%eval 2.98] } 15. Bb5+ { [%eval 2.31] } 15... Kf8 { [%eval 2.42] } 16. Bc6 { [%eval 2.43] } 16... Bxc6? { [%eval 4.08] } { Mistake. Qc8 was best. } (16... Qc8 17. c4 Bxc6 18. Nxc6 Bd6 19. cxd5 Qg4 20. Bxd6+ cxd6 21. f4 h5 22. Re2) 17. Nxc6 { [%eval 3.96] } 17... Ne4?! { [%eval 5.78] } { Inaccuracy. Qd7 was best. } (17... Qd7 18. Rxe7 Qxc6 19. Rxc7 Qa4 20. Kb1 Re8 21. b3 Qe4 22. f3 Qe2 23. Qxe2) 18. Rxe4 { [%eval 5.6] } 18... dxe4 { [%eval 5.58] } 19. Nxd8 { [%eval 5.74] } 19... Rxd8 { [%eval 5.69] } 20. Qe2 { [%eval 5.67] } 20... f5 { [%eval 6.23] } 21. Rd1 { [%eval 6.18] } 21... Rc8 { [%eval 7.37] } 22. Qb5 { [%eval 7.08] } 22... c6? { [%eval #9] } { Checkmate is now unavoidable. Re8 was best. } (22... Re8 23. Qxf5+ Bf6 24. Bxc7 h5 25. Bf4 Kf7 26. Rd7+ Re7 27. Qd5+ Kf8) 23. Qxf5+ { [%eval #8] } *

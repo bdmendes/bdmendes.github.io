@@ -4,7 +4,7 @@ whiteElo: 1380
 blackElo: 1652
 tournament: CN Jovens S18 2018
 round: 5
-table: 7
+board: 7
 result: 0-1
 ---
 

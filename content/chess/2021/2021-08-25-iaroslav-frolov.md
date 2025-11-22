@@ -3,7 +3,7 @@ white: Iaroslav Frolov
 blackElo: 1483
 tournament: Guimarães Open 2021
 round: 2
-table: 138
+board: 138
 result: 0-1
 ---
 

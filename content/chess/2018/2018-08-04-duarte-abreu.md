@@ -4,7 +4,7 @@ blackElo: 1087
 whiteElo: 1426
 tournament: Internacional Famalicão 2018
 round: 9
-table: 35
+board: 35
 result: 1-0
 ---
 

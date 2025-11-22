@@ -7,7 +7,7 @@ export interface Props {
 const { points, totalGames } = Astro.props;
 ---
 
-<div class="flex gap-2 items-center justify-center mr-2">
+<div class="flex gap-2 items-center justify-center mr-1">
   <progress class="progress progress-primary w-16" value={points} max={totalGames}></progress>
   <span class="text-nowrap text-sm">
     {points} / {totalGames}
