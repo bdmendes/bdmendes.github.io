@@ -30,8 +30,8 @@ importers:
         specifier: ^1.8.3
         version: 1.8.3(astro@5.16.0(@types/node@24.10.1)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.53.3)(sass@1.83.1)(typescript@5.9.2)(yaml@2.7.0))
       daisyui:
-        specifier: ^5.4.2
-        version: 5.4.2
+        specifier: ^5.5.5
+        version: 5.5.5
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -1154,8 +1154,8 @@ packages:
     resolution: {integrity: sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
 
-  daisyui@5.4.2:
-    resolution: {integrity: sha512-yLoRFlx5hKvn5ODpT7CVb9oU/fAF2X1BGuLmVZo4LN33r7hcmO8v+gcxB6l33mcMas5jut3lZwHj9erqbMvvEA==}
+  daisyui@5.5.5:
+    resolution: {integrity: sha512-ekvI93ZkWIJoCOtDl0D2QMxnWvTejk9V5nWBqRv+7t0xjiBXqAK5U6o6JE2RPvlIC3EqwNyUoIZSdHX9MZK3nw==}
 
   dayjs@1.11.13:
     resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
@@ -3757,7 +3757,7 @@ snapshots:
     dependencies:
       css-tree: 2.2.1
 
-  daisyui@5.4.2: {}
+  daisyui@5.5.5: {}
 
   dayjs@1.11.13: {}
 
