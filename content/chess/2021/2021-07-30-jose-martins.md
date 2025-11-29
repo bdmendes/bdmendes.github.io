@@ -1,0 +1,11 @@
+---
+black: José Martins
+blackElo: 1697
+whiteElo: 1483
+tournament: Internacional Famalicão 2021
+round: 8
+board: 24
+result: 1/2-1/2
+---
+
+1. e4 { [%eval 0.18] } 1... c5 { [%eval 0.25] } 2. Nf3 { [%eval 0.2] } 2... g6 { [%eval 0.34] } 3. d4 { [%eval 0.43] } 3... cxd4 { [%eval 0.47] } 4. Nxd4 { [%eval 0.38] } 4... Bg7 { [%eval 0.39] } 5. Be3 { [%eval 0.23] } 5... Nc6 { [%eval 0.41] } 6. Nc3 { [%eval 0.16] } 6... Nf6 { [%eval 0.26] } 7. h3 { [%eval -0.1] } 7... d5?! { [%eval 0.57] } { Inaccuracy. O-O was best. } (7... O-O 8. Qd2 d5 9. O-O-O dxe4 10. Nxc6 Qxd2+ 11. Bxd2 bxc6 12. g4) 8. exd5 { [%eval 0.07] } 8... Nxd5 { [%eval 0.18] } 9. Nxd5 { [%eval -0.36] } 9... Qxd5 { [%eval -0.23] } 10. c3 { [%eval -0.16] } 10... Nxd4 { [%eval -0.24] } 11. Bxd4 { [%eval -0.21] } 11... Bxd4 { [%eval -0.21] } 12. Qxd4 { [%eval -0.19] } 12... Qxd4 { [%eval -0.18] } 13. cxd4 { [%eval -0.22] } 13... O-O { [%eval -0.27] } 14. Kd2 { [%eval -0.31] } 14... Bf5 { [%eval -0.04] } 15. Bd3 { [%eval -0.06] } 15... Bxd3 { [%eval -0.09] } 16. Kxd3 { [%eval -0.11] } 16... Rfd8 { [%eval -0.12] } 17. Ke3 { [%eval -0.24] } 17... Rac8 { [%eval 0.17] } 18. Rac1 { [%eval -0.02] } 18... Rxc1 { [%eval 0.24] } 19. Rxc1 { [%eval 0.13] } 19... Rd7 { [%eval 0.08] } 20. Ke4 { [%eval 0.17] } 20... e6 { [%eval 0.14] } 21. Rc2 { [%eval 0.05] } 21... Kf8 { [%eval 0.14] } 22. Rc3 { [%eval 0.0] } 22... Ke7 { [%eval 0.03] } 23. Rc2 { [%eval 0.02] } 23... f5+ { [%eval 0.02] } 24. Ke3 { [%eval 0.0] } 24... Kd6 { [%eval 0.0] } 25. Kd3 { [%eval 0.0] } 25... Rc7 { [%eval 0.0] } 26. Rc3 { [%eval -0.13] } 26... Rxc3+ { [%eval 0.0] } 27. bxc3 { [%eval -0.02] } 27... b5 { [%eval 0.0] } 28. c4 { [%eval 0.0] } 28... bxc4+ { [%eval 0.0] } 29. Kxc4 { [%eval -0.01] } 29... a6 { [%eval 0.0] } 30. a4 { [%eval 0.0] } 30... g5 { [%eval 0.0] } 31. Kb4 { [%eval 0.0] } 31... Kc6 { [%eval 0.0] } 32. Kc4 { [%eval 0.0] } 32... g4 { [%eval 0.0] } 33. Kb4 { [%eval 0.0] } 33... h5 { [%eval 0.0] } 34. hxg4 { [%eval 0.0] } 34... fxg4 { [%eval 0.0] } 35. g3 { [%eval 0.0] } 35... Kb6 { [%eval 0.0] } 36. Kc4 { [%eval 0.0] } 36... a5 { [%eval 0.0] } 37. d5 { [%eval 0.0] } 37... e5 { [%eval 0.0] } 38. d6 { [%eval 0.0] } 38... Kc6 { [%eval 0.0] } 39. d7 { [%eval 0.0] } 39... Kxd7 { [%eval 0.0] } 40. Kd5 { [%eval 0.0] } 40... e4 { [%eval 0.0] } 41. Kxe4 { [%eval 0.0] } 41... Ke6 { [%eval 0.0] } *
