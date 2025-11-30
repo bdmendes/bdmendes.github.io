@@ -1,0 +1,10 @@
+---
+result: 1-0
+tournament: Guimarães Open 2017
+black: Diogo Cardoso
+whiteElo: 1409
+round: 2
+board: 21
+---
+
+1. e4 { [%eval 0.18] } 1... e5 { [%eval 0.22] } 2. Nf3 { [%eval 0.13] } 2... Nc6 { [%eval 0.21] } 3. Bc4 { [%eval 0.11] } 3... Nf6 { [%eval 0.1] } 4. d3 { [%eval 0.09] } 4... h6 { [%eval 0.24] } 5. O-O { [%eval 0.2] } 5... Bc5 { [%eval 0.25] } 6. c3 { [%eval 0.14] } 6... d5? { [%eval 1.45] } { Mistake. Bb6 was best. } (6... Bb6 7. b4 d6 8. a4 a5 9. b5 Ne7 10. Nbd2 O-O 11. d4) 7. exd5 { [%eval 1.38] } 7... Nxd5 { [%eval 1.95] } 8. Re1? { [%eval 0.78] } { Mistake. Qb3 was best. } (8. Qb3 Be6 9. Qxb7 Nde7 10. Qb5 Bd6 11. Bxe6 fxe6 12. Qc4 Qd7) 8... Bg4?! { [%eval 1.38] } { Inaccuracy. O-O was best. } (8... O-O) 9. Nbd2 { [%eval 1.03] } 9... O-O { [%eval 1.11] } 10. Ne4 { [%eval 1.04] } 10... b6? { [%eval 2.28] } { Mistake. Be7 was best. } (10... Be7 11. h3 Be6 12. Bb5 Bd6 13. Nxd6 cxd6 14. d4 exd4 15. Nxd4 Nxd4 16. Qxd4) 11. h3 { [%eval 2.02] } 11... Bh5?! { [%eval 2.68] } { Inaccuracy. Be6 was best. } (11... Be6 12. Qa4 Nce7 13. Nxe5 Bd6 14. Nxd6 cxd6 15. Nc6 Nxc6 16. Qxc6 Rc8 17. Qa4) 12. g4 { [%eval 2.45] } 12... Bg6 { [%eval 2.5] } 13. Nxc5? { [%eval 1.07] } { Mistake. Bxh6 was best. } (13. Bxh6 Na5 14. Nxc5 bxc5 15. Bxd5 Qxd5 16. Rxe5 Qb7 17. Rxc5 gxh6 18. Rxa5 Qxb2) 13... bxc5 { [%eval 1.11] } 14. Nxe5 { [%eval 1.14] } 14... Nxe5 { [%eval 1.07] } 15. Rxe5 { [%eval 1.01] } 15... Qd6?? { [%eval 4.83] } { Blunder. Nb6 was best. } (15... Nb6 16. Rxc5 Nxc4 17. Rxc4 f5 18. Be3 Kh7 19. g5 hxg5 20. Bd4 Qd7 21. Qa4) 16. Rxd5 { [%eval 4.75] } 16... Qe7 { [%eval 5.08] } 17. Be3 { [%eval 4.98] } 17... Qh4 { [%eval 5.32] } 18. Qf3 { [%eval 5.31] } 18... Rae8 { [%eval 6.52] } 19. Bxc5 { [%eval 6.15] } 19... c6 { [%eval 6.68] } 20. Rd7 { [%eval 6.73] } 20... Kh7 { [%eval 7.39] } 21. Bxf8 { [%eval 7.35] } 21... Rxf8 { [%eval 7.18] } 22. Re1 { [%eval 7.13] } 22... f5 { [%eval 8.47] } 23. Ree7 { [%eval 8.16] } 23... Kh8 { [%eval 8.73] } 24. Rxg7 { [%eval 7.54] } 24... fxg4? { [%eval #1] } { Checkmate is now unavoidable. Qg5 was best. } (24... Qg5 25. Rxg6 Qxg6 26. Qf4 Qg5 27. Qxg5 hxg5 28. gxf5 Rxf5 29. Rxa7 Rf8 30. a4) 25. Qxf8# *
