@@ -1,0 +1,11 @@
+---
+white: Filipa Pipiras
+whiteElo: 2011
+blackElo: 1483
+tournament: Internacional Famalicão 2021
+round: 3
+board: 21
+result: 1-0
+---
+
+1. d4 { [%eval 0.17] } 1... b6 { [%eval 0.66] } 2. c4 { [%eval 0.35] } 2... Bb7 { [%eval 0.29] } 3. Nc3 { [%eval 0.23] } 3... Nf6 { [%eval 0.57] } 4. Qc2 { [%eval 0.27] } 4... e6 { [%eval 0.78] } 5. e4 { [%eval 0.78] } 5... Bb4 { [%eval 1.2] } 6. Bd3 { [%eval 0.83] } 6... c5 { [%eval 0.96] } 7. d5 { [%eval 0.96] } 7... e5?! { [%eval 1.96] } { Inaccuracy. b5 was best. } (7... b5 8. b3 bxc4 9. bxc4 O-O 10. Ne2 d6 11. O-O Nbd7 12. f4) 8. Ne2 { [%eval 2.1] } 8... O-O { [%eval 2.3] } 9. O-O { [%eval 2.15] } 9... Bxc3 { [%eval 2.17] } 10. Qxc3 { [%eval 2.11] } 10... d6 { [%eval 2.13] } 11. f4 { [%eval 1.94] } 11... exf4 { [%eval 1.96] } 12. Bxf4 { [%eval 2.44] } 12... Re8?! { [%eval 3.52] } { Inaccuracy. Nh5 was best. } (12... Nh5 13. e5) 13. Ng3 { [%eval 3.53] } 13... Ng4 { [%eval 3.29] } 14. Nf5 { [%eval 3.21] } 14... Ne5 { [%eval 3.42] } 15. Bc2 { [%eval 3.51] } 15... Ba6?! { [%eval 5.22] } { Inaccuracy. Bc8 was best. } (15... Bc8 16. Ba4 Bxf5 17. Bxe8 Qxe8 18. Bxe5 Qxe5 19. Qxe5 dxe5 20. Rxf5 Nd7 21. h4) 16. Qg3 { [%eval 4.95] } 16... g6 { [%eval 6.03] } 17. Nh6+ { [%eval 6.3] } 17... Kg7 { [%eval 5.81] } 18. Bxe5+ { [%eval 5.0] } 18... Rxe5 { [%eval 4.97] } 19. Nxf7 { [%eval 5.03] } 19... Qe7 { [%eval 5.0] } 20. Nxe5 { [%eval 5.01] } 20... dxe5 { [%eval 5.21] } 21. Rf5 { [%eval 5.05] } 21... Bxc4 { [%eval 5.56] } 22. Qxe5+ { [%eval 5.58] } 22... Qxe5 { [%eval 5.47] } 23. Rxe5 { [%eval 5.56] } 23... Kf7 { [%eval 5.55] } 24. b3 { [%eval 5.68] } 24... Nd7 { [%eval 5.64] } 25. Re6 { [%eval 5.4] } 25... Ba6 { [%eval 5.36] } 26. Rd1 { [%eval 5.2] } 26... Nf8 { [%eval 5.51] } 27. Rc6 { [%eval 5.43] } 27... Rc8 { [%eval 5.7] } 28. Rxc8 { [%eval 5.62] } 28... Bxc8 { [%eval 5.5] } 29. e5 { [%eval 5.65] } 29... Ke7 { [%eval 5.64] } 30. Rf1 { [%eval 5.26] } 30... Nd7 { [%eval 5.29] } 31. Re1 { [%eval 5.22] } 31... Bb7 { [%eval 5.57] } 32. Be4 { [%eval 5.55] } 32... Ba6 { [%eval 5.44] } 33. Kf2 { [%eval 5.19] } 33... c4 { [%eval 5.22] } 34. d6+ { [%eval 5.11] } 34... Kf8?! { [%eval 8.37] } { Inaccuracy. Ke6 was best. } (34... Ke6 35. Bf3 h5 36. bxc4 Bxc4 37. Bc6 Nc5 38. Ke3 Kxe5 39. d7 Nxd7 40. Bxd7) 35. e6 { [%eval 8.19] } 35... Nf6 { [%eval 9.0] } 36. Bc6 { [%eval 8.18] } *
