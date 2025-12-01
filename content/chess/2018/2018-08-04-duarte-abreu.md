@@ -1,7 +1,7 @@
 ---
 black: Duarte Abreu
 blackElo: 1087
-whiteElo: 1426
+whiteElo: 1466
 tournament: Internacional Famalicão 2018
 round: 9
 board: 35
