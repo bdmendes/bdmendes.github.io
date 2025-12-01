@@ -1,0 +1,11 @@
+---
+result: 1-0
+tournament: Preparação AXDB CNJ 2020
+white: Miguel Palhas
+blackElo: 1440
+whiteElo: 1510
+round: 6
+board: 6
+---
+
+1. e4 { [%eval 0.18] } 1... e6 { [%eval 0.22] } 2. d4 { [%eval 0.29] } 2... d5 { [%eval 0.31] } 3. Nd2 { [%eval 0.1] } 3... Nf6 { [%eval 0.47] } 4. e5 { [%eval 0.33] } 4... Nfd7 { [%eval 0.4] } 5. Bd3 { [%eval 0.41] } 5... c5 { [%eval 0.41] } 6. c3 { [%eval 0.32] } 6... Nc6 { [%eval 0.28] } 7. Ne2 { [%eval 0.17] } 7... Qb6 { [%eval 0.56] } 8. Nf3 { [%eval 0.7] } 8... cxd4 { [%eval 0.72] } 9. cxd4 { [%eval 0.77] } 9... f6 { [%eval 0.89] } 10. exf6 { [%eval 0.85] } 10... Nxf6 { [%eval 0.8] } 11. O-O { [%eval 0.67] } 11... Bd6 { [%eval 0.91] } 12. Re1 { [%eval 0.4] } 12... O-O { [%eval 0.43] } 13. Nf4 { [%eval 0.53] } 13... Ne4?! { [%eval 1.38] } { Inaccuracy. Bd7 was best. } (13... Bd7 14. Nxe6) 14. Bxe4 { [%eval 1.31] } 14... Bxf4 { [%eval 1.36] } 15. Bxh7+?? { [%eval -2.25] } { Blunder. Bc2 was best. } (15. Bc2 Bd6 16. Re3 Qc7 17. a3 Qe7 18. Qd3 g6 19. Bd2 Bd7 20. Ba4 Nd8) 15... Kxh7 { [%eval -2.19] } 16. Qd3+ { [%eval -2.18] } 16... Kh6?? { [%eval 4.4] } { Blunder. Kg8 was best. } (16... Kg8 17. Bxf4 Rxf4 18. Ng5 Qxd4 19. Qh7+ Kf8 20. Qh8+ (20. Re2 Rh4 21. Qg6 Qf6 22. Nh7+) 20... Ke7 21. Nxe6 Bxe6 22. Qxa8 Qxf2+ 23. Kh1 Rb4) 17. Nh4 { [%eval 3.37] } 17... Rf6?? { [%eval 7.34] } { Blunder. Ne7 was best. } (17... Ne7 18. Qh3 Kh7 19. Bxf4 Kg8 20. Be5 Qxb2 21. Qg3 Rf7 22. Nf3 Nf5 23. Qg4) 18. Bxf4+ { [%eval 7.06] } 18... g5 { [%eval 6.78] } 19. Be3?! { [%eval 4.63] } { Inaccuracy. Bxg5+ was best. } (19. Bxg5+ Kxg5 20. Qh7 Qxd4 21. Re3 Qxh4 22. Rg3+ Qxg3 23. fxg3 Bd7 24. h4+ Kg4) 19... Nb4?! { [%eval 6.9] } { Inaccuracy. Qc7 was best. } (19... Qc7 20. Bd2 Qf7 21. Re3 Qh7 22. Nf3 Qxd3 23. Rxd3 Rxf3 24. Rxf3 Nxd4 25. Rh3+) 20. Qd2 { [%eval 6.38] } 20... Rg6 { [%eval 7.12] } 21. Nxg6 { [%eval 7.88] } 21... Kxg6 { [%eval 7.81] } 22. Bxg5 { [%eval 7.38] } 22... Bd7 { [%eval 7.54] } 23. Be7 { [%eval 8.24] } 23... Kf7 { [%eval 8.01] } 24. Bxb4 { [%eval 7.85] } 24... Rh8 { [%eval 8.8] } 25. Qf4+ { [%eval 8.58] } 25... Ke8 { [%eval 7.81] } 26. Qb8+ { [%eval 7.89] } 26... Qd8 { [%eval 7.86] } 27. Qxd8+ { [%eval 7.87] } 27... Kxd8 { [%eval 7.81] } 28. Bd6 { [%eval 7.69] } *
