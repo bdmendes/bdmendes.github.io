@@ -10,4 +10,4 @@ O primeiro momento de que me lembro depois disto é acordar no hospital, com fit
 
 ---
 
-026, 026, 026, calem-se com isso, pá! Acham razoável produzir merchandising com tudo que move, termos de aturar isso em porta-chaves, T-shirts lisas e bonés? Longe com essa insinuação de memorabilidade, sejam verdadeiros, escrevam Hawai, XXX, o raio que vos der na real gana! Agora, poupem-me com exaltações temporais!
+026, 026, 026, calem-se com isso, pá! Acham razoável produzir merchandising com tudo que move, termos de aturar isso em porta-chaves, T-shirts lisas e bonés? Longe com essa insinuação de memorabilidade, sejam verdadeiros, escrevam Hawai, XXX, o raio que vos der na real gana! Agora, poupem-me de exaltações temporais!
