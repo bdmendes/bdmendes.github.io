@@ -1,0 +1,11 @@
+---
+result: 1-0
+tournament: Taça AXP 2022
+white: Paulo Monteiro
+blackElo: 1571
+whiteElo: 2030
+round: 2
+board: 1
+---
+
+1. Nf3 { [%eval 0.1] } 1... Nf6 { [%eval 0.18] } 2. g3 { [%eval 0.11] } 2... d5 { [%eval 0.15] } 3. Bg2 { [%eval 0.13] } 3... e6 { [%eval 0.11] } 4. O-O { [%eval 0.16] } 4... Be7 { [%eval 0.25] } 5. d3 { [%eval 0.0] } 5... O-O { [%eval 0.05] } 6. Nbd2 { [%eval -0.08] } 6... Nbd7 { [%eval 0.14] } 7. e4 { [%eval 0.17] } 7... dxe4 { [%eval 0.2] } 8. Nxe4 { [%eval 0.07] } 8... b6?? { [%eval 2.01] } { Blunder. Nxe4 was best. } (8... Nxe4 9. dxe4 e5 10. Qe2 Bd6 11. Rd1 Qf6 12. Nh4 g6 13. Bh3 Nc5 14. Bxc8) 9. Nd4 { [%eval 2.29] } 9... Ne5 { [%eval 2.62] } 10. Nxf6+ { [%eval 2.74] } 10... Bxf6 { [%eval 2.64] } 11. Bxa8 { [%eval 2.55] } 11... Qxd4 { [%eval 2.54] } 12. c3? { [%eval 1.07] } { Mistake. Be4 was best. } (12. Be4 Rd8 13. a4 a5 14. Re1 Qd7 15. h4 h6 16. Bd2 c5 17. Bc3 Qc7) 12... Qxd3 { [%eval 1.1] } 13. Qxd3 { [%eval 1.05] } 13... Nxd3 { [%eval 0.99] } 14. Rd1 { [%eval 1.04] } 14... Ba6 { [%eval 0.88] } 15. Be4 { [%eval 0.8] } 15... Nc5 { [%eval 1.33] } 16. Bc2 { [%eval 1.03] } 16... Bb5?! { [%eval 1.69] } { Inaccuracy. Rc8 was best. } (16... Rc8) 17. Be3 { [%eval 1.17] } 17... Nb7 { [%eval 1.51] } 18. f4 { [%eval 1.22] } 18... Nd6 { [%eval 1.23] } 19. Bd4 { [%eval 1.6] } 19... Be7 { [%eval 1.48] } 20. a4 { [%eval 1.6] } 20... Bc6 { [%eval 1.51] } 21. a5 { [%eval 1.59] } 21... Nc4 { [%eval 2.06] } 22. axb6 { [%eval 1.98] } 22... axb6 { [%eval 2.09] } 23. b3 { [%eval 1.93] } 23... Na5 { [%eval 2.45] } 24. b4 { [%eval 2.2] } 24... Nc4 { [%eval 2.33] } 25. Bb3?! { [%eval 1.27] } { Inaccuracy. Ra7 was best. } (25. Ra7 Bd6 26. Kf2 Nb2 27. Rb1 Nc4 28. Bd3 e5 29. Bxc4 exd4 30. cxd4 g6) 25... Bd5?? { [%eval 3.39] } { Blunder. Nd6 was best. } (25... Nd6) 26. Bxc4 { [%eval 3.25] } 26... Bxc4 { [%eval 3.37] } 27. Be5 { [%eval 2.7] } 27... c5?! { [%eval 3.68] } { Inaccuracy. Bf6 was best. } (27... Bf6 28. Rd7 c6 29. Kf2 h5 30. Raa7 b5 31. Ke3 Bd8 32. Rdb7 Bf6 33. Rc7) 28. Rd7 { [%eval 3.22] } 28... Re8? { [%eval 5.64] } { Mistake. Bf6 was best. } (28... Bf6 29. bxc5 bxc5 30. Ra5 Bd8 31. Ra8 Be7 32. Raa7 Bf6 33. Bxf6 gxf6 34. Rac7) 29. Rxe7 { [%eval 5.47] } *
