@@ -5,4 +5,5 @@ location: Portugal
 type: short
 ---
 
-I'm a Software Engineer based in Porto, Portugal, holding an MSc from FEUP. I enjoy crafting code, playing chess and exploring ideas through discussions and writing, hopefully offering value to others along the way.
+I'm a Software Engineer based in Porto, Portugal, with an MSc from FEUP.
+Occasionally, I play chess, go on walks, and write.
