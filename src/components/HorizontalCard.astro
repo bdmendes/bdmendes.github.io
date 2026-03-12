@@ -66,12 +66,12 @@ import { Image } from "astro:assets";
             (tags.length > 0 || badge || disabledTags.length > 0) && (
               <div class="card-actions justify-end mt-2 mb-1">
                 {disabledTags.toReversed().map((tag) => (
-                  <span class="badge badge-ghost">{tag}</span>
+                  <span class="badge badge-dash">{tag}</span>
                 ))}
                 {tags.toReversed().map((tag) => (
                   <span class="badge badge-outline">{tag}</span>
                 ))}
-                {badge && <span class="badge badge-primary">{badge}</span>}
+                {badge && <span class="badge badge-outline">{badge}</span>}
               </div>
             )
           }

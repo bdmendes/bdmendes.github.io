@@ -8,7 +8,7 @@ const { points, totalGames } = Astro.props;
 ---
 
 <div class="flex gap-2 items-center justify-center mx-1">
-  <progress class="progress progress-primary w-16" value={points} max={totalGames}></progress>
+  <progress class="progress w-16" value={points} max={totalGames}></progress>
   <span class="text-nowrap text-sm">
     {points} / {totalGames}
   </span>

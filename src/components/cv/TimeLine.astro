@@ -19,12 +19,12 @@ const { title, from, to, location, grade } = Astro.props;
   <div class="entry_data bd-grid">
     <div class="font-semibold mb-1 flex items-baseline flex-wrap gap-2">
       <span>{title} @ {location}</span>
-      <span class="badge badge-ghost font-normal text-sm"
+      <span class="badge badge-dash font-normal text-sm"
         >{from} {to ? (to != from ? `- ${to}` : "") : "- Present"}</span
       >
       {
         grade && (
-          <span class="badge badge-ghost font-normal text-sm">{grade}</span>
+          <span class="badge badge-dash font-normal text-sm">{grade}</span>
         )
       }
     </div>
