@@ -1,0 +1,9 @@
+---
+title: As irritações da mulher esbelta
+---
+
+É uma mulher esbelta, esta, que vem vagueando pelo parque pela mesma hora que eu; fá-lo com um vestido de quem se veraneia, num dia que lhe pertence e fazendo o delicado virado matéria vergar-se perante sua delicadeza. Estou ciente do sofrimento que lhe causo, porquanto sempre que os seus olhos conseguem enxergar-me ao longe, ela muda ao de leve de direção: não pode dar a volta, pois isto seria admitir a importância da minha presença no seu dia, não pode continuar como antes, pois não me suporta. As razões pelas quais isto acontece não me são totalmente claras, mas porque não tenho nada mais para fazer, não raras vezes, cogito nervosamente sobre elas.
+
+A mulher esbelta não me conhece, mas como mulher inteligente e perspicaz que claramente é, terá já traçado o meu carácter. Ela depreendeu que, se estivéssemos juntos, a sua vida seria infernal: teria de aturar os meus devaneios constantes; a forma como critico tudo o que mexe e lhe endereço preocupações com uma frequência desagradável, que eu lhe disse não serem sobre ela, mas sobre o Estado e o estado das coisas, e se ela se revia nisto, se deixava emanar um ou dois traços criticáveis nos mesmos moldes, era isto uma coincidência. Um dia, eu disse-lhe que não queria ser belo, apenas apresentável; não queria ser rico, apenas estável; isto enfureceu-a de tal maneira que, naquele momento, engavetou a delicadeza e disparou que eu era sonho feito pesadelo, introduzi-me carismático mas agora nem lavo o cabelo. Naturalmente, senti-me diminuído, nesta situação imaginada em que nós discutimos e ela me reduziu a uma pessoa medíocre, ainda para mais gostando dela, um gosto que além de adquirido tinha seu quê de intrínseco, ela era tão bonita, mas atacando-me assim não havia forma de chegar a lado algum.
+
+Uma coisa é certa: isto, sendo verdade, justifica as irritações da mulher esbelta.
