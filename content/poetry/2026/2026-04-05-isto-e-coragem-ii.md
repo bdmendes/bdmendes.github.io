@@ -1,0 +1,7 @@
+---
+title: Isto é coragem II
+---
+
+Poderia ter reagido de diversas formas. Primeiramente, havia a possibilidade de desatar a correr pela praça abaixo; descurando eventuais complicações cardíacas, admitindo que teria fôlego para chegar a uma esquadra e interpelar os agentes acerca da perseguição de que fora alvo, evitaria todas as complicações dialéticas, mas por mais razão que tivesse a dor que adviria disto no sujeito perseguidor teria potencial para me corroer por dentro para o resto dos meus dias. Alternativamente, aquando da aparição surpresa do senhor bandido, cumprimentá-lo-ia com afeto, arrancando alguma comoção de dentro do coração aplanado que parece não ter conserto dentro do peito para procurar ter interesse pela sua vida, que não é nulo mas nunca o suficiente para apreciar a conversa nestes moldes.
+
+Não é raro que eu me sinta como este indivíduo que me queria pilhar. Quando anoitece e me é impossível fazer algo de útil, imbuído de uma coragem flamejante, visualizo-me marchando pela avenida rumo ao reduto onde me possa redimir, pedir perdão e perdoar de volta; mas isto seria uma apropriação de tempo e vontades e é contra os meus princípios fazê-lo. Isto não torna a impossibilidade da realização desta perspetiva mais fácil de engolir, mas ao menos torna-a compreensível. De resto, no mundo onde vivo, a consistência, a amabilidade e o respeito prevalecem sobre qualquer forma de coragem. Amanhã, farei disto o meu lema.
