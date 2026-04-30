@@ -1,0 +1,5 @@
+---
+title: Apelo ao voto
+---
+
+Ontem, o presidente dos Estados Unidos ligou-me. Quando apareceu a sua foto de contacto no ecrã, pareceu-me que ia perdendo a tensão, tal foi o espanto, mas a uma oportunidade destas diz-se sim, My friend, ele começou, Bom dia, senhor presidente, I'm calling you to ask that you, with your influence back in there, convince the young people to vote republican, Mas, Donald, isto não é a América e eu não conheço americanos, That's a bummer, but I am positive you can do something, and it will be extraordinary, you will be the most extraordinary and convincing man to ever ask someone to go vote, Ora essa, folgo em saber isto. Nos momentos seguintes, percebi porque se havia passado isto. Donald terá ido a Miami e enfrentado um dilema: continuar a bombardear os senhores encapuzados no Médio Oriente, desviar para Cancún e desfrutar de umas férias que nem um sujeito gordo com uma pickup e uma espingarda, ordenar a patrulha do Atlântico com uma frota de navios de última geração, ou — o que se passou — ligar-me, um social democrata disposto a ser convertido, para espalhar sua palavra divina pelo velho continente.
