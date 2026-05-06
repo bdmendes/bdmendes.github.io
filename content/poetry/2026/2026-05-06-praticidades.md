@@ -1,0 +1,5 @@
+---
+title: Praticidades
+---
+
+Faz frio, faz um frio desmesurado, ainda que o tempo venha aquecendo, seja este o tempo das cerejeiras em flor, hoje pela manhã quase desertei da existência, quando abri a portada e deixei entrar uma lufada de ar que veio diretamente para o meu quarto e para o meu quarto só. Aqui, coloquei as coisas em perspetiva: só me vi em perigo porque quis arejar o quarto; se seguisse as regras, e as regras, ao menos aquelas que eu estabeleci, ditam que se areja o quarto pela noite apenas, e a manhã deve ser o espaço para as praticidades, então estaria seguro e a postos para encarar o dia com tranquilidade. Mas não, nada disto se passa, já tremelicando, ainda me dei ao luxo de pensar como havia de estruturar isto para que não se repetisse, razão pela qual escrevo. Hei de chegar atrasado, e perceber um pouco menos porque existimos pelo outro e para o outro, que é algo que tenho mas não na totalidade, porventura por dedicar tempo às especificidades, apavorado com a horizontalidade que urge, definitivamente ocupado.
