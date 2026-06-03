@@ -1,0 +1,7 @@
+---
+title: Bandidos voadores
+---
+
+O que eu sentia ali era que, se o matasse, estaria a colocar em causa toda a minha vida, ainda que protegesse as vidas da minha família. Concessão inaceitável, encontrei uma forma de afastar o assaltante para o elevador, direcionado para o piso 11. Enquanto ele e os amigos subiam, busquei uma cadeira e coloquei-a à porta. Isto, claro está, serviu de pouco; os malefeitores puderam sair e tive de repetir este procedimento aquando do seu regresso ao meu piso.
+
+O elevador do prédio em questão era particular, porquanto transportava também lixo desde os apartamentos até ao andar de cima, de lixo congregado. O procedimento era simples, os clientes saíam, deitavam seus dejetos, nunca maiores que um pacote de leite, e estes seguiam para cima para eventualmente serem recolhidos por um helicóptero. Com os factos, equipei-me com um saco do lixo tradicional — há coisas que não devem mudar —, bem maior que um pacote, e chutei-o para dentro do saco grande inteligente. Plano pensado, plano sucedido. Assim, o sistema partilhado de transporte e sensorização entrou em falência, e os bandidos, ao passarem o piso 11, não pararam; seguiram para o 12, o do lixo privado, onde não pararam; descobriram o 13, o da direção secreta, onde não pararam; o 14 era o telhado que romperam e por onde saíram disparados em direção ao solo, numa parábola, bandidos voadores em cabina de elevador, destaque de jornais do prédio para o mundo.
