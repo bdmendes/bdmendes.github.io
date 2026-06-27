@@ -34,3 +34,7 @@
   overflow-y: scroll;
   scrollbar-gutter: stable;
 }
+
+.pf-result-link:hover {
+  text-decoration: none !important;
+}
