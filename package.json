@@ -9,6 +9,7 @@
     "start": "astro dev",
     "check": "astro check --tsconfig tsconfig.json",
     "build": "astro check --tsconfig tsconfig.json && astro build",
+    "format": "prettier --write src/",
     "preview": "astro preview",
     "astro": "astro"
   },

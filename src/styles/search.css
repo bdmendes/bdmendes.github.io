@@ -1,58 +1,36 @@
-:root {
-  --pagefind-ui-background: inherit;
-  --pagefind-ui-scale: 0.9;
-  --pagefind-ui-text: inherit;
-  --pagefind-ui-font: inherit;
-  --pagefind-ui-primary: inherit;
-  --pagefind-ui-border-width: 2px;
-  --pagefind-ui-border: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+.pagefind-search[data-pf-theme="dark"] {
+  --pf-background: var(--color-base-100);
+  --pf-border: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+  --pf-border-focus: color-mix(
+    in oklab,
+    var(--color-base-content) 35%,
+    transparent
+  );
+  --pf-font: inherit;
+  --pf-outline-focus: color-mix(
+    in oklab,
+    var(--color-base-content) 10%,
+    transparent
+  );
+  --pf-outline-width: 1px;
+  --pf-text-muted: color-mix(
+    in oklab,
+    var(--color-base-content) 50%,
+    transparent
+  );
+  --pf-input-height: 46px;
+  --pf-input-font-size: 16px;
+  --pf-summary-font-size: 13px;
+  --pf-result-title-font-size: 15px;
+  --pf-result-excerpt-font-size: 14px;
 }
 
-.pagefind-ui__filter-panel {
-  display: none !important;
+.pagefind-search:has(.pf-input:placeholder-shown):has(.pf-results:empty)
+  pagefind-summary {
+  display: none;
 }
 
-.pagefind-ui__filter-panel {
-  min-width: min(calc(150px * var(--pagefind-ui-scale)), 100%) !important;
-}
-
-.pagefind-ui__filter-name::after {
-  top: 14px !important;
-}
-
-.pagefind-ui__drawer {
-  gap: 2em !important;
-}
-
-.pagefind-ui__search-input {
-  font-size: 17px !important;
-}
-
-.pagefind-ui__search-input:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-base-content) 10%, transparent) !important;
-}
-
-.pagefind-ui__form::before {
-  background-color: color-mix(in oklab, var(--color-base-content) 100%, transparent) !important;
-  opacity: 0.9 !important;
-}
-
-.pagefind-ui__search-input::placeholder {
-  color: var(--bc) !important;
-  opacity: 0.5 !important;
-}
-
-.pagefind-ui__result {
-  padding: 1.5em 0 1.5em !important;
-}
-
-.pagefind-ui__result-inner {
-  padding: 0 0 0.25em !important;
-  margin-top: 0 !important;
-}
-
-mark {
-  background-color: color-mix(in oklab, var(--color-base-content) 20%, transparent) !important;
-  color: inherit !important;
+.pagefind-search {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
