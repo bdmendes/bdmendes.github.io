@@ -146,20 +146,23 @@ function gamePoint(game: any) {
   else if (
     (game.data.result === "1-0" && (game.data.black ?? myName) !== myName) ||
     (game.data.result === "0-1" && (game.data.white ?? myName) !== myName)
-  ) return 1;
+  )
+    return 1;
   else return 0;
-};
+}
 
 export function gameColor(game: any) {
   const point = gamePoint(game);
   if (point === 0.5) return "grey";
   if (point === 1) return "green";
   return "red";
-};
+}
 
 export async function getChessPoints(tournament?: string) {
   const games = await getCollection("chess");
-  const matching = tournament ? games.filter((p) => p.data.tournament === tournament) : games;
+  const matching = tournament
+    ? games.filter((p) => p.data.tournament === tournament)
+    : games;
   const points = matching.map((game) => gamePoint(game));
   return [points.reduce((total, n) => total + n, 0), matching.length];
-};
+}
