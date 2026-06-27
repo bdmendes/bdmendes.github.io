@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300");
 
 body {
-    font-family: "Droid Serif";
+  font-family: "Droid Serif";
 }
 
 h1,
@@ -13,8 +13,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Open Sans";
-    font-weight: bold;
+  font-family: "Open Sans";
+  font-weight: bold;
 }
 
 .remark-slide-content:not(.inverse) > h1,
@@ -23,87 +23,86 @@ h6 {
 .remark-slide-content:not(.inverse) > h4,
 .remark-slide-content:not(.inverse) > h5,
 .remark-slide-content:not(.inverse) > h6 {
-    color: #13212e;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: 0;
+  color: #13212e;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0;
 }
 
 .small-images img {
-    width: 30%;
+  width: 30%;
 }
 
 .inverse {
-    background: #13212e;
-    color: white;
+  background: #13212e;
+  color: white;
 }
 
 li {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 ul {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 blockquote {
-    font-size: 1em;
-    font-style: italic;
-    color: #13212e;
-    border-left: 0.1em solid #13212e;
-    padding-left: 0.5em;
-    margin: 0;
+  font-size: 1em;
+  font-style: italic;
+  color: #13212e;
+  border-left: 0.1em solid #13212e;
+  padding-left: 0.5em;
+  margin: 0;
 }
 
 /* Code snippets overrides */
 .remark-code,
 .remark-inline-code {
-    font-family: "Ubuntu Mono";
-    background-color: #282b2e !important;
-    color: #f8f8f8;
-    padding: 0.1em;
+  font-family: "Ubuntu Mono";
+  background-color: #282b2e !important;
+  color: #f8f8f8;
+  padding: 0.1em;
 }
 
-
 .hljs-class .hljs-title {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .hljs-type {
-    color: #f8f8f8 !important;
+  color: #f8f8f8 !important;
 }
 
 /* Two-column layouts */
 .left-column {
-    width: 45%;
-    float: left;
+  width: 45%;
+  float: left;
 }
 .right-column {
-    width: 45%;
-    float: right;
+  width: 45%;
+  float: right;
 }
 
 .left-column-33 {
-    width: 32%;
-    float: left;
+  width: 32%;
+  float: left;
 }
 .right-column-66 {
-    width: 65%;
-    float: right;
+  width: 65%;
+  float: right;
 }
 
 .left-column-66 {
-    width: 65%;
-    float: left;
+  width: 65%;
+  float: left;
 }
 .right-column-33 {
-    width: 32%;
-    float: right;
+  width: 32%;
+  float: right;
 }
 
 .right-column ~ p {
-    clear: both;
+  clear: both;
 }
 .right-column ~ ul {
-    clear: both;
+  clear: both;
 }
