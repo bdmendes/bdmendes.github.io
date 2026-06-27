@@ -141,7 +141,7 @@ export function extractDescription(body: string) {
   return processed;
 }
 
-function gamePoint(game: any) {
+function gamePoint(game: any): number {
   if (game.data.result === "1/2-1/2") return 0.5;
   else if (
     (game.data.result === "1-0" && (game.data.black ?? myName) !== myName) ||
