@@ -105,7 +105,7 @@ export function extractDescription(body: string) {
   let processed = body
     .split("\n\n")
     .filter((s) => s.trimStart()[0] !== ">" && s.trimStart()[0] !== "#") // Exclude quotes and headers
-    .map((s) => s.replace(/[\*>]|\[\^[0-9]+\]/g, "")) // Clean markdown elements
+    .map((s) => s.replace(/[\*>]|\[\^[^\]]+\]/g, "")) // Clean markdown elements
     .join(" ") // Combine paragraphs
     .replace(/\n/g, "") // Remove newlines
     .replace(/ {2,}/g, " / ") // Replace multiple spaces with slashes
