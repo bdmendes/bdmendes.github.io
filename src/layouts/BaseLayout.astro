@@ -91,7 +91,7 @@ const completeTitle =
       <SideBar sideBarActiveItemID={sideBarActiveItemID} />
       <div class="drawer-content">
         <div
-          class="no-print md:hidden top-0 z-30 flex h-14 w-full justify-center transition-all duration-100 text-base-content"
+          class="no-print md:hidden top-0 z-30 flex w-full justify-center transition-all duration-100 text-base-content"
         >
           <div class="navbar">
             <div class="navbar-start">
@@ -103,7 +103,7 @@ const completeTitle =
         </div>
 
         <main
-          class={"p-6 md:p-8 mx-auto w-full flex justify-center" +
+          class={"px-6 pt-3 pb-6 md:p-8 mx-auto w-full flex justify-center" +
             (index ? "" : " pagefind-exclude")}
         >
           <div class={shrink ? "" : "w-full"}>
