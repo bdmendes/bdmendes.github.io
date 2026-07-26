@@ -10,7 +10,7 @@ por que perdemos a nossa joia
 suplicássemos aos cupidos  
 que nos restituam o orgulho  
 ou nos tragam uma argúcia  
-aguda digna dos destemidos  
+aguda digna de destemidos  
 
 para que se possa bem respirar  
 nos quatro hectares deste jardim  
