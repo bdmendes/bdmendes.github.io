@@ -16,8 +16,8 @@ import LargeTitle from "@components/LargeTitle.astro";
 const posts = sortedByDate(await getCollection("blog"));
 const lastPost = posts[0];
 
-const poems = sortedByDate(await getCollection("poetry"));
-const lastPoem = poems[0];
+const texts = sortedByDate(await getCollection("writing"));
+const lastText = texts[0];
 
 const slides = sortedByDate(await getCollection("slides"));
 const lastSlide = slides[0];
@@ -52,10 +52,10 @@ const { Content } = await render(shortDescription);
     tags={dateTag(lastPost.id)}
   />
   <HorizontalCard
-    title={lastPoem.data.title}
-    url={"/poetry/" + createSlug(lastPoem.data.title)}
-    badge={"poetry"}
-    tags={dateTag(lastPoem.id)}
+    title={lastText.data.title}
+    url={"/writing/" + createSlug(lastText.data.title)}
+    badge={"writing"}
+    tags={dateTag(lastText.id)}
   />
   <HorizontalCard
     title={lastSlide.data.title}

@@ -5,15 +5,15 @@ import { createSlug, extractDate, extractDescription, validateBody } from "../..
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  const poetryEntries = await getCollection("poetry");
-  return poetryEntries.map((entry) => ({
+  const textEntries = await getCollection("writing");
+  return textEntries.map((entry) => ({
     params: { slug: createSlug(entry.data.title) },
     props: { entry },
   }));
 }
 
 interface Props {
-  entry: CollectionEntry<"poetry">;
+  entry: CollectionEntry<"writing">;
 }
 
 const { entry } = Astro.props;
@@ -26,8 +26,8 @@ validateBody(entry.data.title, entry.body!);
   title={entry.data.title}
   description={extractDescription(entry.body!)}
   date={extractDate(entry.id)}
-  badge={"poetry"}
-  sideBarActiveItemID="poetry"
+  badge={"writing"}
+  sideBarActiveItemID="writing"
 >
   <Content />
 </PostLayout>

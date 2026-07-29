@@ -9,7 +9,7 @@ export const METADATA = {
 export const ROUTES = {
   home: "Home",
   blog: "Blog",
-  poetry: "Poetry",
+  writing: "Writing",
   slides: "Slides",
   chess: "Chess",
   cv: "CV",

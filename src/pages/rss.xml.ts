@@ -12,7 +12,7 @@ import {
 
 export async function GET() {
   const posts = await getCollection("blog");
-  const poems = await getCollection("poetry");
+  const texts = await getCollection("writing");
   const slides = await getCollection("slides");
   const chessGames = await getCollection("chess");
 
@@ -24,11 +24,11 @@ export async function GET() {
       link: `/blog/${createSlug(post.data.title)}`,
     }))
     .concat(
-      poems.map((poem) => ({
-        title: poem.data.title,
-        pubDate: extractDate(poem.id),
-        description: extractDescription(poem.body!),
-        link: `/poetry/${createSlug(poem.data.title)}`,
+      texts.map((text) => ({
+        title: text.data.title,
+        pubDate: extractDate(text.id),
+        description: extractDescription(text.body!),
+        link: `/writing/${createSlug(text.data.title)}`,
       })),
     )
     .concat(

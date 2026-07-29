@@ -1,6 +1,6 @@
 # bdmendes.github.io
 
-My personal website serves as a portfolio for personal projects, blog, poetry collection and much more.
+My personal website serves as a portfolio for personal projects, blog, writing collection and much more.
 
 This project is currently based on the [Astrofy template](https://github.com/manuelernestog/astrofy).
 

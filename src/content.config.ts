@@ -11,8 +11,8 @@ const blogCollection = defineCollection({
     }),
 });
 
-const poetryCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/poetry" }),
+const writingCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/writing" }),
   schema: () =>
     z.object({
       title: z.string(),
@@ -96,7 +96,7 @@ const cvCollection = defineCollection({
 
 export const collections = {
   blog: blogCollection,
-  poetry: poetryCollection,
+  writing: writingCollection,
   slides: slidesCollection,
   chess: chessGamesCollection,
   cv: cvCollection,
