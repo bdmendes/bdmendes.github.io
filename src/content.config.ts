@@ -25,6 +25,7 @@ const slidesCollection = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      url: z.string().optional(),
     }),
 });
 

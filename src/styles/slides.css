@@ -33,6 +33,11 @@ h6 {
   width: 30%;
 }
 
+.caption {
+  font-size: 0.6em;
+  text-align: center;
+}
+
 .inverse {
   background: #13212e;
   color: white;
@@ -82,6 +87,14 @@ blockquote {
   float: right;
 }
 
+.right-column img,
+.right-column-33 img,
+.right-column-66 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .left-column-33 {
   width: 32%;
   float: left;
@@ -105,4 +118,10 @@ blockquote {
 }
 .right-column ~ ul {
   clear: both;
+}
+
+.footnote {
+  font-size: 0.7em;
+  color: #444;
+  margin-top: 3.5em;
 }
