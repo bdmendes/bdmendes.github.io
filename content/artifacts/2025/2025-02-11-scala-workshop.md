@@ -1,6 +1,6 @@
 ---
 title: "Rethinking programming: an introduction to functional programming with Scala"
-description: Support material for my Scala workshop given in ENEI 2025 @ FEUP/ISEP.
+description: Support material for my Scala workshop given in ENEI 2025 at FEUP/ISEP.
 ---
 
 class: center, middle, inverse, small-images
