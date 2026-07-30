@@ -38,7 +38,7 @@ class: center, middle, inverse
 
 ### Kind reviewer
 
-<img src="/assets/slides/enei-25-scala/joao-azevedo-linkedin.jpeg" style="width: 15%; border-radius: 5em;">
+<img src="/assets/artifacts/enei-25-scala/joao-azevedo-linkedin.jpeg" style="width: 15%; border-radius: 5em;">
 
 ** João Azevedo **
 
@@ -407,7 +407,7 @@ class: center, middle, inverse
 - *N-Queens* is a hard LeetCode problem in which one wants to place `n` queens in a `n*n` board, without them attacking each other, and output available possibilities
   - In their provided example, for `n=4` you have `[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]`
 
-<img src="/assets/slides/enei-25-scala/nqueens-leetcode.jpg" style="width: 40%;">
+<img src="/assets/artifacts/enei-25-scala/nqueens-leetcode.jpg" style="width: 40%;">
 
 - Let's make it a bit more interesting... What if there are already pieces on the board, or if you want to place knights instead?
   - You'll search not only from an empty board, but from a set of occupied boards in my test cases
@@ -450,7 +450,7 @@ class: center, middle, inverse
 
 ### Proposed solutions
 
-<img src="/assets/slides/enei-25-scala/specs.png" width="40%">
+<img src="/assets/artifacts/enei-25-scala/specs.png" width="40%">
 
 ---
 

@@ -19,8 +19,8 @@ const writingCollection = defineCollection({
     }),
 });
 
-const slidesCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/slides" }),
+const artifactsCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./content/artifacts" }),
   schema: () =>
     z.object({
       title: z.string(),
@@ -97,7 +97,7 @@ const cvCollection = defineCollection({
 export const collections = {
   blog: blogCollection,
   writing: writingCollection,
-  slides: slidesCollection,
+  artifacts: artifactsCollection,
   chess: chessGamesCollection,
   cv: cvCollection,
 };

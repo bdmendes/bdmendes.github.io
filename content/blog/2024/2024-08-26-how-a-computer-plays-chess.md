@@ -143,4 +143,4 @@ The sky is the limit for a chess engine, and the battle between speed, correctne
 
 You can find the [full source code of Camel on my Github](https://github.com/bdmendes/camel/). I hope you found this interesting and are now more interested in developing projects like these or just digging into computing and/or chess in general. Make sure to learn beyond this article and hit me up with your thoughts!
 
-> Update: I gave a talk about this subject at Semana de Informática 2024 @ FEUP. You can find it at [the slides page](/slides).
+> Update: I gave a talk about this subject at Semana de Informática 2024 @ FEUP. You can find it at [the artifacts page](/artifacts).

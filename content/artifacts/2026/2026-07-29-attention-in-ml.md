@@ -27,10 +27,10 @@ The paper uses the latter meaning.
 ]
 
 .right-column-33[
-    <img src="/assets/slides/attention-26-review/Transduction_1.png" style="width: 150px;">
+    <img src="/assets/artifacts/attention-26-review/Transduction_1.png" style="width: 150px;">
     <p class="caption">Transduction algorithms such as k-nearest neighbors can predict a category for unknown points in this set.</p>
     <div style="height: 20px;"></div>
-    <img src="/assets/slides/attention-26-review/Transduction_2.jpg" style="width: 150px;">
+    <img src="/assets/artifacts/attention-26-review/Transduction_2.jpg" style="width: 150px;">
     <p class="caption">An interpreter interprets.</p>
 ]
 
@@ -48,7 +48,7 @@ The paper uses the latter meaning.
 ]
 
 .right-column[
-  <img src="/assets/slides/attention-26-review/Transformer_arch.png" style="width: 250px;">
+  <img src="/assets/artifacts/attention-26-review/Transformer_arch.png" style="width: 250px;">
 .caption[
 Tokens, encoded as positional embeddings, are fed to attention functions that transform them according to a context, yielding to the next layer and so on.
 ]
@@ -66,10 +66,10 @@ Tokens, encoded as positional embeddings, are fed to attention functions that tr
 ]
 
 .right-column[
-<img src="/assets/slides/attention-26-review/Vector_embeddings.jpg" style="width: 250px;">
+<img src="/assets/artifacts/attention-26-review/Vector_embeddings.jpg" style="width: 250px;">
 <p class="caption">The animals and fruits cities.</p>
 <div style="height: 30px;"></div>
-<img src="/assets/slides/attention-26-review/Positional_encoding.png" style="width: 220px;">
+<img src="/assets/artifacts/attention-26-review/Positional_encoding.png" style="width: 220px;">
 .caption[
 Let *pos* be the token index in the input, *i* the embedding dimension and *dmodel* the number of dimensions. Add to the plain embedding vector.
 ]
@@ -86,7 +86,7 @@ Let *pos* be the token index in the input, *i* the embedding dimension and *dmod
 
 .center[
 <div style="height: 5px;"></div>
-<img src="/assets/slides/attention-26-review/Attention_formula.png" style="width: 300px;">
+<img src="/assets/artifacts/attention-26-review/Attention_formula.png" style="width: 300px;">
 ]
 
 - Attention generates "contextually refined" state, to be processed by another module
@@ -109,7 +109,7 @@ Let *pos* be the token index in the input, *i* the embedding dimension and *dmod
 ]
 
 .right-column-33[
-<img src="/assets/slides/attention-26-review/Cross_tokens.png" style="width: 180px;">
+<img src="/assets/artifacts/attention-26-review/Cross_tokens.png" style="width: 180px;">
 ]
 
 ---

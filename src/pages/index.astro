@@ -19,8 +19,8 @@ const lastPost = posts[0];
 const texts = sortedByDate(await getCollection("writing"));
 const lastText = texts[0];
 
-const slides = sortedByDate(await getCollection("slides"));
-const lastSlide = slides[0];
+const artifacts = sortedByDate(await getCollection("artifacts"));
+const lastArtifact = artifacts[0];
 
 const chessGames = sortedByDate(await getCollection("chess"));
 const lastGame = chessGames[0];
@@ -58,10 +58,10 @@ const { Content } = await render(shortDescription);
     tags={dateTag(lastText.id)}
   />
   <HorizontalCard
-    title={lastSlide.data.title}
-    url={"/slides/" + createSlug(lastSlide.data.title)}
-    badge={"slides"}
-    tags={dateTag(lastSlide.id)}
+    title={lastArtifact.data.title}
+    url={"/artifacts/" + createSlug(lastArtifact.data.title)}
+    badge={"artifacts"}
+    tags={dateTag(lastArtifact.id)}
   />
   <HorizontalCard
     title={createChessTitle(lastGame, false)}

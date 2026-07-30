@@ -10,9 +10,9 @@ class: center, middle, inverse, small-images
 ### Or how to develop once, run everywhere
 
 <div style="display: flex; justify-content: center; margin-top: 3em; align-items: center; gap: 1em;">
-<img src="/assets/slides/flutter-24-ni/ni_logo.png">
+<img src="/assets/artifacts/flutter-24-ni/ni_logo.png">
 <div style="font-size: 2.5em; padding-inline: 0.5em;">❤️</div>
-<img src="/assets/slides/flutter-24-ni/flutter-logo.png" style="margin-left: -1em;">
+<img src="/assets/artifacts/flutter-24-ni/flutter-logo.png" style="margin-left: -1em;">
 </div>
 
 ---
@@ -59,7 +59,7 @@ class: center, middle, inverse
 - Uses **Dart**, a statically-typed, compiled, null-safe programming-language built with UI development in mind
 - Provides facilities such as **hot-reload** and **hot-restart** for fast development
 
-<img src="/assets/slides/flutter-24-ni/flutter_arch.png" style="width: 100%">
+<img src="/assets/artifacts/flutter-24-ni/flutter_arch.png" style="width: 100%">
 
 ---
 
@@ -228,7 +228,7 @@ For developing Flutter apps, you need:
 - Widgets (and its children) are rebuilt everytime their state changes, e.g. when a button is pressed
 - The Flutter framework provides a set of built-in widgets, but you can also create your own
 
-<img src="/assets/slides/flutter-24-ni/widget_tree.gif" style="width: 80%;">
+<img src="/assets/artifacts/flutter-24-ni/widget_tree.gif" style="width: 80%;">
 
 ---
 
@@ -327,7 +327,7 @@ To be able to build complex UIs, you need to be able to arrange widgets in a lay
 - Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
 - `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
 
-<img src="/assets/slides/flutter-24-ni/schedule_card_1.png" style="width: 45%;">
+<img src="/assets/artifacts/flutter-24-ni/schedule_card_1.png" style="width: 45%;">
 
 ---
 
@@ -339,7 +339,7 @@ To be able to build complex UIs, you need to be able to arrange widgets in a lay
 - Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
 - `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
 
-<img src="/assets/slides/flutter-24-ni/schedule_card_2.png" style="width: 45%;">
+<img src="/assets/artifacts/flutter-24-ni/schedule_card_2.png" style="width: 45%;">
 
 ---
 
@@ -351,7 +351,7 @@ To be able to build complex UIs, you need to be able to arrange widgets in a lay
 - Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
 - `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
 
-<img src="/assets/slides/flutter-24-ni/schedule_card_3.png" style="width: 45%;">
+<img src="/assets/artifacts/flutter-24-ni/schedule_card_3.png" style="width: 45%;">
 
 ---
 
@@ -363,7 +363,7 @@ To be able to build complex UIs, you need to be able to arrange widgets in a lay
 - Others such as `Center` and `Expanded` signal their parent that their children should be displayed in a way that exceeds their natural size.
 - `Container` is a widget that allows you to add padding, margin, borders, etc. to its child.
 
-<img src="/assets/slides/flutter-24-ni/schedule_card_4.png" style="width: 45%;">
+<img src="/assets/artifacts/flutter-24-ni/schedule_card_4.png" style="width: 45%;">
 
 ---
 
@@ -371,7 +371,7 @@ To be able to build complex UIs, you need to be able to arrange widgets in a lay
 
 Material Design is a design language developed by Google that is used in many of its products, such as Android and Chrome OS. Flutter provides a set of widgets that implement the Material Design guidelines, and are customizable to fit your needs, e.g. through the `Theme` widget.
 
-<img src="/assets/slides/flutter-24-ni/material.png" style="width: 100%;">
+<img src="/assets/artifacts/flutter-24-ni/material.png" style="width: 100%;">
 
 ---
 
@@ -391,7 +391,7 @@ A solution known so far would be to pass the user authentication state as a para
 
 Fortunately, packages such as `redux` and `provider` (or its successor `riverpod`) provide solutions to this problem. `BLoC` is also popular.
 
-<img src="/assets/slides/flutter-24-ni/provider.jpg" style="width: 70%;">
+<img src="/assets/artifacts/flutter-24-ni/provider.jpg" style="width: 70%;">
 
 ---
 
@@ -461,7 +461,7 @@ A common architecture for reactive applications is **MVC** (Model-View-Controlle
 - **View**: the UI layer, i.e. the widgets that are rendered on the screen
 - **Controller**: the business logic layer, i.e. the classes that handle the application's logic (e.g. a `UserService` class that handles API calls and writes to the database)
 
-<img src="/assets/slides/flutter-24-ni/mvc.png" style="width: 60%;">
+<img src="/assets/artifacts/flutter-24-ni/mvc.png" style="width: 60%;">
 
 ---
 
@@ -490,8 +490,8 @@ class: center, middle, inverse
 #### Let's get our hands dirty. Can you build this (or better)?
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 2em">
-<img src="/assets/slides/flutter-24-ni/practical/fetch_news.png" style="height: 50vh;">
-<img src="/assets/slides/flutter-24-ni/practical/news_details.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/fetch_news.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/news_details.png" style="height: 50vh;">
 </div>
 
 ---
@@ -511,7 +511,7 @@ flutter create news_app && cd news_app && flutter run
 ```
 
 <div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/slides/flutter-24-ni/practical/new_project.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/new_project.png" style="height: 50vh;">
 </div>
 
 ---
@@ -523,7 +523,7 @@ flutter create news_app && cd news_app && flutter run
 - Remove the counter, the increment button and the center text
 
 <div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/slides/flutter-24-ni/practical/blank_project.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/blank_project.png" style="height: 50vh;">
 </div>
 
 ---
@@ -536,7 +536,7 @@ flutter create news_app && cd news_app && flutter run
 - Add it on the homepage
 
 <div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/slides/flutter-24-ni/practical/news_card.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/news_card.png" style="height: 50vh;">
 </div>
 
 ---
@@ -583,7 +583,7 @@ class NewsCard extends StatelessWidget {
 - Create some articles on the homepage using a ListView
 
 <div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/slides/flutter-24-ni/practical/listview.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/listview.png" style="height: 50vh;">
 </div>
 
 ---
@@ -667,7 +667,7 @@ class _MyHomePageState extends State<MyHomePage> {
 - Use a `FutureBuilder` widget to display the articles on the homepage
 
 <div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/slides/flutter-24-ni/practical/fetch_news.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/fetch_news.png" style="height: 50vh;">
 </div>
 
 ---
@@ -717,7 +717,7 @@ FutureBuilder(
 - Navigate to the details page route when tapping the news card (e.g use a `InkWell` widget)
 
 <div style="display: flex; justify-content: center; align-items: center;">
-<img src="/assets/slides/flutter-24-ni/practical/news_details.png" style="height: 50vh;">
+<img src="/assets/artifacts/flutter-24-ni/practical/news_details.png" style="height: 50vh;">
 </div>
 
 ---

@@ -42,7 +42,7 @@ const { title, body, url } = Astro.props;
       url ? (
         <>
           <p>
-            Redirecting to <a href={url}>the slides</a>…
+            Redirecting to <a href={url}>the artifact</a>…
           </p>
           <script is:inline define:vars={{ url }}>
             window.location.replace(url);
@@ -52,7 +52,7 @@ const { title, body, url } = Astro.props;
         <>
           <h1 hidden>{title}</h1>
           <div hidden data-pagefind-filter="category" class="pagefind-exclude">
-            slides
+              artifacts
           </div>
           <textarea id="source">{body}</textarea>
           <script is:inline src="/lib/remark.js" type="text/javascript"></script>

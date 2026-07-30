@@ -13,7 +13,7 @@ import {
 export async function GET() {
   const posts = await getCollection("blog");
   const texts = await getCollection("writing");
-  const slides = await getCollection("slides");
+  const artifacts = await getCollection("artifacts");
   const chessGames = await getCollection("chess");
 
   const items = posts
@@ -32,11 +32,11 @@ export async function GET() {
       })),
     )
     .concat(
-      slides.map((slide) => ({
-        title: slide.data.title,
-        pubDate: extractDate(slide.id),
-        description: slide.data.description,
-        link: `/slides/${createSlug(slide.data.title)}`,
+      artifacts.map((artifact) => ({
+        title: artifact.data.title,
+        pubDate: extractDate(artifact.id),
+        description: artifact.data.description,
+        link: `/artifacts/${createSlug(artifact.data.title)}`,
       })),
     )
     .concat(

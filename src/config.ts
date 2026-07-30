@@ -10,7 +10,7 @@ export const ROUTES = {
   home: "Home",
   blog: "Blog",
   writing: "Writing",
-  slides: "Slides",
+  artifacts: "Artifacts",
   chess: "Chess",
   cv: "CV",
 };

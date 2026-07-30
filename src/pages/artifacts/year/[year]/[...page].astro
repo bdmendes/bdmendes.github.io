@@ -9,17 +9,17 @@ import { PAGINATION_SIZE } from "src/config";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const slides = sortedByDate(await getCollection("slides"));
-  const years = slides.flatMap((p) =>
-    extractDate(p.id).getFullYear().toString()
+  const artifacts = sortedByDate(await getCollection("artifacts"));
+  const years = artifacts.flatMap((artifact) =>
+    extractDate(artifact.id).getFullYear().toString()
   );
   const uniqueYears = [...new Set(years)];
 
   return uniqueYears.flatMap((year) => {
-    const matchingSlides = slides.filter(
-      (p) => extractDate(p.id).getFullYear().toString() === year
+    const matchingArtifacts = artifacts.filter(
+      (artifact) => extractDate(artifact.id).getFullYear().toString() === year
     );
-    return paginate(matchingSlides, {
+    return paginate(matchingArtifacts, {
       pageSize: PAGINATION_SIZE,
       params: { year },
     });
@@ -33,23 +33,23 @@ const { year } = Astro.params;
 ---
 
 <BaseLayout
-  title={"Slides | " + year}
-  sideBarActiveItemID="slides"
+  title={"Artifacts | " + year}
+  sideBarActiveItemID="artifacts"
   currentPage={page.currentPage}
 >
-  <LargeTitle title="Slides" path="/slides" selector={year} search={true} />
+  <LargeTitle title="Artifacts" path="/artifacts" selector={year} search={true} />
   <ul>
     {
-      page.data.map((slide) => (
+      page.data.map((artifact) => (
         <>
           <HorizontalCard
-            title={slide.data.title}
-            description={slide.data.description}
-            url={"/slides/" + createSlug(slide.data.title)}
+            title={artifact.data.title}
+            description={artifact.data.description}
+            url={"/artifacts/" + createSlug(artifact.data.title)}
           />
         </>
       ))
     }
   </ul>
-  <PaginationButtons page={page} path={"/slides/year/" + year} />
+  <PaginationButtons page={page} path={"/artifacts/year/" + year} />
 </BaseLayout>
