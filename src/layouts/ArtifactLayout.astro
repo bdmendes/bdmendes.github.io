@@ -37,17 +37,14 @@ const { title, body, url } = Astro.props;
     <title>{`${title} | ${METADATA.title}`}</title>
   </head>
 
-  <body>
+  <body style={url ? "margin: 0; overflow: hidden" : undefined}>
     {
       url ? (
-        <>
-          <p>
-            Redirecting to <a href={url}>the artifact</a>…
-          </p>
-          <script is:inline define:vars={{ url }}>
-            window.location.replace(url);
-          </script>
-        </>
+        <iframe
+          src={url}
+          title={title}
+          style="display: block; width: 100vw; height: 100vh; border: 0"
+        ></iframe>
       ) : (
         <>
           <h1 hidden>{title}</h1>
