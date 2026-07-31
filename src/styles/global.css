@@ -2,6 +2,12 @@
 @plugin "daisyui" {
   themes: all;
 }
+@plugin "daisyui/theme" {
+  name: "halloween";
+  default: true;
+  --color-base-100: rgb(22, 20, 18);
+  --color-neutral: rgb(40, 25, 10);
+}
 @plugin "@tailwindcss/typography";
 
 @media print {
