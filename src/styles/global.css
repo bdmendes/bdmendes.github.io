@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: all;
+  exclude: rootscrollgutter;
 }
 @plugin "daisyui/theme" {
   name: "halloween";
@@ -9,6 +10,11 @@
   --color-neutral: rgb(40, 25, 10);
 }
 @plugin "@tailwindcss/typography";
+
+html {
+  scrollbar-gutter: stable;
+  background-color: var(--color-base-100);
+}
 
 @media print {
   * {
