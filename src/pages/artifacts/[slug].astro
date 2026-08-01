@@ -18,4 +18,4 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<ArtifactLayout title={entry.data.title} body={entry.body!} url={entry.data.url} />
+<ArtifactLayout title={entry.data.title} body={entry.body ?? ""} description={entry.data.description} url={entry.data.url} />

@@ -5,10 +5,11 @@ import "../styles/slides.css";
 export interface Props {
   title: string;
   body: string;
+  description: string;
   url?: string;
 }
 
-const { title, body, url } = Astro.props;
+const { title, body, description, url } = Astro.props;
 ---
 
 <html>
@@ -38,6 +39,13 @@ const { title, body, url } = Astro.props;
   </head>
 
   <body style={url ? "margin: 0; overflow: hidden" : undefined}>
+    <div hidden>
+        <h1>{title}</h1>
+        <div data-pagefind-filter="category" class="pagefind-exclude">
+            artifacts
+        </div>
+        <p>{description}</p>
+    </div>
     {
       url ? (
         <iframe
@@ -47,10 +55,6 @@ const { title, body, url } = Astro.props;
         ></iframe>
       ) : (
         <>
-          <h1 hidden>{title}</h1>
-          <div hidden data-pagefind-filter="category" class="pagefind-exclude">
-              artifacts
-          </div>
           <textarea id="source">{body}</textarea>
           <script is:inline src="/lib/remark.js" type="text/javascript"></script>
           <script is:inline type="text/javascript">
