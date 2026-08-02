@@ -50,7 +50,7 @@ body {
   word-break: break-word;
 }
 
-.time-line-container > div:last-child .entry_time > .entry_line {
+.time-line-container > div:last-child .entry_time > div > .entry_line {
   display: none;
 }
 
