@@ -9,7 +9,7 @@ const { sideBarActiveItemID } = Astro.props;
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
-<ul class="menu grow overflow-y-auto gap-1">
+<ul class="menu grow overflow-y-auto gap-1 w-5/6">
   {
     Object.entries(ROUTES).map(([key, value]) => (
       <li>
