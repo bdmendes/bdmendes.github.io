@@ -3,13 +3,12 @@ import { Icon } from "astro-icon/components";
 import { SOCIALS } from "../../config";
 ---
 
-<div class="py-5 flex justify-center w-full">
+<div class="py-5 flex justify-center w-full gap-4">
   {
     Object.entries(SOCIALS).map(([key, value]) => (
       <a
         href={value.url}
         target="_blank"
-        class="mx-2.5"
         aria-label={key}
         title={key}
       >
