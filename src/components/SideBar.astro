@@ -1,0 +1,57 @@
+---
+import { ROUTES, SOCIALS } from "src/config";
+import Icon from "node_modules/astro-icon/components/Icon.astro";
+
+export interface Props {
+  sideBarActiveItemID?: string;
+}
+
+const { sideBarActiveItemID } = Astro.props;
+const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
+---
+
+<div class="drawer-side z-40 no-print">
+  <label for="my-drawer" class="drawer-overlay"></label>
+  <aside
+    class="px-2 pt-2 min-h-dvh w-44 bg-base-100 text-base-content flex flex-col"
+  >
+    <a href="/" class="my-4 self-center max-h-[50svh] aspect-square h-24">
+      <img
+        class="object-contain w-full h-full rounded-full saturate-0 brightness-80"
+        src="/assets/about-me/cv-profile-drawing.png"
+      />
+    </a>
+    <div class="flex flex-col grow pagefind-exclude items-center">
+        <ul class="menu overflow-y-auto gap-1 w-5/6">
+          {
+            Object.entries(ROUTES).map(([key, value]) => (
+              <li>
+                <a
+                  class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : ""}`}
+                  id={key}
+                  href={key == "home" ? "/" : "/" + key}
+                >
+                  {value}
+                </a>
+              </li>
+            ))
+          }
+          {
+            Object.entries(SOCIALS).map(([key, value]) => (
+              <li>
+                <a
+                    href={value.url}
+                    class="py-2.5 justify-center self-center w-full"
+                    target="_blank"
+                    aria-label={key}
+                    title={key}
+                >
+                    <Icon name={value.icon} class="hover:shadow-xl " size="24" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+    </div>
+  </aside>
+</div>
