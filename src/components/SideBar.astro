@@ -13,7 +13,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 <div class="drawer-side z-40 no-print">
   <label for="my-drawer" class="drawer-overlay"></label>
   <aside
-    class="px-2 pt-2 min-h-dvh w-44 bg-base-100 text-base-content flex flex-col"
+    class="px-2 pt-2 min-h-dvh w-36 md:w-44 bg-base-100 text-base-content flex flex-col"
   >
     <a href="/" class="my-4 self-center max-h-[50svh] aspect-square h-24">
       <img
@@ -22,7 +22,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
       />
     </a>
     <div class="flex flex-col pagefind-exclude items-center">
-        <ul class="menu overflow-y-auto gap-1 w-5/6">
+        <ul class="menu overflow-y-auto gap-1 w-full md:w-5/6">
           {
             Object.entries(ROUTES).map(([key, value]) => (
               <li>
