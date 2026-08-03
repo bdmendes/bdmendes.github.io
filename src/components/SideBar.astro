@@ -13,16 +13,16 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 <div class="drawer-side z-40 no-print">
   <label for="my-drawer" class="drawer-overlay"></label>
   <aside
-    class="pt-2 pb-4 min-h-dvh w-36 md:w-44 bg-base-100 text-base-content flex flex-col"
+    class="min-h-dvh w-36 md:w-44 bg-base-100 text-base-content flex flex-col gap-5.5 py-5.5"
   >
-    <a href="/" class="my-4 self-center max-h-[50svh] aspect-square h-20 md:h-24">
+    <a href="/" class="self-center max-h-[50svh] aspect-square h-20 md:h-24">
       <img
         class="object-contain w-full h-full rounded-full saturate-0 brightness-80"
         src="/assets/about-me/cv-profile-drawing.png"
       />
     </a>
     <div class="flex flex-col pagefind-exclude items-center">
-        <ul class="menu overflow-y-auto gap-1 w-5/6">
+        <ul class="menu py-0 overflow-y-auto gap-1 w-5/6">
           {
             Object.entries(ROUTES).map(([key, value]) => (
               <li>

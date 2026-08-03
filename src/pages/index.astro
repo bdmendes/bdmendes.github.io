@@ -32,11 +32,8 @@ const { Content } = await render(shortDescription);
 
 <BaseLayout title="Home" sideBarActiveItemID="home" currentPage={1}>
   <div class="mb-10">
-    <div class="font-normal text-xl pt-0 py-1">
-      Hey there
-    </div>
-    <div class="text-4xl font-bold">I'm Bruno Mendes.</div>
-    <div class="px-0 py-3 prose">
+    <LargeTitle title="About me" search={false} />
+    <div class="px-3 pb-3 prose">
       <Content />
     </div>
   </div>
