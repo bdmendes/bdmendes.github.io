@@ -93,7 +93,7 @@ const completeTitle =
         <div
           class="no-print md:hidden top-0 z-30 flex w-full justify-center transition-all duration-100 text-base-content"
         >
-          <div class="navbar">
+          <div class="navbar border-b border-b-base-300">
             <label for="my-drawer" class="btn btn-square btn-ghost">
               <Icon name="mdi:menu" size="24" />
             </label>
@@ -112,7 +112,7 @@ const completeTitle =
         </div>
 
         <main
-          class={"px-5 pt-5 pb-8 md:p-8 mx-auto w-full flex justify-center" +
+          class={"px-5 py-8 md:px-8 mx-auto w-full flex justify-center" +
             (index ? "" : " pagefind-exclude")}
         >
           <div class={shrink ? "" : "w-full"}>
