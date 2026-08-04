@@ -17,7 +17,7 @@ const { title, from, to, location, grade } = Astro.props;
         <span class="entry_line bg-neutral block h-full w-1">
     </div>
   </div>
-  <div class="entry_data bd-grid">
+  <div class="entry_data bd-grid mb-1">
     <div class="font-semibold mb-1 flex items-baseline flex-wrap gap-2">
       <span>{title} @ {location}</span>
       <span class="badge badge-dash font-normal text-sm"
@@ -29,7 +29,7 @@ const { title, from, to, location, grade } = Astro.props;
         )
       }
     </div>
-    <p class="my-2 text-justify">
+    <p class="mt-2 text-justify">
       <slot />
     </p>
   </div>

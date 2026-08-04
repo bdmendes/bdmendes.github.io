@@ -37,7 +37,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
       </span>
     </a>
 
-  <div class="mb-8 mt-6 text-justify">
+  <div class="mb-8 mt-5 text-justify">
     {description.body}
   </div>
 
@@ -60,7 +60,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 
   <LargeTitle title="Education" />
 
-  <div class="time-line-container mb-8">
+  <div class="time-line-container mb-6">
     {
       educationEntries.map((entry) => (
         <TimeLineElement
@@ -78,7 +78,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 
   <LargeTitle title="Miscellaneous" />
 
-  <ul class="list-disc mx-6 mb-10 grid gap-4 text-justify">
+  <ul class="list-disc ml-6 mb-6 grid gap-4 text-justify">
     {
       miscellaneousEntries.map((entry) => (
         <li>
