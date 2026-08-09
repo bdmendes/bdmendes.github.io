@@ -13,7 +13,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 <div class="drawer-side z-40 no-print">
   <label for="my-drawer" class="drawer-overlay"></label>
   <aside
-    class="min-h-dvh w-36 md:w-44 bg-base-100 text-base-content flex flex-col gap-5.5 py-5.5"
+    class="min-h-dvh w-36 md:w-44 bg-base-100 text-base-content flex flex-col gap-6 py-6"
   >
     <a href="/" class="self-center max-h-[50svh] aspect-square h-20 md:h-24">
       <img
@@ -22,36 +22,36 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
       />
     </a>
     <div class="flex flex-col pagefind-exclude items-center">
-        <ul class="menu py-0 overflow-y-auto gap-1 w-5/6">
-          {
-            Object.entries(ROUTES).map(([key, value]) => (
-              <li>
-                <a
-                  class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : ""}`}
-                  id={key}
-                  href={key == "home" ? "/" : "/" + key}
-                >
-                  {value}
-                </a>
-              </li>
-            ))
-          }
-          {
-            Object.entries(SOCIALS).map(([key, value]) => (
-              <li>
-                <a
-                    href={value.url}
-                    class="py-2.5 justify-center self-center w-full"
-                    target="_blank"
-                    aria-label={key}
-                    title={key}
-                >
-                    <Icon name={value.icon} class="hover:shadow-xl " size="24" />
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+      <ul class="menu py-0 overflow-y-auto gap-1 w-5/6">
+        {
+          Object.entries(ROUTES).map(([key, value]) => (
+            <li>
+              <a
+                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : ""}`}
+                id={key}
+                href={key == "home" ? "/" : "/" + key}
+              >
+                {value}
+              </a>
+            </li>
+          ))
+        }
+        {
+          Object.entries(SOCIALS).map(([key, value]) => (
+            <li>
+              <a
+                href={value.url}
+                class="py-2.5 justify-center self-center w-full"
+                target="_blank"
+                aria-label={key}
+                title={key}
+              >
+                <Icon name={value.icon} class="hover:shadow-xl " size="24" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </aside>
 </div>
