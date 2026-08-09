@@ -7,7 +7,7 @@
   name: "halloween";
   default: true;
   --color-base-100: rgb(22, 20, 18);
-  --color-neutral: rgb(48, 24, 0);
+  --color-neutral: rgb(46, 23, 0);
 }
 @plugin "@tailwindcss/typography";
 
