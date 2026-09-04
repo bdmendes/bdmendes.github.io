@@ -12,8 +12,13 @@ coords {
   display: none !important;
 }
 
+.lpv--players.lpv--moves-auto {
+  grid-template-rows:
+    minmax(2em, auto) auto minmax(2em, auto) var(--controls-height);
+}
+
 .lpv__side {
-  min-height: 15em;
+  min-height: 20em;
 }
 
 .lpv--moves-false {
