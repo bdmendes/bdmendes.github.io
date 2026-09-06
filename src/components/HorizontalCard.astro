@@ -69,9 +69,9 @@ import { Image } from "astro:assets";
                   <span class="badge badge-ghost">{tag}</span>
                 ))}
                 {tags.toReversed().map((tag) => (
-                  <span class="badge badge-outline">{tag}</span>
+                  <span class="badge badge-ghost">{tag}</span>
                 ))}
-                {badge && <span class="badge badge-outline">{badge}</span>}
+                {badge && <span class="badge badge-ghost">{badge}</span>}
               </div>
             )
           }

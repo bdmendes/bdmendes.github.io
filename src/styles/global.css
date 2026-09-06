@@ -31,7 +31,8 @@ html {
 }
 
 @theme {
-  --breakpoint-sm: 576px;
+  --breakpoint-sm: 540px;
+  --breakpoint-md: 740px;
 }
 
 @layer utilities {
