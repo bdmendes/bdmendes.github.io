@@ -1,0 +1,5 @@
+---
+title: O palácio II
+---
+
+Todos os anos, este já é o terceiro, as obras na ala direita do jardim vêm-me interromper o passo, com o dizer Lamentamos o incómodo mas de final de agosto a início de setembro não pode passar por aqui, a pensar bem, porventura nem pedem desculpa, aludem ao evento e estão os encargos justificados. Uns dias depois, surgem as famílias, de livros nas mãos, contendo os sonhos que não poderei ler, por falta de tempo e fidelidade aos que leio de momento, são densos e ambiciosos, tantas vezes requerem uma energia que não tenho, mas teimosamente não desisto, na esperança de que no fim valha a pena, fique para sempre com uma história linda e para contar aos netos, me aproprie de pedaços dessa história e a vá reproduzir na vida real ou imaginada. Se este palácio se inteirasse daquilo com que sonho; de cada vez que aqui caminho, ao final de tarde, julgo sempre que ele sabe de tudo, me vê como uno, põe a descoberto os meus anjos e demónios, e porque o faz tão completamente, me respeita e me faz crescer. É uma convenção de forças invisíveis.
