@@ -28,4 +28,4 @@ e a tristeza veio e calou-se e choramos juntos
 
 e depois dormimos e ficou sol e fizemos praia  
 e contei-lhe, quero fazer praia e chorar mais  
-ser onda e mar e lar e a tua salinha de estar  
+ser onda, mar, lar, a tua salinha de estar  
