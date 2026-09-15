@@ -64,6 +64,7 @@ const iconSize = 26;
         <div class="flex items-center">
           <button
             class="cursor-pointer"
+            data-large-title-search
             onclick={
               searchModalId +
               ".showModal();" +
@@ -112,4 +113,24 @@ const iconSize = 26;
     }, 100);
   }
   filterCategory;
+</script>
+
+<script>
+  document.addEventListener("keydown", (event) => {
+    if ((!event.ctrlKey && !event.metaKey) || event.key.toLowerCase() !== "k") {
+      return;
+    }
+
+    const searchButton = document.querySelector<HTMLButtonElement>("[data-large-title-search]");
+    if (!searchButton) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const searchDialog = searchButton.parentElement?.querySelector("dialog");
+    if (!searchDialog?.open) {
+      searchButton.click();
+    }
+  });
 </script>
