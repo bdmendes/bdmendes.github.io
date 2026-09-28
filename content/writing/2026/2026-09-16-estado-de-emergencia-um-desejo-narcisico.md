@@ -6,4 +6,4 @@ Aconteceu que após nos beijarmos, desta vez algo diferente, precipitou-se-me um
 
 ---
 
-Ao ponto em que nos encontramos, o que eu desejo é puramente narcísico, não faz sentido e está estudado, esta coisa de querer a reconciliação com os passados idos e suprimidos, sonhar com viver as vidas todas, inclusive com as que deixam claro, isto não é para ti, tu não és homem para isto. Sobre a questão de podermos ser holisticamente carinhosos: é um artifício, o que se quer holístico é conhecimento e a compreensão, por uma vez só que seja, no futuro. Pelo menos, é o que me dizem.
+Ao ponto em que nos encontramos, o que eu desejo é puramente narcísico, não faz sentido e está estudado, esta coisa de querer a reconciliação com os passados idos e suprimidos, sonhar com viver as vidas todas, inclusive com as que deixam claro, isto não é para ti, tu não és homem para isto. Sobre a questão de podermos ser holisticamente carinhosos: é um artifício, o que se quer holístico é o conhecimento e a compreensão, por uma vez só que seja, no futuro. Pelo menos, é o que me dizem.
