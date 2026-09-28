@@ -8,10 +8,4 @@ Enfim. Acho todas as formas de pragmatismo repugnantes.
 
 ---
 
-Não se trata de um mapeamento.  
-Não se trata de uma substituição.  
-
-Trata-se de um punhado de ideias,  
-e estas arrancam sorrisos,  
-aquecem corações,  
-movem o mundo.  
+Não se trata de um mapeamento. Não se trata de uma substituição. Trata-se de um punhado de ideias, e estas arrancam sorrisos, aquecem corações, movem o mundo.
