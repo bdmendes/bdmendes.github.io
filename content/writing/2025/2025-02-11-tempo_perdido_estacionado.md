@@ -13,4 +13,9 @@ perco-me em tempo perdido
 
 ---
 
-Sinto que não importo. Mas recordo-me da noite em que tentei estacionar fora de horas e não só tive lugar para estacionar como fiquei estacionado no sonho de te ter. 
+sinto que não importo.  
+mas recordo-me da noite em que  
+tentei estacionar fora de horas  
+não só tive lugar para estacionar  
+como fiquei estacionado  
+no sonho de te ter.
