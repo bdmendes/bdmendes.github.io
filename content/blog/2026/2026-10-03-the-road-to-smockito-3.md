@@ -232,7 +232,7 @@ class Repository:
 assert(repository.calls(it.getWith).map(_.startsWith) == List("john"))
 ```
 
-Which looks almost like magic, but is the natural continuation of the compile time work started in 2.x. This was also aided by an agent – I had it try off multiple solutions, it broke the project multiple times, but I had then a clear path for internal migration. I implemented by hand each of the relevant ideas, and the final `transparent inline` addition to `on` and `onCall` turned out to be simple in the end, with all the infrastructure laid out.
+Which looks almost like magic, but is the natural continuation of the compile time work started in 2.x. This was also aided by an agent – I had it try off multiple solutions, it broke the project multiple times, but I had then a clear path for internal migration. I implemented by hand each of the relevant ideas, and the final `transparent inline` addition[^transparent-inline] to `on` and `onCall` turned out to be simple in the end, with all the infrastructure laid out.
 
 One thing I am particularly interested in trying is [native refined types](https://scaladays.org/session/first-class-logical-refinement-types-for-scala/), which will allow classifying the number of calls in a more precise way than `Int`. Right now, we need to depend on some library, which is a line I will not cross in Smockito. The native implementation might take some years, though.
 
@@ -251,3 +251,5 @@ Now time to rest and enjoy Autumn.
 [^hope]: In a world where arguments and dreams do surpass their inevitable limitations, or so to say, their intrinsic failure to generalize.
 
 [^ai-handwrite]: This is how I most like to use AI agents for actually important code. I delegate very focused tasks, review every line and retouch by hand. Another strategy, when trying new things, is to give it a goal and have it implement it end to end – but inevitably throw it away in the end. I want to see the prototype and grasp the idea, not introduce something I do not understand in the codebase with multiple decisions made for me along the way.
+
+[^transparent-inline]: While the old `on` method had 2 parameter lists typed in terms of unnamed arguments, the new `on` signature is a single parameter one, returning an helper object, `Stubber`, typed in terms of both the parameter types and the parameter names. The generic signature of `on` then returns `Stubber[? <: Tuple, A]`; it is each call site that establishes the parameter names. The `transparent` Scala 3 keyword allows for this return type refinement behavior at the call site.
