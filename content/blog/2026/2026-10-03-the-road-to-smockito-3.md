@@ -11,7 +11,7 @@ class PaymentService(paymentGateway: PaymentGateway):
   def charge(payment: Payment): PaymentResult = handle.charge(payment)
 ```
 
-That should suffice for using payment capabilities somewhere in your application, even fake versions for testing. [Back then](/blog/announcing-a-brand-new-project-smockito), I argued that the no-mocking framework alternative – to create something like an `AbstractPaymentService` for easy testing – is needless boilerplate, if for production the implementation is a singular class. This is of course not an universal rule, but was a further reason to try and improve the mocking landscape in Scala.
+That should suffice for using payment capabilities somewhere in your application, even fake versions for testing. [Back then](/blog/announcing-a-brand-new-project-smockito), I argued that the no-mocking framework alternative – to create something like an `AbstractPaymentService` for easy testing – is needless boilerplate, if for production the implementation is a singular class. This is of course not a universal rule, but was a further reason to try and improve the mocking landscape in Scala.
 
 And so after a few nights fueled with coffee and an idea we could do
 
@@ -68,7 +68,7 @@ paymentService.charge(Payment())
 paymentService.on(it.charge)(_ => PaymentResult.Failure) // throws
 ```
 
-As, behing the scenes, Mockito `ArgumentMatcher` are nulls (with side effects at creation time), an already established answer of a method in Scala, a language that does not expect nulls, can assume that if it receives nulls, it's being mocked again. This is ambitious, even if fragile, but most importantly, tries to establish a principle that may not be what all specs want to do. As at *$WORK* we migrated from *scalamock* and/or Mockito to Smockito, some specs made use of repeated stubbing, and changing them to my preferred, single stub style, would introduce further entropy in the migration process.
+As, behind the scenes, Mockito `ArgumentMatcher` are often nulls (with side effects at creation time), an already established answer of a method in Scala, a language that does not expect nulls, can assume that if it receives nulls, it's being mocked again. This is ambitious, even if fragile, but most importantly, tries to establish a principle that may not be what all specs want to do. As at *$WORK* we migrated from *scalamock* and/or Mockito to Smockito, some specs made use of repeated stubbing, and changing them to my preferred, single stub style, would introduce further entropy in the migration process.
 
 As such I introduced a trait parameter in the `Smockito` spec:
 
@@ -81,7 +81,7 @@ trait Smockito(smockitoMode: SmockitoMode = SmockitoMode.Strict)
 
 Allowing users to select the `Relaxed` mode to disable this behavior. And so they did; I started seeing usages of the `Relaxed` mode. The idea was for this to be a migration helper only, but they stood there for days, which was a clear signal that my original idea was too opinionated, and had to go away.
 
-## An heresy along the way
+## A heresy along the way
 
 Still in the 1.x line, I introduced a 
 
@@ -116,7 +116,7 @@ This broke existing usages, which technically, as per semantic versioning rules,
 
 I wanted to revert my repeated stubbing lookup strategy and just make `Relaxed` the only strategy. As a trait parameter is disappearing, at this time, I had really no other choice than to go with Smockito 2. But as we were bumping the version, we also had the chance to introduce further changes.
 
-A rather unsound behavior of Mockito is that it tries to return "smart", emptyish values if a stub that has not been configured is called.
+A rather unsound behavior of Mockito is that it tries to return emptyish values if a stub that has not been configured is called.
 
 ```scala
 trait PaymentService(paymentGateway: PaymentGateway):
@@ -127,7 +127,7 @@ val paymentService = mock[PaymentService]
 paymentService.getAllPayments() // *might* return List.empty[Payment]
 ```
 
-What a smart null would be for the return type in question is heavily arbitrary and based off Java conventions. As `List` here is a Scala type, it is likely that without any syntax adapter[^mockitoscala] this would just return a null and throw in runtime. But, even if `List.empty` was returned, this is sneaky behavior. An empty list is a value as valid as any other, and if a dependency interacts with the mock in a way that it was not configured to respond to, it should fail loudly and present the engineer with a nice error.[^mockito-about-nulls]
+What a smart emptyish value would be for the return type in question is heavily arbitrary and based off Java conventions. As `List` here is a Scala type, it is likely that without any syntax adapter[^mockitoscala] this would just return a null and throw in runtime. But, even if `List.empty` was returned, this is sneaky behavior. An empty list is a value as valid as any other, and if a dependency interacts with the mock in a way that it was not configured to respond to, it should fail loudly and present the engineer with a nice error.[^mockito-about-nulls]
 
 Turns out this fitted the existing Smockito API quite well. Smockito controls mock creations via a single method, `mock[T]`, so it could just configure all mocks to use a different default answer:
 
@@ -150,11 +150,11 @@ object DefaultAnswer extends Answer[Any]:
       throw UnstubbedMethod(method, invocation.getRawArguments)
 ```
 
-And so an unexpected call fails and pretty prints the method name and received arguments. There is no need to allow for any other configuration – Smockito is opinionated and as small as possible, and this is sane default. Specs are forced to be explicited, and a test passing earns another interesting semantic property: it now also means that no unexpected interaction with the mock has been made.
+And so an unexpected call fails and pretty prints the method name and received arguments. There is no need to allow for any other configuration – Smockito is opinionated and as small as possible, and this is sane default. Specs are forced to be explicit, and a test passing earns another interesting semantic property: it now also means that no unexpected interaction with the mock has been made.
 
 ## Making it really robust
 
-The 2.x line added some features, like `spy[T]` and `onCall` for per-call stub configuration, but most importantly fixed a lot of Scala quirks. One that comes to mind is how by-named parameters actually desugar in JVM bytecode. I was surprised to learn that in
+The 2.x line added some features, like `spy[T]` and `onCall` for per-call stub configuration, but most importantly fixed a lot of Scala quirks. One that comes to mind is how by-name parameters actually desugar in JVM bytecode. I was surprised to learn that in
 
 ```scala
 def printConditionally(str: => String, iff: Boolean) =
@@ -166,10 +166,10 @@ The `str` parameter is represented behind the scenes as a nullary function, `() 
 The first release accounting for this behavior did
 
 ```scala
-def unwrap[A](arguments: Array[Object], index: Int = 0): Array[Object] =
+inline def unwrap[A](arguments: Array[Object], index: Int = 0): Unit =
   inline erasedValue[A] match
     case _: EmptyTuple =>
-      arguments
+      ()
     case _: (h *: t) =>
       val unwrapped =
         arguments(index) match
@@ -182,7 +182,7 @@ def unwrap[A](arguments: Array[Object], index: Int = 0): Array[Object] =
           case other =>
             other
       arguments.update(index, unwrapped.asInstanceOf[Object])
-      unwrap[t](arguments, index + 1, false)
+      unwrap[t](arguments, index + 1)
 ```
 
 Which essentially means "If I am receiving a nullary function but my signature expects otherwise, try to call it and cast the result to my expected type". This was cool, but can you tell where this falls off?
@@ -196,7 +196,7 @@ Which essentially means "If I am receiving a nullary function but my signature e
 
 ## The method accessor sanity macro (and the AI story)
 
-One way to solve all Scala/JVM mismatch quirkiness once and for all[^hope] is to pull runtime work to the compile time. `it.method` is an expression that we can analyse in compile time via a macro; in Scala 3, macros are completely typed and with a stable API, and once can traverse the annotated AST, find a `Select` node, match the type of its application, and the method associated with it for full parameter and return type matching.
+One way to solve all Scala/JVM mismatch quirkiness once and for all[^hope] is to pull runtime work to the compile time. `it.method` is an expression that we can analyse in compile time via a macro; in Scala 3, macros are completely typed and with a stable API, and one can traverse the annotated AST, find a `Select` node, match the type of its application, and the method associated with it for full parameter and return type matching. This led the way for fixing the by-name story and add further checks.
 
 The macro API is incredibly powerful, but difficult to use and learn. A regular software engineering job – one not focused in compiler internals or programming languages – is unlikely to require these skills often, and mine is not an exception. Here comes the force of AI – provided with examples of methods whose invalid usages I'd like to detect, an extensive hand-written spec for the library behavior that it is not allowed to touch, only conform to, it only had to write out the idea for me. It generated a rough skeleton of what an accessor sanity macro should look like, and then I had enough to refine it by hand.[^ai-handwrite]
 
@@ -225,12 +225,16 @@ I updated Smockito to the new Scala 3.9 LTS in the latest 3.0 release, essential
 The 3.0 release made the stub arguments a named tuple, whose names are extracted from an augmented method accessor sanity macro:
 
 ```scala
+class Repository:
+  def getWith(startsWith: String, endsWith: String): List[String] =
+    List.empty
+
 assert(repository.calls(it.getWith).map(_.startsWith) == List("john"))
 ```
 
 Which looks almost like magic, but is the natural continuation of the compile time work started in 2.x. This was also aided by an agent – I had it try off multiple solutions, it broke the project multiple times, but I had then a clear path for internal migration. I implemented by hand each of the relevant ideas, and the final `transparent inline` addition to `on` and `onCall` turned out to be simple in the end, with all the infrastructure laid out.
 
-One thing I am particulary interested in trying is [native refined types](https://scaladays.org/session/first-class-logical-refinement-types-for-scala/), which will allow classifying the number of calls in a more precise way than `Int`. Right now, we need to depend on some library, which is a line I will not cross in Smockito. The native implementation might take some years, though.
+One thing I am particularly interested in trying is [native refined types](https://scaladays.org/session/first-class-logical-refinement-types-for-scala/), which will allow classifying the number of calls in a more precise way than `Int`. Right now, we need to depend on some library, which is a line I will not cross in Smockito. The native implementation might take some years, though.
 
 I would also like to get rid of the `Smockito` trait and rely on a wildcard import, but the compiler, at the time of writing, struggles with finding imported mock extensions if they collide with one's testing framework names, for instance `times` which has a similarly named counterpart in *specs2*.
 
