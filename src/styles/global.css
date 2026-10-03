@@ -102,4 +102,12 @@ body {
   code {
     font-size: 0.825rem;
   }
+
+  details {
+    @apply bg-stone-900 rounded-md p-4 mb-4;
+  }
+
+  details > summary {
+    @apply cursor-pointer;
+  }
 }
