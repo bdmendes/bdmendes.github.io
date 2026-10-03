@@ -36,7 +36,7 @@ The first annoyance was related to the type declaration of `Mock[T]`. It started
 
 ```scala
 opaque type Mock[T] = T
-given Conversion[T, Mock[T]] = identity
+given Conversion[Mock[T], T] = identity
 ```
 
 This is simple and elegant, but falls off in inheritance hierarchies; the compiler does not attempt the conversion at all times. A better solution is to have the capability marker type as in
