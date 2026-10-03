@@ -1,6 +1,6 @@
 ---
 title: The road to Smockito 3
-hero: ./smockito-macro-ast.png
+hero: ./smockito-watercolor.webp
 ---
 
 I launched the very first version of [Smockito](https://github.com/bdmendes/smockito) about 15 months ago. It started with a simple premise – it should be extremely straightforward and safe to mock something in Scala. For instance, if one has
@@ -24,6 +24,9 @@ assert(paymentService.times(it.charge) == 1)
 ```
 
 This exact code still holds in the recently released third major version of Smockito, but some things have changed in the way.
+
+![](./smockito-watercolor.webp)
+*Another take at the Smockito logo, by our robot friends. But I still very much like the simplicity of the original by my friend [Nuno Costa](https://github.com/biromiro). He handled my "Mockito but merged with the Scala logo" quite well.*
 
 ## First pains
 
