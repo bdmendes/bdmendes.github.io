@@ -127,7 +127,7 @@ val paymentService = mock[PaymentService]
 paymentService.getAllPayments() // *might* return List.empty[Payment]
 ```
 
-What a smart emptyish value would be for the return type in question is heavily arbitrary and based off Java conventions. As `List` here is a Scala type, it is likely that without any syntax adapter[^mockitoscala] this would just return a null and throw in runtime. But, even if `List.empty` was returned, this is sneaky behavior. An empty list is a value as valid as any other, and if a dependency interacts with the mock in a way that it was not configured to respond to, it should fail loudly and present the engineer with a nice error.[^mockito-about-nulls]
+What a smart emptyish value would be for the return type in question is heavily arbitrary and based off Java conventions. As `List` here is a Scala type, it is likely that without any syntax adapter[^mockitoscala] this would just return a null and throw at runtime. But, even if `List.empty` was returned, this is sneaky behavior. An empty list is a value as valid as any other, and if a dependency interacts with the mock in a way that it was not configured to respond to, it should fail loudly and present the engineer with a nice error.[^mockito-about-nulls]
 
 Turns out this fitted the existing Smockito API quite well. Smockito controls mock creations via a single method, `mock[T]`, so it could just configure all mocks to use a different default answer:
 
@@ -150,7 +150,7 @@ object DefaultAnswer extends Answer[Any]:
       throw UnstubbedMethod(method, invocation.getRawArguments)
 ```
 
-And so an unexpected call fails and pretty prints the method name and received arguments. There is no need to allow for any other configuration – Smockito is opinionated and as small as possible, and this is sane default. Specs are forced to be explicit, and a test passing earns another interesting semantic property: it now also means that no unexpected interaction with the mock has been made.
+And so an unexpected call fails and pretty prints the method name and received arguments. There is no need to allow for any other configuration – Smockito is opinionated and as small as possible, and this is a sane default. Specs are forced to be explicit, and a test passing earns another interesting semantic property: it now also means that no unexpected interaction with the mock has been made.
 
 ## Making it really robust
 
