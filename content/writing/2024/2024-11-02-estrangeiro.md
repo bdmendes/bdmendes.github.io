@@ -13,7 +13,7 @@ Vale a pena sair do país
 para voltar sem nada?  
 
 Quero dizer que não,  
-nāo, como é óbvio!  
+não, como é óbvio!  
 Respeita-te, rapaz,  
 abre os olhos!  
 
@@ -48,4 +48,4 @@ Oh, onde estás? Existes?
 E quando chegar a ti,  
 serás dona de mim,  
 ou serei este estrangeiro  
-deitado num qualquer areal?  
+deitado num qualquer areal?
