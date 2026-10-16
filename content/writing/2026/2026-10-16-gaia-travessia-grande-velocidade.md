@@ -1,0 +1,5 @@
+---
+title: Gaia e a travessia de grande velocidade
+---
+
+Se houvermos que ser precisos, sabíamo-la há que tempo, mas como cómodos que somos, decidimos mantê-la na nossa vida por prazo indeterminado. Como os habitantes de Gaia, respetivo presidente, que têm um grande apreço pela rotunda de Santo Ovídio e dela não abdicam não obstante a evidente benesse que se faria ao Norte e ao país, premiado com uma ligação de alta velocidade a Lisboa, sonha-se com acordar de manhã ao sábado e casualmente comer um pastel de Belém na capital, também os homens, seres unidimensionais, resistem em fervor à mudança, rapariga louca e desarticulada; as mulheres, por outro lado, por esta altura teriam feito cinco ou seis travessias de grande velocidade pelo país, para se acertar à sétima; idealmente, faríamos apenas uma e uma muito bem executada, mas para isto precisaríamos de ser pessoa, e destas o mundo sente falta, organizado nas ideias mas invariavelmente em caixas. Gaienses: pela linha Rubi ou pela Amarela, vejo em vós a interface para a mobilidade; Santo Ovídio é esperança e amor e não estrada para camiões de betão; o Porto é casa, não prisão.
