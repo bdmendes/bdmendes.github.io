@@ -8,4 +8,4 @@ Depois de me despedir, triste, do templo máximo do descanso, é minha obrigaç�
 
 Ainda que invista algum do meu precioso tempo na escolha do mais apropriado vestuário, a probabilidade de que alguém repare realmente na inteligência e elegância da combinação do dia é desprezável. Eu compreendo isso. Eu também não me preocupo em particular com aquilo que os outros vestem, fazem ou dizem. Passo mais tempo a falar do que a ouvir, tendo em conta que o meu timbre é muitíssimo mais agradável do que a monocórdica voz do comum mortal.
 
-Olhando para trás no final do dia, geralmente não me recordo de grandes intervenções memoráveis da minha pessoa, mas certamente continuarei a intervir ativamente no debate casual que é a vida quotidiana. Díficil de evitar.
+Olhando para trás no final do dia, geralmente não me recordo de grandes intervenções memoráveis da minha pessoa, mas certamente continuarei a intervir ativamente no debate casual que é a vida quotidiana. Difícil de evitar.

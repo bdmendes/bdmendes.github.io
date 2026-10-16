@@ -1,5 +1,5 @@
 ---
-title: Apocalispe global
+title: Apocalipse global
 ---
 
 Se pudesses voltar, voltavas, Não é possível voltar ao passado com informações do presente, Tão-pouco é possível voltar ao passado, Certo.
