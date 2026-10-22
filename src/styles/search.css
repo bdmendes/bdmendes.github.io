@@ -21,10 +21,10 @@
   --pf-outline-width: 1px;
   --pf-text-muted: var(--color-subtle);
   --pf-input-height: 46px;
-  --pf-input-font-size: 17px;
+  --pf-input-font-size: 16px;
   --pf-summary-font-size: 14px;
-  --pf-result-title-font-size: 17px;
-  --pf-result-excerpt-font-size: 15px;
+  --pf-result-title-font-size: 16px;
+  --pf-result-excerpt-font-size: 14px;
 }
 
 .pagefind-search:has(.pf-input:placeholder-shown):has(.pf-results:empty)
