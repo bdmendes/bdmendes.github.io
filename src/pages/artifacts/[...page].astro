@@ -21,9 +21,10 @@ const uniqueYears = [
 ]
   .toSorted()
   .toReversed();
-const yearPathsMap: [string, string][] = uniqueYears.map((y) => [
+const yearPathsMap: [string, string, number][] = uniqueYears.map((y) => [
   y,
   "/artifacts/year/" + y,
+  artifacts.filter((e) => extractDate(e.id).getFullYear().toString() == y).length,
 ]);
 
 const { page } = Astro.props;

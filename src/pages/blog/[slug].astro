@@ -1,22 +1,26 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import PostLayout from "@layouts/PostLayout.astro";
-import { createSlug, extractDate, extractDescription } from "../../lib/util";
+import { createSlug, extractDate, extractDescription, sortedByDate } from "../../lib/util";
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  const postEntries = await getCollection("blog");
-  return postEntries.map((entry) => ({
+  const postEntries = sortedByDate(await getCollection("blog"));
+  const link = (e?: CollectionEntry<"blog">) =>
+    e && { title: e.data.title, url: "/blog/" + createSlug(e.data.title) };
+  return postEntries.map((entry, i) => ({
     params: { slug: createSlug(entry.data.title) },
-    props: { entry },
+    props: { entry, prev: link(postEntries[i + 1]), next: link(postEntries[i - 1]) },
   }));
 }
 
 interface Props {
   entry: CollectionEntry<"blog">;
+  prev?: { title: string; url: string };
+  next?: { title: string; url: string };
 }
 
-const { entry } = Astro.props;
+const { entry, prev, next } = Astro.props;
 const { Content } = await render(entry);
 ---
 
@@ -26,6 +30,8 @@ const { Content } = await render(entry);
   date={extractDate(entry.id)}
   badge={"blog"}
   sideBarActiveItemID="blog"
+  prev={prev}
+  next={next}
 >
   <Content />
 </PostLayout>

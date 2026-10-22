@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/source-serif-4/opsz.css";
+@import "@fontsource-variable/source-serif-4/opsz-italic.css";
 @plugin "daisyui" {
   themes: all;
   exclude: rootscrollgutter;
@@ -7,6 +9,10 @@
   name: "halloween";
   default: true;
   --color-base-100: rgb(22, 20, 18);
+  --color-base-200: rgb(33, 30, 27);
+  --color-base-300: rgb(57, 51, 45);
+  --color-base-content: rgb(233, 226, 216);
+  --color-primary: rgb(208, 117, 58);
 }
 @plugin "@tailwindcss/typography";
 
@@ -33,6 +39,9 @@ html {
 @theme {
   --breakpoint-sm: 540px;
   --breakpoint-md: 740px;
+  --color-muted: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+  --color-subtle: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  --font-serif: "Source Serif 4 Variable", Georgia, serif;
 }
 
 @layer utilities {
@@ -41,7 +50,16 @@ html {
   }
 }
 
+.badge-ghost {
+  @apply text-subtle;
+}
+
+.group:hover .badge-ghost {
+  @apply bg-base-300;
+}
+
 body {
+  @apply font-serif;
   width: 100vw;
   overflow-x: clip;
 }
@@ -50,11 +68,27 @@ body {
   word-break: break-word;
 }
 
+::selection {
+  background-color: var(--color-neutral);
+}
+
 .time-line-container > div:last-child .entry_time > div > .entry_line {
   display: none;
 }
 
+.prose-lg {
+  font-size: 1.06rem;
+}
+
 .prose {
+  .badge-outline {
+    @apply border-base-content/30 text-muted;
+  }
+
+  a {
+    @apply decoration-primary decoration-1 underline-offset-3;
+  }
+
   blockquote {
     @apply max-w-min min-w-full not-italic;
     quotes: none !important;
@@ -71,16 +105,20 @@ body {
   }
 
   hr {
-    @apply my-8;
+    @apply my-6 h-auto overflow-visible border-0 text-center text-2xl leading-none;
+
+    &::after {
+      content: "∗";
+    }
   }
 
   p img + em,
   .label {
-    @apply inline-block text-center not-italic prose-sm w-full my-2 px-4 md:px-16;
+    @apply inline-block text-center not-italic text-base/7 w-full my-2 px-4 md:px-16;
   }
 
   .footnotes {
-    @apply prose-sm max-w-min min-w-full mt-12;
+    @apply prose-sm max-w-min min-w-full mt-9;
   }
 
   #footnote-label {
@@ -96,7 +134,7 @@ body {
   }
 
   pre {
-    @apply whitespace-pre-wrap;
+    @apply whitespace-pre-wrap bg-base-200! border border-base-300 p-3;
   }
 
   code {
@@ -104,7 +142,7 @@ body {
   }
 
   details {
-    @apply bg-stone-900 rounded-md p-4 mb-4;
+    @apply bg-base-200 rounded-md p-4 mb-4;
   }
 
   details > summary {

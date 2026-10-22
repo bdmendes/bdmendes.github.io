@@ -27,9 +27,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const games = sortedByDate(await getCollection("chess"));
 const tournaments = games.map((p) => p.data.tournament);
 let uniqueTournaments = [...new Set(tournaments)];
-const tournamentsPathsMap: [string, string][] = uniqueTournaments.map((y) => [
+const tournamentsPathsMap: [string, string, number][] = uniqueTournaments.map((y) => [
   y,
   "/chess/tournament/" + y,
+  tournaments.filter((t) => t == y).length,
 ]);
 const [points, totalGames] = await getChessPoints();
 const { page } = Astro.props;

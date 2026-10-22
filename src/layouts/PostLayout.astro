@@ -15,6 +15,8 @@ export interface Props {
   tagEndpoint?: string;
   shrink?: boolean;
   sideBarActiveItemID: string;
+  prev?: { title: string; url: string };
+  next?: { title: string; url: string };
 }
 
 const {
@@ -29,6 +31,8 @@ const {
   tagEndpoint = "tag",
   shrink = true,
   sideBarActiveItemID,
+  prev,
+  next,
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
@@ -43,7 +47,7 @@ const displayDate = dayjs(date).format("ll");
   sideBarActiveItemID={sideBarActiveItemID}
   index={true}
 >
-  <div class="mx-auto prose prose-img:mx-auto max-w-[inherit]">
+  <div class="mx-auto prose prose-lg prose-img:mx-auto max-w-[inherit]">
     {
       customHeader ? (
         <div>
@@ -59,12 +63,12 @@ const displayDate = dayjs(date).format("ll");
           </div>
         </div>
       ) : (
-        <h1 class="mb-2 text-3xl md:text-4xl max-w-min min-w-full font-bold">{title}</h1>
+        <h1 class="mb-2 text-3xl md:text-4xl max-w-min min-w-full font-bold text-balance">{title}</h1>
       )
     }
-    <div aria-hidden="true">
-      {date && <time class="pagefind-exclude">{displayDate}</time>}
-      <div class="flex max-w-min min-w-full mt-2 gap-2 flex-wrap">
+    <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-7">
+      {date && <time class="pagefind-exclude text-subtle">{displayDate}</time>}
+      <div class="flex gap-2 flex-wrap">
         <a
           data-pagefind-filter="category"
           href={`/${badge}`}
@@ -98,8 +102,25 @@ const displayDate = dayjs(date).format("ll");
           )
         }
       </div>
-      <div class="divider my-2"></div>
     </div>
     <article><slot /></article>
+    {
+      (prev || next) && (
+        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full mt-9 mb-6 pagefind-exclude" aria-label="Previous and next">
+          {prev ? (
+            <a href={prev.url} class="group">
+              <span class="block text-sm text-subtle mb-1">← Previous</span>
+              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{prev.title}</span>
+            </a>
+          ) : <span />}
+          {next && (
+            <a href={next.url} class="group text-right">
+              <span class="block text-sm text-subtle mb-1">Next →</span>
+              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{next.title}</span>
+            </a>
+          )}
+        </nav>
+      )
+    }
   </div>
 </BaseLayout>

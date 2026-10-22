@@ -7,7 +7,7 @@ export interface Props {
   path?: string;
   title: string;
   selector?: string;
-  filters?: [string, string][];
+  filters?: [string, string, number?][];
   search?: boolean;
 }
 
@@ -25,7 +25,7 @@ const iconSize = 26;
       selector && (
         <div class="flex gap-2 items-center">
           <span class="badge badge-ghost leading-4 pb-0.5 text-center">{selector}</span>
-          <a href={path}>
+          <a href={path} class="text-muted hover:text-primary transition-colors">
             <Icon name="mdi:filter-off" size={iconSize} />
           </a>
         </div>
@@ -36,17 +36,18 @@ const iconSize = 26;
       filters && (
         <div class="flex items-center">
           <button
-            class="cursor-pointer"
+            class="cursor-pointer text-muted hover:text-primary transition-colors"
             onclick={filterModalId + ".showModal()"}
           >
             <Icon name="mdi:filter" size={iconSize} />
           </button>
           <dialog id={filterModalId} class="modal modal-top">
-            <ol class="modal-box w-fit min-w-40 flex flex-col gap-2 items-center max-h-[90svh] md:max-h-[80svh] mx-auto">
+            <ol class="modal-box w-fit min-w-32 flex flex-col gap-2 items-center max-h-[90svh] md:max-h-[80svh] mx-auto">
               {filters.map((f) => (
                 <li class="text-center w-full">
-                  <a class="btn px-5 w-full sm:text-nowrap" href={f[1]}>
+                  <a class="btn px-5 w-full sm:text-nowrap justify-between gap-3" href={f[1]}>
                     {f[0]}
+                    {f[2] != null && <span class="text-xs text-muted">{f[2]}</span>}
                   </a>
                 </li>
               ))}
@@ -63,7 +64,7 @@ const iconSize = 26;
       search && (
         <div class="flex items-center">
           <button
-            class="cursor-pointer"
+            class="cursor-pointer text-muted hover:text-primary transition-colors"
             data-large-title-search
             onclick={
               searchModalId +

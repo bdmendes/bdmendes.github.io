@@ -45,7 +45,7 @@ This is simple and elegant, but falls off in inheritance hierarchies; the compil
 opaque type Mock[+T] <: T = T
 ```
 
-Adding the variance and subtyping annotations solve most issues and make the type behave exactly as one would expect here, a real `T`, but with a marker for extension.
+Adding the variance and subtyping annotations solves most issues and makes the type behave exactly as one would expect here, a real `T`, but with a marker for extension.
 
 As this was fixed, some people started to find more annoyances. In the 1.x line, I opted to try to track repeated stubbing, like:
 

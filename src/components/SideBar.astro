@@ -17,7 +17,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
   >
     <a href="/" class="self-center max-h-[50svh] aspect-square h-20 md:h-24">
       <img
-        class="object-contain w-full h-full rounded-full saturate-0 brightness-80"
+        class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80"
         src="/assets/about-me/cv-profile-drawing.png"
       />
     </a>
@@ -27,7 +27,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
           Object.entries(ROUTES).map(([key, value]) => (
             <li>
               <a
-                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : ""}`}
+                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-muted"}`}
                 id={key}
                 href={key == "home" ? "/" : "/" + key}
               >
@@ -41,7 +41,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
             <li>
               <a
                 href={value.url}
-                class="py-2.5 justify-center self-center w-full"
+                class="py-2.5 justify-center self-center w-full text-muted"
                 target="_blank"
                 aria-label={key}
                 title={key}
