@@ -81,6 +81,10 @@ body {
 }
 
 .prose {
+  p {
+    margin-block: 1em;
+  }
+
   .badge-outline {
     @apply border-base-content/30 text-muted;
   }
@@ -135,6 +139,7 @@ body {
 
   pre {
     @apply whitespace-pre-wrap bg-base-200! border border-base-300 p-3;
+    margin-block: 1.2em;
   }
 
   code {
