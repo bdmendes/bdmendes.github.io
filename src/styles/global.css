@@ -73,6 +73,10 @@ body {
     @apply border-base-content/30 text-base-content/70;
   }
 
+  .badge-ghost {
+    @apply text-base-content/60;
+  }
+
   blockquote {
     @apply max-w-min min-w-full not-italic;
     quotes: none !important;
