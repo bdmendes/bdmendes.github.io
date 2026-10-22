@@ -56,6 +56,10 @@ body {
   word-break: break-word;
 }
 
+::selection {
+  background-color: color-mix(in oklab, var(--color-primary) 35%, transparent);
+}
+
 .time-line-container > div:last-child .entry_time > div > .entry_line {
   display: none;
 }
@@ -65,6 +69,10 @@ body {
 }
 
 .prose {
+  .badge-outline {
+    @apply border-base-content/30 text-base-content/70;
+  }
+
   blockquote {
     @apply max-w-min min-w-full not-italic;
     quotes: none !important;
@@ -81,7 +89,11 @@ body {
   }
 
   hr {
-    @apply my-8;
+    @apply my-8 h-auto overflow-visible border-0 text-center text-2xl leading-none text-base-content/60;
+
+    &::after {
+      content: "∗";
+    }
   }
 
   p img + em,
