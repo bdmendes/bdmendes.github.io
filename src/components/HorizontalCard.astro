@@ -8,8 +8,6 @@ export interface Props {
   badge?: string;
   tags?: string[];
   disabledTags?: string[];
-  divideTop?: boolean;
-  divideBottom?: boolean;
   forceVertical?: boolean;
   status?: "red" | "grey" | "green" | undefined;
 }
@@ -23,8 +21,6 @@ const {
   badge,
   tags = [],
   disabledTags = [],
-  divideBottom = true,
-  divideTop = false,
   forceVertical = false,
   status,
 } = Astro.props;
@@ -32,11 +28,10 @@ import { Image } from "astro:assets";
 ---
 
 <div class="flex flex-col">
-  {divideTop && <div class="divider my-0" />}
-  <div class=`rounded grow group`>
+  <div class=`rounded-box grow group mb-1 transition-colors hover:bg-base-200`>
     <a class="w-full" href={url}>
       <div
-        class={`w-full hero-content px-3 py-4 flex flex-col items-start ${forceVertical ? "" : "sm:flex-row"}`}
+        class={`w-full hero-content p-3 flex flex-col items-start ${forceVertical ? "" : "sm:flex-row"}`}
       >
         <slot />
         {
@@ -61,10 +56,10 @@ import { Image } from "astro:assets";
               {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
             </div>
           </div>
-          <p class="py-1 text-muted">{description}</p>
+          {description && <p class="py-1 text-muted">{description}</p>}
           {
             (tags.length > 0 || badge || disabledTags.length > 0) && (
-              <div class="card-actions justify-end mt-2 mb-1">
+              <div class="card-actions mt-3">
                 {disabledTags.toReversed().map((tag) => (
                   <span class="badge badge-ghost">{tag}</span>
                 ))}
@@ -79,5 +74,4 @@ import { Image } from "astro:assets";
       </div>
     </a>
   </div>
-  {divideBottom && <div class="divider my-0" />}
 </div>

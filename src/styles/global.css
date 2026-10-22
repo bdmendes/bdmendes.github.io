@@ -52,6 +52,10 @@ html {
   @apply text-subtle;
 }
 
+.group:hover .badge-ghost {
+  @apply bg-base-300;
+}
+
 body {
   @apply font-serif;
   width: 100vw;
