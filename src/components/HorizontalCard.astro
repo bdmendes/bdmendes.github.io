@@ -33,7 +33,7 @@ import { Image } from "astro:assets";
 
 <div class="flex flex-col">
   {divideTop && <div class="divider my-0" />}
-  <div class=`rounded grow hover:shadow-2xl`>
+  <div class=`rounded grow group`>
     <a class="w-full" href={url}>
       <div
         class={`w-full hero-content px-3 py-4 flex flex-col items-start ${forceVertical ? "" : "sm:flex-row"}`}
@@ -54,7 +54,7 @@ import { Image } from "astro:assets";
             {status == "green" && (<div aria-label="status" class="status bg-green-400"></div>)}
             {status == "grey" && (<div aria-label="status" class="status bg-gray-400"></div>)}
             {status == "red" && (<div aria-label="status" class="status bg-red-400"></div>)}
-            <div>
+            <div class="transition-colors group-hover:text-primary">
               <h1 class="text-xl font-bold mr-2">
               {title}
               </h1>

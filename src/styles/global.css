@@ -10,7 +10,7 @@
   --color-base-200: rgb(33, 30, 27);
   --color-base-300: rgb(57, 51, 45);
   --color-base-content: rgb(233, 226, 216);
-  --color-primary: rgb(242, 140, 24);
+  --color-primary: rgb(208, 117, 58);
 }
 @plugin "@tailwindcss/typography";
 
@@ -63,7 +63,7 @@ body {
 }
 
 ::selection {
-  background-color: color-mix(in oklab, var(--color-primary) 35%, transparent);
+  background-color: var(--color-neutral);
 }
 
 .time-line-container > div:last-child .entry_time > div > .entry_line {
@@ -77,6 +77,10 @@ body {
 .prose {
   .badge-outline {
     @apply border-base-content/30 text-muted;
+  }
+
+  a {
+    @apply decoration-primary decoration-1 underline-offset-3;
   }
 
   blockquote {
@@ -95,7 +99,7 @@ body {
   }
 
   hr {
-    @apply my-8 h-auto overflow-visible border-0 text-center text-2xl leading-none text-subtle;
+    @apply my-6 h-auto overflow-visible border-0 text-center text-2xl leading-none text-primary;
 
     &::after {
       content: "∗";
