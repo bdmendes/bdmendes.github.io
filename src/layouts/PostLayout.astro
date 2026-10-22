@@ -15,6 +15,8 @@ export interface Props {
   tagEndpoint?: string;
   shrink?: boolean;
   sideBarActiveItemID: string;
+  prev?: { title: string; url: string };
+  next?: { title: string; url: string };
 }
 
 const {
@@ -29,6 +31,8 @@ const {
   tagEndpoint = "tag",
   shrink = true,
   sideBarActiveItemID,
+  prev,
+  next,
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
@@ -100,5 +104,23 @@ const displayDate = dayjs(date).format("ll");
       </div>
     </div>
     <article><slot /></article>
+    {
+      (prev || next) && (
+        <nav class="not-prose grid grid-cols-2 gap-6 mt-9 mb-6 pagefind-exclude" aria-label="Previous and next">
+          {prev ? (
+            <a href={prev.url} class="group">
+              <span class="block text-sm text-subtle mb-2">← Previous</span>
+              <span class="block font-bold leading-snug text-balance transition-colors group-hover:text-primary">{prev.title}</span>
+            </a>
+          ) : <span />}
+          {next && (
+            <a href={next.url} class="group text-right">
+              <span class="block text-sm text-subtle mb-2">Next →</span>
+              <span class="block font-bold leading-snug text-balance transition-colors group-hover:text-primary">{next.title}</span>
+            </a>
+          )}
+        </nav>
+      )
+    }
   </div>
 </BaseLayout>

@@ -1,22 +1,26 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import PostLayout from "@layouts/PostLayout.astro";
-import { createSlug, extractDate, extractDescription, validateBody } from "../../lib/util";
+import { createSlug, extractDate, extractDescription, sortedByDate, validateBody } from "../../lib/util";
 import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  const textEntries = await getCollection("writing");
-  return textEntries.map((entry) => ({
+  const textEntries = sortedByDate(await getCollection("writing"));
+  const link = (e?: CollectionEntry<"writing">) =>
+    e && { title: e.data.title, url: "/writing/" + createSlug(e.data.title) };
+  return textEntries.map((entry, i) => ({
     params: { slug: createSlug(entry.data.title) },
-    props: { entry },
+    props: { entry, prev: link(textEntries[i + 1]), next: link(textEntries[i - 1]) },
   }));
 }
 
 interface Props {
   entry: CollectionEntry<"writing">;
+  prev?: { title: string; url: string };
+  next?: { title: string; url: string };
 }
 
-const { entry } = Astro.props;
+const { entry, prev, next } = Astro.props;
 const { Content } = await render(entry);
 
 validateBody(entry.data.title, entry.body!);
@@ -28,6 +32,8 @@ validateBody(entry.data.title, entry.body!);
   date={extractDate(entry.id)}
   badge={"writing"}
   sideBarActiveItemID="writing"
+  prev={prev}
+  next={next}
 >
   <Content />
 </PostLayout>
