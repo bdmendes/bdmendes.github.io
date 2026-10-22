@@ -7,6 +7,10 @@
   name: "halloween";
   default: true;
   --color-base-100: rgb(22, 20, 18);
+  --color-base-200: rgb(33, 30, 27);
+  --color-base-300: rgb(57, 51, 45);
+  --color-base-content: rgb(233, 226, 216);
+  --color-primary: rgb(242, 140, 24);
 }
 @plugin "@tailwindcss/typography";
 
@@ -33,6 +37,7 @@ html {
 @theme {
   --breakpoint-sm: 540px;
   --breakpoint-md: 740px;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, "Book Antiqua", Georgia, serif;
 }
 
 @layer utilities {
@@ -42,6 +47,7 @@ html {
 }
 
 body {
+  @apply font-serif;
   width: 100vw;
   overflow-x: clip;
 }
@@ -104,7 +110,7 @@ body {
   }
 
   details {
-    @apply bg-stone-900 rounded-md p-4 mb-4;
+    @apply bg-base-200 rounded-md p-4 mb-4;
   }
 
   details > summary {
