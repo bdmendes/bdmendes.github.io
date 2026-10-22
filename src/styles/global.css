@@ -60,6 +60,10 @@ body {
   display: none;
 }
 
+.prose-lg {
+  font-size: 1.07rem;
+}
+
 .prose {
   blockquote {
     @apply max-w-min min-w-full not-italic;
@@ -82,7 +86,7 @@ body {
 
   p img + em,
   .label {
-    @apply inline-block text-center not-italic prose-sm w-full my-2 px-4 md:px-16;
+    @apply inline-block text-center not-italic text-base/7 w-full my-2 px-4 md:px-16;
   }
 
   .footnotes {
@@ -102,7 +106,7 @@ body {
   }
 
   pre {
-    @apply whitespace-pre-wrap;
+    @apply whitespace-pre-wrap bg-base-200! border border-base-300;
   }
 
   code {
