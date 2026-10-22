@@ -66,7 +66,7 @@ const displayDate = dayjs(date).format("ll");
         <h1 class="mb-2 text-3xl md:text-4xl max-w-min min-w-full font-bold text-balance">{title}</h1>
       )
     }
-    <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-7">
+    <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-6">
       {date && <time class="pagefind-exclude text-subtle">{displayDate}</time>}
       <div class="flex gap-2 flex-wrap">
         <a
@@ -106,7 +106,7 @@ const displayDate = dayjs(date).format("ll");
     <article><slot /></article>
     {
       (prev || next) && (
-        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full mt-9 mb-6 pagefind-exclude" aria-label="Previous and next">
+        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full mt-8 mb-6 pagefind-exclude" aria-label="Previous and next">
           {prev ? (
             <a href={prev.url} class="group">
               <span class="block text-sm text-subtle mb-1">← Previous</span>
