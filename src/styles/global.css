@@ -54,8 +54,10 @@ html {
   @apply text-subtle;
 }
 
-.group:hover .badge-ghost {
-  @apply bg-base-300;
+@media (hover: hover) {
+  .group:hover .badge-ghost {
+    @apply bg-base-300;
+  }
 }
 
 body {
