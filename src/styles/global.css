@@ -37,6 +37,8 @@ html {
 @theme {
   --breakpoint-sm: 540px;
   --breakpoint-md: 740px;
+  --color-muted: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+  --color-subtle: color-mix(in oklab, var(--color-base-content) 60%, transparent);
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, "Book Antiqua", Georgia, serif;
 }
 
@@ -44,6 +46,10 @@ html {
   .badge {
     @apply h-fit;
   }
+}
+
+.badge-ghost {
+  @apply text-subtle;
 }
 
 body {
@@ -70,11 +76,7 @@ body {
 
 .prose {
   .badge-outline {
-    @apply border-base-content/30 text-base-content/70;
-  }
-
-  .badge-ghost {
-    @apply text-base-content/60;
+    @apply border-base-content/30 text-muted;
   }
 
   blockquote {
@@ -93,7 +95,7 @@ body {
   }
 
   hr {
-    @apply my-8 h-auto overflow-visible border-0 text-center text-2xl leading-none text-base-content/60;
+    @apply my-8 h-auto overflow-visible border-0 text-center text-2xl leading-none text-subtle;
 
     &::after {
       content: "∗";

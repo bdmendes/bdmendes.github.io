@@ -27,7 +27,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
           Object.entries(ROUTES).map(([key, value]) => (
             <li>
               <a
-                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-base-content/70"}`}
+                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-muted"}`}
                 id={key}
                 href={key == "home" ? "/" : "/" + key}
               >
@@ -41,7 +41,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
             <li>
               <a
                 href={value.url}
-                class="py-2.5 justify-center self-center w-full text-base-content/70"
+                class="py-2.5 justify-center self-center w-full text-muted"
                 target="_blank"
                 aria-label={key}
                 title={key}

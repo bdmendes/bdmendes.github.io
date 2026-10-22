@@ -1,7 +1,7 @@
 .pagefind-search[data-pf-theme="dark"] {
   --pf-background: var(--color-base-100);
   --pf-text: var(--color-base-content);
-  --pf-text-secondary: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+  --pf-text-secondary: var(--color-muted);
   --pf-hover: var(--color-base-200);
   --pf-skeleton: var(--color-base-200);
   --pf-skeleton-shine: var(--color-base-300);
@@ -19,15 +19,11 @@
     transparent
   );
   --pf-outline-width: 1px;
-  --pf-text-muted: color-mix(
-    in oklab,
-    var(--color-base-content) 50%,
-    transparent
-  );
+  --pf-text-muted: var(--color-subtle);
   --pf-input-height: 46px;
   --pf-input-font-size: 17px;
   --pf-summary-font-size: 14px;
-  --pf-result-title-font-size: 18px;
+  --pf-result-title-font-size: 17px;
   --pf-result-excerpt-font-size: 15px;
 }
 
