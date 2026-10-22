@@ -76,10 +76,6 @@ body {
   display: none;
 }
 
-.prose-lg {
-  font-size: 1.06rem;
-}
-
 .prose {
   p {
     margin-block: 1em;
