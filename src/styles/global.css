@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/source-serif-4/opsz.css";
+@import "@fontsource-variable/source-serif-4/opsz-italic.css";
 @plugin "daisyui" {
   themes: all;
   exclude: rootscrollgutter;
@@ -39,7 +41,7 @@ html {
   --breakpoint-md: 740px;
   --color-muted: color-mix(in oklab, var(--color-base-content) 70%, transparent);
   --color-subtle: color-mix(in oklab, var(--color-base-content) 60%, transparent);
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, "Book Antiqua", Georgia, serif;
+  --font-serif: "Source Serif 4 Variable", Georgia, serif;
 }
 
 @layer utilities {
