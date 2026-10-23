@@ -86,6 +86,11 @@ body {
   background-color: var(--color-base-300);
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .time-line-container > div:last-child .entry_time > div > .entry_line {
   display: none;
 }
