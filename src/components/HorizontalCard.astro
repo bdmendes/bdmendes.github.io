@@ -40,7 +40,7 @@ import { Image } from "astro:assets";
               src={img}
               format="webp"
               alt={title}
-              class="max-h-32 rounded object-cover sm:aspect-square sm:max-w-32"
+              class="aspect-square max-w-32 rounded object-cover"
             />
           )
         }
@@ -56,10 +56,10 @@ import { Image } from "astro:assets";
               {title2 && <h1 class="text-xl font-bold mr-2">{title2}</h1>}
             </div>
           </div>
-          {description && <p class="py-1 text-muted">{description}</p>}
+          {description && <p class="my-1 text-muted">{description}</p>}
           {
             (tags.length > 0 || badge || disabledTags.length > 0) && (
-              <div class="card-actions mt-3">
+              <div class="card-actions mt-2">
                 {disabledTags.toReversed().map((tag) => (
                   <span class="badge badge-ghost">{tag}</span>
                 ))}
