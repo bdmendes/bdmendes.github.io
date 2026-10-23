@@ -1,5 +1,5 @@
 ---
-import PostLayout from "./PostLayout.astro";
+import PostLayout, { type NavLink } from "./PostLayout.astro";
 import "../styles/chess.css";
 import { buildChessMetaTags } from "src/lib/util";
 
@@ -16,6 +16,8 @@ export interface Props {
   date: Date;
   description: string;
   fen?: string;
+  prev?: NavLink;
+  next?: NavLink;
 }
 
 const {
@@ -31,6 +33,8 @@ const {
   board,
   round,
   fen,
+  prev,
+  next,
 } = Astro.props;
 const title = `${white} ${whiteElo ? `(${whiteElo})` : ""} ${result} ${black} ${blackElo ? `(${blackElo})` : ""}`;
 const flipped = black === "Bruno Mendes";
@@ -52,6 +56,8 @@ const flipped = black === "Bruno Mendes";
   tagEndpoint="tournament"
   shrink={false}
   description={description}
+  prev={prev}
+  next={next}
 >
   <chess-game data-pgn={pgn} data-fen={fen} data-flipped={flipped}>
   </chess-game>

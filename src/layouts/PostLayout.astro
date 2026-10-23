@@ -16,9 +16,11 @@ export interface Props {
   tagEndpoint?: string;
   shrink?: boolean;
   sideBarActiveItemID: string;
-  prev?: { title: string; url: string };
-  next?: { title: string; url: string };
+  prev?: NavLink;
+  next?: NavLink;
 }
+
+export type NavLink = { title: string; url: string; status?: "green" | "grey" | "red" };
 
 const {
   title,
@@ -37,6 +39,7 @@ const {
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
+const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-400" };
 ---
 
 <BaseLayout
@@ -111,13 +114,13 @@ const displayDate = dayjs(date).format("ll");
           {prev ? (
             <a href={prev.url} class="group">
               <span class="flex items-center gap-1 text-sm text-subtle mb-1"><Icon name="mdi:arrow-left" size="14" />Previous</span>
-              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{prev.title}</span>
+              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{prev.title}{prev.status && <span aria-hidden="true" class={`status ml-2 align-middle ${statusColor[prev.status]}`} />}</span>
             </a>
           ) : <span />}
           {next && (
             <a href={next.url} class="group text-right">
               <span class="flex items-center justify-end gap-1 text-sm text-subtle mb-1">Next<Icon name="mdi:arrow-right" size="14" /></span>
-              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{next.title}</span>
+              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{next.status && <span aria-hidden="true" class={`status mr-2 align-middle ${statusColor[next.status]}`} />}{next.title}</span>
             </a>
           )}
         </nav>

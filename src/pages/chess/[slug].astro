@@ -4,22 +4,33 @@ import {
   createChessDescription,
   createChessSlug,
   extractDate,
+  gameColor,
+  sortedByDate,
 } from "../../lib/util";
 import ChessGameLayout from "@layouts/ChessGameLayout.astro";
+import type { NavLink } from "@layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
-  const games = await getCollection("chess");
-  return games.map((game) => ({
+  const games = sortedByDate(await getCollection("chess"));
+  const link = (g?: CollectionEntry<"chess">) =>
+    g && {
+      title: (g.data.white ? g.data.white : g.data.black) ?? "",
+      url: "/chess/" + createChessSlug(g),
+      status: gameColor(g) as "green" | "grey" | "red",
+    };
+  return games.map((game, i) => ({
     params: { slug: createChessSlug(game) },
-    props: { game },
+    props: { game, prev: link(games[i + 1]), next: link(games[i - 1]) },
   }));
 }
 
 interface Props {
   game: CollectionEntry<"chess">;
+  prev?: NavLink;
+  next?: NavLink;
 }
 
-const { game } = Astro.props;
+const { game, prev, next } = Astro.props;
 ---
 
 <ChessGameLayout
@@ -35,4 +46,6 @@ const { game } = Astro.props;
   board={game.data.board}
   description={createChessDescription(game)}
   fen={game.data.fen}
+  prev={prev}
+  next={next}
 />
