@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { Icon } from "astro-icon/components";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
@@ -106,16 +107,16 @@ const displayDate = dayjs(date).format("ll");
     <article><slot /></article>
     {
       (prev || next) && (
-        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full mt-8 mb-6 pagefind-exclude" aria-label="Previous and next">
+        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full my-7 pagefind-exclude" aria-label="Previous and next">
           {prev ? (
             <a href={prev.url} class="group">
-              <span class="block text-sm text-subtle mb-1">← Previous</span>
+              <span class="flex items-center gap-1 text-sm text-subtle mb-1"><Icon name="mdi:arrow-left" size="14" />Previous</span>
               <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{prev.title}</span>
             </a>
           ) : <span />}
           {next && (
             <a href={next.url} class="group text-right">
-              <span class="block text-sm text-subtle mb-1">Next →</span>
+              <span class="flex items-center justify-end gap-1 text-sm text-subtle mb-1">Next<Icon name="mdi:arrow-right" size="14" /></span>
               <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{next.title}</span>
             </a>
           )}
