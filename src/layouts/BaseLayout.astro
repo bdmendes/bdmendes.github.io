@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import serifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2?url";
 
 import SideBar from "@components/SideBar.astro";
 import { ClientRouter } from "astro:transitions";
@@ -45,6 +46,8 @@ const completeTitle =
       name="viewport"
       content="width=device-width,initial-scale=1,interactive-widget=resizes-content"
     />
+    <meta name="theme-color" content="#161412" />
+    <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
