@@ -84,7 +84,7 @@ body {
   }
 
   .badge-outline {
-    @apply border-base-content/30 text-muted;
+    @apply border-base-content/30 text-muted transition-colors hover:border-primary hover:text-primary;
   }
 
   a {
