@@ -28,8 +28,8 @@ html {
 }
 
 @media print {
-  * {
-    @apply text-sm;
+  html {
+    font-size: 87.5%;
   }
 
   main {
