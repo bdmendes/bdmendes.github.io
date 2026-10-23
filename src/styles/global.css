@@ -22,6 +22,12 @@
   navigation: auto;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 html {
   scrollbar-gutter: stable;
   background-color: var(--color-base-100);
@@ -87,6 +93,7 @@ body {
 .prose {
   p {
     margin-block: 1em;
+    text-wrap: pretty;
   }
 
   h2 {
