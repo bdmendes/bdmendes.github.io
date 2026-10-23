@@ -69,7 +69,7 @@ const iconSize = 26;
             onclick={
               searchModalId +
               ".showModal();" +
-              (path ? 'filterCategory("' + path!.replace("/", "") + '");' : "")
+              'filterCategory("' + (path ? path.replace("/", "") : "") + '");'
             }
           >
             <Icon name="mdi:magnify" size={iconSize} />
@@ -97,23 +97,19 @@ const iconSize = 26;
 </div>
 
 <script is:inline>
-  var clicked = false;
   function filterCategory(category) {
-    if (clicked || !category) {
-      return;
-    }
     setTimeout(() => {
-      const prefix = "pf-filter-category-" + category;
-      const filter = document.querySelector(`[id^="${prefix}"]`);
-      if (filter) {
-        filter.click();
-        clicked = true;
-      } else {
+      const boxes = [...document.querySelectorAll('[id^="pf-filter-category-"]')];
+      if (!boxes.length) {
         filterCategory(category);
+        return;
       }
+      boxes.forEach((box) => {
+        const wanted = !!category && box.id.startsWith("pf-filter-category-" + category);
+        if (box.checked !== wanted) box.click();
+      });
     }, 100);
   }
-  filterCategory;
 </script>
 
 <script>

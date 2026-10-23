@@ -59,8 +59,8 @@ const flipped = black === "Bruno Mendes";
   prev={prev}
   next={next}
 >
-  <chess-game data-pgn={pgn} data-fen={fen} data-flipped={flipped}>
-  </chess-game>
+  <chess-board data-pgn={pgn} data-fen={fen} data-flipped={flipped}>
+  </chess-board>
   <div id="board"></div>
 </PostLayout>
 
@@ -75,5 +75,7 @@ const flipped = black === "Bruno Mendes";
       });
     }
   }
-  customElements.define("chess-game", ChessGame);
+  if (!customElements.get("chess-board")) {
+    customElements.define("chess-board", ChessGame);
+  }
 </script>
