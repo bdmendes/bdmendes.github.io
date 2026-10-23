@@ -13,6 +13,8 @@
   --color-base-300: rgb(57, 51, 45);
   --color-base-content: rgb(233, 226, 216);
   --color-primary: rgb(208, 117, 58);
+  --color-neutral: rgb(57, 51, 45);
+  --color-neutral-content: rgb(233, 226, 216);
 }
 @plugin "@tailwindcss/typography";
 
@@ -71,7 +73,7 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-neutral);
+  background-color: var(--color-base-300);
 }
 
 .time-line-container > div:last-child .entry_time > div > .entry_line {

@@ -22,12 +22,12 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
       />
     </a>
     <div class="flex flex-col pagefind-exclude items-center">
-      <ul class="menu py-0 overflow-y-auto gap-1 w-5/6">
+      <ul class="menu py-0 overflow-y-auto gap-1 w-5/6 [--menu-active-bg:var(--color-base-200)] [--menu-active-fg:var(--color-base-content)]">
         {
           Object.entries(ROUTES).map(([key, value]) => (
             <li>
               <a
-                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-muted"}`}
+                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-muted transition-colors hover:text-primary hover:bg-base-200"}`}
                 id={key}
                 href={key == "home" ? "/" : "/" + key}
               >
@@ -41,12 +41,12 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
             <li>
               <a
                 href={value.url}
-                class="py-2.5 justify-center self-center w-full text-muted"
+                class="py-2.5 justify-center self-center w-full text-muted transition-colors hover:text-primary hover:bg-base-200"
                 target="_blank"
                 aria-label={key}
                 title={key}
               >
-                <Icon name={value.icon} class="hover:shadow-xl " size="24" />
+                <Icon name={value.icon} size="24" />
               </a>
             </li>
           ))
