@@ -107,7 +107,7 @@ body {
   }
 
   hr {
-    @apply my-6 h-auto overflow-visible border-0 text-center text-2xl leading-none;
+    @apply my-5 h-auto overflow-visible border-0 text-center text-2xl leading-none;
 
     &::after {
       content: "∗";
