@@ -45,7 +45,7 @@ const iconSize = 26;
             <ol class="modal-box w-fit min-w-32 flex flex-col gap-2 items-center max-h-[90svh] md:max-h-[80svh] mx-auto">
               {filters.map((f) => (
                 <li class="text-center w-full">
-                  <a class="btn px-5 w-full sm:text-nowrap justify-between gap-3" href={f[1]}>
+                  <a class="btn px-5 w-full sm:text-nowrap justify-between gap-3 transition-colors hover:text-primary" href={f[1]}>
                     {f[0]}
                     {f[2] != null && <span class="text-xs text-muted">{f[2]}</span>}
                   </a>
