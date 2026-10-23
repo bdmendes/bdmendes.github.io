@@ -102,7 +102,7 @@ body {
   }
 
   a {
-    @apply decoration-primary decoration-1 underline-offset-3;
+    @apply decoration-primary decoration-1 underline-offset-3 transition-colors hover:text-primary;
   }
 
   blockquote {
