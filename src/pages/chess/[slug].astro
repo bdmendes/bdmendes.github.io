@@ -20,7 +20,7 @@ export async function getStaticPaths() {
     };
   return games.map((game, i) => ({
     params: { slug: createChessSlug(game) },
-    props: { game, prev: link(games[i + 1]), next: link(games[i - 1]) },
+    props: { game, prev: link(games[i - 1]), next: link(games[i + 1]) },
   }));
 }
 

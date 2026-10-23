@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     e && { title: e.data.title, url: "/writing/" + createSlug(e.data.title) };
   return textEntries.map((entry, i) => ({
     params: { slug: createSlug(entry.data.title) },
-    props: { entry, prev: link(textEntries[i + 1]), next: link(textEntries[i - 1]) },
+    props: { entry, prev: link(textEntries[i - 1]), next: link(textEntries[i + 1]) },
   }));
 }
 

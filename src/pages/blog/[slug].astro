@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     e && { title: e.data.title, url: "/blog/" + createSlug(e.data.title) };
   return postEntries.map((entry, i) => ({
     params: { slug: createSlug(entry.data.title) },
-    props: { entry, prev: link(postEntries[i + 1]), next: link(postEntries[i - 1]) },
+    props: { entry, prev: link(postEntries[i - 1]), next: link(postEntries[i + 1]) },
   }));
 }
 
