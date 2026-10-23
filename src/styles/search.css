@@ -68,3 +68,21 @@
 .pf-result-card:has(.pf-result-link:focus-visible) {
   box-shadow: 0 0 0 2px var(--color-primary) !important;
 }
+
+.pf-input-clear:focus-visible {
+  outline-color: var(--color-primary) !important;
+}
+
+.pf-input-clear {
+  transition: color 150ms !important;
+}
+
+.pf-input-clear:hover {
+  background: none !important;
+}
+
+@media (hover: hover) {
+  .pf-input-clear:hover {
+    color: var(--color-primary) !important;
+  }
+}
