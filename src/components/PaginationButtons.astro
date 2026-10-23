@@ -15,9 +15,9 @@ const next = page.currentPage < page.lastPage ? page.currentPage + 1 : undefined
 
 {
   (prev || next) && (
-    <nav class="grid grid-cols-2 gap-4 px-3 my-5" aria-label="Pagination">
+    <nav class="grid grid-cols-2 gap-4 px-3 my-4" aria-label="Pagination">
       {prev ? (
-        <a href={href(prev)} class="group">
+        <a href={href(prev)} class="group justify-self-start">
           <span class="flex items-center gap-1 text-sm text-subtle mb-1">
             <Icon name="mdi:arrow-left" size="14" />
             Previous
@@ -30,7 +30,7 @@ const next = page.currentPage < page.lastPage ? page.currentPage + 1 : undefined
         <span />
       )}
       {next && (
-        <a href={href(next)} class="group text-right">
+        <a href={href(next)} class="group justify-self-end text-right">
           <span class="flex items-center justify-end gap-1 text-sm text-subtle mb-1">
             Next
             <Icon name="mdi:arrow-right" size="14" />

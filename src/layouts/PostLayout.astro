@@ -112,13 +112,13 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
       (prev || next) && (
         <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full my-7 pagefind-exclude" aria-label="Previous and next">
           {prev ? (
-            <a href={prev.url} class="group">
+            <a href={prev.url} class="group justify-self-start">
               <span class="flex items-center gap-1 text-sm text-subtle mb-1"><Icon name="mdi:arrow-left" size="14" />Previous</span>
               <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{prev.title}{prev.status && <span aria-hidden="true" class={`status ml-2 align-middle ${statusColor[prev.status]}`} />}</span>
             </a>
           ) : <span />}
           {next && (
-            <a href={next.url} class="group text-right">
+            <a href={next.url} class="group justify-self-end text-right">
               <span class="flex items-center justify-end gap-1 text-sm text-subtle mb-1">Next<Icon name="mdi:arrow-right" size="14" /></span>
               <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary">{next.status && <span aria-hidden="true" class={`status mr-2 align-middle ${statusColor[next.status]}`} />}{next.title}</span>
             </a>
