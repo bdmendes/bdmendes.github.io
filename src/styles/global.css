@@ -134,7 +134,7 @@ body {
   }
 
   .footnotes {
-    @apply prose-sm max-w-min min-w-full my-8;
+    @apply prose-sm max-w-min min-w-full mt-8;
   }
 
   #footnote-label {
