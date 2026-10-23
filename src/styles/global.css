@@ -91,6 +91,10 @@ body {
   outline-offset: 2px;
 }
 
+.drawer-toggle:focus-visible ~ .drawer-content .drawer-button {
+  outline-color: var(--color-primary);
+}
+
 .time-line-container > div:last-child .entry_time > div > .entry_line {
   display: none;
 }
