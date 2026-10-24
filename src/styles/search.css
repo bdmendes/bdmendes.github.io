@@ -80,6 +80,11 @@
 
 .pf-input-clear {
   transition: color 150ms !important;
+  inset-inline-end: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  transform: none !important;
+  border-radius: 0 var(--pf-border-radius) var(--pf-border-radius) 0 !important;
 }
 
 .pf-input-clear:hover {
