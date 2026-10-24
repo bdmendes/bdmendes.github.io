@@ -147,4 +147,16 @@ const iconSize = 26;
       box.style.minHeight = busy() ? settled + "px" : "";
     }).observe(box, { subtree: true, attributes: true, attributeFilter: ["aria-busy"] });
   });
+
+  // The term is already in the input above; keep the summary to the count.
+  // Deferred module scripts have all run by DOMContentLoaded, so Pagefind's global exists.
+  document.addEventListener("DOMContentLoaded", () => {
+    const pagefind = (window as any).PagefindComponents;
+    pagefind?.getInstanceManager().getInstance("default").setTranslations({
+      zero_results: "No results",
+      one_result: "[COUNT] result",
+      many_results: "[COUNT] results",
+      searching: "Searching...",
+    });
+  });
 </script>
