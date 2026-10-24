@@ -112,3 +112,11 @@
     }
   }
 }
+
+.pf-result-excerpt {
+  white-space: normal !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+}
