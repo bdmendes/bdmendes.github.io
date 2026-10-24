@@ -110,7 +110,7 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
     <article><slot /></article>
     {
       (prev || next) && (
-        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full my-8 pagefind-exclude" aria-label="Previous and next">
+        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full my-8 pagefind-exclude no-print" aria-label="Previous and next">
           {prev ? (
             <a href={prev.url} class="group justify-self-start" data-fit>
               <span class="inline-flex items-center gap-1 align-top text-sm text-subtle mb-1" data-fit-part><Icon name="mdi:arrow-left" size="14" />Previous</span>
