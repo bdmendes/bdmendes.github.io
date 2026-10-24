@@ -8,6 +8,7 @@
 @plugin "daisyui/theme" {
   name: "halloween";
   default: true;
+  color-scheme: dark;
   --color-base-100: rgb(22, 20, 18);
   --color-base-200: rgb(33, 30, 27);
   --color-base-300: rgb(57, 51, 45);
