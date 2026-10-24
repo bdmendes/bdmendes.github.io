@@ -25,7 +25,7 @@ const iconSize = 26;
       selector && (
         <div class="flex gap-2 items-center">
           <span class="badge badge-ghost leading-4 pb-0.5 text-center">{selector}</span>
-          <a href={path} class="text-muted hover:text-primary transition-colors">
+          <a href={path} class="text-muted hover:text-primary transition-colors" aria-label="Clear filter">
             <Icon name="mdi:filter-off" size={iconSize} />
           </a>
         </div>
@@ -37,6 +37,7 @@ const iconSize = 26;
         <div class="flex items-center">
           <button
             class="cursor-pointer text-muted hover:text-primary transition-colors"
+            aria-label="Filter"
             onclick={filterModalId + ".showModal()"}
           >
             <Icon name="mdi:filter" size={iconSize} />
@@ -65,6 +66,7 @@ const iconSize = 26;
         <div class="flex items-center">
           <button
             class="cursor-pointer text-muted hover:text-primary transition-colors"
+            aria-label="Search"
             data-large-title-search
             onclick={
               searchModalId +
