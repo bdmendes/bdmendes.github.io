@@ -132,4 +132,17 @@ const iconSize = 26;
       searchButton.click();
     }
   });
+
+  // Pagefind empties the results while a search loads, collapsing the modal
+  // for a frame. Hold the last settled height until the new results arrive.
+  document.querySelectorAll<HTMLElement>(".pagefind-search").forEach((box) => {
+    let settled = 0;
+    const busy = () => !!box.querySelector('.pf-results[aria-busy="true"]');
+    new ResizeObserver(() => {
+      if (!busy()) settled = box.offsetHeight;
+    }).observe(box);
+    new MutationObserver(() => {
+      box.style.minHeight = busy() ? settled + "px" : "";
+    }).observe(box, { subtree: true, attributes: true, attributeFilter: ["aria-busy"] });
+  });
 </script>
