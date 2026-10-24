@@ -28,6 +28,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
             <li>
               <a
                 class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-muted transition-colors hover:text-primary hover:bg-base-200"}`}
+                aria-current={cleanId == key ? "page" : undefined}
                 id={key}
                 href={key == "home" ? "/" : "/" + key}
               >

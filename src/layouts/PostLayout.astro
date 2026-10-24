@@ -71,7 +71,7 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
       )
     }
     <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-6">
-      {date && <time class="pagefind-exclude text-subtle">{displayDate}</time>}
+      {date && <time datetime={dayjs(date).format("YYYY-MM-DD")} class="pagefind-exclude text-subtle">{displayDate}</time>}
       <div class="flex gap-2 flex-wrap">
         <a
           data-pagefind-filter="category"
