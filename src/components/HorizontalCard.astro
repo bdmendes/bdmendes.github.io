@@ -39,6 +39,9 @@ import { Image } from "astro:assets";
             <Image
               src={img}
               format="webp"
+              width={256}
+              height={256}
+              fit="cover"
               alt={title}
               class="aspect-square max-w-32 rounded object-cover"
             />
