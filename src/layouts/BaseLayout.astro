@@ -5,6 +5,8 @@ import serifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-
 import SideBar from "@components/SideBar.astro";
 import { ClientRouter } from "astro:transitions";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import profile from "src/assets/cv-profile-drawing.png";
 
 import { METADATA, TRANSITION_API } from "../config";
 
@@ -115,9 +117,14 @@ const completeTitle =
               aria-label="Home"
               title="Home"
             >
-            <img
-               src="/assets/about-me/cv-profile-drawing.png"
-               class="w-8 h-8 rounded-full saturate-0 sepia-[.4] brightness-80"
+            <Image
+              src={profile}
+              width={192}
+              height={192}
+              format="webp"
+              loading="eager"
+              alt=""
+              class="w-8 h-8 rounded-full saturate-0 sepia-[.4] brightness-80"
             />
             </a>
           </div>
