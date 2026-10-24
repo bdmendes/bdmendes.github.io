@@ -86,3 +86,19 @@
     color: var(--color-primary) !important;
   }
 }
+
+.pf-result[aria-hidden="true"] {
+  visibility: hidden !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pf-result:not([aria-hidden]) {
+    animation: pf-result-in 150ms ease-out !important;
+  }
+
+  @keyframes pf-result-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
