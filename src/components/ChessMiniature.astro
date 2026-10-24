@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<div inert class="h-52 w-52 rounded overflow-hidden" id={id + "-container"}>
+<div inert class="h-52 w-52 rounded overflow-hidden [&_cg-board]:rounded" id={id + "-container"}>
   <chess-game
     data-id={id}
     data-pgn={pgn}
