@@ -92,16 +92,8 @@ const completeTitle =
   </head>
 
   <body class="flex justify-center">
-    <div
-      class="drawer md:drawer-open w-4xl divide-x divide-base-300"
-      onkeydown="const t = document.getElementById('my-drawer'); if (event.key === 'Escape' && t.checked) { t.checked = false; t.focus(); }"
-    >
-      <input
-        id="my-drawer"
-        type="checkbox"
-        class="drawer-toggle"
-        onkeydown="if (event.key === 'Enter') this.click()"
-      />
+    <div class="drawer md:drawer-open w-4xl divide-x divide-base-300">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <SideBar sideBarActiveItemID={sideBarActiveItemID} />
       <div class="drawer-content">
         <div
@@ -142,3 +134,17 @@ const completeTitle =
     </div>
   </body>
 </html>
+
+<script>
+  // The drawer toggle is a checkbox: let Enter open it too, and Escape close it.
+  const toggle = document.getElementById("my-drawer") as HTMLInputElement;
+  toggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") toggle.click();
+  });
+  toggle.parentElement?.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggle.checked) {
+      toggle.checked = false;
+      toggle.focus();
+    }
+  });
+</script>

@@ -68,11 +68,7 @@ const iconSize = 26;
             class="cursor-pointer text-muted hover:text-primary transition-colors"
             aria-label="Search"
             data-large-title-search
-            onclick={
-              searchModalId +
-              ".showModal();" +
-              'filterCategory("' + (path ? path.replace("/", "") : "") + '");'
-            }
+            data-category={path ? path.replace("/", "") : ""}
           >
             <Icon name="mdi:magnify" size={iconSize} />
           </button>
@@ -98,10 +94,11 @@ const iconSize = 26;
   </div>
 </div>
 
-<script is:inline>
-  function filterCategory(category) {
+<script>
+  // Check only the current section's category box, retrying until Pagefind renders them.
+  function filterCategory(category: string) {
     setTimeout(() => {
-      const boxes = [...document.querySelectorAll('[id^="pf-filter-category-"]')];
+      const boxes = [...document.querySelectorAll<HTMLInputElement>('[id^="pf-filter-category-"]')];
       if (!boxes.length) {
         filterCategory(category);
         return;
@@ -112,9 +109,14 @@ const iconSize = 26;
       });
     }, 100);
   }
-</script>
 
-<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-large-title-search]").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.parentElement?.querySelector("dialog")?.showModal();
+      filterCategory(button.dataset.category ?? "");
+    });
+  });
+
   document.addEventListener("keydown", (event) => {
     if ((!event.ctrlKey && !event.metaKey) || event.key.toLowerCase() !== "k") {
       return;
