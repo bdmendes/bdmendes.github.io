@@ -55,7 +55,7 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
     {
       customHeader ? (
         <div>
-          <h1 hidden>{title}</h1>
+          <h1 hidden data-pagefind-meta="title" class="pagefind-exclude">{title}</h1>
           <div class="flex w-full justify-between gap-4 mt-0 mb-2 items-center pagefind-exclude">
             {Object.entries(customHeader).map(([_, h], idx) => (
               <div
@@ -67,7 +67,7 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
           </div>
         </div>
       ) : (
-        <h1 class="mb-2 text-3xl md:text-4xl max-w-min min-w-full font-bold text-balance">{title}</h1>
+        <h1 data-pagefind-meta="title" class="pagefind-exclude mb-2 text-3xl md:text-4xl max-w-min min-w-full font-bold text-balance">{title}</h1>
       )
     }
     <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-6">
