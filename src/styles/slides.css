@@ -5,6 +5,7 @@
 
 .remark-slide-container {
   font-family: "Droid Serif";
+  text-wrap: wrap;
 }
 
 h1,

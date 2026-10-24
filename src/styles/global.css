@@ -46,7 +46,7 @@ html {
   }
 
   main {
-    @apply pb-0!;
+    @apply px-9! pt-9! pb-0!;
   }
 
   .no-print,
@@ -81,6 +81,7 @@ html {
 
 body {
   @apply font-serif;
+  text-wrap: pretty;
   width: 100vw;
   overflow-x: clip;
 }
@@ -109,7 +110,6 @@ body {
 .prose {
   p {
     margin-block: 1em;
-    text-wrap: pretty;
   }
 
   h2 {
