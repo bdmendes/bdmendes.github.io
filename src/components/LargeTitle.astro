@@ -15,6 +15,22 @@ const { path, title, selector, filters, search = false } = Astro.props;
 const filterModalId = title.replace(/[^a-zA-Z]+/g, "") + "filter";
 const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 const iconSize = 26;
+
+// Pagefind's default result, plus the date and, when searching everything, the category.
+const resultTemplate = `<li class="pf-result">
+  <div class="pf-result-card">
+    <div class="pf-result-content">
+      <p class="pf-result-title">
+        <a class="pf-result-link" href="{{ meta.url | default(url) | safeUrl }}">{{ meta.title }}</a>
+      </p>
+      <p class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-sm text-subtle">
+        {{#if meta.date}}<span>{{ meta.date }}</span>{{/if}}
+        ${path ? "" : `{{#if meta.category}}<span class="badge badge-ghost badge-sm">{{ meta.category }}</span>{{/if}}`}
+      </p>
+      {{#if excerpt}}<p class="pf-result-excerpt">{{+ excerpt +}}</p>{{/if}}
+    </div>
+  </div>
+</li>`;
 ---
 
 <div class="flex items-center justify-between gap-3 flex-wrap w-full mb-4">
@@ -82,7 +98,9 @@ const iconSize = 26;
                   placeholder={"Search " + (path ? path.replace("/", "") : "everything")}>
                 </pagefind-input>
                 <pagefind-summary class="mt-5! mb-2.5!"></pagefind-summary>
-                <pagefind-results hide-sub-results="true"></pagefind-results>
+                <pagefind-results hide-sub-results="true">
+                  <script is:inline type="text/pagefind-template" set:html={resultTemplate} />
+                </pagefind-results>
             </div>
             <form method="dialog" class="modal-backdrop">
               <button>close</button>

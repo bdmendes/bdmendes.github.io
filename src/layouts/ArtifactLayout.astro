@@ -1,15 +1,19 @@
 ---
 import { METADATA } from "src/config";
 import "../styles/slides.css";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
 
 export interface Props {
   title: string;
   body: string;
   description: string;
   url?: string;
+  date: Date;
 }
 
-const { title, body, description, url } = Astro.props;
+const { title, body, description, url, date } = Astro.props;
+dayjs.extend(localizedFormat);
 ---
 
 <html>
@@ -41,10 +45,11 @@ const { title, body, description, url } = Astro.props;
   <body style={url ? "margin: 0; overflow: hidden" : undefined}>
     <div hidden>
         <h1>{title}</h1>
-        <div data-pagefind-filter="category" class="pagefind-exclude">
+        <div data-pagefind-filter="category" data-pagefind-meta="category" class="pagefind-exclude">
             artifacts
         </div>
         <p>{description}</p>
+        <span data-pagefind-meta={`date:${dayjs(date).format("ll")}`}></span>
     </div>
     {
       url ? (

@@ -67,6 +67,10 @@
   .pf-result-card:hover {
     background: var(--color-base-200) !important;
   }
+
+  .pf-result-card:hover .badge-ghost {
+    background-color: var(--color-base-300);
+  }
 }
 
 .pf-result-card:has(.pf-result-link:focus-visible) {

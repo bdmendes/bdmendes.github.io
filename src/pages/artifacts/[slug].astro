@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import { createSlug } from "../../lib/util";
+import { createSlug, extractDate } from "../../lib/util";
 import ArtifactLayout from "@layouts/ArtifactLayout.astro";
 
 export async function getStaticPaths() {
@@ -18,4 +18,4 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<ArtifactLayout title={entry.data.title} body={entry.body ?? ""} description={entry.data.description} url={entry.data.url} />
+<ArtifactLayout title={entry.data.title} body={entry.body ?? ""} description={entry.data.description} url={entry.data.url} date={extractDate(entry.id)} />
