@@ -123,10 +123,10 @@ const completeTitle =
         </div>
 
         <main
-          class={"px-5 py-7 md:px-7 mx-auto w-full flex justify-center" +
+          class={"px-5 pt-7 pb-10 md:px-7 mx-auto w-full flex justify-center" +
             (index ? "" : " pagefind-exclude")}
         >
-          <div class={shrink ? "" : "w-full"}>
+          <div class={`flex flex-col gap-4 ${shrink ? "" : "w-full"}`}>
             <slot />
           </div>
         </main>

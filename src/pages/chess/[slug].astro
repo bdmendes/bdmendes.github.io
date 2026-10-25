@@ -8,7 +8,7 @@ import {
   sortedByDate,
 } from "../../lib/util";
 import ChessGameLayout from "@layouts/ChessGameLayout.astro";
-import type { NavLink } from "@layouts/PostLayout.astro";
+import type { NavLink } from "@components/PrevNext.astro";
 
 export async function getStaticPaths() {
   const games = sortedByDate(await getCollection("chess"));

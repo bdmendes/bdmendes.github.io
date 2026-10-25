@@ -17,6 +17,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 ---
 
 <BaseLayout title="Curriculum Vitae" sideBarActiveItemID="cv" currentPage={1}>
+  <div>
     <div class="text-4xl md:text-5xl w-full font-bold mb-1">
       Bruno Mendes
     </div>
@@ -36,14 +37,15 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
         {SOCIALS.LinkedIn.url.replace("https://www.", "")}
       </span>
     </a>
+  </div>
 
-  <div class="mb-8 mt-5 text-justify">
+  <div class="text-justify mb-4">
     {description.body}
   </div>
 
   <LargeTitle title="Experience" />
 
-  <div class="time-line-container mb-6">
+  <div class="time-line-container">
     {
       experienceEntries.map((entry) => (
         <TimeLineElement
@@ -60,7 +62,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 
   <LargeTitle title="Education" />
 
-  <div class="time-line-container mb-6">
+  <div class="time-line-container">
     {
       educationEntries.map((entry) => (
         <TimeLineElement
@@ -78,7 +80,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 
   <LargeTitle title="Miscellaneous" />
 
-  <ul class="list-disc ml-6 mb-6 grid gap-4 text-justify">
+  <ul class="list-disc ml-6 mb-4 grid gap-4 text-justify">
     {
       miscellaneousEntries.map((entry) => (
         <li>

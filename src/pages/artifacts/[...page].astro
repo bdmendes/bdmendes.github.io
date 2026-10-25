@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import HorizontalCard from "@components/HorizontalCard.astro";
+import Card from "@components/Card.astro";
 import { getCollection } from "astro:content";
 import { createSlug, extractDate, sortedByDate } from "../../lib/util";
 import LargeTitle from "@components/LargeTitle.astro";
@@ -41,11 +41,11 @@ const { page } = Astro.props;
     filters={yearPathsMap}
     search={true}
   />
-  <ul>
+  <ul class="flex flex-col gap-2">
     {
       page.data.map((artifact) => (
         <>
-          <HorizontalCard
+          <Card
             title={artifact.data.title}
             description={artifact.data.description}
             url={"/artifacts/" + createSlug(artifact.data.title)}

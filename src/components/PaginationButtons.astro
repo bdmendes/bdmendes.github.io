@@ -1,6 +1,6 @@
 ---
 import type { Page } from "astro";
-import { Icon } from "astro-icon/components";
+import PrevNext from "./PrevNext.astro";
 
 export interface Props {
   page: Page;
@@ -8,38 +8,12 @@ export interface Props {
 }
 
 const { page, path } = Astro.props;
-const href = (p: number) => path + (p == 1 ? "" : "/" + p);
-const prev = page.currentPage > 1 ? page.currentPage - 1 : undefined;
-const next = page.currentPage < page.lastPage ? page.currentPage + 1 : undefined;
+const link = (p: number) => ({ title: "Page " + p, url: path + (p == 1 ? "" : "/" + p) });
 ---
 
-{
-  (prev || next) && (
-    <nav class="grid grid-cols-2 gap-4 px-3 my-4 no-print" aria-label="Pagination">
-      {prev ? (
-        <a href={href(prev)} class="group justify-self-start">
-          <span class="flex items-center gap-1 text-sm text-subtle mb-1">
-            <Icon name="mdi:arrow-left" size="14" />
-            Previous
-          </span>
-          <span class="block font-bold text-muted transition-colors group-hover:text-primary">
-            Page {prev}
-          </span>
-        </a>
-      ) : (
-        <span />
-      )}
-      {next && (
-        <a href={href(next)} class="group justify-self-end text-right">
-          <span class="flex items-center justify-end gap-1 text-sm text-subtle mb-1">
-            Next
-            <Icon name="mdi:arrow-right" size="14" />
-          </span>
-          <span class="block font-bold text-muted transition-colors group-hover:text-primary">
-            Page {next}
-          </span>
-        </a>
-      )}
-    </nav>
-  )
-}
+<PrevNext
+  prev={page.currentPage > 1 ? link(page.currentPage - 1) : undefined}
+  next={page.currentPage < page.lastPage ? link(page.currentPage + 1) : undefined}
+  label="Pagination"
+  class="px-3"
+/>

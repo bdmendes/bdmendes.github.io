@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import HorizontalCard from "@components/HorizontalCard.astro";
+import Card from "@components/Card.astro";
 import { getCollection, render } from "astro:content";
 import {
   createSlug,
@@ -31,40 +31,42 @@ const { Content } = await render(shortDescription);
 ---
 
 <BaseLayout title="Home" sideBarActiveItemID="home" currentPage={1}>
-  <div class="mb-9">
+  <div>
     <LargeTitle title="About me" search={false} />
     <div class="px-3 prose max-w-xl text-balance">
-      <Content />
+        <Content />
     </div>
   </div>
 
   <LargeTitle title="Latest content" search={true} />
 
-  <HorizontalCard
-    title={lastPost.data.title}
-    img={lastPost.data.hero}
-    description={extractDescription(lastPost.body!)}
-    url={"/blog/" + createSlug(lastPost.data.title)}
-    badge={"blog"}
-    tags={dateTag(lastPost.id)}
-  />
-  <HorizontalCard
-    title={lastText.data.title}
-    url={"/writing/" + createSlug(lastText.data.title)}
-    badge={"writing"}
-    tags={dateTag(lastText.id)}
-  />
-  <HorizontalCard
-    title={lastArtifact.data.title}
-    url={"/artifacts/" + createSlug(lastArtifact.data.title)}
-    badge={"artifacts"}
-    tags={dateTag(lastArtifact.id)}
-  />
-  <HorizontalCard
-    title={createChessTitle(lastGame, false)}
-    badge="chess"
-    url={"/chess/" + createChessSlug(lastGame)}
-    tags={[lastGame.data.tournament]}
-    disabledTags={buildChessMetaTags(lastGame.data.round, lastGame.data.board)}
-  />
+  <div class="flex flex-col gap-2">
+    <Card
+      title={lastPost.data.title}
+      img={lastPost.data.hero}
+      description={extractDescription(lastPost.body!)}
+      url={"/blog/" + createSlug(lastPost.data.title)}
+      badge={"blog"}
+      tags={dateTag(lastPost.id)}
+    />
+    <Card
+      title={lastText.data.title}
+      url={"/writing/" + createSlug(lastText.data.title)}
+      badge={"writing"}
+      tags={dateTag(lastText.id)}
+    />
+    <Card
+      title={lastArtifact.data.title}
+      url={"/artifacts/" + createSlug(lastArtifact.data.title)}
+      badge={"artifacts"}
+      tags={dateTag(lastArtifact.id)}
+    />
+    <Card
+      title={createChessTitle(lastGame, false)}
+      badge="chess"
+      url={"/chess/" + createChessSlug(lastGame)}
+      tags={[lastGame.data.tournament]}
+      disabledTags={buildChessMetaTags(lastGame.data.round, lastGame.data.board)}
+    />
+  </div>
 </BaseLayout>

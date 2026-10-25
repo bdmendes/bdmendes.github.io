@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { Icon } from "astro-icon/components";
+import PrevNext, { type NavLink } from "@components/PrevNext.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
@@ -20,8 +20,6 @@ export interface Props {
   next?: NavLink;
 }
 
-export type NavLink = { title: string; url: string; status?: "green" | "grey" | "red" };
-
 const {
   title,
   customHeader,
@@ -39,7 +37,6 @@ const {
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(date).format("ll");
-const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-400" };
 ---
 
 <BaseLayout
@@ -109,38 +106,6 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
       </div>
     </div>
     <article><slot /></article>
-    {
-      (prev || next) && (
-        <nav class="not-prose grid grid-cols-2 gap-4 max-w-min min-w-full my-7 pagefind-exclude no-print" aria-label="Previous and next">
-          {prev ? (
-            <a href={prev.url} rel="prev" class="group justify-self-start" data-fit>
-              <span class="inline-flex items-center gap-1 align-top text-sm text-subtle mb-1" data-fit-part><Icon name="mdi:arrow-left" size="14" />Previous</span>
-              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary"><span data-fit-part>{prev.title}{prev.status && <span aria-hidden="true" class={`status ml-2 align-middle ${statusColor[prev.status]}`} />}</span></span>
-            </a>
-          ) : <span />}
-          {next && (
-            <a href={next.url} rel="next" class="group justify-self-end text-right" data-fit>
-              <span class="inline-flex items-center gap-1 align-top text-sm text-subtle mb-1" data-fit-part>Next<Icon name="mdi:arrow-right" size="14" /></span>
-              <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary"><span data-fit-part>{next.status && <span aria-hidden="true" class={`status mr-2 align-middle ${statusColor[next.status]}`} />}{next.title}</span></span>
-            </a>
-          )}
-        </nav>
-      )
-    }
+    <PrevNext {prev} {next} label="Previous and next" class="not-prose max-w-min min-w-full pagefind-exclude" />
   </div>
 </BaseLayout>
-
-<script>
-  // Size each prev/next link to its widest line (label or balanced title), so
-  // the clickable area is the text's box rather than the whole grid column.
-  const fit = () =>
-    document.querySelectorAll<HTMLElement>("[data-fit]").forEach((link) => {
-      link.style.width = "";
-      const parts = [...link.querySelectorAll<HTMLElement>("[data-fit-part]")];
-      const width = Math.max(...parts.map((p) => p.getBoundingClientRect().width));
-      link.style.width = Math.ceil(width) + 1 + "px";
-    });
-  fit();
-  document.fonts.ready.then(fit);
-  addEventListener("resize", fit);
-</script>
