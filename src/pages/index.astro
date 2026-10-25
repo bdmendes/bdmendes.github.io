@@ -31,11 +31,9 @@ const { Content } = await render(shortDescription);
 ---
 
 <BaseLayout title="Home" sideBarActiveItemID="home" currentPage={1}>
-  <div>
-    <LargeTitle title="About me" search={false} />
-    <div class="px-3 prose max-w-xl text-balance">
-        <Content />
-    </div>
+  <LargeTitle title="About me" search={false} />
+  <div class="px-3 mb-4 prose prose-p:my-0! max-w-xl text-balance">
+    <Content />
   </div>
 
   <LargeTitle title="Latest content" search={true} />
