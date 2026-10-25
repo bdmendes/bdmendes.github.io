@@ -42,14 +42,14 @@ const { page } = Astro.props;
   <ul class="flex flex-col gap-2">
     {
       page.data.map((post) => (
-        <>
+        <li>
           <Card
             title={post.data.title}
             img={post.data.hero}
             description={extractDescription(post.body!)}
             url={"/blog/" + createSlug(post.data.title)}
           />
-        </>
+        </li>
       ))
     }
   </ul>

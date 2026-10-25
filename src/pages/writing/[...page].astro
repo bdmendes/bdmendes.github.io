@@ -47,13 +47,13 @@ const { page } = Astro.props;
   <ul class="flex flex-col gap-2">
     {
       page.data.map((text) => (
-        <>
+        <li>
           <Card
             title={text.data.title}
             description={extractDescription(text.body!)}
             url={"/writing/" + createSlug(text.data.title)}
           />
-        </>
+        </li>
       ))
     }
   </ul>

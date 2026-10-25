@@ -44,13 +44,13 @@ const { page } = Astro.props;
   <ul class="flex flex-col gap-2">
     {
       page.data.map((artifact) => (
-        <>
+        <li>
           <Card
             title={artifact.data.title}
             description={artifact.data.description}
             url={"/artifacts/" + createSlug(artifact.data.title)}
           />
-        </>
+        </li>
       ))
     }
   </ul>
