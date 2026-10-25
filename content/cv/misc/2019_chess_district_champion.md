@@ -6,4 +6,4 @@ type: misc
 location: Portugal
 ---
 
-Won Braga U18 and Porto U20 (classical time control), in 2019 and 2021.
+Won Braga U18 (2019) and Porto U20 (2021), in classical time control.

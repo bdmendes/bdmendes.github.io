@@ -6,4 +6,4 @@ to: 2024
 type: experience
 ---
 
-Provided in-class assistance to students and lectured on some topics about the C language.
+Provided assistance to students and lectured on some topics about the C language.

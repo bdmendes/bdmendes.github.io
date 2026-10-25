@@ -6,4 +6,4 @@ to: 2023
 type: experience
 ---
 
-Contributed to the development of open-source and proprietary debugger tools for ARC processors in C++.
+Developed open-source and proprietary debugger tools for ARC processors in C++.
