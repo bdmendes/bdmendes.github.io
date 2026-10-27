@@ -67,7 +67,7 @@ const displayDate = dayjs(date).format("ll");
         <h1 data-pagefind-meta="title" class="pagefind-exclude mb-2 text-3xl md:text-4xl max-w-min min-w-full font-bold text-balance">{title}</h1>
       )
     }
-    <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-6">
+    <div aria-hidden="true" class="flex flex-wrap items-center gap-x-3 gap-y-2 mt-3 mb-6 max-w-min min-w-full">
       {date && <time datetime={dayjs(date).format("YYYY-MM-DD")} data-pagefind-meta={`date:${displayDate}`} class="pagefind-exclude text-subtle">{displayDate}</time>}
       <div class="flex gap-2 flex-wrap">
         <a
