@@ -26,19 +26,16 @@ html {
   background-color: var(--color-base-100);
 }
 
-/* A faint warm light from the top left, like a lamp. */
 @utility glow {
   background: radial-gradient(ellipse 52rem 34rem at 15% 0%, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 75%) var(--color-base-100) fixed;
 }
 
-/* A glossy edge for hovered cards: a hairline border and a lit top edge. */
 @utility gloss {
   box-shadow:
     inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent),
     inset 0 1px 0 color-mix(in oklab, var(--color-base-content) 10%, transparent);
 }
 
-/* The selected menu item: the gloss, plus a lit glass fill and a soft glow. */
 @utility gloss-selected {
   background: linear-gradient(
     135deg,
