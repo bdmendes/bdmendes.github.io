@@ -13,6 +13,7 @@
     transparent
   );
   --pf-font: var(--font-serif);
+  --pf-border-radius: var(--radius-field);
   --pf-outline-focus: color-mix(
     in oklab,
     var(--color-base-content) 10%,

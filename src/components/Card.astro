@@ -28,8 +28,8 @@ import { Image } from "astro:assets";
 ---
 
 <div class="flex flex-col">
-  <div class=`rounded-box grow group transition-colors hover:bg-base-200`>
-    <a class="block w-full rounded-box" href={url}>
+  <div class=`rounded-field grow group transition-colors hover:bg-base-200`>
+    <a class="block w-full rounded-field" href={url}>
       <div
         class={`w-full p-3 flex flex-col items-start gap-2.5 ${forceVertical ? "" : "sm:flex-row sm:gap-3.5"}`}
       >
@@ -43,7 +43,7 @@ import { Image } from "astro:assets";
               height={256}
               fit="cover"
               alt={title}
-              class="aspect-square max-w-32 rounded object-cover"
+              class="aspect-square max-w-32 rounded-field object-cover"
             />
           )
         }

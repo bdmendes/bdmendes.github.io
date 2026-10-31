@@ -16,6 +16,8 @@
   --color-primary: rgb(208, 117, 58);
   --color-neutral: rgb(57, 51, 45);
   --color-neutral-content: rgb(233, 226, 216);
+  --radius-box: var(--radius-field);
+  --radius-selector: var(--radius-field);
 }
 @plugin "@tailwindcss/typography";
 
@@ -124,7 +126,7 @@ body {
   }
 
   p > img {
-    @apply rounded-md mb-1 w-auto object-contain;
+    @apply rounded-field mb-1 w-auto object-contain;
     max-width: min(100%, 32rem);
     max-height: min(70svh, 24rem);
   }
@@ -163,7 +165,7 @@ body {
   }
 
   pre {
-    @apply whitespace-pre-wrap bg-base-200! border border-base-300 p-3;
+    @apply whitespace-pre-wrap bg-base-200! border border-base-300 rounded-field p-3;
     margin-block: 1.2em;
   }
 
@@ -172,7 +174,7 @@ body {
   }
 
   details {
-    @apply bg-base-200 rounded-md p-4 mb-4;
+    @apply bg-base-200 rounded-field p-4 mb-4;
   }
 
   details > summary {
