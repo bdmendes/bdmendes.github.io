@@ -34,6 +34,11 @@ html {
   background: radial-gradient(ellipse min(75vw, 52rem) min(70vh, 34rem) at 15% 0%, color-mix(in oklab, var(--color-primary) 7%, transparent), transparent 75%) var(--color-base-100) fixed;
 }
 
+@utility bleed {
+  margin-inline: calc(var(--spacing) * -3);
+  padding: calc(var(--spacing) * 3);
+}
+
 @utility gloss {
   box-shadow: var(--edge);
 }
