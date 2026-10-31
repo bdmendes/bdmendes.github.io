@@ -26,14 +26,17 @@ html {
   background-color: var(--color-base-100);
 }
 
+:root {
+  --edge: inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent);
+  --gloss: var(--edge), inset 0 1px 0 color-mix(in oklab, var(--color-base-content) 10%, transparent);
+}
+
 @utility glow {
-  background: radial-gradient(ellipse 52rem 34rem at 15% 0%, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 75%) var(--color-base-100) fixed;
+  background: radial-gradient(ellipse 52rem 34rem at 15% 0%, color-mix(in oklab, var(--color-primary) 7%, transparent), transparent 75%) var(--color-base-100) fixed;
 }
 
 @utility gloss {
-  box-shadow:
-    inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent),
-    inset 0 1px 0 color-mix(in oklab, var(--color-base-content) 10%, transparent);
+  box-shadow: var(--gloss);
 }
 
 @utility gloss-selected {
@@ -42,11 +45,7 @@ html {
     color-mix(in oklab, var(--color-base-content) 8%, transparent),
     color-mix(in oklab, var(--color-primary) 4%, transparent)
   );
-  box-shadow:
-    inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent),
-    inset 0 1px 0 color-mix(in oklab, var(--color-base-content) 10%, transparent),
-    0 12px 32px color-mix(in oklab, var(--color-base-100) 18%, transparent);
-  text-shadow: 0 1px 8px color-mix(in oklab, var(--color-base-content) 12%, transparent);
+  box-shadow: var(--edge);
 }
 
 .drawer-overlay,
