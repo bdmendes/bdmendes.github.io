@@ -21,6 +21,13 @@ coords {
   min-height: 20em;
 }
 
+@media (max-width: 450px) {
+  .lpv__side {
+    min-height: 12em;
+    max-height: 12em;
+  }
+}
+
 .lpv--moves-false {
   background-color: transparent !important;
   border-radius: 0 !important;
