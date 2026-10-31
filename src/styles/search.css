@@ -49,7 +49,7 @@
 .pf-result-card {
   padding: 10px !important;
   border-color: transparent !important;
-  transition: background-color 150ms !important;
+  transition: background-color 150ms, box-shadow 150ms !important;
 }
 
 .pf-result-card:has([data-pf-selected]) {
@@ -67,6 +67,7 @@
 
   .pf-result-card:hover {
     background: var(--color-base-200) !important;
+    box-shadow: var(--edge) !important;
   }
 
   .pf-result-card:hover .badge-ghost {

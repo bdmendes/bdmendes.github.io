@@ -26,6 +26,32 @@ html {
   background-color: var(--color-base-100);
 }
 
+:root {
+  --edge: inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent);
+}
+
+@utility glow {
+  background: radial-gradient(ellipse 52rem 34rem at 15% 0%, color-mix(in oklab, var(--color-primary) 7%, transparent), transparent 75%) var(--color-base-100) fixed;
+}
+
+@utility gloss {
+  box-shadow: var(--edge);
+}
+
+@utility gloss-selected {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-base-content) 8%, transparent),
+    color-mix(in oklab, var(--color-primary) 4%, transparent)
+  );
+  box-shadow: var(--edge);
+}
+
+.drawer-overlay,
+.modal[open] {
+  backdrop-filter: blur(2px);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -100,20 +126,22 @@ body {
 }
 
 .prose {
+  .badge-outline {
+    @apply border-base-content/30 text-muted transition-colors hover:border-primary hover:text-primary;
+  }
+}
+
+.prose article {
   p {
     margin-block: 1em;
   }
 
-  h2 {
-    margin-top: 1.5em;
+  h1, h2 {
+    @apply mt-8 text-2xl;
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
-  }
-
-  .badge-outline {
-    @apply border-base-content/30 text-muted transition-colors hover:border-primary hover:text-primary;
   }
 
   a {

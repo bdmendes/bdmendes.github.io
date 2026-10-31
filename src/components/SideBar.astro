@@ -15,7 +15,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 <div class="drawer-side z-40 no-print">
   <label for="my-drawer" class="drawer-overlay"></label>
   <aside
-    class="min-h-dvh w-32 md:w-44 bg-base-100 text-base-content flex flex-col gap-6 py-5"
+    class="glow md:bg-none md:bg-transparent min-h-dvh w-32 md:w-44 text-base-content flex flex-col gap-6 py-5"
   >
     <a href="/" class="self-center max-h-[50svh] aspect-square h-20 md:h-24">
       <Image
@@ -34,7 +34,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
           Object.entries(ROUTES).map(([key, value]) => (
             <li>
               <a
-                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active" : "text-muted transition-colors hover:text-primary hover:bg-base-200"}`}
+                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active gloss-selected" : "text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"}`}
                 aria-current={cleanId == key ? "page" : undefined}
                 id={key}
                 href={key == "home" ? "/" : "/" + key}
@@ -49,7 +49,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
             <li>
               <a
                 href={value.url}
-                class="py-2.5 justify-center self-center w-full text-muted transition-colors hover:text-primary hover:bg-base-200"
+                class="py-2.5 justify-center self-center w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
                 target="_blank"
                 aria-label={key}
                 title={key}
