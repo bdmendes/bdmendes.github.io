@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/glass.css";
 import serifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2?url";
 
 import SideBar from "@components/SideBar.astro";
@@ -97,7 +98,7 @@ const completeTitle =
       <SideBar sideBarActiveItemID={sideBarActiveItemID} />
       <div class="drawer-content">
         <div
-          class="no-print md:hidden top-0 z-30 flex w-full justify-center transition-all duration-100 text-base-content"
+          class="glass-mobile-header sticky no-print md:hidden top-0 z-30 flex w-full justify-center text-base-content"
         >
           <div class="navbar border-b border-b-base-300">
             <label for="my-drawer" class="btn btn-square btn-ghost drawer-button transition-colors hover:text-primary">

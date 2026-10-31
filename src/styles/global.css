@@ -100,20 +100,22 @@ body {
 }
 
 .prose {
+  .badge-outline {
+    @apply border-base-content/30 text-muted transition-colors hover:border-primary hover:text-primary;
+  }
+}
+
+.prose article {
   p {
     margin-block: 1em;
   }
 
-  h2 {
-    margin-top: 1.5em;
+  h1, h2 {
+    @apply mt-8 text-2xl;
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
-  }
-
-  .badge-outline {
-    @apply border-base-content/30 text-muted transition-colors hover:border-primary hover:text-primary;
   }
 
   a {

@@ -48,12 +48,13 @@
 
 .pf-result-card {
   padding: 10px !important;
+  background: transparent !important;
   border-color: transparent !important;
   transition: background-color 150ms !important;
 }
 
 .pf-result-card:has([data-pf-selected]) {
-  background: var(--pf-background) !important;
+  background: transparent !important;
 }
 
 .pf-result-card:hover {
