@@ -145,6 +145,8 @@ body {
 }
 
 .prose article {
+  @apply my-6;
+
   p {
     margin-block: 1em;
   }
