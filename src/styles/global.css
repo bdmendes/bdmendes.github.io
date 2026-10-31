@@ -28,7 +28,6 @@ html {
 
 :root {
   --edge: inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent);
-  --gloss: var(--edge), inset 0 1px 0 color-mix(in oklab, var(--color-base-content) 10%, transparent);
 }
 
 @utility glow {
@@ -36,7 +35,7 @@ html {
 }
 
 @utility gloss {
-  box-shadow: var(--gloss);
+  box-shadow: var(--edge);
 }
 
 @utility gloss-selected {
