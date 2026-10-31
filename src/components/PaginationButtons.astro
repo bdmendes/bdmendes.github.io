@@ -15,5 +15,4 @@ const link = (p: number) => ({ title: "Page " + p, url: path + (p == 1 ? "" : "/
   prev={page.currentPage > 1 ? link(page.currentPage - 1) : undefined}
   next={page.currentPage < page.lastPage ? link(page.currentPage + 1) : undefined}
   label="Pagination"
-  class="px-3"
 />

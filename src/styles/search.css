@@ -48,6 +48,7 @@
 
 .pf-result-card {
   padding: 10px !important;
+  margin-inline: -11px !important;
   border-color: transparent !important;
   transition: background-color 150ms, box-shadow 150ms !important;
 }

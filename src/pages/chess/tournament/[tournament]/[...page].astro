@@ -46,7 +46,7 @@ const [points, totalGames] = await getChessPoints(tournament);
   <LargeTitle title="Chess" path="/chess" selector={tournament} search={true}>
     <ChessProgress points={points} totalGames={totalGames} />
   </LargeTitle>
-  <ul class="grid sm:grid-cols-2 gap-x-3 gap-y-2 auto-rows-min">
+  <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 auto-rows-min">
     {
       page.data.map((game) => (
         <li>
