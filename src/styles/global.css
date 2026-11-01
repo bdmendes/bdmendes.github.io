@@ -50,15 +50,16 @@ html {
 }
 
 @utility scroll-fade {
-  mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
+  --fade-to: right;
+  --fade-axis: inline;
+  mask-image: linear-gradient(to var(--fade-to), transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
   animation: scroll-fade linear;
-  animation-timeline: scroll(self inline);
-}
+  animation-timeline: scroll(self var(--fade-axis));
 
-@utility scroll-fade-y {
-  mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--fade-l) * 1.5), #000 calc(100% - var(--fade-r) * 1.5), transparent);
-  animation: scroll-fade linear;
-  animation-timeline: scroll(self block);
+  @variant md {
+    --fade-to: bottom;
+    --fade-axis: block;
+  }
 }
 
 @keyframes scroll-fade {

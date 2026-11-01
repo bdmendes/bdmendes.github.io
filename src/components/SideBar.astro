@@ -13,7 +13,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
 <aside
-  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 md:overflow-y-auto md:snap-y md:snap-mandatory md:scroll-fade-y scrollbar-none flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-4 md:px-0 md:pt-4 md:pb-6 border-b border-base-300 md:border-b-0 text-base-content"
+  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-4 md:px-0 md:pt-4 md:pb-6 border-b border-base-300 md:border-b-0 text-base-content"
 >
   <a href="/" class="shrink-0 -mt-0.5 md:mt-0 md:self-center aspect-square h-8 md:h-24">
     <Image
@@ -26,7 +26,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
       class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80"
     />
   </a>
-  <div class="flex md:flex-col min-w-0 py-3 md:py-0 overflow-x-auto scrollbar-none md:overflow-visible pagefind-exclude md:items-center md:px-7 snap-x snap-mandatory md:snap-none scroll-fade md:mask-none md:animate-none">
+  <div class="flex md:flex-col min-w-0 md:min-h-0 py-3 md:py-0 overflow-x-auto md:overflow-y-auto scrollbar-none pagefind-exclude md:items-center md:px-7 snap-x md:snap-y snap-mandatory scroll-fade">
     <ul class="menu menu-horizontal md:menu-vertical flex-nowrap p-0 gap-0.5 md:gap-1 pe-3 md:pe-0 md:w-full [--menu-active-bg:var(--color-base-200)] [--menu-active-fg:var(--color-base-content)]">
       {
         Object.entries(ROUTES).map(([key, value]) => (
@@ -62,16 +62,13 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 </aside>
 
 <script is:inline>
-  // Snapping places the mobile bar, or a sidebar too short for its screen, on the
-  // current section during the first layout, before anything is painted. Their
-  // scrollbars stay hidden until then, as that first snap would reveal them; the
-  // first interaction releases both, so they scroll freely and show scrollbars again.
+  // Snapping places the section list on the current section during the first layout,
+  // before anything is painted: the mobile bar sideways, or a sidebar too short for its
+  // screen vertically. Its scrollbar stays hidden until then, as that first snap would
+  // reveal it; the first interaction releases it to scroll freely, scrollbar and all.
   (() => {
-    const aside = document.querySelector("aside");
-    const release = () => {
-      aside.classList.remove("md:snap-y", "md:snap-mandatory", "scrollbar-none");
-      aside.querySelector(".scroll-fade")?.classList.remove("snap-x", "snap-mandatory", "scrollbar-none");
-    };
-    for (const e of ["pointerdown", "wheel", "focusin"]) aside?.addEventListener(e, release, { once: true });
+    const nav = document.querySelector("aside .scroll-fade");
+    const release = () => nav.classList.remove("snap-x", "md:snap-y", "snap-mandatory", "scrollbar-none");
+    for (const e of ["pointerdown", "wheel", "focusin"]) nav?.addEventListener(e, release, { once: true });
   })();
 </script>
