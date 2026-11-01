@@ -16,16 +16,16 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
 
 {
   (prev || next) && (
-    <nav class={`grid grid-cols-2 gap-4 py-3 no-print ${className}`} aria-label={label}>
+    <nav class={`grid grid-cols-2 gap-4 py-2 no-print pagefind-exclude ${className}`} aria-label={label}>
       {prev ? (
         <a href={prev.url} rel="prev" class="group justify-self-start relative isolate before:absolute before:-inset-3 before:-z-10 before:rounded-field before:transition-[background-color,box-shadow] hover:before:bg-base-200 hover:before:gloss" data-fit>
-          <span class="flex w-fit items-center gap-1 text-sm text-subtle mb-1.5" data-fit-part><Icon name="mdi:arrow-left" size="14" />Previous</span>
+          <span class="flex w-fit items-center gap-1 text-sm text-subtle mb-1.25" data-fit-part><Icon name="mdi:arrow-left" size="14" />Previous</span>
           <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary"><span data-fit-part>{prev.title}{prev.status && <span aria-hidden="true" class={`status ml-2 align-middle ${statusColor[prev.status]}`} />}</span></span>
         </a>
       ) : <span />}
       {next && (
         <a href={next.url} rel="next" class="group justify-self-end text-right relative isolate before:absolute before:-inset-3 before:-z-10 before:rounded-field before:transition-[background-color,box-shadow] hover:before:bg-base-200 hover:before:gloss" data-fit>
-          <span class="flex w-fit ml-auto items-center gap-1 text-sm text-subtle mb-1.5" data-fit-part>Next<Icon name="mdi:arrow-right" size="14" /></span>
+          <span class="flex w-fit ml-auto items-center gap-1 text-sm text-subtle mb-1.25" data-fit-part>Next<Icon name="mdi:arrow-right" size="14" /></span>
           <span class="block font-bold leading-snug text-balance text-muted transition-colors group-hover:text-primary"><span data-fit-part>{next.status && <span aria-hidden="true" class={`status mr-2 align-middle ${statusColor[next.status]}`} />}{next.title}</span></span>
         </a>
       )}
