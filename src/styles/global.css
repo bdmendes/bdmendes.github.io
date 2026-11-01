@@ -32,7 +32,7 @@ html {
 }
 
 @utility glow {
-  background: radial-gradient(ellipse min(75vw, 70rem) min(70vh, 48rem) at 15% 0%, color-mix(in oklab, var(--lamp) 8%, transparent), transparent)
+  background: radial-gradient(ellipse min(75vw, 70rem) min(70vh, 48rem) at 15% 0%, color-mix(in oklab, var(--lamp) 5%, transparent), transparent)
     var(--color-base-100) fixed;
 }
 
