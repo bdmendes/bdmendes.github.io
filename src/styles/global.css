@@ -77,6 +77,11 @@ html {
     background-color: transparent;
     box-shadow: none;
   }
+
+  .btn:active {
+    --btn-bg: var(--btn-color, var(--color-base-200));
+    translate: none;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
