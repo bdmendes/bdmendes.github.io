@@ -37,6 +37,42 @@ html {
     var(--color-base-100) fixed;
 }
 
+@property --fade-l {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --fade-r {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@utility scroll-fade {
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
+  animation: scroll-fade linear;
+  animation-timeline: scroll(self inline);
+}
+
+@keyframes scroll-fade {
+  0% {
+    --fade-l: 0px;
+    --fade-r: 3rem;
+  }
+
+  15%,
+  85% {
+    --fade-l: 3rem;
+    --fade-r: 3rem;
+  }
+
+  100% {
+    --fade-l: 3rem;
+    --fade-r: 0px;
+  }
+}
+
 @utility bleed {
   margin-inline: calc(var(--spacing) * -3);
   padding: calc(var(--spacing) * 3);
@@ -55,22 +91,8 @@ html {
   box-shadow: var(--edge);
 }
 
-.drawer-overlay,
 .modal[open] {
   backdrop-filter: blur(2px);
-}
-
-.drawer-side {
-  opacity: 1;
-}
-
-.drawer-side > .drawer-overlay {
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
-}
-
-.drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
-  opacity: 1;
 }
 
 @media (hover: none) {
@@ -148,10 +170,6 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-}
-
-.drawer-toggle:focus-visible ~ .drawer-content .drawer-button {
-  outline-color: var(--color-primary);
 }
 
 .time-line-container > div:last-child .entry_time > div > .entry_line {
