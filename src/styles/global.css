@@ -28,17 +28,11 @@ html {
 
 :root {
   --edge: inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent);
-  --lamp: color-mix(in oklab, var(--color-primary) 80%, var(--color-base-content));
+  --lamp: color-mix(in oklab, var(--color-primary) 90%, var(--color-base-content));
 }
 
 @utility glow {
-  background: radial-gradient(
-      ellipse min(75vw, 70rem) min(70vh, 48rem) at 15% 0%,
-      color-mix(in oklab, var(--lamp) 10%, transparent),
-      color-mix(in oklab, var(--lamp) 7%, transparent) 25%,
-      color-mix(in oklab, var(--lamp) 4%, transparent) 50%,
-      transparent 85%
-    )
+  background: radial-gradient(ellipse min(75vw, 70rem) min(70vh, 48rem) at 15% 0%, color-mix(in oklab, var(--lamp) 8%, transparent), transparent)
     var(--color-base-100) fixed;
 }
 
