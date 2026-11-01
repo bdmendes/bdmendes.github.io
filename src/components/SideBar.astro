@@ -43,11 +43,11 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
         ))
       }
       {
-        Object.entries(SOCIALS).map(([key, value]) => (
-          <li>
+        Object.entries(SOCIALS).map(([key, value], i) => (
+          <li class={i == 0 ? "ms-1 md:ms-0": ""}>
             <a
               href={value.url}
-              class="px-2 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+              class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
               target="_blank"
               aria-label={key}
               title={key}
