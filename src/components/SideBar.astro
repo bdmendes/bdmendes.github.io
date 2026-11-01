@@ -13,7 +13,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
 <aside
-  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 md:overflow-y-auto scrollbar-none flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-3 md:px-0 md:pt-5 md:pb-7 border-b border-base-300 md:border-b-0 text-base-content"
+  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 md:overflow-y-auto md:snap-y md:snap-mandatory scrollbar-none flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-3 md:px-0 md:pt-4 md:pb-6 border-b border-base-300 md:border-b-0 text-base-content"
 >
   <a href="/" class="shrink-0 -mt-0.5 md:mt-0 md:self-center aspect-square h-8 md:h-24">
     <Image
@@ -62,14 +62,14 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 </aside>
 
 <script is:inline>
-  // Snapping places the mobile bar on the current section during the first layout,
-  // before anything is painted. Its scrollbars stay hidden until then (that first
-  // snap, or a short landscape sidebar, would reveal them); the first interaction
-  // releases both, so the bar scrolls freely and shows its scrollbar while scrolling.
+  // Snapping places the mobile bar, or a sidebar too short for its screen, on the
+  // current section during the first layout, before anything is painted. Their
+  // scrollbars stay hidden until then, as that first snap would reveal them; the
+  // first interaction releases both, so they scroll freely and show scrollbars again.
   (() => {
     const aside = document.querySelector("aside");
     const release = () => {
-      aside.classList.remove("scrollbar-none");
+      aside.classList.remove("md:snap-y", "md:snap-mandatory", "scrollbar-none");
       aside.querySelector(".scroll-fade")?.classList.remove("snap-x", "snap-mandatory", "scrollbar-none");
     };
     for (const e of ["pointerdown", "wheel", "focusin"]) aside?.addEventListener(e, release, { once: true });
