@@ -16,7 +16,7 @@ const statusColor = { green: "bg-green-400", grey: "bg-gray-400", red: "bg-red-4
 
 {
   (prev || next) && (
-    <nav class={`grid grid-cols-2 gap-4 py-1.75 no-print pagefind-exclude ${className}`} aria-label={label}>
+    <nav class={`grid grid-cols-2 gap-4 py-1 no-print pagefind-exclude ${className}`} aria-label={label}>
       {prev ? (
         <a href={prev.url} rel="prev" class="group justify-self-start relative isolate before:absolute before:-inset-3 before:-z-10 before:rounded-field before:transition-[background-color,box-shadow] hover:before:bg-base-200 hover:before:gloss" data-fit>
           <span class="flex w-fit items-center gap-1 text-sm text-subtle mb-1.25" data-fit-part><Icon name="mdi:arrow-left" size="14" />Previous</span>

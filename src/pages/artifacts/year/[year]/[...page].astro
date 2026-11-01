@@ -38,7 +38,7 @@ const { year } = Astro.params;
   currentPage={page.currentPage}
 >
   <LargeTitle title="Artifacts" path="/artifacts" selector={year} search={true} />
-  <ul class="flex flex-col gap-2">
+  <ul class="flex flex-col gap-1.5 mb-1">
     {
       page.data.map((artifact) => (
         <li>
