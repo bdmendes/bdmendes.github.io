@@ -18,6 +18,7 @@
   --color-neutral-content: rgb(233, 226, 216);
   --radius-box: var(--radius-field);
   --radius-selector: var(--radius-field);
+  --depth: 0;
 }
 @plugin "@tailwindcss/typography";
 
