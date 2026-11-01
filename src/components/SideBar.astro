@@ -62,13 +62,23 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 </aside>
 
 <script is:inline>
-  // On the mobile bar, start scrolled so the current section is in view. Inline,
-  // so it runs before the first paint and the bar does not visibly jump.
+  // Keep the mobile bar where it was on the previous page, then slide only if the
+  // current section is hidden. Inline, so it runs before the first paint.
   (() => {
     const nav = document.querySelector("aside .scroll-fade");
     const current = nav?.querySelector("[aria-current=page]");
-    if (!nav || !current) return;
-    const offset = current.getBoundingClientRect().left - nav.getBoundingClientRect().left;
-    nav.scrollLeft += offset - (nav.clientWidth - current.offsetWidth) / 2;
+    if (!nav) return;
+    let saved = null;
+    try { saved = sessionStorage.getItem("nav-scroll"); } catch {}
+    addEventListener("pagehide", () => { try { sessionStorage.setItem("nav-scroll", nav.scrollLeft); } catch {} });
+    if (!current) return;
+    const n = nav.getBoundingClientRect(), c = current.getBoundingClientRect(), fade = 48;
+    if (saved === null) return void (nav.scrollLeft += c.left - n.left - (nav.clientWidth - current.offsetWidth) / 2);
+    nav.scrollLeft = +saved;
+    document.fonts.ready.then(() => {
+      const { left, right } = current.getBoundingClientRect();
+      const delta = Math.min(0, left - n.left - fade) || Math.max(0, right - n.right + fade);
+      if (delta) nav.scrollBy({ left: delta, behavior: "smooth" });
+    });
   })();
 </script>
