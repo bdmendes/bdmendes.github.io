@@ -72,6 +72,13 @@ html {
   opacity: 1;
 }
 
+@media (hover: none) {
+  .menu li > a:is(:hover, :active):not(.menu-active, :focus-visible) {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
