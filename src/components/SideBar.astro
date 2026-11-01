@@ -12,54 +12,63 @@ const { sideBarActiveItemID } = Astro.props;
 const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
-<div class="drawer-side z-40 no-print">
-  <label for="my-drawer" class="drawer-overlay"></label>
-  <aside
-    class="glow md:bg-none md:bg-transparent min-h-dvh w-32 md:w-44 text-base-content flex flex-col gap-6 pt-5 pb-8"
-  >
-    <a href="/" class="self-center max-h-[50svh] aspect-square h-20 md:h-24">
-      <Image
-        src={profile}
-        width={192}
-        height={192}
-        format="webp"
-        loading="eager"
-        alt="Bruno Mendes"
-        class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80"
-      />
-    </a>
-    <div class="flex flex-col pagefind-exclude items-center px-3 md:px-7">
-      <ul class="menu p-0 overflow-y-auto gap-1 w-full [--menu-active-bg:var(--color-base-200)] [--menu-active-fg:var(--color-base-content)]">
-        {
-          Object.entries(ROUTES).map(([key, value]) => (
-            <li>
-              <a
-                class={`py-2.5 text-base justify-center ${cleanId == key ? "menu-active gloss-selected" : "text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"}`}
-                aria-current={cleanId == key ? "page" : undefined}
-                id={key}
-                href={key == "home" ? "/" : "/" + key}
-              >
-                {value}
-              </a>
-            </li>
-          ))
-        }
-        {
-          Object.entries(SOCIALS).map(([key, value]) => (
-            <li>
-              <a
-                href={value.url}
-                class="py-2.5 justify-center self-center w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
-                target="_blank"
-                aria-label={key}
-                title={key}
-              >
-                <Icon name={value.icon} size="24" />
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </aside>
-</div>
+<aside
+  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 md:overflow-y-auto flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-3 md:px-0 md:pt-5 md:pb-8 border-b border-base-300 md:border-b-0 text-base-content"
+>
+  <a href="/" class="shrink-0 -mt-0.5 md:mt-0 md:self-center aspect-square h-8 md:h-24">
+    <Image
+      src={profile}
+      width={192}
+      height={192}
+      format="webp"
+      loading="eager"
+      alt="Bruno Mendes"
+      class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80"
+    />
+  </a>
+  <div class="flex md:flex-col min-w-0 py-3 md:py-0 overflow-x-auto md:overflow-visible pagefind-exclude md:items-center md:px-7 scroll-fade md:mask-none md:animate-none">
+    <ul class="menu menu-horizontal md:menu-vertical flex-nowrap p-0 gap-0.5 md:gap-1 pe-3 md:pe-0 md:w-full [--menu-active-bg:var(--color-base-200)] [--menu-active-fg:var(--color-base-content)]">
+      {
+        Object.entries(ROUTES).map(([key, value]) => (
+          <li>
+            <a
+              class={`px-3 py-2 md:py-2.5 text-sm md:text-base whitespace-nowrap justify-center ${cleanId == key ? "menu-active gloss-selected" : "text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"}`}
+              aria-current={cleanId == key ? "page" : undefined}
+              id={key}
+              href={key == "home" ? "/" : "/" + key}
+            >
+              {value}
+            </a>
+          </li>
+        ))
+      }
+      {
+        Object.entries(SOCIALS).map(([key, value], i) => (
+          <li class={i == 0 ? "ms-1 md:ms-0" : ""}>
+            <a
+              href={value.url}
+              class="p-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+              target="_blank"
+              aria-label={key}
+              title={key}
+            >
+              <Icon name={value.icon} size="24" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</aside>
+
+<script is:inline>
+  // On the mobile bar, start scrolled so the current section is in view. Inline,
+  // so it runs before the first paint and the bar does not visibly jump.
+  (() => {
+    const nav = document.querySelector("aside .scroll-fade");
+    const current = nav?.querySelector("[aria-current=page]");
+    if (!nav || !current) return;
+    const offset = current.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+    nav.scrollLeft += offset - (nav.clientWidth - current.offsetWidth) / 2;
+  })();
+</script>
