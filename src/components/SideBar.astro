@@ -13,7 +13,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 ---
 
 <aside
-  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 md:overflow-y-auto md:snap-y md:snap-mandatory scrollbar-none flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-3 md:px-0 md:pt-4 md:pb-6 border-b border-base-300 md:border-b-0 text-base-content"
+  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 md:overflow-y-auto md:snap-y md:snap-mandatory md:scroll-fade-y scrollbar-none flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-3 md:px-0 md:pt-4 md:pb-6 border-b border-base-300 md:border-b-0 text-base-content"
 >
   <a href="/" class="shrink-0 -mt-0.5 md:mt-0 md:self-center aspect-square h-8 md:h-24">
     <Image
@@ -43,11 +43,11 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
         ))
       }
       {
-        Object.entries(SOCIALS).map(([key, value], i) => (
-          <li class={i == 0 ? "ms-1 md:ms-0" : ""}>
+        Object.entries(SOCIALS).map(([key, value]) => (
+          <li>
             <a
               href={value.url}
-              class="p-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+              class="px-2 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
               target="_blank"
               aria-label={key}
               title={key}

@@ -55,6 +55,12 @@ html {
   animation-timeline: scroll(self inline);
 }
 
+@utility scroll-fade-y {
+  mask-image: linear-gradient(to bottom, transparent, #000 calc(var(--fade-l) * 1.5), #000 calc(100% - var(--fade-r) * 1.5), transparent);
+  animation: scroll-fade linear;
+  animation-timeline: scroll(self block);
+}
+
 @keyframes scroll-fade {
   0% {
     --fade-l: 0px;
