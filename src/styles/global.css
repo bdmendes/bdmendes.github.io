@@ -184,7 +184,7 @@ body {
   }
 
   blockquote {
-    @apply max-w-min min-w-full not-italic;
+    @apply max-w-min min-w-full not-italic ps-3;
     quotes: none !important;
   }
 
