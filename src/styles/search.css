@@ -34,6 +34,10 @@
   display: none;
 }
 
+.pagefind-search * {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
 .pf-result-link {
   transition: color 150ms !important;
 }
