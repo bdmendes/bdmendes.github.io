@@ -260,6 +260,18 @@ body {
   pre {
     @apply bg-base-200! border border-base-300 rounded-field p-3;
     margin-block: 1.2em;
+
+    @media (hover: hover) {
+      &:not(:hover, :focus-visible) {
+        scrollbar-color: transparent transparent;
+      }
+    }
+
+    @media (hover: none) {
+      &:not(.scrolled) {
+        scrollbar-color: transparent transparent;
+      }
+    }
   }
 
   code {

@@ -109,3 +109,8 @@ const displayDate = dayjs(date).format("ll");
     <PrevNext {prev} {next} label="Previous and next" class="not-prose max-w-min min-w-full" />
   </div>
 </BaseLayout>
+
+<script>
+  // Touch scrollbars flash on load; show a code block's only once it is scrolled.
+  document.querySelectorAll("pre").forEach((pre) => pre.addEventListener("scroll", () => pre.classList.add("scrolled"), { once: true }));
+</script>
