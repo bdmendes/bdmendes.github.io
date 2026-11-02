@@ -259,7 +259,7 @@ body {
 
   pre {
     @apply bg-base-200! border border-base-300 rounded-field p-3;
-    margin-block: 1.2em;
+    margin-block: 1.25em;
 
     @media (hover: hover) {
       &:not(:hover, :focus-visible) {
