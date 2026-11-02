@@ -279,7 +279,8 @@ body {
   }
 
   details {
-    @apply bg-base-200 rounded-field p-4 mb-4;
+    @apply bg-base-200 rounded-field p-4;
+    margin-block: 1.4em;
   }
 
   details > summary {
