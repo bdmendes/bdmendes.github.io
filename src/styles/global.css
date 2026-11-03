@@ -166,10 +166,6 @@ body {
   overflow-x: clip;
 }
 
-* {
-  word-break: break-word;
-}
-
 ::selection {
   background-color: var(--color-base-300);
 }
@@ -190,6 +186,7 @@ body {
 }
 
 .prose article {
+  word-break: break-word;
   @apply my-6;
 
   p {
