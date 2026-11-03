@@ -39,7 +39,7 @@ const { page } = Astro.props;
   currentPage={page.currentPage}
 >
   <LargeTitle title="Blog" path="/blog" filters={yearPathsMap} search={true} />
-  <ul class="flex flex-col gap-1.5 mt-1.5 mb-2">
+  <ul class="flex flex-col gap-1.5 my-1.5">
     {
       page.data.map((post) => (
         <li>
