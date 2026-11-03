@@ -49,7 +49,7 @@ const { page } = Astro.props;
   >
     <ChessProgress points={points} totalGames={totalGames} />
   </LargeTitle>
-  <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 auto-rows-min my-1.5">
+  <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 auto-rows-min mt-1.5 mb-2">
     {
       page.data.map((game) => (
         <li>
