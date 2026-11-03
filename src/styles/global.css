@@ -99,7 +99,7 @@ html {
 }
 
 .modal[open] {
-  backdrop-filter: blur(2px);
+  background-color: rgb(0 0 0 / 60%);
 }
 
 @media (hover: none) {
