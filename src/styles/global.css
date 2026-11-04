@@ -224,7 +224,9 @@ body {
     @apply my-4 h-auto overflow-visible border-0 text-center text-2xl leading-none;
 
     &::after {
-      content: "∗";
+      content: "*";
+      display: block;
+      transform: translateY(0.2em);
     }
   }
 
