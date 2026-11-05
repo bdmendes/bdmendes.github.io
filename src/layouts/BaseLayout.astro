@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import serifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2?url";
 
-import SideBar from "@components/SideBar.astro";
+import NavBar from "@components/NavBar.astro";
 import { ClientRouter } from "astro:transitions";
 
 import { METADATA, TRANSITION_API } from "../config";
@@ -10,7 +10,7 @@ import { METADATA, TRANSITION_API } from "../config";
 export interface Props {
   title: string;
   description?: string;
-  sideBarActiveItemID?: string;
+  navBarActiveItemID?: string;
   ogType?: string;
   currentPage: number;
   shrink?: boolean;
@@ -20,7 +20,7 @@ export interface Props {
 const {
   title,
   description = METADATA.description,
-  sideBarActiveItemID,
+  navBarActiveItemID,
   ogType,
   currentPage,
   shrink = false,
@@ -90,7 +90,7 @@ const completeTitle =
 
   <body class="glow min-h-dvh">
     <div class="mx-auto w-full max-w-4xl flex flex-col md:flex-row md:divide-x divide-base-300">
-      <SideBar sideBarActiveItemID={sideBarActiveItemID} />
+      <NavBar navBarActiveItemID={navBarActiveItemID} />
       <main
         class={"px-5 pt-7 pb-11 md:px-7 mx-auto w-full min-w-0 flex justify-center" +
           (index ? "" : " pagefind-exclude")}

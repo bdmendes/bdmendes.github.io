@@ -15,7 +15,7 @@ export interface Props {
   createYearBadge?: boolean;
   tagEndpoint?: string;
   shrink?: boolean;
-  sideBarActiveItemID: string;
+  navBarActiveItemID: string;
   prev?: NavLink;
   next?: NavLink;
 }
@@ -31,7 +31,7 @@ const {
   createYearBadge = true,
   tagEndpoint = "tag",
   shrink = true,
-  sideBarActiveItemID,
+  navBarActiveItemID,
   prev,
   next,
 } = Astro.props;
@@ -45,7 +45,7 @@ const displayDate = dayjs(date).format("ll");
   ogType="article"
   currentPage={1}
   shrink={shrink}
-  sideBarActiveItemID={sideBarActiveItemID}
+  navBarActiveItemID={navBarActiveItemID}
   index={true}
 >
   <div class="w-full mx-auto prose prose-img:mx-auto max-w-[inherit]">

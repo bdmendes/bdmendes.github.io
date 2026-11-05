@@ -30,7 +30,7 @@ const shortDescription = cv.filter((e) => e.data.type === "short")[0];
 const { Content } = await render(shortDescription);
 ---
 
-<BaseLayout title="Home" sideBarActiveItemID="home" currentPage={1}>
+<BaseLayout title="Home" navBarActiveItemID="home" currentPage={1}>
   <LargeTitle title="About me" search={false} />
   <div class="mb-4 prose prose-p:my-0! max-w-xl text-balance">
     <Content />

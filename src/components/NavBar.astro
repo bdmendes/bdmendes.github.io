@@ -5,11 +5,11 @@ import { Image } from "astro:assets";
 import profile from "src/assets/cv-profile-drawing.png";
 
 export interface Props {
-  sideBarActiveItemID?: string;
+  navBarActiveItemID?: string;
 }
 
-const { sideBarActiveItemID } = Astro.props;
-const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
+const { navBarActiveItemID } = Astro.props;
+const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
 ---
 
 <aside
@@ -63,7 +63,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
 
 <script is:inline>
   // Snapping places the section list on the current section during the first layout,
-  // before anything is painted: the mobile bar sideways, or a sidebar too short for its
+  // before anything is painted: the mobile bar sideways, or a navbar too short for its
   // screen vertically. Its scrollbar stays hidden until then, as that first snap would
   // reveal it; the first interaction releases snapping and shows the desktop scrollbar.
   (() => {
