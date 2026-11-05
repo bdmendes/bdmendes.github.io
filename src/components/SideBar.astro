@@ -26,7 +26,7 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
       class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80"
     />
   </a>
-  <div class="flex md:flex-col min-w-0 md:min-h-0 py-3 md:py-0 overflow-x-auto md:overflow-y-auto scrollbar-none pagefind-exclude md:items-center md:px-7 snap-x md:snap-y snap-mandatory scroll-fade">
+  <div class="flex md:flex-col min-w-0 md:min-h-0 py-2.5 md:py-0 overflow-x-auto md:overflow-y-auto scrollbar-none pagefind-exclude md:items-center md:px-7 snap-x md:snap-y snap-mandatory scroll-fade">
     <ul class="menu menu-horizontal md:menu-vertical flex-nowrap md:shrink-0 p-0 gap-0.5 md:gap-1 pe-3 md:pe-0 md:pb-5 md:w-full [--menu-active-bg:var(--color-base-200)] [--menu-active-fg:var(--color-base-content)]">
       {
         Object.entries(ROUTES).map(([key, value]) => (
@@ -65,10 +65,10 @@ const cleanId = sideBarActiveItemID?.replace(/\d+/g, "");
   // Snapping places the section list on the current section during the first layout,
   // before anything is painted: the mobile bar sideways, or a sidebar too short for its
   // screen vertically. Its scrollbar stays hidden until then, as that first snap would
-  // reveal it; the first interaction releases it to scroll freely, scrollbar and all.
+  // reveal it; the first interaction releases snapping and shows the desktop scrollbar.
   (() => {
     const nav = document.querySelector("aside .scroll-fade");
-    const release = () => nav.classList.remove("snap-x", "md:snap-y", "snap-mandatory", "scrollbar-none");
+    const release = () => nav.classList.remove("snap-x", "md:snap-y", "snap-mandatory");
     for (const e of ["pointerdown", "wheel", "focusin"]) nav?.addEventListener(e, release, { once: true });
   })();
 </script>
