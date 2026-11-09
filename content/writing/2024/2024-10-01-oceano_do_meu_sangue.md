@@ -2,12 +2,6 @@
 title: Oceano do meu sangue
 ---
 
-Amar-te foi entregar-te uma arma  
-apontada aos meus demónios  
-e implorar que disparasses  
-talvez até que me matasses  
+Amar-te foi entregar-te uma arma, ora apontada aos meus demónios ora ao meu peito, e implorar que disparasses, como te aprouvesse, todas as horas, até que matasses uma parte de mim.
 
-É desgastante, olhar o norte  
-no limbo entre a vida e a morte  
-e é uma sina pesada, beijar armada  
-tragada pelo oceano do meu sangue  
+É desgastante, amar assim, no limbo entre a vida e a morte, e é uma sina pesada, ter de beijar com uma arma na mão, tragada pelo oceano do meu sangue.

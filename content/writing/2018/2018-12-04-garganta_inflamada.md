@@ -2,22 +2,8 @@
 title: Garganta inflamada
 ---
 
-as vozes ecoam no andar de cima  
-em uníssono estridente  
-cutuco os ouvidos e calam-se  
+As vozes ecoam no andar de cima, em uníssono estridente. Cutuco os ouvidos e calam-se. Olho o meu umbigo, insuflado, vejo a minha face ao espelho, atraente como sempre, qual ansiedade, qual clichê, qual quê.
 
-olho o meu umbigo, insuflado  
-vejo a minha face ao espelho  
-atraente como sempre
+Lá em baixo um prato parte, custa a engolir, já nem sei o caminho para o pavilhão, uma pilha de exames, elevado o tom de voz, já não saio amanhã, cheiro a mofo.
 
-qual tensão, qual ansiedade  
-qual clichê, qual quê  
-em baixo um prato parte  
-
-custa a engolir  
-uma pilha de exames  
-um cheiro a mofo  
-
-acordo, garganta inflamada  
-uma dor de cabeça, o melhor  
-será tentar engolir a pastilha  
+Acordo, sinto a garganta inflamada, uma dor de cabeça, o melhor será mesmo tentar engolir a pastilha.
