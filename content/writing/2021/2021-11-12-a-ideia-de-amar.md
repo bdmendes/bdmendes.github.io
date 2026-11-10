@@ -2,12 +2,6 @@
 title: A ideia de amar
 ---
 
-O que constitui a completa devoção ao outro?  
-O que explica os condicionalismos que infliges?  
-O que posso fazer para que ames um pouco mais?  
+Que mais senão uma tirada de narcisismo pode constituir a completa devoção ao outro? Que mais senão uma sensação de superioridade pode explicar os condicionalismos que infliges a ti mesma de forma severa e extraordinária? Que mais posso eu fazer senão pedir-te um tanto mais de humildade, para que te ames mais?
 
-Quiçá isto ficou desprovido de sentido.  
-Não sei se te amo ou odeio a saudade  
-Se amo o desejo ou o desejado  
-Se gosto de ti ou de mim contigo  
-Se cultivo o amor ou a ideia de amar.  
+Tudo tem sentido, até que deixa de o ter, não sei se te amo ou odeio a saudade, se amo o desejo ou o desejado, se gosto de ti ou de mim contigo, se cultivo o amor ou a ideia de amar.

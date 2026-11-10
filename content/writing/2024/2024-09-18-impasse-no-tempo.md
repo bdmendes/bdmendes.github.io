@@ -2,16 +2,6 @@
 title: Impasse no tempo
 ---
 
-Apareces-me em todo o lado  
-nas ruas, nos becos, nos sonhos  
-habitas nas pedras da calçada  
-e adensas o ar que respiro  
+Não sabes quanto sinto a tua falta. Apareces-me em todo o lado, nas ruas, nos becos, nos comboios, nos sonhos, habitas nas pedras da calçada e adensas o ar que respiro. Ofegante, vejo-me ao longe e pareço-me completamente inalcançável.
 
-Ofegante, vejo-me ao longe  
-e pareço-me inalcançável   
-mas despoleto um sorriso  
-injeto alegria nos espaços  
-
-Fico feliz, mas não tarda  
-volto a mim, a este estado  
-lento, este impasse no tempo  
+Caminho apenas como homem. Sem querer, por vezes, despoleto um sorriso e injeto alegria nos espaços. Faço o dia de alguém com um só abraço. Fico feliz, mas não tarda volto a mim, a este estado lento, este impasse no tempo.

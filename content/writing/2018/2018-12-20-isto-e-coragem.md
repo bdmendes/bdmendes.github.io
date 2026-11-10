@@ -6,7 +6,7 @@ Na faculdade, quando o professor pedir um trabalho sobre coragem, vou entregar u
 
 Curioso. Como podem os termos estupidez e coragem ser confundidos, se tão díspares aparentam ser? Como podem dois indivíduos ter uma perceção tão distinta de uma mesma situação?
 
-Imbuído de combatividade após tão regenerante conversa, não paro de pensar se a coragem me permitiria refazer o passado. Parece uma premissa estapafúrdia, mas começa a fazer sentido se admitirmos que fazer as coisas de maneira diferente, mais ambiciosa, interventiva, pode mudar o rumo de todo e qualquer acontecimento.
+Imbuído de combatividade após tão regenerante conversa, não paro de pensar se a coragem me permitiria refazer o passado. Parece uma premissa estapafúrdia, mas começa a fazer sentido se admitirmos que fazer as coisas de maneira diferente, mais ambiciosa, interventiva, pode mudar o rumo de todo e qualquer acontecimento de tal modo que este pareça não ter, na verdade, acontecido.
 
 Fascinante, o mundo das ideias. Na vida real, não existe ponto de retorno, nem é possível anular a inoperabilidade procedimental.
 
