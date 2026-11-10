@@ -4,7 +4,7 @@ title: Direito ao apagamento
 
 Caro corretor,
 
-Venho por este meio exercer o meu direito ao apagamento dos dados de C. da minha memória, ao abrigo do artigo 17.º, n.º 2, da Lei 59/2019, de 8 de agosto. O processo deverá contemplar todos os registos, desde a data de início até à data de fim em que C. aparece, e tem por base razões pessoais que entendo por bem não descrever.
+Venho por este meio exercer o meu direito ao apagamento dos dados de C. da minha memória, ao abrigo do artigo 17.º, n.º 2, da Lei 58/2019, de 8 de agosto. O processo deverá contemplar todos os registos, desde a data de início até à data de fim em que C. aparece, e tem por base razões pessoais que entendo por bem não descrever.
 
 Mais informo que os senhores corretores poderão deslocar-se à minha habitação para proceder com a operação em qualquer dia da semana que se avizinha que lhes pareça razoável. Não tenho compromissos relevantes agendados.
 

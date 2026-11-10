@@ -12,7 +12,7 @@ Rather dreaming, meaning
 I was looking for intervening  
 A feeling, psychedelic affairs  
 
-We kissed and I lied on you  
+We kissed and I laid on you  
 Those freaking nightmares!  
 Hoped we'd make it to noon  
-But I woke in an empty saloon  
+But I woke in an empty saloon
