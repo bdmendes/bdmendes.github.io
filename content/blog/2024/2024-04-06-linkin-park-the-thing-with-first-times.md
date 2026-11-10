@@ -1,6 +1,6 @@
 ---
 title: "Linkin Park: the thing with first times"
-hero: ./lp_burn_it_down.jpg
+hero: ./lp-burn-it-down.jpg
 ---
 
 Early 2013. The 11-year-old me was coming home from school and heard *Burn It Down* on the radio, and was hooked instantly.
@@ -9,7 +9,7 @@ As an emerging teenager, unmoved by top-charting pop songs, the electronic rock 
 
 These Linkin Park guys, on the other hand, I'd never heard of. The single was new and fresh and the lyrics were memorable and relatable. Over the years I went on to discover their entire discography and devour all the lyrics as if I would be asked for them. They became an escape when I most needed them and the matter of most of my shower karaokes.
 
-![](lp_burn_it_down.jpg)
+![](lp-burn-it-down.jpg)
 *Chester Bennington in the Burn It Down music video.*
 
 However, Linkin Park may not be the best band ever. They released two genre-shaping albums, *Hybrid Theory* and *Meteora*, in 2000 and 2003, and spent the remaining time of their career, until Chester sadly took his own life in 2017, experimenting with multiple sounds and arguably never quite matching the aura of the original nu-metal atmosphere. Some critics refer to their music as "angsty", or "formulaic" teen music. Why is it then that no other band felt as amazing for me, for several years, despite my listening to other genres more?
