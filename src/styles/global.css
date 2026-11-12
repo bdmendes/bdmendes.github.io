@@ -55,7 +55,7 @@ html {
 @custom-variant paper (&:where([data-theme="paper"], [data-theme="paper"] *));
 
 [data-theme="paper"] {
-  --lamp: color-mix(in oklab, #e0a53a 5%, transparent);
+  --lamp: color-mix(in oklab, #e0a53a 3%, transparent);
   --color-muted: color-mix(in oklab, var(--color-base-content) 82%, transparent);
   --color-subtle: color-mix(in oklab, var(--color-base-content) 75%, transparent);
   .prose {
