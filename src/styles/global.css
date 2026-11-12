@@ -1,10 +1,14 @@
 @import "tailwindcss";
 @import "@fontsource-variable/source-serif-4/opsz.css";
 @import "@fontsource-variable/source-serif-4/opsz-italic.css";
+
 @plugin "daisyui" {
   themes: all;
   exclude: rootscrollgutter;
 }
+
+@plugin "@tailwindcss/typography";
+
 @plugin "daisyui/theme" {
   name: "halloween";
   default: true;
@@ -20,7 +24,22 @@
   --radius-selector: var(--radius-field);
   --depth: 0;
 }
-@plugin "@tailwindcss/typography";
+
+@plugin "daisyui/theme" {
+  name: "paper";
+  color-scheme: light;
+  --color-base-100: #f4efe8;
+  --color-base-200: #ede6dd;
+  --color-base-300: #ded6ca;
+  --color-base-content: #1f1812;
+  --color-primary: #9a4520;
+  --color-primary-content: #f4efe8;
+  --color-neutral: #ded6ca;
+  --color-neutral-content: #1f1812;
+  --radius-box: var(--radius-field);
+  --radius-selector: var(--radius-field);
+  --depth: 0;
+}
 
 html {
   scrollbar-gutter: stable;
@@ -29,11 +48,27 @@ html {
 
 :root {
   --edge: inset 0 0 0 1px color-mix(in oklab, var(--color-base-content) 12%, transparent);
-  --lamp: color-mix(in oklab, var(--color-primary) 90%, var(--color-base-content));
+  --lamp: color-mix(in oklab, color-mix(in oklab, var(--color-primary) 90%, var(--color-base-content)) 6%, transparent);
+}
+
+@custom-variant paper (&:where([data-theme="paper"], [data-theme="paper"] *));
+
+[data-theme="paper"] {
+  --lamp: color-mix(in oklab, #e0a53a 6%, transparent);
+  --color-muted: color-mix(in oklab, var(--color-base-content) 82%, transparent);
+  --color-subtle: color-mix(in oklab, var(--color-base-content) 75%, transparent);
+  .prose {
+    --tw-prose-body: color-mix(in oklab, var(--color-base-content) 90%, transparent);
+  }
+}
+
+html[data-theme="halloween"] .astro-code,
+html[data-theme="halloween"] .astro-code span {
+  color: var(--shiki-dark) !important;
 }
 
 @utility glow {
-  background: radial-gradient(ellipse min(100vw, 95rem) min(95vh, 64rem) at 15% -20%, color-mix(in oklab, var(--lamp) 6%, transparent), transparent)
+  background: radial-gradient(ellipse min(100vw, 95rem) min(95vh, 64rem) at 15% -20%, var(--lamp), transparent)
     var(--color-base-100) fixed;
 }
 

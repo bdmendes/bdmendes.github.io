@@ -3,9 +3,8 @@ import "../styles/global.css";
 import serifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2?url";
 
 import NavBar from "@components/NavBar.astro";
-import { ClientRouter } from "astro:transitions";
 
-import { METADATA, TRANSITION_API } from "../config";
+import { METADATA } from "../config";
 
 export interface Props {
   title: string;
@@ -47,6 +46,17 @@ const completeTitle =
       content="width=device-width,initial-scale=1,interactive-widget=resizes-content"
     />
     <meta name="theme-color" content="#161412" />
+    <script is:inline>
+      // A choice made with the toggle wins; otherwise, or if storage is blocked, follow the system.
+      let stored = null;
+      try {
+        stored = localStorage.getItem("theme");
+      } catch {}
+      if (stored ? stored === "paper" : matchMedia("(prefers-color-scheme: light)").matches) {
+        document.documentElement.dataset.theme = "paper";
+        document.querySelector('meta[name="theme-color"]').content = "#f4efe8";
+      }
+    </script>
     <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin />
     <link
       rel="apple-touch-icon"
@@ -84,8 +94,6 @@ const completeTitle =
     <meta property="twitter:title" content={completeTitle} />
     <meta property="twitter:description" content={description} />
     <meta name="twitter:image" content="false" />
-
-    {TRANSITION_API && <ClientRouter />}
   </head>
 
   <body class="glow min-h-dvh">

@@ -13,7 +13,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
 ---
 
 <aside
-  class="glow md:bg-none md:bg-transparent no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 flex md:flex-col items-center md:items-stretch gap-3 md:gap-6 ps-4 md:px-0 md:pt-5 border-b border-base-300 md:border-b-0 text-base-content"
+  class="glow no-print sticky top-0 z-30 shrink-0 md:h-dvh md:w-44 flex md:flex-col items-center md:items-stretch gap-3 md:gap-5 ps-4 md:px-0 md:pt-5 border-b border-base-300 md:border-b-0 text-base-content"
 >
   <a href="/" class="shrink-0 -mt-0.5 md:mt-0 md:self-center aspect-square h-8 md:h-24">
     <Image
@@ -23,7 +23,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
       format="webp"
       loading="eager"
       alt="Bruno Mendes"
-      class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80"
+      class="object-contain w-full h-full rounded-full saturate-0 sepia-[.4] brightness-80 paper:brightness-100 paper:mix-blend-multiply paper:sepia-0"
     />
   </a>
   <div class="flex md:flex-col min-w-0 md:min-h-0 py-2.5 md:py-0 overflow-x-auto md:overflow-y-auto scrollbar-none pagefind-exclude md:items-center md:px-7 snap-x md:snap-y snap-mandatory scroll-fade">
@@ -42,9 +42,20 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
           </li>
         ))
       }
+      <li class="ms-1 md:ms-0">
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Theme"
+          class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+        >
+          <Icon name="mdi:white-balance-sunny" size="24" class="paper:hidden" />
+          <Icon name="mdi:weather-night" size="24" class="hidden paper:block" />
+        </button>
+      </li>
       {
-        Object.entries(SOCIALS).map(([key, value], i) => (
-          <li class={i == 0 ? "ms-1 md:ms-0": ""}>
+        Object.entries(SOCIALS).filter(([, value]) => value.nav).map(([key, value]) => (
+          <li>
             <a
               href={value.url}
               class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
@@ -60,6 +71,19 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
     </ul>
   </div>
 </aside>
+
+<script>
+  document.querySelector("#theme-toggle")!.addEventListener("click", () => {
+    const root = document.documentElement;
+    const theme = root.dataset.theme === "paper" ? "halloween" : "paper";
+    root.dataset.theme = theme;
+    document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')!.content =
+      getComputedStyle(root).getPropertyValue("--color-base-100");
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+  });
+</script>
 
 <script is:inline>
   // Snapping places the section list on the current section during the first layout,
