@@ -18,6 +18,7 @@
   --color-base-300: rgb(57, 51, 45);
   --color-base-content: rgb(233, 226, 216);
   --color-primary: rgb(208, 117, 58);
+  --color-primary-content: rgb(233, 226, 216);
   --color-neutral: rgb(57, 51, 45);
   --color-neutral-content: rgb(233, 226, 216);
   --radius-box: var(--radius-field);

@@ -2,6 +2,53 @@
 
 .lpv {
   outline: none !important;
+  --c-lpv-bg: var(--color-base-200);
+  --c-lpv-bg-player: var(--color-base-200);
+  --c-lpv-bg-controls: var(--color-base-200);
+  --c-lpv-bg-movelist: var(--color-base-200);
+  --c-lpv-bg-variation: var(--color-base-100);
+  --c-lpv-bg-pane: var(--color-base-100);
+  --c-lpv-font: var(--color-muted);
+  --c-lpv-font-shy: var(--color-subtle);
+  --c-lpv-past-moves: var(--color-muted);
+  --c-lpv-border: var(--color-base-300);
+  --c-lpv-side-border: var(--color-base-300);
+  --c-lpv-accent: var(--color-primary);
+  --c-lpv-accent-over: var(--color-base-content);
+  --c-lpv-current-move: var(--color-base-300);
+  --c-lpv-move-hover: color-mix(in oklab, var(--color-base-300) 50%, var(--color-base-200));
+  --c-lpv-fbt-hover: var(--color-base-300);
+  --c-lpv-bg-inaccuracy-hover: var(--c-lpv-move-hover);
+  --c-lpv-bg-mistake-hover: var(--c-lpv-move-hover);
+  --c-lpv-bg-blunder-hover: var(--c-lpv-move-hover);
+  --c-lpv-bg-good-hover: var(--c-lpv-move-hover);
+  --c-lpv-bg-brilliant-hover: var(--c-lpv-move-hover);
+  --c-lpv-bg-interesting-hover: var(--c-lpv-move-hover);
+}
+
+@media (hover: hover) {
+  .lpv__fbt:hover:not(.disabled):not([disabled]) {
+    color: var(--color-base-content);
+  }
+}
+
+.lpv__moves move:hover {
+  &.inaccuracy { color: var(--c-lpv-inaccuracy, hsl(202, 78%, 62%)); }
+  &.mistake { color: var(--c-lpv-mistake, hsl(41, 100%, 45%)); }
+  &.blunder { color: var(--c-lpv-blunder, hsl(0, 69%, 60%)); }
+  &.good { color: var(--c-lpv-good-move, hsl(130, 67%, 62%)); }
+  &.brilliant { color: var(--c-lpv-brilliant, hsl(129, 71%, 45%)); }
+  &.interesting { color: var(--c-lpv-interesting, hsl(307, 80%, 70%)); }
+}
+
+[data-theme="paper"] .lpv {
+  --c-lpv-font: var(--color-base-content);
+  --c-lpv-past-moves: var(--color-base-content);
+}
+
+.lpv__fbt.active {
+  background: var(--color-base-300) !important;
+  color: var(--color-base-content);
 }
 
 cg-board {
