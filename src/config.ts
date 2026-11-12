@@ -1,4 +1,3 @@
-export const TRANSITION_API = false;
 export const PAGINATION_SIZE = 10;
 
 export const METADATA = {

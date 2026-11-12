@@ -6,6 +6,11 @@ import pagefind from "astro-pagefind";
 
 export default defineConfig({
   site: "https://bdmendes.com",
+  markdown: {
+    shikiConfig: {
+      themes: { light: "github-light", dark: "github-dark" },
+    },
+  },
   vite: {
     plugins: [
       tailwindcss({
