@@ -54,7 +54,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
         </button>
       </li>
       {
-        Object.entries(SOCIALS).map(([key, value]) => (
+        Object.entries(SOCIALS).filter(([, value]) => value.nav).map(([key, value]) => (
           <li>
             <a
               href={value.url}
