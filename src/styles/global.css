@@ -28,13 +28,13 @@
 @plugin "daisyui/theme" {
   name: "paper";
   color-scheme: light;
-  --color-base-100: #f4efe8;
-  --color-base-200: #ede6dd;
-  --color-base-300: #ded6ca;
+  --color-base-100: #f7f4ef;
+  --color-base-200: #f0ebe4;
+  --color-base-300: #e1dbd1;
   --color-base-content: #1f1812;
   --color-primary: #9a4520;
-  --color-primary-content: #f4efe8;
-  --color-neutral: #ded6ca;
+  --color-primary-content: #f7f4ef;
+  --color-neutral: #e1dbd1;
   --color-neutral-content: #1f1812;
   --radius-box: var(--radius-field);
   --radius-selector: var(--radius-field);
@@ -54,7 +54,7 @@ html {
 @custom-variant paper (&:where([data-theme="paper"], [data-theme="paper"] *));
 
 [data-theme="paper"] {
-  --lamp: color-mix(in oklab, #e0a53a 6%, transparent);
+  --lamp: color-mix(in oklab, #e0a53a 5%, transparent);
   --color-muted: color-mix(in oklab, var(--color-base-content) 82%, transparent);
   --color-subtle: color-mix(in oklab, var(--color-base-content) 75%, transparent);
   .prose {

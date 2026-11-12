@@ -54,7 +54,7 @@ const completeTitle =
       } catch {}
       if (stored ? stored === "paper" : matchMedia("(prefers-color-scheme: light)").matches) {
         document.documentElement.dataset.theme = "paper";
-        document.querySelector('meta[name="theme-color"]').content = "#f4efe8";
+        document.querySelector('meta[name="theme-color"]').content = "#f7f4ef";
       }
     </script>
     <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin />
