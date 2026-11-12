@@ -46,6 +46,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
         <button
           id="theme-toggle"
           type="button"
+          aria-label="Theme"
           class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
         >
           <Icon name="mdi:white-balance-sunny" size="24" class="paper:hidden" />
@@ -72,17 +73,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
 </aside>
 
 <script>
-  const button = document.querySelector<HTMLButtonElement>("#theme-toggle")!;
-  const updateLabel = () => {
-    const label = document.documentElement.dataset.theme === "paper"
-      ? "Switch to dark theme"
-      : "Switch to light theme";
-    button.setAttribute("aria-label", label);
-    button.title = label;
-  };
-
-  updateLabel();
-  button.addEventListener("click", () => {
+  document.querySelector("#theme-toggle")!.addEventListener("click", () => {
     const root = document.documentElement;
     const theme = root.dataset.theme === "paper" ? "halloween" : "paper";
     root.dataset.theme = theme;
@@ -91,7 +82,6 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
     try {
       localStorage.setItem("theme", theme);
     } catch {}
-    updateLabel();
   });
 </script>
 
