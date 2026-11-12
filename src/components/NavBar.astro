@@ -49,8 +49,9 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
           aria-label="Theme"
           class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
         >
-          <Icon name="mdi:white-balance-sunny" size="24" class="paper:hidden" />
-          <Icon name="mdi:weather-night" size="24" class="hidden paper:block" />
+          <Icon name="mdi:theme-light-dark" size="24" class="hidden in-data-[mode=system]:block" />
+          <Icon name="mdi:weather-night" size="24" class="hidden in-data-[mode=halloween]:block" />
+          <Icon name="mdi:white-balance-sunny" size="24" class="hidden in-data-[mode=paper]:block" />
         </button>
       </li>
       {
@@ -73,15 +74,26 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
 </aside>
 
 <script>
-  document.querySelector("#theme-toggle")!.addEventListener("click", () => {
-    const root = document.documentElement;
-    const theme = root.dataset.theme === "paper" ? "halloween" : "paper";
-    root.dataset.theme = theme;
+  const root = document.documentElement;
+  const light = matchMedia("(prefers-color-scheme: light)");
+  const modes = ["system", "halloween", "paper"];
+
+  const apply = () => {
+    const mode = root.dataset.mode!;
+    root.dataset.theme = mode === "system" ? (light.matches ? "paper" : "halloween") : mode;
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')!.content =
       getComputedStyle(root).getPropertyValue("--color-base-100");
+  };
+
+  light.addEventListener("change", apply);
+  document.querySelector("#theme-toggle")!.addEventListener("click", () => {
+    const mode = modes[(modes.indexOf(root.dataset.mode!) + 1) % modes.length];
+    root.dataset.mode = mode;
     try {
-      localStorage.setItem("theme", theme);
+      if (mode === "system") localStorage.removeItem("theme");
+      else localStorage.setItem("theme", mode);
     } catch {}
+    apply();
   });
 </script>
 
