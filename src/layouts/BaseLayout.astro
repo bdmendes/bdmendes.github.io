@@ -55,7 +55,7 @@ const completeTitle =
       document.documentElement.dataset.mode = mode ?? "system";
       if (mode ? mode === "paper" : matchMedia("(prefers-color-scheme: light)").matches) {
         document.documentElement.dataset.theme = "paper";
-        document.querySelector('meta[name="theme-color"]').content = "#f7f4ef";
+        document.querySelector('meta[name="theme-color"]').content = "#f9f7f4";
       }
     </script>
     <link rel="preload" href={serifFont} as="font" type="font/woff2" crossorigin />
