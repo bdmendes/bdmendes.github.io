@@ -29,7 +29,7 @@
 @plugin "daisyui/theme" {
   name: "paper";
   color-scheme: light;
-  --color-base-100: #f7f4ef;
+  --color-base-100: #f9f7f4;
   --color-base-200: #f0ebe4;
   --color-base-300: #e1dbd1;
   --color-base-content: #1f1812;
