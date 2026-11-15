@@ -77,6 +77,9 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
   const root = document.documentElement;
   const light = matchMedia("(prefers-color-scheme: light)");
   const modes = ["system", "halloween", "paper"];
+  const names: Record<string, string> = { system: "System", halloween: "Dark", paper: "Light" };
+  const button = document.querySelector<HTMLButtonElement>("#theme-toggle")!;
+  const next = () => modes[(modes.indexOf(root.dataset.mode!) + 1) % modes.length];
 
   const apply = () => {
     const mode = root.dataset.mode!;
@@ -85,15 +88,22 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
       getComputedStyle(root).getPropertyValue("--color-base-100");
   };
 
+  const label = () => {
+    button.title = `${names[root.dataset.mode!]} theme`;
+    button.setAttribute("aria-label", button.title);
+  };
+
+  label();
   light.addEventListener("change", apply);
-  document.querySelector("#theme-toggle")!.addEventListener("click", () => {
-    const mode = modes[(modes.indexOf(root.dataset.mode!) + 1) % modes.length];
+  button.addEventListener("click", () => {
+    const mode = next();
     root.dataset.mode = mode;
     try {
       if (mode === "system") localStorage.removeItem("theme");
       else localStorage.setItem("theme", mode);
     } catch {}
     apply();
+    label();
   });
 </script>
 
