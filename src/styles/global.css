@@ -31,11 +31,11 @@
   color-scheme: light;
   --color-base-100: #f9f7f4;
   --color-base-200: #f2eee8;
-  --color-base-300: #e5e0d7;
+  --color-base-300: #e5dfd6;
   --color-base-content: #1f1812;
   --color-primary: #9a4520;
-  --color-primary-content: #f7f4ef;
-  --color-neutral: #e1dbd1;
+  --color-primary-content: #f9f7f4;
+  --color-neutral: #e5dfd6;
   --color-neutral-content: #1f1812;
   --radius-box: var(--radius-field);
   --radius-selector: var(--radius-field);
@@ -55,7 +55,7 @@ html {
 @custom-variant paper (&:where([data-theme="paper"], [data-theme="paper"] *));
 
 [data-theme="paper"] {
-  --lamp: color-mix(in oklab, #e0a53a 3%, transparent);
+  --lamp: color-mix(in oklab, #e0a53a 4%, transparent);
   --color-muted: color-mix(in oklab, var(--color-base-content) 82%, transparent);
   --color-subtle: color-mix(in oklab, var(--color-base-content) 75%, transparent);
   .prose {

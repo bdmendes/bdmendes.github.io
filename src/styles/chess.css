@@ -44,6 +44,12 @@
 [data-theme="paper"] .lpv {
   --c-lpv-font: var(--color-base-content);
   --c-lpv-past-moves: var(--color-base-content);
+  --c-lpv-inaccuracy: hsl(202, 78%, 37%);
+  --c-lpv-mistake: hsl(41, 100%, 28%);
+  --c-lpv-blunder: hsl(0, 69%, 48%);
+  --c-lpv-good-move: hsl(130, 67%, 29%);
+  --c-lpv-brilliant: hsl(129, 71%, 24%);
+  --c-lpv-interesting: hsl(307, 80%, 42%);
 }
 
 .lpv__fbt.active {
