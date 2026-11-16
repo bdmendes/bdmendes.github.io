@@ -185,7 +185,7 @@ html[data-theme="shadow"] .astro-code span {
 
 @layer utilities {
   .badge {
-    @apply h-fit leading-4 py-0.5;
+    @apply h-fit leading-4 py-0.75;
   }
 }
 
