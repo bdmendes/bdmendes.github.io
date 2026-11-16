@@ -34,7 +34,7 @@ const completeTitle =
 ---
 
 <!doctype html>
-<html lang="en" data-theme="halloween" class="scroll-pt-20 md:scroll-pt-0">
+<html lang="en" data-theme="shadow" class="scroll-pt-20 md:scroll-pt-0">
   <head>
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title={METADATA.title} href="/rss.xml" />
@@ -51,6 +51,7 @@ const completeTitle =
       let mode = null;
       try {
         mode = localStorage.getItem("theme");
+        if (mode !== "shadow" && mode !== "paper") mode = null;
       } catch {}
       document.documentElement.dataset.mode = mode ?? "system";
       if (mode ? mode === "paper" : matchMedia("(prefers-color-scheme: light)").matches) {

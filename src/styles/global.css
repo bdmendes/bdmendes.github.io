@@ -3,14 +3,14 @@
 @import "@fontsource-variable/source-serif-4/opsz-italic.css";
 
 @plugin "daisyui" {
-  themes: all;
+  themes: halloween --default;
   exclude: rootscrollgutter;
 }
 
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui/theme" {
-  name: "halloween";
+  name: "shadow";
   default: true;
   color-scheme: dark;
   --color-base-100: rgb(22, 20, 18);
@@ -63,8 +63,8 @@ html {
   }
 }
 
-html[data-theme="halloween"] .astro-code,
-html[data-theme="halloween"] .astro-code span {
+html[data-theme="shadow"] .astro-code,
+html[data-theme="shadow"] .astro-code span {
   color: var(--shiki-dark) !important;
 }
 
@@ -123,6 +123,10 @@ html[data-theme="halloween"] .astro-code span {
 
 @utility gloss {
   box-shadow: var(--edge);
+}
+
+@utility interactive {
+  @apply transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss;
 }
 
 @utility gloss-selected {

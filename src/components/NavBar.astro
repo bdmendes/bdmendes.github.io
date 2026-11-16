@@ -32,7 +32,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
         Object.entries(ROUTES).map(([key, value]) => (
           <li>
             <a
-              class={`px-2.5 py-2 md:py-2.5 text-sm md:text-base whitespace-nowrap justify-center ${cleanId == key ? "menu-active gloss-selected snap-center" : "text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"}`}
+              class={`px-2.5 py-2 md:py-2.5 text-sm md:text-base whitespace-nowrap justify-center ${cleanId == key ? "menu-active gloss-selected snap-center" : "text-muted interactive"}`}
               aria-current={cleanId == key ? "page" : undefined}
               id={key}
               href={key == "home" ? "/" : "/" + key}
@@ -47,10 +47,10 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
           id="theme-toggle"
           type="button"
           aria-label="Theme"
-          class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+          class="px-1.5 md:py-2.5 justify-center md:w-full text-muted interactive"
         >
           <Icon name="mdi:theme-light-dark" size="24" class="hidden in-data-[mode=system]:block" />
-          <Icon name="mdi:weather-night" size="24" class="hidden in-data-[mode=halloween]:block" />
+          <Icon name="mdi:weather-night" size="24" class="hidden in-data-[mode=shadow]:block" />
           <Icon name="mdi:white-balance-sunny" size="24" class="hidden in-data-[mode=paper]:block" />
         </button>
       </li>
@@ -59,7 +59,7 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
           <li>
             <a
               href={value.url}
-              class="px-1.5 md:py-2.5 justify-center md:w-full text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+              class="px-1.5 md:py-2.5 justify-center md:w-full text-muted interactive"
               target="_blank"
               aria-label={key}
               title={key}
@@ -76,14 +76,14 @@ const cleanId = navBarActiveItemID?.replace(/\d+/g, "");
 <script>
   const root = document.documentElement;
   const light = matchMedia("(prefers-color-scheme: light)");
-  const modes = ["system", "halloween", "paper"];
-  const names: Record<string, string> = { system: "System", halloween: "Dark", paper: "Light" };
+  const modes = ["system", "shadow", "paper"];
+  const names: Record<string, string> = { system: "System", shadow: "Dark", paper: "Light" };
   const button = document.querySelector<HTMLButtonElement>("#theme-toggle")!;
   const next = () => modes[(modes.indexOf(root.dataset.mode!) + 1) % modes.length];
 
   const apply = () => {
     const mode = root.dataset.mode!;
-    root.dataset.theme = mode === "system" ? (light.matches ? "paper" : "halloween") : mode;
+    root.dataset.theme = mode === "system" ? (light.matches ? "paper" : "shadow") : mode;
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')!.content =
       getComputedStyle(root).getPropertyValue("--color-base-100");
   };

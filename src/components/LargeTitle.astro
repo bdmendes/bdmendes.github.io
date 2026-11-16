@@ -41,7 +41,7 @@ const resultTemplate = `<li class="pf-result">
       selector && (
         <div class="flex gap-3 items-center">
           <span class="badge badge-ghost text-center">{selector}</span>
-          <a href={path} class="flex rounded-field p-1 -m-1 text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss" aria-label="Clear filter">
+          <a href={path} class="flex rounded-field p-1 -m-1 text-muted interactive" aria-label="Clear filter">
             <Icon name="mdi:filter-off" size={iconSize} />
           </a>
         </div>
@@ -52,7 +52,7 @@ const resultTemplate = `<li class="pf-result">
       filters && (
         <div class="flex items-center">
           <button
-            class="flex cursor-pointer rounded-field p-1 -m-1 text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+            class="flex cursor-pointer rounded-field p-1 -m-1 text-muted interactive"
             aria-label="Filter"
             onclick={filterModalId + ".showModal()"}
           >
@@ -62,7 +62,7 @@ const resultTemplate = `<li class="pf-result">
             <ol class="modal-box w-fit flex flex-col gap-1 items-center max-h-[90svh] md:max-h-[80svh] mx-auto">
               {filters.map((f) => (
                 <li class="text-center w-full">
-                  <a class="bleed py-2 flex items-center justify-between gap-3 rounded-field text-sm font-semibold sm:text-nowrap transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss" href={f[1]}>
+                  <a class="bleed py-2 flex items-center justify-between gap-3 rounded-field text-sm font-semibold sm:text-nowrap interactive" href={f[1]}>
                     {f[0]}
                     {f[2] != null && <span class="text-muted">{f[2]}</span>}
                   </a>
@@ -81,7 +81,7 @@ const resultTemplate = `<li class="pf-result">
       search && (
         <div class="flex items-center">
           <button
-            class="flex cursor-pointer rounded-field p-1 -m-1 text-muted transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss"
+            class="flex cursor-pointer rounded-field p-1 -m-1 text-muted interactive"
             aria-label="Search"
             data-large-title-search
             data-category={path ? path.replace("/", "") : ""}
