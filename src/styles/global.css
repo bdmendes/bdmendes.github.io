@@ -186,7 +186,7 @@ html[data-theme="halloween"] .astro-code span {
 }
 
 .badge-ghost {
-  @apply text-subtle;
+  @apply text-subtle border-base-300;
 }
 
 @media (hover: hover) {
