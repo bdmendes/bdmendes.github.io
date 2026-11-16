@@ -8,7 +8,7 @@ export default defineConfig({
   site: "https://bdmendes.com",
   markdown: {
     shikiConfig: {
-      themes: { light: "github-light", dark: "github-dark" },
+      themes: { light: "gruvbox-light-medium", dark: "everforest-dark" },
     },
   },
   vite: {
