@@ -63,10 +63,10 @@ import { Image } from "astro:assets";
           {
             (tags.length > 0 || badge || disabledTags.length > 0) && (
               <div class="card-actions mt-1">
-                {disabledTags.toReversed().map((tag) => (
+                {disabledTags.map((tag) => (
                   <span class="badge badge-ghost">{tag}</span>
                 ))}
-                {tags.toReversed().map((tag) => (
+                {tags.map((tag) => (
                   <span class="badge badge-ghost">{tag}</span>
                 ))}
                 {badge && <span class="badge badge-ghost">{badge}</span>}
