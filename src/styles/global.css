@@ -181,7 +181,7 @@ html[data-theme="halloween"] .astro-code span {
 
 @layer utilities {
   .badge {
-    @apply h-fit;
+    @apply h-fit leading-4 py-0.5;
   }
 }
 
