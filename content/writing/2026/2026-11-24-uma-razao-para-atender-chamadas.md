@@ -1,0 +1,5 @@
+---
+title: Uma razão para atender chamadas
+---
+
+Depois de o meu marido partir para Angola, onde gere a mais próspera das fábricas, vi-me revolta num caso de tristeza aguda que mobilizou o bairro e, veja-se, chegou aos ouvidos dos serviços municipais, cujos líderes, informados do assunto, resolveram interpelar-me a fim de me restablecer na alta sociedade, de onde, abaixo assinado o poder concelhio, nunca deveria ter saído. Comia pão, migalhas de pão, a tempos um gelado do mercado da feira, nos dias em que os meus filhos, meus maiores motivos de orgulho, viravam os pescoços e nos quadros transitavam de uma pose de perfil para me fitarem nos olhos, Mãe, está na hora de se deixar disto, é certo que pouco a visitamos, mas nem por isto menos a amamos. Sei que isto é verdadeiro, sinto-o nas profundezas do meu coração, quando me quero ir abaixo, suas vozes ecoam na minha mente com estes dizeres benévolos. Nos dias em que não é possível aceder-lhes, felizmente, posso deixar tudo que tenho a um amigo também ele ocupado, mas que por mais que faça, vai criando um tempo para mim. É a razão pela qual ainda atento as chamadas dos serviços de ação do município.
