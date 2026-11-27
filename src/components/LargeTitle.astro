@@ -37,7 +37,7 @@ const resultTemplate = `<li class="pf-result">
 <div class="flex items-center justify-between gap-x-6 gap-y-2 flex-wrap w-full">
   <div class="flex items-baseline gap-2">
     <a href={path} class={`text-2xl md:text-3xl font-bold ${path ? "transition-colors hover:text-primary" : ""}`}>{title}</a>
-    {page > 1 && <span class="text-xl md:text-2xl text-subtle tabular-nums"><span aria-hidden="true">·</span><span class="sr-only">Page</span> {page}</span>}
+    {page > 1 && <a href="#prevnext" class="text-xl md:text-2xl text-subtle tabular-nums transition-colors hover:text-primary"><span aria-hidden="true">·</span><span class="sr-only">Page</span> {page}</a>}
   </div>
   <div class="flex gap-3 items-center mt-0.5 ml-auto">
     <slot />
