@@ -45,7 +45,7 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
 
   <LargeTitle title="Experience" />
 
-  <div class="time-line-container">
+  <div class="time-line-container mt-2">
     {
       experienceEntries.map((entry) => (
         <TimeLineElement
@@ -53,16 +53,15 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
           location={entry.data.location}
           from={entry.data.from.toString()}
           to={entry.data.to?.toString()}
-        >
-          {entry.body}
-        </TimeLineElement>
+          body={entry.body ?? ""}
+        />
       ))
     }
   </div>
 
   <LargeTitle title="Education" />
 
-  <div class="time-line-container">
+  <div class="time-line-container mt-2">
     {
       educationEntries.map((entry) => (
         <TimeLineElement
@@ -71,16 +70,15 @@ const miscellaneousEntries = entries.filter((e) => e.data.type === "misc");
           from={entry.data.from.toString()}
           to={entry.data.to?.toString()}
           grade={entry.data.grade}
-        >
-          {entry.body}
-        </TimeLineElement>
+          body={entry.body ?? ""}
+        />
       ))
     }
   </div>
 
   <LargeTitle title="Miscellaneous" />
 
-  <ul class="list-disc ml-4 mb-4 grid gap-4 text-justify">
+  <ul class="list-disc ml-4 mb-4 grid gap-4 text-justify mt-2">
     {
       miscellaneousEntries.map((entry) => (
         <li>

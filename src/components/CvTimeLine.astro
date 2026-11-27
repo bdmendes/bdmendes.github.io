@@ -5,9 +5,10 @@ export interface Props {
   to?: string;
   location: string;
   grade?: string;
+  body: string;
 }
 
-const { title, from, to, location, grade } = Astro.props;
+const { title, from, to, location, grade, body } = Astro.props;
 ---
 
 <div class="flex mb-4">
@@ -21,8 +22,6 @@ const { title, from, to, location, grade } = Astro.props;
     <span class="font-semibold mb-1 leading-6.5">
       <span>{title} @ {location}</span>&ensp;<span class="badge badge-ghost font-normal align-baseline">{from} {to ? (to != from ? `- ${to}` : "") : "- Present"}</span>{grade && <>&ensp;<span class="badge badge-ghost font-normal align-baseline">{grade}</span></>}
       </span>
-    <p class="mt-1.5 text-justify">
-      <slot />
-    </p>
+    {body.trim() && <p class="mt-1.5 text-justify">{body}</p>}
   </div>
 </div>
