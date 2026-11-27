@@ -9,9 +9,10 @@ export interface Props {
   selector?: string;
   filters?: [string, string, number?][];
   search?: boolean;
+  page?: number;
 }
 
-const { path, title, selector, filters, search = false } = Astro.props;
+const { path, title, selector, filters, search = false, page = 1 } = Astro.props;
 const filterModalId = title.replace(/[^a-zA-Z]+/g, "") + "filter";
 const searchModalId = title.replace(/[^a-zA-Z]+/g, "") + "search";
 const iconSize = 26;
@@ -34,7 +35,10 @@ const resultTemplate = `<li class="pf-result">
 ---
 
 <div class="flex items-center justify-between gap-x-6 gap-y-2 flex-wrap w-full">
-  <a href={path} class={`text-2xl md:text-3xl font-bold ${path ? "transition-colors hover:text-primary" : ""}`}>{title}</a>
+  <div class="flex items-baseline gap-2">
+    <a href={path} class={`text-2xl md:text-3xl font-bold ${path ? "transition-colors hover:text-primary" : ""}`}>{title}</a>
+    {page > 1 && <span class="text-xl md:text-2xl text-subtle tabular-nums"><span aria-hidden="true">·</span><span class="sr-only">Page</span> {page}</span>}
+  </div>
   <div class="flex gap-3 items-center mt-0.5 ml-auto">
     <slot />
     {

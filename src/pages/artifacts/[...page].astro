@@ -38,6 +38,7 @@ const { page } = Astro.props;
   <LargeTitle
     title="Artifacts"
     path="/artifacts"
+    page={page.currentPage}
     filters={yearPathsMap}
     search={true}
   />
