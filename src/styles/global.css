@@ -126,7 +126,7 @@ html[data-theme="shadow"] .astro-code span {
 }
 
 @utility interactive {
-  @apply transition-[color,background-color,box-shadow] hover:text-primary hover:bg-base-200 hover:gloss;
+  @apply transition-[color,background-color,box-shadow] hover:text-primary hover:bg-hover hover:gloss;
 }
 
 @utility gloss-selected {
@@ -180,6 +180,7 @@ html[data-theme="shadow"] .astro-code span {
   --breakpoint-md: 740px;
   --color-muted: color-mix(in oklab, var(--color-base-content) 70%, transparent);
   --color-subtle: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  --color-hover: color-mix(in oklab, var(--color-base-200) 50%, transparent);
   --font-serif: "Source Serif 4 Variable", Georgia, serif;
 }
 
